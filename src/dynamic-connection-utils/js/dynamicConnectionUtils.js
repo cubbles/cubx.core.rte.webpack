@@ -1,4 +1,4 @@
-/* globals _,elementFindByAttributeValue */
+/* globals _ */
 import elementFindByAttributeValue from '../../dom-tree-utilities/js/domTreeUtils';
 
 export default (function () {

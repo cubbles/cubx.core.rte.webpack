@@ -4,7 +4,7 @@
  * Handles a resize post message from an iframe to resize it.
  * @param event
  */
-export default handleMessage = function (event) {
+export default function handleMessage (event) {
   var data = event.data || {};
   if (!data || !data.id || !data.iframeHeight) {
     return;

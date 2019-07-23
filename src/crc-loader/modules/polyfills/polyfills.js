@@ -1,4 +1,4 @@
-/* globals cubx, Array, String, Element, Object */
+/* globals Array, String, Element, Object */
 export default function () {
   'use strict';
   (function () {

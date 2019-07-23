@@ -1,8 +1,8 @@
-const BundleAnalyzerPlugin = require("webpack-bundle-analyzer")
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer')
   .BundleAnalyzerPlugin;
-const CopyWebpackPlugin = require("copy-webpack-plugin");
-const path = require("path");
-const wpkgUtils = require("@cubbles/wpkg-utils");
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+const path = require('path');
+const wpkgUtils = require('@cubbles/wpkg-utils');
 const webpackageName = wpkgUtils.getWebpackageName;
 const elementName = __dirname.split(path.sep).pop();
 const distFolder = path.resolve(
@@ -10,7 +10,7 @@ const distFolder = path.resolve(
   global.cubx.distFolderWebpackage,
   elementName
 );
-const IgnorePlugin = require("webpack").IgnorePlugin;
+const IgnorePlugin = require('webpack').IgnorePlugin;
 
 const config = {
   // make this configuration independent from the current working directory
@@ -33,13 +33,13 @@ const config = {
         test: /\.sss$/,
         use: [
           {
-            loader: "style-loader",
+            loader: 'style-loader',
             options: {
               hmr: false
             }
           },
           {
-            loader: "css-loader",
+            loader: 'css-loader',
             options: {
               modules: true,
               importLoaders: 1,
@@ -47,18 +47,18 @@ const config = {
             }
           },
           {
-            loader: "postcss-loader"
+            loader: 'postcss-loader'
           }
         ]
       }
     ]
   },
   plugins: [
-    new CopyWebpackPlugin([{ from: "**/*.md", to: distFolder }], {}),
-    new CopyWebpackPlugin([{ from: './js/afterMainScriptHook.js', to: path.join(distFolder,'js' )}], {}),
+    new CopyWebpackPlugin([{ from: '**/*.md', to: distFolder }], {}),
+    new CopyWebpackPlugin([{ from: './js/afterMainScriptHook.js', to: path.join(distFolder, 'js') }], {}),
     new BundleAnalyzerPlugin({
-      analyzerMode: "static",
-      reportFilename: "bundleReport.html",
+      analyzerMode: 'static',
+      reportFilename: 'bundleReport.html',
       openAnalyzer: false
     }),
     new IgnorePlugin(/vertx/)

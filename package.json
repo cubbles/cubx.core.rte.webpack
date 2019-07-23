@@ -37,7 +37,9 @@
     "_serve": "light-server -s dist --proxy https://cubbles.world/sandbox -w \"dist/**\"",
     "_webpack": "webpack",
     "_open": "wpkg-utils-open",
-    "cli": "ntl -d -s 7"
+    "cli": "ntl -d -s 7",
+    "lint": "eslint src/**/*.js",
+    "test": "npm run lint && karma"
   },
   "ntl": {
     "descriptions": {
@@ -83,7 +85,31 @@
     "webpack": "^4.12.0",
     "webpack-bundle-analyzer": "^3.0.2",
     "webpack-cli": "^3.0.3",
-    "yo": "^2.0.3"
+    "yo": "^2.0.3",
+    "chai": "^4.1.2",
+    "eslint": "^4.17.0",
+    "eslint-config-standard": "^11.0.0-beta.0",
+    "eslint-plugin-chai-friendly": "^0.4.1",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-node": "^6.0.0",
+    "eslint-plugin-promise": "^3.6.0",
+    "eslint-plugin-standard": "^3.0.1",
+    "http-proxy-middleware": "0.15.1",
+    "karma": "^3.0.0",
+    "karma-chrome-launcher": "^2.2.0",
+    "karma-coverage": "^1.1.2",
+    "karma-firefox-launcher": "^1.1.0",
+    "karma-htmlfile-reporter": "^0.3.6",
+    "karma-mocha": "^1.3.0",
+    "karma-mocha-reporter": "^2.2.5",
+    "karma-sinon-chai": "2.0.2",
+    "karma-chai": "^0.1.0",
+    "karma-sinon": "^1.0.5",
+    "lolex": "^1.5.2",
+    "mocha": "^5.2.0",
+    "sinon": "^6.1.5",
+    "sinon-chai": "^3.2.0",
+    "standard": "^10.0.3"
   },
   "publishConfig": {
     "access": "public"
@@ -92,8 +118,8 @@
     "walk": "^2.3.14"
   },
   "cubbles": {
-    "modelVersion":"10.0.0",
-    "groupId":"cubx.core",
+    "modelVersion": "10.0.0",
+    "groupId": "cubx.core",
     "coder-toolset": {
       "cubx-webpackage-uploader": {
         "dev": {

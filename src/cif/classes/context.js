@@ -1,4 +1,4 @@
-/* globals _,guid */
+/* globals _ */
 import guid from '../../guid-utility/js/guid';
 
 export default (function () {

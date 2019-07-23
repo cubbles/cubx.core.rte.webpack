@@ -1,9 +1,9 @@
-const BundleAnalyzerPlugin = require("webpack-bundle-analyzer")
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer')
   .BundleAnalyzerPlugin;
-const CopyWebpackPlugin = require("copy-webpack-plugin");
-const HtmlWebpackPlugin = require("html-webpack-plugin");
-const path = require("path");
-const wpkgUtils = require("@cubbles/wpkg-utils");
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const path = require('path');
+const wpkgUtils = require('@cubbles/wpkg-utils');
 const webpackageName = wpkgUtils.getWebpackageName;
 const elementName = __dirname.split(path.sep).pop();
 const distFolder = path.resolve(
@@ -16,10 +16,10 @@ const config = {
   // make this configuration independent from the current working directory
   context: path.resolve(__dirname),
   // define the entry module for the bundle to be created
-  entry: "./element.js",
+  entry: './element.js',
   output: {
     path: distFolder,
-    filename: "element.bundle.js"
+    filename: 'element.bundle.js'
   },
   module: {
     rules: [
@@ -32,13 +32,13 @@ const config = {
         test: /\.sss$/,
         use: [
           {
-            loader: "style-loader",
+            loader: 'style-loader',
             options: {
               hmr: false
             }
           },
           {
-            loader: "css-loader",
+            loader: 'css-loader',
             options: {
               modules: true,
               importLoaders: 1,
@@ -46,18 +46,18 @@ const config = {
             }
           },
           {
-            loader: "postcss-loader"
+            loader: 'postcss-loader'
           }
         ]
       }
     ]
   },
   plugins: [
-    new CopyWebpackPlugin([{ from: "**/*.md", to: distFolder }], {}),
+    new CopyWebpackPlugin([{ from: '**/*.md', to: distFolder }], {}),
     new HtmlWebpackPlugin({
-      template: "element.html",
-      inject: "body",
-      filename: "element.html",
+      template: 'element.html',
+      inject: 'body',
+      filename: 'element.html',
       // manage placeholders
       templateParameters: {
         webpackageName: `${webpackageName}`,
@@ -65,8 +65,8 @@ const config = {
       }
     }),
     new HtmlWebpackPlugin({
-      template: "SHOWROOM.html",
-      filename: "SHOWROOM.html",
+      template: 'SHOWROOM.html',
+      filename: 'SHOWROOM.html',
       // manage placeholders
       templateParameters: {
         webpackageName: `${webpackageName}`,
@@ -74,16 +74,16 @@ const config = {
       }
     }),
     new HtmlWebpackPlugin({
-      template: "DOCS.html",
-      filename: "DOCS.html",
+      template: 'DOCS.html',
+      filename: 'DOCS.html',
       // manage placeholders
       templateParameters: {
         elementName: `${elementName}`
       }
     }),
     new BundleAnalyzerPlugin({
-      analyzerMode: "static",
-      reportFilename: "bundleReport.html",
+      analyzerMode: 'static',
+      reportFilename: 'bundleReport.html',
       openAnalyzer: false
     })
   ]

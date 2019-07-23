@@ -145,7 +145,6 @@ if (window.Promise !== 'function') {
     }
   })();
 
-  
   // set CRCLoader to cubx namespace
   cubx.CRCLoader = crcLoader;
 

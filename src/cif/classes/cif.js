@@ -1,4 +1,4 @@
-/* globals _,CustomEvent,HTMLElement,NodeFilter,Promise,guid,MutationSummary, Queue, customElements, Element, Node */
+/* globals _,CustomEvent,HTMLElement,NodeFilter,Promise,customElements, Element, Node */
 
 import Queue from '../../queue/vendor/Queue';
 import guid from '../../guid-utility/js/guid';

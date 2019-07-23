@@ -1,3 +1,4 @@
+/* eslint-disable */
 (function(){/*
 
  Copyright (c) 2016 The Polymer Project Authors. All rights reserved.
