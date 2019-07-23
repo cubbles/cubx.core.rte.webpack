@@ -1,0 +1,30 @@
+{
+  // We override existing configes here.
+  // * @see http://eslint.org/docs/user-guide/configuring.html#extending-configuration-files
+  // * 'standard' means, we override configs from an npm-package named 'standard'
+  "extends": [
+    "standard"
+  ],
+  "rules": {
+    "semi": [2, "always"],
+    "no-unused-expressions": 0,
+    "chai-friendly/no-unused-expressions": 2
+  },
+  "plugins": [
+    "chai-friendly"
+  ],
+  "globals": {
+    "require": true,
+    "module": true,
+    "CubxComponent": true,
+    "describe": true,
+    "it": true,
+    "before": true,
+    "beforeEach": true,
+    "after": true,
+    "afterEach": true,
+    "expect": true,
+    "sinon": true
+  }
+
+}

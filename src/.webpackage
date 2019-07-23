@@ -1,0 +1,20 @@
+{
+  "uploadConfigs": {
+    "dev": {
+      "url": "http://cubbles-base-local/core",
+      "proxy": "",
+      "debug": false
+    },
+    "devDryRun": {
+      "url": "http://cubbles-base-local/core",
+      "proxy": "",
+      "debug": false,
+      "dryRun": true
+    },
+    "release": {
+      "url": "https://cubbles.world/core",
+      "proxy": "",
+      "debug": false
+    }
+  }
+}
