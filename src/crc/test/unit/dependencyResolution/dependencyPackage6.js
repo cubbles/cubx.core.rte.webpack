@@ -1,0 +1,12 @@
+export default {
+  'artifacts': {
+    'utilities': [
+      {
+        'artifactId': 'util6',
+        'description': 'This util demonstrates ...',
+        'resources': [],
+        'dependencies': []
+      }
+    ]
+  }
+};

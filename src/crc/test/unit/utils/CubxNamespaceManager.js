@@ -6,44 +6,40 @@
  *
  * @module CubxNamespace
  */
-window.cubx.amd.define([], function () {
-  'use strict';
+'use strict';
 
-  var CubxNamespace = function () {
-  };
+var CubxNamespace = function () {};
 
-  // ---------------------------------------------------------------------------------------------------------------
-  // --------------------------------                 Public Methods               ---------------------------------
-  // ---------------------------------------------------------------------------------------------------------------
+// ---------------------------------------------------------------------------------------------------------------
+// --------------------------------                 Public Methods               ---------------------------------
+// ---------------------------------------------------------------------------------------------------------------
 
-  /**
-   * Reset the namespace
-   * @memberOf CubxNamespace
-   */
-  CubxNamespace.prototype.resetNamespace = function (crc, message) {
-    // console.log('CubxNamespace.resetNamespace(' + crc + ', ' + message + ')');
-    window.cubx = {
-      amd: window.cubx.amd,
-      utils: {
-        get: function (obj, key) {
-          return key.split('.').reduce(function (o, x) {
-            return (typeof o === 'undefined' || o === null) ? o : o[ x ];
-          }, obj);
-        }
-      },
-      CRCInit: {
-        // rteWebpackageId: 'cubx.runtime',
-        webpackageBaseUrl: '/',
-        loadCIF: true,
-        rootDependencies: [],
-        runtimeMode: 'dev'
+/**
+ * Reset the namespace
+ * @memberOf CubxNamespace
+ */
+CubxNamespace.prototype.resetNamespace = function (CRC, message) {
+  // console.log('CubxNamespace.resetNamespace(' + crc + ', ' + message + ')');
+  window.cubx = {
+    utils: {
+      get: function (obj, key) {
+        return key.split('.').reduce(function (o, x) {
+          return typeof o === 'undefined' || o === null ? o : o[x];
+        }, obj);
       }
-    };
-    if (crc) {
-      window.cubx.CRC = crc;
+    },
+    CRCInit: {
+      // rteWebpackageId: 'cubx.runtime',
+      webpackageBaseUrl: '/',
+      loadCIF: true,
+      rootDependencies: [],
+      runtimeMode: 'dev'
     }
   };
+  if (CRC) {
+    window.cubx.CRC = new CRC();
+  }
+};
 
-  //
-  return new CubxNamespace();
-});
+//
+export default new CubxNamespace();

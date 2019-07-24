@@ -1,0 +1,10 @@
+export default [
+  {
+    'artifactId': 'util1',
+    'webpackageId': 'package1@1.0.0'
+  },
+  {
+    'artifactId': 'util2',
+    'webpackageId': 'package2@1.0.0'
+  }
+];

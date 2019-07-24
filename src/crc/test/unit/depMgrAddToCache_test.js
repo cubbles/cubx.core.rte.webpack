@@ -1,39 +1,39 @@
 /**
  * Created by jtrs on 19.05.2015.
  */
-window.cubx.amd.define([ 'CRC',
-  'dependencyManager',
-  'text!unit/addToCache/webpackageDocument.json',
-  'text!unit/addToCache/webpackageDocument1.json',
-  'text!unit/addToCache/webpackageDocument2.json',
-  'text!unit/addToCache/webpackageDocument3.json',
-  'text!unit/addToCache/webpackageDocument4.json',
-  'text!unit/addToCache/webpackageDocument5.json',
-  'text!unit/addToCache/webpackageDocument6.json',
-  'text!unit/addToCache/webpackageDocument7.json',
-  'unit/utils/CubxNamespaceManager'
-], function (CRC, DepMgr, pkg, pkg1, pkg2, pkg3, pkg4, pkg5, pkg6, pkg7, CubxNamespaceManager) {
-  'use strict';
-  var crcDepMgr;
+import { before, after, describe } from 'mocha';
+import 'sinon';
 
-  describe('DepMgrComponentCaching', function () {
-    var documents = {};
+import CubxNamespaceManager from './utils/CubxNamespaceManager';
+import CRC from '../../modules/crc/CRC';
+import pkg from './addToCache/webpackageDocument';
+import pkg1 from './addToCache/webpackageDocument1';
+import pkg2 from './addToCache/webpackageDocument2';
+import pkg3 from './addToCache/webpackageDocument3';
+import pkg4 from './addToCache/webpackageDocument4';
+import pkg5 from './addToCache/webpackageDocument5';
+import pkg6 from './addToCache/webpackageDocument6';
+import pkg7 from './addToCache/webpackageDocument7';
 
-    before(function () {
-      CubxNamespaceManager.resetNamespace(CRC, 'DepMgr.addToCache.before');
-      crcDepMgr = CRC.getDependencyMgr();
-      crcDepMgr.init();
-      documents[ 'org.example.my-webpackage@0.2.0' ] = JSON.parse(pkg);
-      documents[ 'org.example.package-1@1.0.0' ] = JSON.parse(pkg1);
-      documents[ 'org.example.package-2@1.0.0' ] = JSON.parse(pkg2);
-      documents[ 'org.example.package-3@1.0.0' ] = JSON.parse(pkg3);
-      documents[ 'org.example.package-4@1.0.0' ] = JSON.parse(pkg4);
-      documents[ 'org.example.package-5@1.0.0' ] = JSON.parse(pkg5);
-      documents[ 'org.example.package-6@1.0.0' ] = JSON.parse(pkg6);
-      documents[ 'org.example.package-7@1.0.0' ] = JSON.parse(pkg7);
-    });
-    after(function () {
-      CubxNamespaceManager.resetNamespace(CRC, 'DepMgr.addToCache.after');
-    });
+var crcDepMgr;
+
+describe('DepMgrComponentCaching', function () {
+  var documents = {};
+
+  before(function () {
+    CubxNamespaceManager.resetNamespace(CRC, 'DepMgr.addToCache.before');
+    crcDepMgr = CRC.getDependencyMgr();
+    crcDepMgr.init();
+    documents['org.example.my-webpackage@0.2.0'] = pkg;
+    documents['org.example.package-1@1.0.0'] = pkg1;
+    documents['org.example.package-2@1.0.0'] = pkg2;
+    documents['org.example.package-3@1.0.0'] = pkg3;
+    documents['org.example.package-4@1.0.0'] = pkg4;
+    documents['org.example.package-5@1.0.0'] = pkg5;
+    documents['org.example.package-6@1.0.0'] = pkg6;
+    documents['org.example.package-7@1.0.0'] = pkg7;
+  });
+  after(function () {
+    CubxNamespaceManager.resetNamespace(CRC, 'DepMgr.addToCache.after');
   });
 });

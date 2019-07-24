@@ -1,5 +1,4 @@
 // Karma configuration
-// Generated on Fri Jun 20 2014 14:13:49 GMT+0800 (CST)
 
 module.exports = function (config) {
   'use strict';
@@ -10,37 +9,24 @@ module.exports = function (config) {
 
     // frameworks to use
     // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
-    frameworks: [ 'cubxrequirejs', 'mocha', 'sinon-chai' ],
+    frameworks: [ 'mocha', 'sinon-chai', 'browserify' ],
 
-    plugins: [
-      // these plugins will be require() by Karma
-      'cubx-karma-requirejs',
-      'karma-mocha',
-      'karma-sinon-chai',
-      'karma-chrome-launcher',
-      'karma-firefox-launcher',
-      'karma-coverage',
-      'karma-htmlfile-reporter',
-      'karma-mocha-reporter'
-    ],
     // list of files / patterns to load in the browser
     files: [
-      { pattern: 'crc/test/unit/**/*', included: false },
-      { pattern: 'crc/modules/**/*', included: false },
-      { pattern: 'crc-loader/modules/**/*', included: false },
-      'crc/test/requirejs_config/karma.js',
-      'crc/test/vendor/mocha-config.js',
-      'crc/test/testMain.js'
+      // { pattern: 'crc-loader/modules/**/*.js' },
+      { pattern: 'crc/test/unit/**/*.js' },
+      { pattern: 'crc/modules/**/*.js' }
     ],
 
     // list of files to exclude
-    exclude: [],
+    exclude: [ ],
 
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
-      'crc/js/**/*.js': 'coverage',
-      'crc/modules/**/*.js': 'coverage'
+      // 'crc-loader/modules/**/*.js': [ 'browserify' ],
+      'crc/test/unit/**/*.js': [ 'browserify' ],
+      'crc/modules/**/*.js': [ 'browserify' ]
     },
 
     // test results reporter to use
@@ -90,6 +76,20 @@ module.exports = function (config) {
         base: 'Chrome',
         flags: [ '--no-sandbox' ]
       }
+    },
+
+    // Browserify configuration
+    // The coverage command goes here instead of the preprocessor because we need it to work with browserify
+    browserify: {
+      debug: true,
+      transform: [
+        [
+          'babelify',
+          {
+            presets: 'es2015'
+          }
+        ]
+      ]
     }
   };
 
