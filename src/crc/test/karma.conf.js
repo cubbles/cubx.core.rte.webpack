@@ -13,7 +13,6 @@ module.exports = function (config) {
 
     // list of files / patterns to load in the browser
     files: [
-      // { pattern: 'crc-loader/modules/**/*.js' },
       { pattern: 'crc/test/unit/**/*.js' },
       { pattern: 'crc/modules/**/*.js' }
     ],
@@ -24,7 +23,6 @@ module.exports = function (config) {
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
-      // 'crc-loader/modules/**/*.js': [ 'browserify' ],
       'crc/test/unit/**/*.js': [ 'browserify' ],
       'crc/modules/**/*.js': [ 'browserify' ]
     },
@@ -79,7 +77,6 @@ module.exports = function (config) {
     },
 
     // Browserify configuration
-    // The coverage command goes here instead of the preprocessor because we need it to work with browserify
     browserify: {
       debug: true,
       transform: [

@@ -1,6 +1,6 @@
 'use strict';
 
-describe.only('CIF', function () {
+describe('CIF', function () {
   // eslint-disable-next-line no-unused-vars
   var cif;
   var coreInitElement;

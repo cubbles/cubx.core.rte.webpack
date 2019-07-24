@@ -10,29 +10,13 @@ module.exports = function (config) {
 
     // frameworks to use
     // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
-    frameworks: [ 'cubxrequirejs', 'mocha', 'sinon-chai' ],
+    frameworks: [ 'mocha', 'sinon-chai', 'browserify' ],
 
-    plugins: [
-      // these plugins will be require() by Karma
-      'cubx-karma-requirejs',
-      'karma-mocha',
-      'karma-sinon-chai',
-      'karma-chrome-launcher',
-      'karma-firefox-launcher',
-      'karma-coverage',
-      'karma-htmlfile-reporter',
-      'karma-mocha-reporter'
-    ],
     // list of files / patterns to load in the browser
     files: [
-      // 'test/beforetest.js',
-      { pattern: 'test/unit/**/*', included: false },
-      { pattern: 'modules/**/*', included: false },
-      { pattern: 'test/mocks/**', included: false },
-      'test/vendor/mocha-config.js',
-      'test/requirejs_config/karma.js',
-      { pattern: 'test/vendor/text/text.js', included: false },
-      'test/testMain.js'
+      { pattern: 'modules/**/*.js' },
+      { pattern: 'test/unit/**/*.js' },
+      { pattern: 'test/mocks/**/*.js' }
     ],
 
     // list of files to exclude
@@ -41,8 +25,9 @@ module.exports = function (config) {
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
-      'js/**/*.js': 'coverage',
-      'modules/**/*.js': 'coverage'
+      'modules/**/*.js': [ 'browserify' ],
+      'test/unit/**/*.js': [ 'browserify' ],
+      'test/mocks/**/*.js': [ 'browserify' ]
     },
 
     // test results reporter to use
@@ -90,6 +75,20 @@ module.exports = function (config) {
         base: 'Chrome',
         flags: [ '--no-sandbox' ]
       }
+    },
+
+    // Browserify configuration
+    browserify: {
+      debug: true,
+      transform: [
+        [
+          'babelify',
+          {
+            presets: 'es2015',
+            plugins: [ 'babel-plugin-rewire' ]
+          }
+        ]
+      ]
     }
   };
 
