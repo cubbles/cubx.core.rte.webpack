@@ -1,0 +1,30 @@
+{
+  "name": "@cubbles/wpkg-utils",
+  "version": "0.2.2",
+  "description": "Utils library for the @cubbles/coder-template",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cubbles/coder-toolset/et.git"
+  },
+  "keywords": [
+    "node",
+    "cubbles",
+    "build"
+  ],
+  "author": "Hans-Dieter Böhlau <hans-dieter.boehlau@incowia.com>",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/cubbles/coder-toolset/et/issues"
+  },
+  "homepage": "https://github.com/cubbles/coder-toolset/et#readme",
+  "bin": {
+    "wpkg-utils-open": "./bin/open.js"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
