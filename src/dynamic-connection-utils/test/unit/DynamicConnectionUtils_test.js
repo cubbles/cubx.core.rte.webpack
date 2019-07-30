@@ -1,6 +1,6 @@
 /* globals _, HTMLImports */
 /* eslint no-unused-vars: [2, {"varsIgnoredPattern":"initNewElement|getContainer|registerCompoundComponentElement|createNewElement|getContainer"}] */
-import {getContainer, createNewElement, registerCompoundComponentElement, initNewElement} from '../../../cubxcomponent/test/helpers'
+import {getContainer, createNewElement, registerCompoundComponentElement, initNewElement} from '../../../cubxcomponent/test/helpers';
 
 describe('DynamicConnectionUtils', function () {
   var dynamicConnectionUtil;

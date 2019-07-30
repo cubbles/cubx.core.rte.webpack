@@ -45,7 +45,7 @@
     "test:cubxcomponent": "karma start ./src/cubxcomponent/test/karma.conf.js",
     "test:dynamic-connection-utils": "karma start ./src/dynamic-connection-utils/test/karma.conf.js",
     "test:mutation-based-cubx-startevent": "karma start ./src/mutation-based-cubx-startevent/test/karma.conf.js",
-    "test": "npm-run-all --parallel lint test:crc "
+    "test": "npm-run-all --serial lint test:crc test:crc-loader test:cif test:cubxcomponent test:dynamic-connection-utils test:mutation-based-cubx-startevent"
   },
   "ntl": {
     "descriptions": {
