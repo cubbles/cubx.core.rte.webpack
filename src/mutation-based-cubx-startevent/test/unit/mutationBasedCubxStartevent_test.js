@@ -1,4 +1,5 @@
 'use strict';
+
 describe('MutationBasedCubxStartevent', function () {
   var eventName = 'mutationBasedStart';
   var mutCubxStartevent;

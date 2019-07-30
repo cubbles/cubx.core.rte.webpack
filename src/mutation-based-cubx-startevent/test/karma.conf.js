@@ -6,28 +6,15 @@ module.exports = function (config) {
   var configuration = {
 
     // base path that will be used to resolve all patterns (eg. files, exclude)
-    basePath: '../../',
+    basePath: '../',
 
     // frameworks to use
     // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
-    frameworks: [ 'mocha', 'sinon-chai' ],
-
-    plugins: [
-      // these plugins will be require() by Karma
-      'karma-mocha',
-      'karma-sinon-chai',
-      'karma-chrome-launcher',
-      'karma-firefox-launcher',
-      'karma-coverage',
-      'karma-htmlfile-reporter',
-      'karma-mocha-reporter'
-    ],
+    frameworks: [ 'mocha', 'sinon-chai', 'browserify' ],
     // list of files / patterns to load in the browser
     files: [
-      'mutation-based-cubx-startevent/test/vendor/mocha-config.js',
-      'mutation-based-cubx-startevent/js/mutationBasedCubxStartevent.js',
-      'mutation-based-cubx-startevent/test/unit/**/*_test.js',
-      'mutation-based-cubx-startevent/test/testMain.js'
+      './js/mutationBasedCubxStartevent.js',
+      './test/unit/**/*_test.js'
     ],
 
     // list of files to exclude
@@ -36,7 +23,7 @@ module.exports = function (config) {
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
-      'mutation-based-cubx-startevent/js/**/*.js': 'coverage'
+      './js/mutationBasedCubxStartevent.js': ['browserify']
     },
 
     // test results reporter to use
@@ -86,6 +73,21 @@ module.exports = function (config) {
         base: 'Chrome',
         flags: [ '--no-sandbox' ]
       }
+    },
+
+    // Browserify configuration
+    browserify: {
+      debug: true,
+      transform: [
+        [
+          'babelify',
+          {
+            presets: [
+              ['babel-preset-env']
+            ]
+          }
+        ]
+      ]
     }
   };
 
