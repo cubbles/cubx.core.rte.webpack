@@ -96,19 +96,22 @@ describe('CIF', function () {
     });
   });
   describe('#_isModelVersionSupported', function () {
-    it('model version 8.1.0 is allowed ', function () {
-      expect(cif._isModelVersionSupported('8.1.0')).to.be.ok;
+    it('model version 10.0.0 is allowed ', function () {
+      expect(cif._isModelVersionSupported('10.0.0')).to.be.ok;
     });
-    it('model version 8.0.0 is allowed ', function () {
-      expect(cif._isModelVersionSupported('8.0.0')).to.be.ok;
+    it('model version 8.1.0 is not allowed ', function () {
+      expect(cif._isModelVersionSupported('8.1.0')).to.be.not.ok;
     });
-    it('model version 7.0.0 is allowed ', function () {
+    it('model version 8.0.0 is not allowed ', function () {
+      expect(cif._isModelVersionSupported('8.0.0')).to.be.not.ok;
+    });
+    it('model version 7.0.0 is not allowed ', function () {
       expect(cif._isModelVersionSupported('7.0.0')).to.be.not.ok;
     });
-    it('model version 6.0.0 is allowed ', function () {
+    it('model version 6.0.0 is not allowed ', function () {
       expect(cif._isModelVersionSupported('6.0.0')).to.be.not.ok;
     });
-    it('model version 6.0 is allowed ', function () {
+    it('model version 6.0 is not allowed ', function () {
       expect(cif._isModelVersionSupported('6.0')).to.be.not.ok;
     });
     it('model version 3.0  is not allowed ', function () {
@@ -134,9 +137,9 @@ describe('CIF', function () {
     }
 
     beforeEach(function () {
-      artifactOk = getArtifact('test1', '8.0.0');
-      artifactOk2 = getArtifact('test2', '8.0.0');
-      artifactOk3 = getArtifact('test3', '8.0.0');
+      artifactOk = getArtifact('test1', '10.0.0');
+      artifactOk2 = getArtifact('test2', '10');
+      artifactOk3 = getArtifact('test3', '10.0');
       artifactNotOk = getArtifact('testNotOk', '2.0.0');
       consoleWarnSpy = sinon.spy(console, 'warn');
     });
@@ -149,7 +152,7 @@ describe('CIF', function () {
       window.cubx.CRC.getCache.restore();
     });
 
-    it(' should be ok', function () {
+    it('should support the modelVersion the three artifacts', function () {
       cacheStub = sinon.stub(window.cubx.CRC, 'getCache').callsFake(function () {
         var cache = {};
         cache.getAllComponents = function () {

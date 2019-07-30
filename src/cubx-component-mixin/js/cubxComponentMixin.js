@@ -1,5 +1,7 @@
-/* globals _,guid, CustomEvent */
+/* globals _, CustomEvent */
 'use strict';
+import guid from '../../guid-utility/js/guid';
+
 export default (function () {
   var cubxComponentMixin = {};
 

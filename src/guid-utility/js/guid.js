@@ -1,5 +1,4 @@
 /* eslint no-unused-vars: [2, { "varsIgnorePattern": "guid" }]  */
-'use strict';
 
 /**
  * Generates a GUID string.

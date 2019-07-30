@@ -1,4 +1,3 @@
-'use strict';
 export default (function () {
   if (!window.cubx) {
     window.cubx = {};

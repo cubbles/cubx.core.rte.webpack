@@ -1,5 +1,5 @@
 /* globals _ */
-import elementFindByAttributeValue from '../../dom-tree-utilities/js/domTreeUtils';
+import { elementFindByAttributeValue } from '../../dom-tree-utilities/js/domTreeUtils';
 
 export default (function () {
   'use strict';

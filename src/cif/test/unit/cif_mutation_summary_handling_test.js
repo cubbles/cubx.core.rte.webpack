@@ -1,5 +1,4 @@
-/* globals Queue */
-'use strict';
+import Queue from '../../../queue/vendor/Queue';
 
 describe('CIF', function () {
   var cif;

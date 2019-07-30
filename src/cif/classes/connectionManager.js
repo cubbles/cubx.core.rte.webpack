@@ -185,6 +185,7 @@ export default (function () {
       index = connectionIndex;
     }
     connection = connectionList[ index ];
+    console.log(connectionId, connectionIndex, connectionList, connection.connectionId);
     if (connection.static) {
       throw new Error('Can not remove connection with id (' + JSON.stringify(connectionId) +
         ') , because the connection is not a dynamic connection.');
@@ -461,7 +462,9 @@ export default (function () {
    * @memberOf ConnectionManager
    */
   ConnectionManager.prototype._findConnectionIndex = function (connectionList, connectionId) {
-    return _.findIndex(connectionList, 'connectionId', connectionId);
+    return _.findIndex(connectionList, function (connection) {
+      return connection['connectionId'] === connectionId;
+    });
   };
 
   /**
