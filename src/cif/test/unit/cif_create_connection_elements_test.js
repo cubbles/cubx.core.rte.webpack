@@ -61,7 +61,7 @@ describe('CIF', function () {
       compoundEl.appendChild(subElement2);
       subElement2.Context.setParent(compoundEl.Context);
       compoundEl.Context.addComponent(subElement2);
-      var connections = [ {
+      var connections = [{
         connectionId: 'a:testoutput-b:testinput',
         source: {
           memberIdRef: 'a', slot: 'testoutput'
@@ -85,7 +85,7 @@ describe('CIF', function () {
         destination: {
           slot: 'testinput'
         }
-      } ];
+      }];
       compoundEl._connections = connections;
       spy = sinon.spy(cif, '_createConnectionElement');
     });

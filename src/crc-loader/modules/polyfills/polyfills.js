@@ -40,11 +40,11 @@ export default function () {
         }
         var list = Object(this);
         var length = list.length >>> 0;
-        var thisArg = arguments[ 1 ];
+        var thisArg = arguments[1];
         var value;
 
         for (var i = 0; i < length; i++) {
-          value = list[ i ];
+          value = list[i];
           if (predicate.call(thisArg, value, i, list)) {
             return value;
           }
@@ -99,10 +99,10 @@ export default function () {
         }
 
         var res = [];
-        var thisArg = arguments.length >= 2 ? arguments[ 1 ] : void 0;
+        var thisArg = arguments.length >= 2 ? arguments[1] : void 0;
         for (var i = 0; i < len; i++) {
           if (i in t) {
-            var val = t[ i ];
+            var val = t[i];
 
             // NOTE: Technically this should Object.defineProperty at
             //       the next index, as push can be affected by
@@ -127,10 +127,10 @@ export default function () {
         var elements = (element.document || element.ownerDocument).querySelectorAll(selector);
         var index = 0;
 
-        while (elements[ index ] && elements[ index ] !== element) {
+        while (elements[index] && elements[index] !== element) {
           ++index;
         }
-        return Boolean(elements[ index ]);
+        return Boolean(elements[index]);
       };
     }
     if (typeof Element.prototype.closest !== 'function') {

@@ -1,53 +1,53 @@
 export default {
-  'name': 'package-7',
-  'groupId': 'org.example',
-  'version': '1.0.0',
-  'modelVersion': '10.0.0',
-  'docType': 'webpackage',
-  'author': {
-    'name': 'John Doe',
-    'email': 'john.doe@example.org'
+  name: 'package-7',
+  groupId: 'org.example',
+  version: '1.0.0',
+  modelVersion: '10.0.0',
+  docType: 'webpackage',
+  author: {
+    name: 'John Doe',
+    email: 'john.doe@example.org'
   },
-  'license': 'MIT',
-  'runnables': [],
-  'artifacts': {
-    'compoundComponents': [
+  license: 'MIT',
+  runnables: [],
+  artifacts: {
+    compoundComponents: [
       {
-        'artifactId': 'my-component-7',
-        'resources': [
+        artifactId: 'my-component-7',
+        resources: [
           'res1.js',
           'res2.css'
         ],
-        'dependencies': [
+        dependencies: [
           {
-            'artifactId': 'my-component-9'
+            artifactId: 'my-component-9'
           }
         ]
       },
       {
-        'artifactId': 'my-component-8',
-        'resources': [
+        artifactId: 'my-component-8',
+        resources: [
           'res1.js',
           'res2.css'
         ],
-        'dependencies': [
+        dependencies: [
           {
-            'artifactId': 'my-component-10'
+            artifactId: 'my-component-10'
           }
         ]
       }
     ],
-    'elementaryComponents': [
+    elementaryComponents: [
       {
-        'artifactId': 'my-component-9',
-        'resources': [
+        artifactId: 'my-component-9',
+        resources: [
           'res9.js',
           'res9.css'
         ]
       },
       {
-        'artifactId': 'my-component-10',
-        'resources': [
+        artifactId: 'my-component-10',
+        resources: [
           'res10.js',
           'res10.css'
         ]

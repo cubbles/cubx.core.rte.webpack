@@ -51,7 +51,7 @@ describe('Handling with DynamicConnections', function () {
         parent.Context._connectionMgr._connections.should.have.length(1);
       });
       it('parent context should have a connection with right properties', function () {
-        var connection = parent.Context._connectionMgr._connections[ 0 ];
+        var connection = parent.Context._connectionMgr._connections[0];
         connection.connectionId.should.be.equal(dynamicConnection.connectionId);
         connection.source.should.be.an('object');
         connection.source.should.have.property('component');
@@ -120,7 +120,7 @@ describe('Handling with DynamicConnections', function () {
           parent.Context._connectionMgr._connections.should.have.length(1);
         });
         it('parent context should have a connection with right properties', function () {
-          var connection = parent.Context._connectionMgr._connections[ 0 ];
+          var connection = parent.Context._connectionMgr._connections[0];
           connection.connectionId.should.be.equal(dynamicConnection.connectionId);
           connection.source.should.be.an('object');
           connection.source.should.have.property('component');
@@ -187,7 +187,7 @@ describe('Handling with DynamicConnections', function () {
         container.Context._connectionMgr._connections.should.have.length(1);
       });
       it('root context should have a connection with right properties', function () {
-        var connection = container.Context._connectionMgr._connections[ 0 ];
+        var connection = container.Context._connectionMgr._connections[0];
         connection.connectionId.should.be.equal(dynamicConnection.connectionId);
         connection.source.should.be.an('object');
         connection.source.should.have.property('component');
@@ -260,7 +260,7 @@ describe('Handling with DynamicConnections', function () {
         elemOne.Context._connectionMgr._connections.should.have.length(1);
       });
       it('parent context should have an internal connection with right properties', function () {
-        var connection = elemOne.Context._connectionMgr._connections[ 0 ];
+        var connection = elemOne.Context._connectionMgr._connections[0];
         connection.should.have.property('internal', true);
         connection.connectionId.should.be.equal(dynamicConnection.connectionId);
         connection.source.should.be.an('object');
@@ -333,7 +333,7 @@ describe('Handling with DynamicConnections', function () {
         elemOne.Context._connectionMgr._connections.should.have.length(1);
       });
       it('parent context should have an internal connection with right properties', function () {
-        var connection = elemOne.Context._connectionMgr._connections[ 0 ];
+        var connection = elemOne.Context._connectionMgr._connections[0];
         connection.connectionId.should.be.equal(dynamicConnection.connectionId);
         connection.source.should.be.an('object');
         connection.source.should.have.property('component');
@@ -788,14 +788,14 @@ describe('Handling with DynamicConnections', function () {
         exportObj.should.have.length(2);
       });
       it('should have an connection from child-1 to child-3 (connection 2)', function () {
-        var exp = exportObj[ 0 ];
+        var exp = exportObj[0];
         exp.source.runtimeId.should.be.equal(dynamicConnection2.source.runtimeId);
         exp.source.slot.should.be.equal(dynamicConnection2.source.slot);
         exp.destination.runtimeId.should.be.equal(dynamicConnection2.destination.runtimeId);
         exp.destination.slot.should.be.equal(dynamicConnection2.destination.slot);
       });
       it('should have an connection from child-2 to child-3 (connection 3)', function () {
-        var exp = exportObj[ 1 ];
+        var exp = exportObj[1];
         exp.source.runtimeId.should.be.equal(dynamicConnection3.source.runtimeId);
         exp.source.slot.should.be.equal(dynamicConnection3.source.slot);
         exp.destination.runtimeId.should.be.equal(dynamicConnection3.destination.runtimeId);
@@ -822,42 +822,42 @@ describe('Handling with DynamicConnections', function () {
         exportObj.should.have.length(7);
       });
       it('should have a connection from child-1 to child-2 (connection 1)', function () {
-        var exp = exportObj[ 0 ];
+        var exp = exportObj[0];
         exp.source.runtimeId.should.be.equal(dynamicConnection1.source.runtimeId);
         exp.source.slot.should.be.equal(dynamicConnection1.source.slot);
         exp.destination.runtimeId.should.be.equal(dynamicConnection1.destination.runtimeId);
         exp.destination.slot.should.be.equal(dynamicConnection1.destination.slot);
       });
       it('should have a connection from child-1 to child-3 (connection 2)', function () {
-        var exp = exportObj[ 1 ];
+        var exp = exportObj[1];
         exp.source.runtimeId.should.be.equal(dynamicConnection2.source.runtimeId);
         exp.source.slot.should.be.equal(dynamicConnection2.source.slot);
         exp.destination.runtimeId.should.be.equal(dynamicConnection2.destination.runtimeId);
         exp.destination.slot.should.be.equal(dynamicConnection2.destination.slot);
       });
       it('should have a internal connection from child-1 to child-child-1 (connection 4)', function () {
-        var exp = exportObj[ 2 ];
+        var exp = exportObj[2];
         exp.source.runtimeId.should.be.equal(dynamicConnection4.source.runtimeId);
         exp.source.slot.should.be.equal(dynamicConnection4.source.slot);
         exp.destination.runtimeId.should.be.equal(dynamicConnection4.destination.runtimeId);
         exp.destination.slot.should.be.equal(dynamicConnection4.destination.slot);
       });
       it('should have a internal connection from child-child-1 to child-1 (connection 5)', function () {
-        var exp = exportObj[ 3 ];
+        var exp = exportObj[3];
         exp.source.runtimeId.should.be.equal(dynamicConnection5.source.runtimeId);
         exp.source.slot.should.be.equal(dynamicConnection5.source.slot);
         exp.destination.runtimeId.should.be.equal(dynamicConnection5.destination.runtimeId);
         exp.destination.slot.should.be.equal(dynamicConnection5.destination.slot);
       });
       it('should have a internal connection from child-1 to child-child-2 (connection 6)', function () {
-        var exp = exportObj[ 4 ];
+        var exp = exportObj[4];
         exp.source.runtimeId.should.be.equal(dynamicConnection6.source.runtimeId);
         exp.source.slot.should.be.equal(dynamicConnection6.source.slot);
         exp.destination.runtimeId.should.be.equal(dynamicConnection6.destination.runtimeId);
         exp.destination.slot.should.be.equal(dynamicConnection6.destination.slot);
       });
       it('should have a internal connection from child-child-2 to child-1 (connection 7)', function () {
-        var exp = exportObj[ 5 ];
+        var exp = exportObj[5];
         exp.source.runtimeId.should.be.equal(dynamicConnection7.source.runtimeId);
         exp.source.slot.should.be.equal(dynamicConnection7.source.slot);
         exp.destination.runtimeId.should.be.equal(dynamicConnection7.destination.runtimeId);
@@ -865,7 +865,7 @@ describe('Handling with DynamicConnections', function () {
       });
 
       it('should have a internal connection from child-child-1 to child-child-2 (connection 8)', function () {
-        var exp = exportObj[ 6 ];
+        var exp = exportObj[6];
         exp.source.runtimeId.should.be.equal(dynamicConnection8.source.runtimeId);
         exp.source.slot.should.be.equal(dynamicConnection8.source.slot);
         exp.destination.runtimeId.should.be.equal(dynamicConnection8.destination.runtimeId);

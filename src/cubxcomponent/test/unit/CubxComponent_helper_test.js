@@ -1,5 +1,5 @@
 /* globals _, HTMLImports */
-import {getTestComponentCacheEntry, initNewElement, getContainer, createHtmlImport} from '../helpers';
+import { getTestComponentCacheEntry, initNewElement, getContainer, createHtmlImport } from '../helpers';
 
 describe('CubxComponent (helper)', function () {
   before(function (done) {
@@ -60,8 +60,8 @@ describe('CubxComponent (helper)', function () {
         expect(component._initValue([], 'array')).to.be.eql([]);
       });
       it('should be "[1,2,3]", if arg1 is "[1,2,3]" and arg2 is "array"', function () {
-        expect(component._initValue([ 1, 2, 3 ], 'array')).to.be.an('array');
-        expect(component._initValue([ 1, 2, 3 ], 'array')).to.be.eql([ 1, 2, 3 ]);
+        expect(component._initValue([1, 2, 3], 'array')).to.be.an('array');
+        expect(component._initValue([1, 2, 3], 'array')).to.be.eql([1, 2, 3]);
       });
       it('should be null, if arg1 is null and arg2 is "object"', function () {
         expect(component._initValue(null, 'object')).to.be.null;
@@ -182,7 +182,7 @@ describe('CubxComponent (helper)', function () {
     var component;
 
     before(function () {
-      window.componentCacheEntry = getTestComponentCacheEntry()[ elementName ];
+      window.componentCacheEntry = getTestComponentCacheEntry()[elementName];
       initNewElement(elementName);
       component = document.querySelector(elementName);
     });

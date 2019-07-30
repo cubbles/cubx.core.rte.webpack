@@ -1,4 +1,3 @@
-/* globals describe, before, beforeEach, after, afterEach, it, expect */
 import { describe, beforeEach, it } from 'mocha';
 import { expect } from 'chai';
 import 'sinon';
@@ -25,12 +24,12 @@ var packages = {};
 describe('DependencyTree Modification', function () {
   beforeEach(function () {
     packages = {
-      pkg1: {webpackageId: 'package1@1.0.0', artifactId: 'util1'},
-      pkg2: {webpackageId: 'package2@1.0.0', artifactId: 'util2'},
-      pkg3: {webpackageId: 'package3@1.0.0', artifactId: 'util3'},
-      pkg4: {webpackageId: 'package4@1.0.0', artifactId: 'util4'},
-      pkg5: {webpackageId: 'package5@1.0.0', artifactId: 'util5'},
-      pkg6: {webpackageId: 'package6@1.0.0', artifactId: 'util6'}
+      pkg1: { webpackageId: 'package1@1.0.0', artifactId: 'util1' },
+      pkg2: { webpackageId: 'package2@1.0.0', artifactId: 'util2' },
+      pkg3: { webpackageId: 'package3@1.0.0', artifactId: 'util3' },
+      pkg4: { webpackageId: 'package4@1.0.0', artifactId: 'util4' },
+      pkg5: { webpackageId: 'package5@1.0.0', artifactId: 'util5' },
+      pkg6: { webpackageId: 'package6@1.0.0', artifactId: 'util6' }
     };
     /**
            * build dependency tree that has the following structure:
@@ -48,27 +47,27 @@ describe('DependencyTree Modification', function () {
            */
     depTree = new DependencyTree();
     nodeA = new DependencyTree.Node();
-    nodeA.data = new DependencyMgr.DepReference({webpackageId: packages.pkg1.webpackageId, artifactId: packages.pkg1.artifactId, referrer: null});
+    nodeA.data = new DependencyMgr.DepReference({ webpackageId: packages.pkg1.webpackageId, artifactId: packages.pkg1.artifactId, referrer: null });
     nodeB = new DependencyTree.Node();
-    nodeB.data = new DependencyMgr.DepReference({webpackageId: packages.pkg2.webpackageId, artifactId: packages.pkg2.artifactId, referrer: null});
+    nodeB.data = new DependencyMgr.DepReference({ webpackageId: packages.pkg2.webpackageId, artifactId: packages.pkg2.artifactId, referrer: null });
     childA1 = new DependencyTree.Node();
-    childA1.data = new DependencyMgr.DepReference({webpackageId: packages.pkg3.webpackageId, artifactId: packages.pkg3.artifactId, referrer: packages.pkg1});
+    childA1.data = new DependencyMgr.DepReference({ webpackageId: packages.pkg3.webpackageId, artifactId: packages.pkg3.artifactId, referrer: packages.pkg1 });
     childA2 = new DependencyTree.Node();
-    childA2.data = new DependencyMgr.DepReference({webpackageId: packages.pkg4.webpackageId, artifactId: packages.pkg4.artifactId, referrer: packages.pkg1});
+    childA2.data = new DependencyMgr.DepReference({ webpackageId: packages.pkg4.webpackageId, artifactId: packages.pkg4.artifactId, referrer: packages.pkg1 });
     childB1 = new DependencyTree.Node();
-    childB1.data = new DependencyMgr.DepReference({webpackageId: packages.pkg3.webpackageId, artifactId: packages.pkg3.artifactId, referrer: packages.pkg2});
+    childB1.data = new DependencyMgr.DepReference({ webpackageId: packages.pkg3.webpackageId, artifactId: packages.pkg3.artifactId, referrer: packages.pkg2 });
     childB2 = new DependencyTree.Node();
-    childB2.data = new DependencyMgr.DepReference({webpackageId: packages.pkg5.webpackageId, artifactId: packages.pkg5.artifactId, referrer: packages.pkg2});
+    childB2.data = new DependencyMgr.DepReference({ webpackageId: packages.pkg5.webpackageId, artifactId: packages.pkg5.artifactId, referrer: packages.pkg2 });
     childA11 = new DependencyTree.Node();
-    childA11.data = new DependencyMgr.DepReference({webpackageId: packages.pkg5.webpackageId, artifactId: packages.pkg5.artifactId, referrer: packages.pkg3});
+    childA11.data = new DependencyMgr.DepReference({ webpackageId: packages.pkg5.webpackageId, artifactId: packages.pkg5.artifactId, referrer: packages.pkg3 });
     childB11 = new DependencyTree.Node();
-    childB11.data = new DependencyMgr.DepReference({webpackageId: packages.pkg5.webpackageId, artifactId: packages.pkg5.artifactId, referrer: packages.pkg3});
+    childB11.data = new DependencyMgr.DepReference({ webpackageId: packages.pkg5.webpackageId, artifactId: packages.pkg5.artifactId, referrer: packages.pkg3 });
     childB21 = new DependencyTree.Node();
-    childB21.data = new DependencyMgr.DepReference({webpackageId: packages.pkg6.webpackageId, artifactId: packages.pkg6.artifactId, referrer: packages.pkg5});
+    childB21.data = new DependencyMgr.DepReference({ webpackageId: packages.pkg6.webpackageId, artifactId: packages.pkg6.artifactId, referrer: packages.pkg5 });
     childA111 = new DependencyTree.Node();
-    childA111.data = new DependencyMgr.DepReference({webpackageId: packages.pkg6.webpackageId, artifactId: packages.pkg6.artifactId, referrer: packages.pkg5});
+    childA111.data = new DependencyMgr.DepReference({ webpackageId: packages.pkg6.webpackageId, artifactId: packages.pkg6.artifactId, referrer: packages.pkg5 });
     childB111 = new DependencyTree.Node();
-    childB111.data = new DependencyMgr.DepReference({webpackageId: packages.pkg6.webpackageId, artifactId: packages.pkg6.artifactId, referrer: packages.pkg5});
+    childB111.data = new DependencyMgr.DepReference({ webpackageId: packages.pkg6.webpackageId, artifactId: packages.pkg6.artifactId, referrer: packages.pkg5 });
     depTree.insertNode(nodeA);
     depTree.insertNode(nodeB);
     depTree.insertNode(childA1, nodeA);
@@ -154,11 +153,11 @@ describe('DependencyTree Modification', function () {
       var childA31;
       var childA311;
       childA3 = new DependencyTree.Node();
-      childA3.data = new DependencyMgr.DepReference({webpackageId: packages.pkg3.webpackageId, artifactId: packages.pkg3.artifactId, referrer: packages.pkg1});
+      childA3.data = new DependencyMgr.DepReference({ webpackageId: packages.pkg3.webpackageId, artifactId: packages.pkg3.artifactId, referrer: packages.pkg1 });
       childA31 = new DependencyTree.Node();
-      childA31.data = new DependencyMgr.DepReference({webpackageId: packages.pkg6.webpackageId, artifactId: packages.pkg6.artifactId, referrer: packages.pkg3});
+      childA31.data = new DependencyMgr.DepReference({ webpackageId: packages.pkg6.webpackageId, artifactId: packages.pkg6.artifactId, referrer: packages.pkg3 });
       childA311 = new DependencyTree.Node();
-      childA311.data = new DependencyMgr.DepReference({webpackageId: packages.pkg5.webpackageId, artifactId: packages.pkg5.artifactId, referrer: packages.pkg6});
+      childA311.data = new DependencyMgr.DepReference({ webpackageId: packages.pkg5.webpackageId, artifactId: packages.pkg5.artifactId, referrer: packages.pkg6 });
 
       depTree.insertNode(childA3, nodeA);
       depTree.insertNode(childA31, childA3);
@@ -176,7 +175,7 @@ describe('DependencyTree Modification', function () {
     });
     it('should append referrer of removed duplicate node to referrer of duplicated nodes', function () {
       depTree._removeDuplicate(childA1, childB1);
-      childA1.data.referrer.should.eql([ packages.pkg1, packages.pkg2 ]);
+      childA1.data.referrer.should.eql([packages.pkg1, packages.pkg2]);
     });
   });
   describe('#applyExcludes()', function () {
@@ -201,7 +200,7 @@ describe('DependencyTree Modification', function () {
       nodeB.data.dependencyExcludes = [{ webpackageId: 'package5@1.0.0', artifactId: 'util5' }];
       childB1.data.dependenyExcludes = [{ webpackageId: 'package6@1.0.0', artifactId: 'util6' }];
       childB3 = new DependencyTree.Node();
-      childB3.data = new DependencyMgr.DepReference({webpackageId: packages.pkg4.webpackageId, artifactId: packages.pkg4.artifactId, referrer: packages.pkg2});
+      childB3.data = new DependencyMgr.DepReference({ webpackageId: packages.pkg4.webpackageId, artifactId: packages.pkg4.artifactId, referrer: packages.pkg2 });
       depTree.insertNode(childB3, nodeB);
     });
     it('should mark all excluded Nodes', function () {
@@ -310,7 +309,7 @@ describe('DependencyTree Modification', function () {
       nodeB.data.dependencyExcludes = [{ webpackageId: 'package5@1.0.0', artifactId: 'util5' }];
       childB1.data.dependenyExcludes = [{ webpackageId: 'package6@1.0.0', artifactId: 'util6' }];
       var childB3 = new DependencyTree.Node();
-      childB3.data = new DependencyMgr.DepReference({webpackageId: packages.pkg4.webpackageId, artifactId: packages.pkg4.artifactId, referrer: packages.pkg2});
+      childB3.data = new DependencyMgr.DepReference({ webpackageId: packages.pkg4.webpackageId, artifactId: packages.pkg4.artifactId, referrer: packages.pkg2 });
       depTree.insertNode(childB3, nodeB);
 
       depTree.applyExcludes();
@@ -391,19 +390,19 @@ describe('#_determineNodeRelationShip()', function () {
   beforeEach(function () {
     depTree = new DependencyTree();
     nodeA = new Node();
-    nodeA.data = new DepRef({webpackageId: 'packageA@1.0', artifactId: 'artifact_A', referrer: null});
+    nodeA.data = new DepRef({ webpackageId: 'packageA@1.0', artifactId: 'artifact_A', referrer: null });
 
     nodeB = new Node();
-    nodeB.data = new DepRef({webpackageId: 'packageA@1.0', artifactId: 'artifact_A', referrer: null});
+    nodeB.data = new DepRef({ webpackageId: 'packageA@1.0', artifactId: 'artifact_A', referrer: null });
 
     nodeC = new Node();
-    nodeC.data = new DepRef({webpackageId: 'packageB@1.0', artifactId: 'artifact_A', referrer: null});
+    nodeC.data = new DepRef({ webpackageId: 'packageB@1.0', artifactId: 'artifact_A', referrer: null });
 
     nodeD = new Node();
-    nodeD.data = new DepRef({webpackageId: 'packageA@2.0', artifactId: 'artifact_A', referrer: null});
+    nodeD.data = new DepRef({ webpackageId: 'packageA@2.0', artifactId: 'artifact_A', referrer: null });
 
     nodeE = new Node();
-    nodeE.data = new DepRef({webpackageId: 'packageC@1.0', artifactId: 'artifact_B', referrer: null});
+    nodeE.data = new DepRef({ webpackageId: 'packageC@1.0', artifactId: 'artifact_B', referrer: null });
   });
 
   it('should identify nodes with relationship "artifact duplicate"', function () {
@@ -434,44 +433,44 @@ describe('#_getRelatedNodes()', function () {
   beforeEach(function () {
     depTree = new DependencyTree();
     nodeA = new Node();
-    nodeA.data = new DepRef({webpackageId: 'packageA@1.0', artifactId: 'artifact_A', referrer: null});
+    nodeA.data = new DepRef({ webpackageId: 'packageA@1.0', artifactId: 'artifact_A', referrer: null });
 
     nodeB = new Node();
-    nodeB.data = new DepRef({webpackageId: 'packageB@1.0', artifactId: 'artifact_B', referrer: null});
+    nodeB.data = new DepRef({ webpackageId: 'packageB@1.0', artifactId: 'artifact_B', referrer: null });
 
     nodeC = new Node();
-    nodeC.data = new DepRef({webpackageId: 'packageC@1.0', artifactId: 'artifact_C', referrer: null});
+    nodeC.data = new DepRef({ webpackageId: 'packageC@1.0', artifactId: 'artifact_C', referrer: null });
 
     nodeD = new Node();
-    nodeD.data = new DepRef({webpackageId: 'packageD@2.0', artifactId: 'artifact_C', referrer: null});
+    nodeD.data = new DepRef({ webpackageId: 'packageD@2.0', artifactId: 'artifact_C', referrer: null });
 
     nodes = [nodeA, nodeB, nodeC, nodeD];
   });
 
   it('should filter given nodes array to return only nodes being in "artifact version conflict" relationship with the given node', function () {
     var node = new Node();
-    node.data = new DepRef({webpackageId: 'packageA@2.0', artifactId: 'artifact_A', referrer: null});
+    node.data = new DepRef({ webpackageId: 'packageA@2.0', artifactId: 'artifact_A', referrer: null });
     var results = depTree._getRelatedNodes(node, nodes, DependencyTree.NodeRelationship.ARTIFACT_VERSION_CONFLICT);
     results.should.be.an('array');
     results.should.have.members([nodeA]);
   });
   it('should filter given nodes array to return only nodes being in "artifact name conflict" relationship with the given node', function () {
     var node = new Node();
-    node.data = new DepRef({webpackageId: 'packageE@1.0', artifactId: 'artifact_C', referrer: null});
+    node.data = new DepRef({ webpackageId: 'packageE@1.0', artifactId: 'artifact_C', referrer: null });
     var results = depTree._getRelatedNodes(node, nodes, DependencyTree.NodeRelationship.ARTIFACT_NAME_CONFLICT);
     results.should.be.an('array');
     results.should.have.members([nodeC, nodeD]);
   });
   it('should filter given nodes array to return only nodes being in "artifact duplicate" relationship with the given node', function () {
     var node = new Node();
-    node.data = new DepRef({webpackageId: 'packageB@1.0', artifactId: 'artifact_B', referrer: null});
+    node.data = new DepRef({ webpackageId: 'packageB@1.0', artifactId: 'artifact_B', referrer: null });
     var results = depTree._getRelatedNodes(node, nodes, DependencyTree.NodeRelationship.ARTIFACT_DUPLICATE);
     results.should.be.an('array');
     results.should.have.members([nodeB]);
   });
   it('should filter given nodes array to return only nodes being in "distinct artifact" relationship with the given node', function () {
     var node = new Node();
-    node.data = new DepRef({webpackageId: 'packageE@1.0', artifactId: 'artifact_E', referrer: null});
+    node.data = new DepRef({ webpackageId: 'packageE@1.0', artifactId: 'artifact_E', referrer: null });
     var results = depTree._getRelatedNodes(node, nodes, DependencyTree.NodeRelationship.DISTINCT_ARTIFACT);
     results.should.be.an('array');
     results.should.have.members([nodeA, nodeB, nodeC, nodeD]);
@@ -509,22 +508,22 @@ describe('Dependency Tree conflict detection and resolution', function () {
            */
     depTree = new DependencyTree();
     rootA = new Node();
-    rootA.data = new DepRef({webpackageId: 'package1@1.0.0', artifactId: 'util1', referrer: null});
+    rootA.data = new DepRef({ webpackageId: 'package1@1.0.0', artifactId: 'util1', referrer: null });
     depTree.insertNode(rootA);
 
     rootB = new Node();
-    rootB.data = new DepRef({webpackageId: 'packageA@1.0.0', artifactId: 'artifactA', referrer: null});
+    rootB.data = new DepRef({ webpackageId: 'packageA@1.0.0', artifactId: 'artifactA', referrer: null });
     depTree.insertNode(rootB);
 
     rootC = new Node();
-    rootC.data = new DepRef({webpackageId: 'packageB@1.0', artifactId: 'artifact_B', referrer: null});
+    rootC.data = new DepRef({ webpackageId: 'packageB@1.0', artifactId: 'artifact_B', referrer: null });
     depTree.insertNode(rootC);
 
     childA1 = new Node();
     childA1.data = new DepRef({
       webpackageId: 'package3@1.0.0',
       artifactId: 'my-comp',
-      referrer: {webpackageId: 'package1@1.0.0', artifactId: 'util1'}
+      referrer: { webpackageId: 'package1@1.0.0', artifactId: 'util1' }
     });
     depTree.insertNode(childA1, rootA);
 
@@ -532,7 +531,7 @@ describe('Dependency Tree conflict detection and resolution', function () {
     childA2.data = new DepRef({
       webpackageId: 'package5@2.0.0',
       artifactId: 'util5',
-      referrer: {webpackageId: 'package1@1.0.0', artifactId: 'util1'}
+      referrer: { webpackageId: 'package1@1.0.0', artifactId: 'util1' }
     });
     depTree.insertNode(childA2, rootA);
 
@@ -540,7 +539,7 @@ describe('Dependency Tree conflict detection and resolution', function () {
     childA11.data = new DepRef({
       webpackageId: 'package5@1.0.0',
       artifactId: 'util5',
-      referrer: {webpackageId: 'package3@1.0.0', artifactId: 'my-comp'}
+      referrer: { webpackageId: 'package3@1.0.0', artifactId: 'my-comp' }
     });
     depTree.insertNode(childA11, childA1);
 
@@ -548,7 +547,7 @@ describe('Dependency Tree conflict detection and resolution', function () {
     childB1.data = new DepRef({
       webpackageId: 'packageB@2.0.0',
       artifactId: 'my-comp',
-      referrer: {webpackageId: 'packageA@1.0.0', artifactId: 'artifactA'}
+      referrer: { webpackageId: 'packageA@1.0.0', artifactId: 'artifactA' }
     });
     depTree.insertNode(childB1, rootB);
 
@@ -556,7 +555,7 @@ describe('Dependency Tree conflict detection and resolution', function () {
     childC1.data = new DepRef({
       webpackageId: 'packageC@1.0',
       artifactId: 'artifact_C',
-      referrer: {webpackageId: 'packageB@1.0', artifactId: 'artifact_B'}
+      referrer: { webpackageId: 'packageB@1.0', artifactId: 'artifact_B' }
     });
     depTree.insertNode(childC1, rootC);
 
@@ -564,7 +563,7 @@ describe('Dependency Tree conflict detection and resolution', function () {
     childC2.data = new DepRef({
       webpackageId: 'packageD@1.0',
       artifactId: 'artifact_C',
-      referrer: {webpackageId: 'packageB@1.0', artifactId: 'artifact_B'}
+      referrer: { webpackageId: 'packageB@1.0', artifactId: 'artifact_B' }
     });
     depTree.insertNode(childC2, rootC);
 
@@ -572,7 +571,7 @@ describe('Dependency Tree conflict detection and resolution', function () {
     childC3.data = new DepRef({
       webpackageId: 'packageD@2.0',
       artifactId: 'artifact_C',
-      referrer: {webpackageId: 'packageB@1.0', artifactId: 'artifact_B'}
+      referrer: { webpackageId: 'packageB@1.0', artifactId: 'artifact_B' }
     });
     depTree.insertNode(childC3, rootC);
   });
@@ -607,11 +606,11 @@ describe('Dependency Tree conflict detection and resolution', function () {
       var conflicts = depTree.getConflictedNodes();
       conflicts.should.have.lengthOf(5);
       conflicts.should.include.deep.members([
-        {node: childC2, conflictedNode: childC3, type: DependencyTree.conflictTypes.VERSION, resolved: true},
-        {node: childA2, conflictedNode: childA11, type: DependencyTree.conflictTypes.VERSION, resolved: true},
-        {node: childA1, conflictedNode: childB1, type: DependencyTree.conflictTypes.NAME, resolved: false},
-        {node: childC1, conflictedNode: childC2, type: DependencyTree.conflictTypes.NAME, resolved: false},
-        {node: childC1, conflictedNode: childC3, type: DependencyTree.conflictTypes.NAME, resolved: false}
+        { node: childC2, conflictedNode: childC3, type: DependencyTree.conflictTypes.VERSION, resolved: true },
+        { node: childA2, conflictedNode: childA11, type: DependencyTree.conflictTypes.VERSION, resolved: true },
+        { node: childA1, conflictedNode: childB1, type: DependencyTree.conflictTypes.NAME, resolved: false },
+        { node: childC1, conflictedNode: childC2, type: DependencyTree.conflictTypes.NAME, resolved: false },
+        { node: childC1, conflictedNode: childC3, type: DependencyTree.conflictTypes.NAME, resolved: false }
       ]);
     });
   });

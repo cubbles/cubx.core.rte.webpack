@@ -1,6 +1,6 @@
 /* globals _, HTMLImports */
 /* eslint no-unused-vars: [2, {"varsIgnoredPattern":"initNewElement|getContainer|registerCompoundComponentElement|createNewElement|getContainer"}] */
-import {getContainer, createNewElement, registerCompoundComponentElement, initNewElement} from '../../../cubxcomponent/test/helpers';
+import { getContainer, createNewElement, registerCompoundComponentElement, initNewElement } from '../../../cubxcomponent/test/helpers';
 
 describe('DynamicConnectionUtils', function () {
   var dynamicConnectionUtil;
@@ -728,7 +728,7 @@ describe('DynamicConnectionUtils', function () {
         ];
         spy = sinon.spy(compElem.Context.getConnectionMgr(), 'addDynamicConnection');
         dynamicConnectionsJSON = JSON.stringify(dynamicConnections);
-        connectionId = elem1.generateConnectionId(dynamicConnections[ 0 ]);
+        connectionId = elem1.generateConnectionId(dynamicConnections[0]);
         elem1.importDynamicConnections(dynamicConnectionsJSON);
       });
       afterEach(function () {
@@ -743,17 +743,17 @@ describe('DynamicConnectionUtils', function () {
       it('should exist in compElem context', function () {
         compElem.Context.getConnectionMgr()._connections.should.have.length(1);
         compElem.Context.getConnectionMgr()._connections.should.have.nested.property('[0]');
-        var connection = compElem.Context.getConnectionMgr()._connections[ 0 ];
+        var connection = compElem.Context.getConnectionMgr()._connections[0];
         connection.should.have.property('connectionId', connectionId);
         connection.should.have.nested.property('source.memberId', 'member1');
         connection.should.have.nested.property('source.component', elem1);
-        connection.should.have.nested.property('source.slot', dynamicConnections[ 0 ].source.slot);
+        connection.should.have.nested.property('source.slot', dynamicConnections[0].source.slot);
         connection.should.have.nested.property('destination.memberId', 'member2');
         connection.should.have.nested.property('destination.component', elem2);
-        connection.should.have.nested.property('destination.slot', dynamicConnections[ 0 ].destination.slot);
-        connection.should.have.property('repeatedValues', dynamicConnections[ 0 ].repeatedValues);
-        connection.should.have.property('copyValue', dynamicConnections[ 0 ].copyValue);
-        connection.should.have.property('hookFunction', dynamicConnections[ 0 ].hookFunction);
+        connection.should.have.nested.property('destination.slot', dynamicConnections[0].destination.slot);
+        connection.should.have.property('repeatedValues', dynamicConnections[0].repeatedValues);
+        connection.should.have.property('copyValue', dynamicConnections[0].copyValue);
+        connection.should.have.property('hookFunction', dynamicConnections[0].hookFunction);
       });
     });
 
@@ -780,7 +780,7 @@ describe('DynamicConnectionUtils', function () {
               hookFunction: 'myFunc'
             }
           ];
-          connectionId = elem1.generateConnectionId(dynamicConnections[ 0 ]);
+          connectionId = elem1.generateConnectionId(dynamicConnections[0]);
           dynamicConnectionsJSON = JSON.stringify(dynamicConnections);
           elem3.importDynamicConnections(dynamicConnectionsJSON);
         });
@@ -792,18 +792,18 @@ describe('DynamicConnectionUtils', function () {
         it('should exist in compElem context', function () {
           compElem.Context.getConnectionMgr()._connections.should.have.length(1);
           compElem.Context.getConnectionMgr()._connections.should.have.nested.property('[0]');
-          var connection = compElem.Context.getConnectionMgr()._connections[ 0 ];
+          var connection = compElem.Context.getConnectionMgr()._connections[0];
           connection.should.have.property('connectionId', connectionId);
           connection.should.have.nested.property('source.memberId', 'member1');
           connection.should.have.nested.property('source.component', elem1);
-          connection.should.have.nested.property('source.slot', dynamicConnections[ 0 ].source.slot);
+          connection.should.have.nested.property('source.slot', dynamicConnections[0].source.slot);
           connection.should.have.nested.property('destination.memberId', 'member2');
           connection.should.have.nested.property(
             'destination.component', elem2);
-          connection.should.have.nested.property('destination.slot', dynamicConnections[ 0 ].destination.slot);
-          connection.should.have.property('repeatedValues', dynamicConnections[ 0 ].repeatedValues);
-          connection.should.have.property('copyValue', dynamicConnections[ 0 ].copyValue);
-          connection.should.have.property('hookFunction', dynamicConnections[ 0 ].hookFunction);
+          connection.should.have.nested.property('destination.slot', dynamicConnections[0].destination.slot);
+          connection.should.have.property('repeatedValues', dynamicConnections[0].repeatedValues);
+          connection.should.have.property('copyValue', dynamicConnections[0].copyValue);
+          connection.should.have.property('hookFunction', dynamicConnections[0].hookFunction);
         });
       });
     describe('import 3 connections for 2 contexts, imported on elem1', function () {
@@ -852,9 +852,9 @@ describe('DynamicConnectionUtils', function () {
             hookFunction: 'thirdFunc'
           }
         ];
-        connectionIds.push(elem1.generateConnectionId(dynamicConnections[ 0 ]));
-        connectionIds.push(elem1.generateConnectionId(dynamicConnections[ 1 ]));
-        connectionIds.push(elem1.generateConnectionId(dynamicConnections[ 2 ]));
+        connectionIds.push(elem1.generateConnectionId(dynamicConnections[0]));
+        connectionIds.push(elem1.generateConnectionId(dynamicConnections[1]));
+        connectionIds.push(elem1.generateConnectionId(dynamicConnections[2]));
         dynamicConnectionsJSON = JSON.stringify(dynamicConnections);
         elem1.importDynamicConnections(dynamicConnectionsJSON);
       });
@@ -866,27 +866,27 @@ describe('DynamicConnectionUtils', function () {
       it('should 2 connections exist in context of compElem', function () {
         compElem.Context.getConnectionMgr()._connections.should.have.length(2);
         compElem.Context.getConnectionMgr()._connections.should.have.nested.property('[0]');
-        var connection = compElem.Context.getConnectionMgr()._connections[ 0 ];
-        connection.should.have.property('connectionId', connectionIds[ 0 ]);
+        var connection = compElem.Context.getConnectionMgr()._connections[0];
+        connection.should.have.property('connectionId', connectionIds[0]);
 
         connection.should.have.nested.property('source.memberId', 'member1');
         connection.should.have.nested.property('source.component', elem1);
-        connection.should.have.nested.property('source.slot', dynamicConnections[ 0 ].source.slot);
+        connection.should.have.nested.property('source.slot', dynamicConnections[0].source.slot);
         connection.should.have.nested.property('destination.memberId', 'member2');
         connection.should.have.nested.property('destination.component', elem2);
-        connection.should.have.nested.property('destination.slot', dynamicConnections[ 0 ].destination.slot);
-        connection.should.have.property('repeatedValues', dynamicConnections[ 0 ].repeatedValues);
-        connection.should.have.property('copyValue', dynamicConnections[ 0 ].copyValue);
-        connection.should.have.property('hookFunction', dynamicConnections[ 0 ].hookFunction);
+        connection.should.have.nested.property('destination.slot', dynamicConnections[0].destination.slot);
+        connection.should.have.property('repeatedValues', dynamicConnections[0].repeatedValues);
+        connection.should.have.property('copyValue', dynamicConnections[0].copyValue);
+        connection.should.have.property('hookFunction', dynamicConnections[0].hookFunction);
         compElem.Context.getConnectionMgr()._connections.should.have.nested.property('[1]');
-        connection = compElem.Context.getConnectionMgr()._connections[ 1 ];
-        connection.should.have.property('connectionId', connectionIds[ 1 ]);
+        connection = compElem.Context.getConnectionMgr()._connections[1];
+        connection.should.have.property('connectionId', connectionIds[1]);
         connection.should.have.nested.property('source.memberId', 'member2');
         connection.should.have.nested.property('source.component', elem2);
-        connection.should.have.nested.property('source.slot', dynamicConnections[ 1 ].source.slot);
+        connection.should.have.nested.property('source.slot', dynamicConnections[1].source.slot);
         connection.should.have.nested.property('destination.memberId', 'member3');
         connection.should.have.nested.property('destination.component', elem3);
-        connection.should.have.nested.property('destination.slot', dynamicConnections[ 1 ].destination.slot);
+        connection.should.have.nested.property('destination.slot', dynamicConnections[1].destination.slot);
         connection.should.have.property('repeatedValues', false);
         connection.should.have.property('copyValue', true);
         connection.should.have.property('hookFunction', null);
@@ -895,18 +895,18 @@ describe('DynamicConnectionUtils', function () {
         compElem2.Context.getConnectionMgr()._connections.should.have.length(1);
         compElem2.Context.getConnectionMgr()._connections.should.have.nested.property('[0]');
 
-        var connection = compElem2.Context.getConnectionMgr()._connections[ 0 ];
-        connection.should.have.property('connectionId', connectionIds[ 2 ]);
+        var connection = compElem2.Context.getConnectionMgr()._connections[0];
+        connection.should.have.property('connectionId', connectionIds[2]);
 
         connection.should.have.nested.property('source.memberId', 'member1');
         connection.should.have.nested.property('source.component', elem4);
-        connection.should.have.nested.property('source.slot', dynamicConnections[ 2 ].source.slot);
+        connection.should.have.nested.property('source.slot', dynamicConnections[2].source.slot);
         connection.should.have.nested.property('destination.memberId', 'member2');
         connection.should.have.nested.property('destination.component', elem5);
-        connection.should.have.nested.property('destination.slot', dynamicConnections[ 2 ].destination.slot);
-        connection.should.have.property('repeatedValues', dynamicConnections[ 2 ].repeatedValues);
-        connection.should.have.property('copyValue', dynamicConnections[ 2 ].copyValue);
-        connection.should.have.property('hookFunction', dynamicConnections[ 2 ].hookFunction);
+        connection.should.have.nested.property('destination.slot', dynamicConnections[2].destination.slot);
+        connection.should.have.property('repeatedValues', dynamicConnections[2].repeatedValues);
+        connection.should.have.property('copyValue', dynamicConnections[2].copyValue);
+        connection.should.have.property('hookFunction', dynamicConnections[2].hookFunction);
       });
     });
     describe(
@@ -932,7 +932,7 @@ describe('DynamicConnectionUtils', function () {
               hookFunction: 'myFunc'
             }
           ];
-          connectionId = elem1.generateConnectionId(dynamicConnections[ 0 ]);
+          connectionId = elem1.generateConnectionId(dynamicConnections[0]);
           dynamicConnectionsJSON = JSON.stringify(dynamicConnections);
           elem4.importDynamicConnections(dynamicConnectionsJSON);
         });
@@ -944,17 +944,17 @@ describe('DynamicConnectionUtils', function () {
         it('should exist in compElem context', function () {
           compElem.Context.getConnectionMgr()._connections.should.have.length(1);
           compElem.Context.getConnectionMgr()._connections.should.have.nested.property('[0]');
-          var connection = compElem.Context.getConnectionMgr()._connections[ 0 ];
+          var connection = compElem.Context.getConnectionMgr()._connections[0];
           connection.should.have.property('connectionId', connectionId);
           connection.should.have.nested.property('source.memberId', 'member1');
           connection.should.have.nested.property('source.component', elem1);
-          connection.should.have.nested.property('source.slot', dynamicConnections[ 0 ].source.slot);
+          connection.should.have.nested.property('source.slot', dynamicConnections[0].source.slot);
           connection.should.have.nested.property('destination.memberId', 'member2');
           connection.should.have.nested.property('destination.component', elem2);
-          connection.should.have.nested.property('destination.slot', dynamicConnections[ 0 ].destination.slot);
-          connection.should.have.property('repeatedValues', dynamicConnections[ 0 ].repeatedValues);
-          connection.should.have.property('copyValue', dynamicConnections[ 0 ].copyValue);
-          connection.should.have.property('hookFunction', dynamicConnections[ 0 ].hookFunction);
+          connection.should.have.nested.property('destination.slot', dynamicConnections[0].destination.slot);
+          connection.should.have.property('repeatedValues', dynamicConnections[0].repeatedValues);
+          connection.should.have.property('copyValue', dynamicConnections[0].copyValue);
+          connection.should.have.property('hookFunction', dynamicConnections[0].hookFunction);
         });
       });
     describe(
@@ -994,7 +994,7 @@ describe('DynamicConnectionUtils', function () {
           compElem.Context.getConnectionMgr()._connections.should.have.length(0);
           expect(spy.calledOnce).to.be.true;
           var errorStr = ' The connection can not be created within the context ' +
-            JSON.stringify(dynamicConnections[ 0 ]) +
+            JSON.stringify(dynamicConnections[0]) +
             '. Ambiguous context: ' +
             'The source context is not the same as a the destination context. ' +
             'It is just allowed to create a connection in the same context.';
@@ -1061,11 +1061,11 @@ describe('DynamicConnectionUtils', function () {
 
             expect(spy.calledTwice).to.be.true;
             var errorStr = 'The connection can not be created within the context, because no context ' +
-              'for the element with runtimeId (' + dynamicConnections[ 0 ].source.runtimeId +
+              'for the element with runtimeId (' + dynamicConnections[0].source.runtimeId +
               ') has been found';
             expect(spy.calledWith(errorStr)).to.be.true;
             errorStr = 'The connection can not be created within the context, because no context ' +
-              'for the element with runtimeId (' + dynamicConnections[ 0 ].destination.runtimeId +
+              'for the element with runtimeId (' + dynamicConnections[0].destination.runtimeId +
               ') has been found';
             expect(spy.calledWith(errorStr)).to.be.true;
           });
@@ -1104,7 +1104,7 @@ describe('DynamicConnectionUtils', function () {
             getContainer().Context.getConnectionMgr()._connections.should.have.length(0);
             expect(spy.calledOnce).to.be.true;
             var errorStr = 'The connection can not be created within the context, because no context ' +
-              'for the element with runtimeId (' + dynamicConnections[ 0 ].destination.runtimeId +
+              'for the element with runtimeId (' + dynamicConnections[0].destination.runtimeId +
               ') has been found';
             console.log(errorStr);
             expect(spy.calledWith(errorStr)).to.be.true;
@@ -1144,11 +1144,11 @@ describe('DynamicConnectionUtils', function () {
             getContainer().Context.getConnectionMgr()._connections.should.have.length(0);
             expect(spy.calledTwice).to.be.true;
             var errorStr = 'The connection can not be created within the context, because no context ' +
-              'for the element with runtimeId (' + dynamicConnections[ 0 ].source.runtimeId +
+              'for the element with runtimeId (' + dynamicConnections[0].source.runtimeId +
               ') has been found';
             expect(spy.calledWith(errorStr)).to.be.true;
             errorStr = 'The connection can not be created within the context, because no context ' +
-              'for the element with runtimeId (' + dynamicConnections[ 0 ].destination.runtimeId +
+              'for the element with runtimeId (' + dynamicConnections[0].destination.runtimeId +
               ') has been found';
             expect(spy.calledWith(errorStr)).to.be.true;
           });
@@ -1177,7 +1177,7 @@ describe('DynamicConnectionUtils', function () {
         ];
         spy = sinon.spy(compElem.Context.getConnectionMgr(), 'addDynamicConnection');
         dynamicConnectionsJSON = JSON.stringify(dynamicConnections);
-        connectionId = elem1.generateConnectionId(dynamicConnections[ 0 ]);
+        connectionId = elem1.generateConnectionId(dynamicConnections[0]);
         elem1.importDynamicConnections(dynamicConnectionsJSON);
       });
       afterEach(function () {
@@ -1195,17 +1195,17 @@ describe('DynamicConnectionUtils', function () {
         // compElem.Context.getConnectionMgr()._connections.should.have.length(1);
         // compElem.Context.getConnectionMgr()._connections.should.have.nested.property('[0]');
         // var connection = compElem.Context.getConnectionMgr()._connections[0];
-        var connection = compElem.Context.getConnectionMgr()._connections[ 0 ];
+        var connection = compElem.Context.getConnectionMgr()._connections[0];
         connection.should.have.property('connectionId', connectionId);
         connection.should.have.nested.property('source.memberId', null);
         connection.should.have.nested.property('source.component', compElem);
-        connection.should.have.nested.property('source.slot', dynamicConnections[ 0 ].source.slot);
+        connection.should.have.nested.property('source.slot', dynamicConnections[0].source.slot);
         connection.should.have.nested.property('destination.memberId', 'member2');
         connection.should.have.nested.property('destination.component', elem2);
-        connection.should.have.nested.property('destination.slot', dynamicConnections[ 0 ].destination.slot);
-        connection.should.have.property('repeatedValues', dynamicConnections[ 0 ].repeatedValues);
-        connection.should.have.property('copyValue', dynamicConnections[ 0 ].copyValue);
-        connection.should.have.property('hookFunction', dynamicConnections[ 0 ].hookFunction);
+        connection.should.have.nested.property('destination.slot', dynamicConnections[0].destination.slot);
+        connection.should.have.property('repeatedValues', dynamicConnections[0].repeatedValues);
+        connection.should.have.property('copyValue', dynamicConnections[0].copyValue);
+        connection.should.have.property('hookFunction', dynamicConnections[0].hookFunction);
       });
     });
 
@@ -1232,7 +1232,7 @@ describe('DynamicConnectionUtils', function () {
         ];
         spy = sinon.spy(compElem.Context.getConnectionMgr(), 'addDynamicConnection');
         dynamicConnectionsJSON = JSON.stringify(dynamicConnections);
-        connectionId = elem1.generateConnectionId(dynamicConnections[ 0 ]);
+        connectionId = elem1.generateConnectionId(dynamicConnections[0]);
         elem1.importDynamicConnections(dynamicConnectionsJSON);
       });
       afterEach(function () {
@@ -1250,17 +1250,17 @@ describe('DynamicConnectionUtils', function () {
         // compElem.Context.getConnectionMgr()._connections.should.have.length(1);
         // compElem.Context.getConnectionMgr()._connections.should.have.nested.property('[0]');
         // var connection = compElem.Context.getConnectionMgr()._connections[0];
-        var connection = compElem.Context.getConnectionMgr()._connections[ 0 ];
+        var connection = compElem.Context.getConnectionMgr()._connections[0];
         connection.should.have.property('connectionId', connectionId);
         connection.should.have.nested.property('source.memberId', 'member2');
         connection.should.have.nested.property('source.component', elem2);
-        connection.should.have.nested.property('source.slot', dynamicConnections[ 0 ].source.slot);
+        connection.should.have.nested.property('source.slot', dynamicConnections[0].source.slot);
         connection.should.have.nested.property('destination.memberId', null);
         connection.should.have.nested.property('destination.component', compElem);
-        connection.should.have.nested.property('destination.slot', dynamicConnections[ 0 ].destination.slot);
-        connection.should.have.property('repeatedValues', dynamicConnections[ 0 ].repeatedValues);
-        connection.should.have.property('copyValue', dynamicConnections[ 0 ].copyValue);
-        connection.should.have.property('hookFunction', dynamicConnections[ 0 ].hookFunction);
+        connection.should.have.nested.property('destination.slot', dynamicConnections[0].destination.slot);
+        connection.should.have.property('repeatedValues', dynamicConnections[0].repeatedValues);
+        connection.should.have.property('copyValue', dynamicConnections[0].copyValue);
+        connection.should.have.property('hookFunction', dynamicConnections[0].hookFunction);
       });
     });
     describe('import connections between elem1 and elem2, imported on elem1 with directExecution', function () {
@@ -1287,7 +1287,7 @@ describe('DynamicConnectionUtils', function () {
         ];
         spy = sinon.spy(compElem.Context.getConnectionMgr(), 'addDynamicConnection');
         dynamicConnectionsJSON = JSON.stringify(dynamicConnections);
-        connectionId = elem1.generateConnectionId(dynamicConnections[ 0 ]);
+        connectionId = elem1.generateConnectionId(dynamicConnections[0]);
         elem1.importDynamicConnections(dynamicConnectionsJSON);
       });
       afterEach(function () {
@@ -1303,17 +1303,17 @@ describe('DynamicConnectionUtils', function () {
       it('should exist in compElem context', function () {
         compElem.Context.getConnectionMgr()._connections.should.have.length(1);
         compElem.Context.getConnectionMgr()._connections.should.have.nested.property('[0]');
-        var connection = compElem.Context.getConnectionMgr()._connections[ 0 ];
+        var connection = compElem.Context.getConnectionMgr()._connections[0];
         connection.should.have.property('connectionId', connectionId);
         connection.should.have.nested.property('source.memberId', 'member1');
         connection.should.have.nested.property('source.component', elem1);
-        connection.should.have.nested.property('source.slot', dynamicConnections[ 0 ].source.slot);
+        connection.should.have.nested.property('source.slot', dynamicConnections[0].source.slot);
         connection.should.have.nested.property('destination.memberId', 'member2');
         connection.should.have.nested.property('destination.component', elem2);
-        connection.should.have.nested.property('destination.slot', dynamicConnections[ 0 ].destination.slot);
-        connection.should.have.property('repeatedValues', dynamicConnections[ 0 ].repeatedValues);
-        connection.should.have.property('copyValue', dynamicConnections[ 0 ].copyValue);
-        connection.should.have.property('hookFunction', dynamicConnections[ 0 ].hookFunction);
+        connection.should.have.nested.property('destination.slot', dynamicConnections[0].destination.slot);
+        connection.should.have.property('repeatedValues', dynamicConnections[0].repeatedValues);
+        connection.should.have.property('copyValue', dynamicConnections[0].copyValue);
+        connection.should.have.property('hookFunction', dynamicConnections[0].hookFunction);
       });
     });
   });

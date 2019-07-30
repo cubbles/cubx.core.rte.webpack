@@ -24,8 +24,8 @@ describe('CIF', function () {
       slotName: 'object',
       slotValueAsJSON: '{ "number": 5, "boolean": true }',
       slotValue: {
-        'number': 5,
-        'boolean': true
+        number: 5,
+        boolean: true
       }
     },
     list: {

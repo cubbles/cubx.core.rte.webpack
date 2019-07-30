@@ -123,7 +123,7 @@ describe('ConnectionManager', function () {
         });
       });
       it('connection with connectionId "third" schould be deactivated', function () {
-        var con = connectionMgr._connections[ 1 ];
+        var con = connectionMgr._connections[1];
         con.should.have.property('deactivated', true);
       });
     });
@@ -218,7 +218,7 @@ describe('ConnectionManager', function () {
       connections = null;
     });
     it('connection with connectionId "third" should not have property "deactivated"', function () {
-      var connection = connectionMgr._connections[ 2 ]; // connection with connectionId = 'third'
+      var connection = connectionMgr._connections[2]; // connection with connectionId = 'third'
       connection.should.not.have.property('deactivated');
     });
     it('_processConnectionStub should be called once', function () {
@@ -226,7 +226,7 @@ describe('ConnectionManager', function () {
     });
     it('_processConnectionStub should be called with "test" in payload', function () {
       var payloadObject = window.cubx.cif.cif.getEventFactory().createModelChangePayloadObject('slot2', 'test');
-      var connection = connectionMgr._connections[ 2 ]; // connection with connectionId = 'third'
+      var connection = connectionMgr._connections[2]; // connection with connectionId = 'third'
       _processConnectionStub.should.be.calledWith(connection, payloadObject);
     });
   });

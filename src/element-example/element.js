@@ -32,7 +32,7 @@
     contextReady: function () {
       this.$.base.setAttribute('value', this.getBase());
       this.$.foreign.setAttribute('value', this.getForeignCurrency());
-      let today = new Date();
+      const today = new Date();
       this.setDate(today.toISOString().substr(0, 10));
       this.$.date.setAttribute('value', this.getDate());
       this.$.date.setAttribute('max', this.getDate());

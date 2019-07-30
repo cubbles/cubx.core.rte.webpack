@@ -1,24 +1,24 @@
-import {getTestComponentCacheEntry} from '../helpers';
+import { getTestComponentCacheEntry } from '../helpers';
 
-getTestComponentCacheEntry()[ 'dummy-get-method' ] = {
-  'slots': [
+getTestComponentCacheEntry()['dummy-get-method'] = {
+  slots: [
     {
-      'slotId': 'inputvalue',
-      'type': 'string',
-      'direction': [ 'input' ],
-      'value': 'Hallo Webble Word! (inputvalue)'
+      slotId: 'inputvalue',
+      type: 'string',
+      direction: ['input'],
+      value: 'Hallo Webble Word! (inputvalue)'
     },
     {
-      'slotId': 'outputvalue',
-      'type': 'string',
-      'direction': [ 'output' ],
-      'value': 'Hallo Webble Word! (outputvalue)'
+      slotId: 'outputvalue',
+      type: 'string',
+      direction: ['output'],
+      value: 'Hallo Webble Word! (outputvalue)'
     },
     {
-      'slotId': 'inputoutputvalue',
-      'type': 'string',
-      'direction': [ 'input', 'output' ],
-      'value': 'Hallo Webble Word! (inputoutputvalue)'
+      slotId: 'inputoutputvalue',
+      type: 'string',
+      direction: ['input', 'output'],
+      value: 'Hallo Webble Word! (inputoutputvalue)'
     }
 
   ]

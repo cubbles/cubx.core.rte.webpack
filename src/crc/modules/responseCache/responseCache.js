@@ -20,7 +20,7 @@ var ResponseCache = function () {
   this._cache = {};
 };
 
-  /**
+/**
    * Add a new item to ResponseCache. The added item is returned.
    * @memberOf ResponseCache
    * @param {string} key The unique key

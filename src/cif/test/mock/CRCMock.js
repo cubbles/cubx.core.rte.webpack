@@ -46,7 +46,7 @@ window.cubx.EventFactory.prototype.createEvent = function (type, detail) {
       evt = new CustomEvent(window.cubx.EventFactory.types.CIF_READY, { bubbles: true });
       break;
     case window.cubx.EventFactory.types.CIF_DOM_UPDATE_READY:
-      evt = new CustomEvent(window.cubx.EventFactory.types.CIF_DOM_UPDATE_READY, {bubbles: true});
+      evt = new CustomEvent(window.cubx.EventFactory.types.CIF_DOM_UPDATE_READY, { bubbles: true });
       break;
     case window.cubx.EventFactory.types.CIF_INIT_START:
       evt = new CustomEvent(window.cubx.EventFactory.types.CIF_INIT_START, { bubbles: false });
@@ -102,7 +102,7 @@ window.cubx.CRC.getNormedModelVersion = function (modelVersion) {
   // If modelVersion more then major and minor version cut after minor version.
   if (modelVersion.indexOf('.') < modelVersion.lastIndexOf('.')) {
     var split = modelVersion.split('.');
-    correctedModelVersion = split[ 0 ] + '.' + split[ 1 ];
+    correctedModelVersion = split[0] + '.' + split[1];
   }
   return correctedModelVersion;
 };

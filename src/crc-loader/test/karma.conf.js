@@ -10,7 +10,7 @@ module.exports = function (config) {
 
     // frameworks to use
     // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
-    frameworks: [ 'mocha', 'sinon-chai', 'browserify' ],
+    frameworks: ['mocha', 'sinon-chai', 'browserify'],
 
     // list of files / patterns to load in the browser
     files: [
@@ -25,15 +25,15 @@ module.exports = function (config) {
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
-      'modules/**/*.js': [ 'browserify' ],
-      'test/unit/**/*.js': [ 'browserify' ],
-      'test/mocks/**/*.js': [ 'browserify' ]
+      'modules/**/*.js': ['browserify'],
+      'test/unit/**/*.js': ['browserify'],
+      'test/mocks/**/*.js': ['browserify']
     },
 
     // test results reporter to use
     // possible values: 'dots', 'progress'
     // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-    reporters: [ 'progress', 'html', 'mocha', 'coverage' ],
+    reporters: ['progress', 'html', 'mocha', 'coverage'],
 
     htmlReporter: {
       outputFile: 'test-results/html/TEST-karma.html'
@@ -63,7 +63,7 @@ module.exports = function (config) {
 
     // start these browsers
     // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-    browsers: [ 'Chrome', 'Firefox' ], //, 'Firefox', 'Chrome'
+    browsers: ['Chrome', 'Firefox'], //, 'Firefox', 'Chrome'
     captureTimeout: 50000,
 
     // Continuous Integration mode
@@ -73,7 +73,7 @@ module.exports = function (config) {
     customLaunchers: {
       Chrome_travis_ci: {
         base: 'Chrome',
-        flags: [ '--no-sandbox' ]
+        flags: ['--no-sandbox']
       }
     },
 
@@ -85,7 +85,7 @@ module.exports = function (config) {
           'babelify',
           {
             presets: 'es2015',
-            plugins: [ 'babel-plugin-rewire' ]
+            plugins: ['babel-plugin-rewire']
           }
         ]
       ]
@@ -93,7 +93,7 @@ module.exports = function (config) {
   };
 
   if (process.env.TRAVIS) {
-    configuration.browsers = [ 'Chrome_travis_ci', 'Firefox' ];
+    configuration.browsers = ['Chrome_travis_ci', 'Firefox'];
   }
 
   config.set(configuration);

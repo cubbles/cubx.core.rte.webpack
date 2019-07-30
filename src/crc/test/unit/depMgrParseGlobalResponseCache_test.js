@@ -41,7 +41,7 @@ describe('Global Cache Parsing', function () {
       globalResponseCache.push(pkg7);
       globalResponseCache.push(pkg8);
       globalResponseCache.push(pkg9);
-      expectedLocalResponseCache[ 'org.example.my-webpackage@0.2.0' ] = cloneObject(globalResponseCache[0]);
+      expectedLocalResponseCache['org.example.my-webpackage@0.2.0'] = cloneObject(globalResponseCache[0]);
       expectedLocalResponseCache['org.example.package-1@1.0.0'] = cloneObject(
         globalResponseCache[1]
       );
@@ -80,31 +80,31 @@ describe('Global Cache Parsing', function () {
       );
     });
     it('should be equal the cache-entry with the initialised manifest for each webpackage', function () {
-      crcDepMgr._responseCache._cache[ 'org.example.my-webpackage@0.2.0' ].should.deep.equal(
+      crcDepMgr._responseCache._cache['org.example.my-webpackage@0.2.0'].should.deep.equal(
         expectedLocalResponseCache['org.example.my-webpackage@0.2.0']
       );
-      crcDepMgr._responseCache._cache[ 'org.example.package-1@1.0.0' ].should.deep.equal(
+      crcDepMgr._responseCache._cache['org.example.package-1@1.0.0'].should.deep.equal(
         expectedLocalResponseCache['org.example.package-1@1.0.0']
       );
-      crcDepMgr._responseCache._cache[ 'org.example.package-2@1.0.0' ].should.deep.equal(
+      crcDepMgr._responseCache._cache['org.example.package-2@1.0.0'].should.deep.equal(
         expectedLocalResponseCache['org.example.package-2@1.0.0']
       );
-      crcDepMgr._responseCache._cache[ 'org.example.package-3@1.0.0' ].should.deep.equal(
+      crcDepMgr._responseCache._cache['org.example.package-3@1.0.0'].should.deep.equal(
         expectedLocalResponseCache['org.example.package-3@1.0.0']
       );
-      crcDepMgr._responseCache._cache[ 'org.example.package-4@1.0.0' ].should.deep.equal(
+      crcDepMgr._responseCache._cache['org.example.package-4@1.0.0'].should.deep.equal(
         expectedLocalResponseCache['org.example.package-4@1.0.0']
       );
-      crcDepMgr._responseCache._cache[ 'org.example.package-5@1.0.0' ].should.deep.equal(
+      crcDepMgr._responseCache._cache['org.example.package-5@1.0.0'].should.deep.equal(
         expectedLocalResponseCache['org.example.package-5@1.0.0']
       );
-      crcDepMgr._responseCache._cache[ 'org.example.package-6@1.0.0' ].should.deep.equal(
+      crcDepMgr._responseCache._cache['org.example.package-6@1.0.0'].should.deep.equal(
         expectedLocalResponseCache['org.example.package-6@1.0.0']
       );
-      crcDepMgr._responseCache._cache[ 'org.example.package-7@1.0.0' ].should.deep.equal(
+      crcDepMgr._responseCache._cache['org.example.package-7@1.0.0'].should.deep.equal(
         expectedLocalResponseCache['org.example.package-7@1.0.0']
       );
-      crcDepMgr._responseCache._cache[ 'org.example.package-8@1.0.0' ].should.deep.equal(
+      crcDepMgr._responseCache._cache['org.example.package-8@1.0.0'].should.deep.equal(
         expectedLocalResponseCache['org.example.package-8@1.0.0']
       );
       crcDepMgr._responseCache._cache['package-9@1.0.0'].should.deep.equal(

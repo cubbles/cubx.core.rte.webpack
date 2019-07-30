@@ -8,7 +8,7 @@
 var EventFactory = function () {
 };
 
-  /**
+/**
    * Container for event types
    * @memberof EventFactory
    * @namespace EventFactory.types

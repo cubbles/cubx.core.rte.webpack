@@ -149,7 +149,7 @@ export default (function () {
       this._connections.push(connectionObj);
     } else if (oldConnection && !oldConnection.static) {
       var index = _.findIndex(this._connections, oldConnection);
-      this._connections[ index ] = connectionObj;
+      this._connections[index] = connectionObj;
     } else {
       throw new Error('It already exists a static connection with the connectionId (' +
         JSON.stringify(connection.connectionId) +
@@ -184,14 +184,14 @@ export default (function () {
       connectionList = this._connections;
       index = connectionIndex;
     }
-    connection = connectionList[ index ];
+    connection = connectionList[index];
     console.log(connectionId, connectionIndex, connectionList, connection.connectionId);
     if (connection.static) {
       throw new Error('Can not remove connection with id (' + JSON.stringify(connectionId) +
         ') , because the connection is not a dynamic connection.');
     }
 
-    return connectionList.splice(index, 1)[ 0 ];
+    return connectionList.splice(index, 1)[0];
   };
 
   /**
@@ -232,7 +232,7 @@ export default (function () {
     connections.forEach(function (connection) {
       connection.destination.component = element;
       this._activateConnection(connection);
-      var value = connection.source.component.model[ connection.source.slot ];
+      var value = connection.source.component.model[connection.source.slot];
       var payloadObject = window.cubx.cif.cif.getEventFactory().createModelChangePayloadObject(connection.source.slot, value);
       this._processConnection(connection, payloadObject);
     }.bind(this));
@@ -264,7 +264,7 @@ export default (function () {
   ConnectionManager.prototype._removeConnection = function (connection) {
     var index = this._connections.indexOf(connection);
     if (index > -1) {
-      return this._connections.splice(index, 1)[ 0 ];
+      return this._connections.splice(index, 1)[0];
     }
   };
 
@@ -319,7 +319,7 @@ export default (function () {
    * @memberOf ConnectionManager
    */
   ConnectionManager.prototype._executeConnection = function (connection) {
-    var value = connection.source.component.model[ connection.source.slot ];
+    var value = connection.source.component.model[connection.source.slot];
     var payloadObject = {
       payload: value,
       slot: connection.source.slot
@@ -570,8 +570,8 @@ export default (function () {
     connection.source.component = component;
 
     // set destination properties to connection
-    connection.destination.memberId = destination.split(':')[ 0 ];
-    connection.destination.slot = destination.split(':')[ 1 ];
+    connection.destination.memberId = destination.split(':')[0];
+    connection.destination.slot = destination.split(':')[1];
     var walker;
     var node;
     if (connection.destination.memberId === 'parent') {

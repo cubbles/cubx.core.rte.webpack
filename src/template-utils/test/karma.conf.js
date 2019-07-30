@@ -10,13 +10,13 @@ module.exports = function (config) {
 
     // frameworks to use
     // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
-    frameworks: [ 'mocha', 'sinon-chai' ],
+    frameworks: ['mocha', 'sinon-chai'],
 
     // list of files / patterns to load in the browser
     files: [
       'test/mocha-config.js',
       'js/template-utils.js',
-      {pattern: 'test/resources/*.html', included: false, served: true},
+      { pattern: 'test/resources/*.html', included: false, served: true },
       'test/unit/**/*_test.js'
     ],
 
@@ -26,13 +26,13 @@ module.exports = function (config) {
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
-      'template-utils.js': [ 'coverage' ]
+      'template-utils.js': ['coverage']
     },
 
     // test results reporter to use
     // possible values: 'dots', 'progress'
     // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-    reporters: [ 'progress', 'junit', 'html', 'mocha', 'coverage' ],
+    reporters: ['progress', 'junit', 'html', 'mocha', 'coverage'],
     // reporters: ['progress'],
     junitReporter: {
       outputDir: 'test-results/surefire-reports',
@@ -71,7 +71,7 @@ module.exports = function (config) {
 
     // browsers: [ 'Chrome', 'Firefox' ],
     // use just Chrome for debugging in Webstorm
-    browsers: [ 'Chrome' ],
+    browsers: ['Chrome'],
     captureTimeout: 10000,
 
     // Continuous Integration mode
@@ -81,13 +81,13 @@ module.exports = function (config) {
     customLaunchers: {
       Chrome_travis_ci: {
         base: 'Chrome',
-        flags: [ '--no-sandbox' ]
+        flags: ['--no-sandbox']
       }
     }
   };
 
   if (process.env.TRAVIS) {
-    configuration.browsers = [ 'Chrome_travis_ci', 'Firefox' ];
+    configuration.browsers = ['Chrome_travis_ci', 'Firefox'];
   }
 
   config.set(configuration);

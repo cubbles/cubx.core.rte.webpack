@@ -60,7 +60,7 @@ describe('ConnectionManager', function () {
             {
               slotId: 'message',
               type: 'string',
-              direction: [ 'output' ]
+              direction: ['output']
             }
           ]
 
@@ -74,7 +74,7 @@ describe('ConnectionManager', function () {
             {
               slotId: 'message',
               type: 'string',
-              direction: [ 'input' ]
+              direction: ['input']
             }
           ]
 
@@ -88,7 +88,7 @@ describe('ConnectionManager', function () {
             {
               slotId: 'message',
               type: 'string',
-              direction: [ 'input' ]
+              direction: ['input']
             }
           ]
 
@@ -102,7 +102,7 @@ describe('ConnectionManager', function () {
             {
               slotId: 'message',
               type: 'string',
-              direction: [ 'input', 'output' ]
+              direction: ['input', 'output']
             }
           ]
 
@@ -116,7 +116,7 @@ describe('ConnectionManager', function () {
             {
               slotId: 'message',
               type: 'string',
-              direction: [ 'input', 'output' ]
+              direction: ['input', 'output']
             }
           ]
 
@@ -519,7 +519,7 @@ describe('ConnectionManager', function () {
             {
               slotId: 'message',
               type: 'string',
-              direction: [ 'output' ]
+              direction: ['output']
             }
           ]
 
@@ -533,7 +533,7 @@ describe('ConnectionManager', function () {
             {
               slotId: 'message',
               type: 'string',
-              direction: [ 'input' ]
+              direction: ['input']
             }
           ]
 
@@ -547,7 +547,7 @@ describe('ConnectionManager', function () {
             {
               slotId: 'message',
               type: 'string',
-              direction: [ 'input' ]
+              direction: ['input']
             }
           ]
 
@@ -561,7 +561,7 @@ describe('ConnectionManager', function () {
             {
               slotId: 'message',
               type: 'string',
-              direction: [ 'input', 'output' ]
+              direction: ['input', 'output']
             }
           ]
 
@@ -575,7 +575,7 @@ describe('ConnectionManager', function () {
             {
               slotId: 'message',
               type: 'string',
-              direction: [ 'input', 'output' ]
+              direction: ['input', 'output']
             }
           ]
 

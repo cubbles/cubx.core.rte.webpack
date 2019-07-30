@@ -95,14 +95,14 @@ describe('CIF', function () {
                   memberId: 'D-Element',
                   artifactType: 'elementaryComponent',
                   artifactId: 'ciftest-d',
-                  slots: [ {
+                  slots: [{
                     slotId: 'testslotD'
                   }
                   ]
                 }
               ],
               connections: []
-            } ],
+            }],
           connections: []
         };
         manifestCiftestE = {
@@ -168,7 +168,7 @@ describe('CIF', function () {
         compoundEl2.setAttribute('member-id', 'two');
         container.appendChild(compoundEl2);
         connectionId = 'testCon1';
-        createConnection(compoundEl, manifestCiftestA.slots[ 0 ].slotId, 'two', manifestCiftestE.slots[ 0 ].slotId, connectionId);
+        createConnection(compoundEl, manifestCiftestA.slots[0].slotId, 'two', manifestCiftestE.slots[0].slotId, connectionId);
         getResolvedComponentStub = sinon.stub(crc, 'getResolvedComponent').callsFake(function (componentId) {
           var ergManifest;
           switch (componentId) {
@@ -189,10 +189,10 @@ describe('CIF', function () {
       });
       afterEach(function () {
         var elList = container.children;
-        while (elList[ 0 ]) {
-          var el = elList[ 0 ];
+        while (elList[0]) {
+          var el = elList[0];
           container.removeChild(el);
-          if (elList[ 0 ] === el) {
+          if (elList[0] === el) {
             elList = container.children;
           }
         }
@@ -221,16 +221,16 @@ describe('CIF', function () {
 
         var conMgr = container.Context.getConnectionMgr();
         conMgr._connections.should.have.length(1);
-        var con = conMgr._connections[ 0 ];
+        var con = conMgr._connections[0];
         expect(con).to.be.exist;
         con.should.have.property('source');
         con.source.should.have.property('component', compoundEl);
         con.source.should.have.property('memberId', compoundEl.getAttribute('member-id'));
-        con.source.should.have.property('slot', manifestCiftestA.slots[ 0 ].slotId);
+        con.source.should.have.property('slot', manifestCiftestA.slots[0].slotId);
         con.should.have.property('destination');
         con.destination.should.have.property('component', compoundEl2);
         con.destination.should.have.property('memberId', compoundEl2.getAttribute('member-id'));
-        con.destination.should.have.property('slot', manifestCiftestE.slots[ 0 ].slotId);
+        con.destination.should.have.property('slot', manifestCiftestE.slots[0].slotId);
         con.should.have.property('connectionId', connectionId);
         con.should.have.property('copyValue', true);
         con.should.have.property('repeatedValues', false);
@@ -255,37 +255,37 @@ describe('CIF', function () {
           artifactId: 'ciftest-a',
           artifactType: 'compoundComponent',
           modelVersion: '8.0.0',
-          slots: [ {
+          slots: [{
             slotId: 'testslotA'
-          } ],
-          members: [ {
+          }],
+          members: [{
             componentId: 'test.package-ciftest-b@0.1/ciftest-b',
             artifactType: 'elementaryComponent',
             artifactId: 'ciftest-b',
             memberId: 'B-Element',
-            slots: [ {
+            slots: [{
               slotId: 'testslotB'
-            } ]
+            }]
           }, {
             componentId: 'test.package-ciftest-c@0.1/ciftest-c',
             artifactType: 'compoundComponent',
             artifactId: 'ciftest-c',
             memberId: 'C-element',
-            slots: [ {
+            slots: [{
               slotId: 'testslotC'
-            } ],
+            }],
 
-            members: [ {
+            members: [{
               componentId: 'test.package-ciftest-d@0.1/ciftest-d',
               memberId: 'D-Element',
               artifactType: 'elementaryComponent',
               artifactId: 'ciftest-d',
-              slots: [ {
+              slots: [{
                 slotId: 'testslotD'
-              } ]
+              }]
 
-            } ],
-            connections: [ {
+            }],
+            connections: [{
               connectionId: 'c-d',
               source: {
                 slot: 'testslotC'
@@ -293,9 +293,9 @@ describe('CIF', function () {
               destination: {
                 memberIdRef: 'D-Element', slot: 'testslotD'
               }
-            } ]
-          } ],
-          connections: [ {
+            }]
+          }],
+          connections: [{
             connectionId: 'b-c',
             source: {
               memberIdRef: 'B-Element', slot: 'testslotB'
@@ -303,44 +303,44 @@ describe('CIF', function () {
             destination: {
               memberIdRef: 'C-Element', slot: 'testslotC'
             }
-          } ]
+          }]
         };
         manifestCiftestE = {
           webpackageId: 'test.package-ciftest-a@0.1/ciftest-e',
           artifactId: 'ciftest-e',
           artifactType: 'compoundComponent',
           modelVersion: '8.0.0',
-          slots: [ {
+          slots: [{
             slotId: 'testslotA'
-          } ],
-          members: [ {
+          }],
+          members: [{
             componentId: 'test.package-ciftest-b@0.1/ciftest-b',
             artifactType: 'elementaryComponent',
             artifactId: 'ciftest-b',
             memberId: 'B-Element',
-            slots: [ {
+            slots: [{
               slotId: 'testslotB'
-            } ]
+            }]
           }, {
             componentId: 'test.package-ciftest-c@0.1/ciftest-a',
             artifactType: 'compoundComponent',
             artifactId: 'ciftest-a',
             memberId: 'A-element',
-            slots: [ {
+            slots: [{
               slotId: 'testslotA'
-            } ],
+            }],
 
-            members: [ {
+            members: [{
               componentId: 'test.package-ciftest-d@0.1/ciftest-d',
               memberId: 'D-Element',
               artifactType: 'elementaryComponent',
               artifactId: 'ciftest-d',
-              slots: [ {
+              slots: [{
                 slotId: 'testslotD'
-              } ]
+              }]
 
-            } ],
-            connections: [ {
+            }],
+            connections: [{
               connectionId: 'a-d',
               source: {
                 slot: 'testslotA'
@@ -348,9 +348,9 @@ describe('CIF', function () {
               destination: {
                 memberIdRef: 'D-Element', slot: 'testslotD'
               }
-            } ]
-          } ],
-          connections: [ {
+            }]
+          }],
+          connections: [{
             connectionId: 'b-a',
             source: {
               memberIdRef: 'B-Element', slot: 'testslotB'
@@ -358,7 +358,7 @@ describe('CIF', function () {
             destination: {
               memberIdRef: 'A-Element', slot: 'testslotA'
             }
-          } ]
+          }]
         };
         crc = window.cubx.CRC;
         container = document.querySelector('[cubx-core-crc]');
@@ -372,7 +372,7 @@ describe('CIF', function () {
         container.appendChild(compoundEl2);
         connectionId = 'testCon1';
         hookFunction = 'function(value, next) { next(value);}';
-        createConnection(compoundEl, manifestCiftestA.slots[ 0 ].slotId, 'two', manifestCiftestE.slots[ 0 ].slotId, connectionId, false, true, hookFunction);
+        createConnection(compoundEl, manifestCiftestA.slots[0].slotId, 'two', manifestCiftestE.slots[0].slotId, connectionId, false, true, hookFunction);
         getResolvedComponentStub = sinon.stub(crc, 'getResolvedComponent').callsFake(function (componentId) {
           var ergManifest;
           switch (componentId) {
@@ -393,10 +393,10 @@ describe('CIF', function () {
       });
       afterEach(function () {
         var elList = container.children;
-        while (elList[ 0 ]) {
-          var el = elList[ 0 ];
+        while (elList[0]) {
+          var el = elList[0];
           container.removeChild(el);
-          if (elList[ 0 ] === el) {
+          if (elList[0] === el) {
             elList = container.children;
           }
         }
@@ -425,16 +425,16 @@ describe('CIF', function () {
 
         var conMgr = container.Context.getConnectionMgr();
         conMgr._connections.should.have.length(1);
-        var con = conMgr._connections[ 0 ];
+        var con = conMgr._connections[0];
         expect(con).to.be.exist;
         con.should.have.property('source');
         con.source.should.have.property('component', compoundEl);
         con.source.should.have.property('memberId', compoundEl.getAttribute('member-id'));
-        con.source.should.have.property('slot', manifestCiftestA.slots[ 0 ].slotId);
+        con.source.should.have.property('slot', manifestCiftestA.slots[0].slotId);
         con.should.have.property('destination');
         con.destination.should.have.property('component', compoundEl2);
         con.destination.should.have.property('memberId', compoundEl2.getAttribute('member-id'));
-        con.destination.should.have.property('slot', manifestCiftestE.slots[ 0 ].slotId);
+        con.destination.should.have.property('slot', manifestCiftestE.slots[0].slotId);
         con.should.have.property('connectionId', connectionId);
         con.should.have.property('copyValue', false);
         con.should.have.property('repeatedValues', true);
@@ -459,37 +459,37 @@ describe('CIF', function () {
           artifactId: 'ciftest-a',
           artifactType: 'compoundComponent',
           modelVersion: '8.0.0',
-          slots: [ {
+          slots: [{
             slotId: 'testslotA'
-          } ],
-          members: [ {
+          }],
+          members: [{
             componentId: 'test.package-ciftest-b@0.1/ciftest-b',
             artifactType: 'elementaryComponent',
             artifactId: 'ciftest-b',
             memberId: 'B-Element',
-            slots: [ {
+            slots: [{
               slotId: 'testslotB'
-            } ]
+            }]
           }, {
             componentId: 'test.package-ciftest-c@0.1/ciftest-c',
             artifactType: 'compoundComponent',
             artifactId: 'ciftest-c',
             memberId: 'C-element',
-            slots: [ {
+            slots: [{
               slotId: 'testslotC'
-            } ],
+            }],
 
-            members: [ {
+            members: [{
               componentId: 'test.package-ciftest-d@0.1/ciftest-d',
               memberId: 'D-Element',
               artifactType: 'elementaryComponent',
               artifactId: 'ciftest-d',
-              slots: [ {
+              slots: [{
                 slotId: 'testslotD'
-              } ]
+              }]
 
-            } ],
-            connections: [ {
+            }],
+            connections: [{
               connectionId: 'c-d',
               source: {
                 slot: 'testslotC'
@@ -497,9 +497,9 @@ describe('CIF', function () {
               destination: {
                 memberIdRef: 'D-Element', slot: 'testslotD'
               }
-            } ]
-          } ],
-          connections: [ {
+            }]
+          }],
+          connections: [{
             connectionId: 'b-c',
             source: {
               memberIdRef: 'B-Element', slot: 'testslotB'
@@ -507,44 +507,44 @@ describe('CIF', function () {
             destination: {
               memberIdRef: 'C-Element', slot: 'testslotC'
             }
-          } ]
+          }]
         };
         manifestCiftestE = {
           webpackageId: 'test.package-ciftest-a@0.1/ciftest-e',
           artifactId: 'ciftest-e',
           artifactType: 'compoundComponent',
           modelVersion: '8.0.0',
-          slots: [ {
+          slots: [{
             slotId: 'testslotA'
-          } ],
-          members: [ {
+          }],
+          members: [{
             componentId: 'test.package-ciftest-b@0.1/ciftest-b',
             artifactType: 'elementaryComponent',
             artifactId: 'ciftest-b',
             memberId: 'B-Element',
-            slots: [ {
+            slots: [{
               slotId: 'testslotB'
-            } ]
+            }]
           }, {
             componentId: 'test.package-ciftest-c@0.1/ciftest-a',
             artifactType: 'compoundComponent',
             artifactId: 'ciftest-a',
             memberId: 'A-element',
-            slots: [ {
+            slots: [{
               slotId: 'testslotA'
-            } ],
+            }],
 
-            members: [ {
+            members: [{
               componentId: 'test.package-ciftest-d@0.1/ciftest-d',
               memberId: 'D-Element',
               artifactType: 'elementaryComponent',
               artifactId: 'ciftest-d',
-              slots: [ {
+              slots: [{
                 slotId: 'testslotD'
-              } ]
+              }]
 
-            } ],
-            connections: [ {
+            }],
+            connections: [{
               connectionId: 'a-d',
               source: {
                 slot: 'testslotA'
@@ -552,9 +552,9 @@ describe('CIF', function () {
               destination: {
                 memberIdRef: 'D-Element', slot: 'testslotD'
               }
-            } ]
-          } ],
-          connections: [ {
+            }]
+          }],
+          connections: [{
             connectionId: 'b-a',
             source: {
               memberIdRef: 'B-Element', slot: 'testslotB'
@@ -562,7 +562,7 @@ describe('CIF', function () {
             destination: {
               memberIdRef: 'A-Element', slot: 'testslotA'
             }
-          } ]
+          }]
         };
         crc = window.cubx.CRC;
         container = document.querySelector('[cubx-core-crc]');
@@ -575,7 +575,7 @@ describe('CIF', function () {
         compoundEl2.setAttribute('member-id', 'two');
         container.appendChild(compoundEl2);
         connectionId = 'testCon1';
-        var con = createConnection(compoundEl, manifestCiftestA.slots[ 0 ].slotId, 'two', manifestCiftestE.slots[ 0 ].slotId, connectionId);
+        var con = createConnection(compoundEl, manifestCiftestA.slots[0].slotId, 'two', manifestCiftestE.slots[0].slotId, connectionId);
         con.setAttribute('type', 'internal');
         getResolvedComponentStub = sinon.stub(crc, 'getResolvedComponent').callsFake(function (componentId) {
           var ergManifest;
@@ -598,10 +598,10 @@ describe('CIF', function () {
       });
       afterEach(function () {
         var elList = container.children;
-        while (elList[ 0 ]) {
-          var el = elList[ 0 ];
+        while (elList[0]) {
+          var el = elList[0];
           container.removeChild(el);
-          if (elList[ 0 ] === el) {
+          if (elList[0] === el) {
             elList = container.children;
           }
         }
@@ -642,37 +642,37 @@ describe('CIF', function () {
           artifactId: 'ciftest-a',
           artifactType: 'compoundComponent',
           modelVersion: '8.0.0',
-          slots: [ {
+          slots: [{
             slotId: 'testslotA'
-          } ],
-          members: [ {
+          }],
+          members: [{
             componentId: 'test.package-ciftest-b@0.1/ciftest-b',
             artifactType: 'elementaryComponent',
             artifactId: 'ciftest-b',
             memberId: 'B-Element',
-            slots: [ {
+            slots: [{
               slotId: 'testslotB'
-            } ]
+            }]
           }, {
             componentId: 'test.package-ciftest-c@0.1/ciftest-c',
             artifactType: 'compoundComponent',
             artifactId: 'ciftest-c',
             memberId: 'C-element',
-            slots: [ {
+            slots: [{
               slotId: 'testslotC'
-            } ],
+            }],
 
-            members: [ {
+            members: [{
               componentId: 'test.package-ciftest-d@0.1/ciftest-d',
               memberId: 'D-Element',
               artifactType: 'elementaryComponent',
               artifactId: 'ciftest-d',
-              slots: [ {
+              slots: [{
                 slotId: 'testslotD'
-              } ]
+              }]
 
-            } ],
-            connections: [ {
+            }],
+            connections: [{
               connectionId: 'c-d',
               source: {
                 slot: 'testslotC'
@@ -680,9 +680,9 @@ describe('CIF', function () {
               destination: {
                 memberIdRef: 'D-Element', slot: 'testslotD'
               }
-            } ]
-          } ],
-          connections: [ {
+            }]
+          }],
+          connections: [{
             connectionId: 'b-c',
             source: {
               memberIdRef: 'B-Element', slot: 'testslotB'
@@ -690,44 +690,44 @@ describe('CIF', function () {
             destination: {
               memberIdRef: 'C-Element', slot: 'testslotC'
             }
-          } ]
+          }]
         };
         manifestCiftestE = {
           webpackageId: 'test.package-ciftest-a@0.1/ciftest-e',
           artifactId: 'ciftest-e',
           artifactType: 'compoundComponent',
           modelVersion: '8.0.0',
-          slots: [ {
+          slots: [{
             slotId: 'testslotA'
-          } ],
-          members: [ {
+          }],
+          members: [{
             componentId: 'test.package-ciftest-b@0.1/ciftest-b',
             artifactType: 'elementaryComponent',
             artifactId: 'ciftest-b',
             memberId: 'B-Element',
-            slots: [ {
+            slots: [{
               slotId: 'testslotB'
-            } ]
+            }]
           }, {
             componentId: 'test.package-ciftest-c@0.1/ciftest-a',
             artifactType: 'compoundComponent',
             artifactId: 'ciftest-a',
             memberId: 'A-element',
-            slots: [ {
+            slots: [{
               slotId: 'testslotA'
-            } ],
+            }],
 
-            members: [ {
+            members: [{
               componentId: 'test.package-ciftest-d@0.1/ciftest-d',
               memberId: 'D-Element',
               artifactType: 'elementaryComponent',
               artifactId: 'ciftest-d',
-              slots: [ {
+              slots: [{
                 slotId: 'testslotD'
-              } ]
+              }]
 
-            } ],
-            connections: [ {
+            }],
+            connections: [{
               connectionId: 'a-d',
               source: {
                 slot: 'testslotA'
@@ -735,9 +735,9 @@ describe('CIF', function () {
               destination: {
                 memberIdRef: 'D-Element', slot: 'testslotD'
               }
-            } ]
-          } ],
-          connections: [ {
+            }]
+          }],
+          connections: [{
             connectionId: 'b-a',
             source: {
               memberIdRef: 'B-Element', slot: 'testslotB'
@@ -745,44 +745,44 @@ describe('CIF', function () {
             destination: {
               memberIdRef: 'A-Element', slot: 'testslotA'
             }
-          } ]
+          }]
         };
         manifestCiftestF = {
           webpackageId: 'test.package-ciftest-a@0.1/ciftest-f',
           artifactId: 'ciftest-f',
           artifactType: 'compoundComponent',
           modelVersion: '8.0.0',
-          slots: [ {
+          slots: [{
             slotId: 'testslotA'
-          } ],
-          members: [ {
+          }],
+          members: [{
             componentId: 'test.package-ciftest-b@0.1/ciftest-b',
             artifactType: 'elementaryComponent',
             artifactId: 'ciftest-b',
             memberId: 'B-Element',
-            slots: [ {
+            slots: [{
               slotId: 'testslotB'
-            } ]
+            }]
           }, {
             componentId: 'test.package-ciftest-c@0.1/ciftest-a',
             artifactType: 'compoundComponent',
             artifactId: 'ciftest-a',
             memberId: 'A-element',
-            slots: [ {
+            slots: [{
               slotId: 'testslotA'
-            } ],
+            }],
 
-            members: [ {
+            members: [{
               componentId: 'test.package-ciftest-d@0.1/ciftest-d',
               memberId: 'D-Element',
               artifactType: 'elementaryComponent',
               artifactId: 'ciftest-d',
-              slots: [ {
+              slots: [{
                 slotId: 'testslotD'
-              } ]
+              }]
 
-            } ],
-            connections: [ {
+            }],
+            connections: [{
               connectionId: 'a-d',
               source: {
                 slot: 'testslotA'
@@ -790,9 +790,9 @@ describe('CIF', function () {
               destination: {
                 memberIdRef: 'D-Element', slot: 'testslotD'
               }
-            } ]
-          } ],
-          connections: [ {
+            }]
+          }],
+          connections: [{
             connectionId: 'b-a',
             source: {
               memberIdRef: 'B-Element', slot: 'testslotB'
@@ -800,7 +800,7 @@ describe('CIF', function () {
             destination: {
               memberIdRef: 'A-Element', slot: 'testslotA'
             }
-          } ]
+          }]
         };
         crc = window.cubx.CRC;
         container = document.querySelector('[cubx-core-crc]');
@@ -817,11 +817,11 @@ describe('CIF', function () {
         compoundEl3.setAttribute('member-id', 'three');
         container.appendChild(compoundEl3);
         connectionId1 = 'testCon1';
-        createConnection(compoundEl, manifestCiftestA.slots[ 0 ].slotId, 'two', manifestCiftestE.slots[ 0 ].slotId, connectionId1);
+        createConnection(compoundEl, manifestCiftestA.slots[0].slotId, 'two', manifestCiftestE.slots[0].slotId, connectionId1);
         connectionId2 = 'testCon2';
-        createConnection(compoundEl2, manifestCiftestE.slots[ 0 ].slotId, 'three', manifestCiftestF.slots[ 0 ].slotId, connectionId2);
+        createConnection(compoundEl2, manifestCiftestE.slots[0].slotId, 'three', manifestCiftestF.slots[0].slotId, connectionId2);
         connectionId3 = 'testCon3';
-        createConnection(compoundEl3, manifestCiftestF.slots[ 0 ].slotId, 'one', manifestCiftestA.slots[ 0 ].slotId, connectionId3);
+        createConnection(compoundEl3, manifestCiftestF.slots[0].slotId, 'one', manifestCiftestA.slots[0].slotId, connectionId3);
         getResolvedComponentStub = sinon.stub(crc, 'getResolvedComponent').callsFake(function (componentId) {
           var ergManifest;
           switch (componentId) {
@@ -845,10 +845,10 @@ describe('CIF', function () {
       });
       afterEach(function () {
         var elList = container.children;
-        while (elList[ 0 ]) {
-          var el = elList[ 0 ];
+        while (elList[0]) {
+          var el = elList[0];
           container.removeChild(el);
-          if (elList[ 0 ] === el) {
+          if (elList[0] === el) {
             elList = container.children;
           }
         }
@@ -881,46 +881,46 @@ describe('CIF', function () {
 
         var conMgr = container.Context.getConnectionMgr();
         conMgr._connections.should.have.length(3);
-        var con = conMgr._connections[ 0 ];
+        var con = conMgr._connections[0];
         expect(con).to.be.exist;
         con.should.have.property('source');
         con.source.should.have.property('component', compoundEl);
         con.source.should.have.property('memberId', compoundEl.getAttribute('member-id'));
-        con.source.should.have.property('slot', manifestCiftestA.slots[ 0 ].slotId);
+        con.source.should.have.property('slot', manifestCiftestA.slots[0].slotId);
         con.should.have.property('destination');
         con.destination.should.have.property('component', compoundEl2);
         con.destination.should.have.property('memberId', compoundEl2.getAttribute('member-id'));
-        con.destination.should.have.property('slot', manifestCiftestE.slots[ 0 ].slotId);
+        con.destination.should.have.property('slot', manifestCiftestE.slots[0].slotId);
         con.should.have.property('connectionId', connectionId1);
         con.should.have.property('copyValue', true);
         con.should.have.property('repeatedValues', false);
         con.should.have.property('hookFunction', null);
 
-        con = conMgr._connections[ 1 ];
+        con = conMgr._connections[1];
         expect(con).to.be.exist;
         con.should.have.property('source');
         con.source.should.have.property('component', compoundEl2);
         con.source.should.have.property('memberId', compoundEl2.getAttribute('member-id'));
-        con.source.should.have.property('slot', manifestCiftestE.slots[ 0 ].slotId);
+        con.source.should.have.property('slot', manifestCiftestE.slots[0].slotId);
         con.should.have.property('destination');
         con.destination.should.have.property('component', compoundEl3);
         con.destination.should.have.property('memberId', compoundEl3.getAttribute('member-id'));
-        con.destination.should.have.property('slot', manifestCiftestF.slots[ 0 ].slotId);
+        con.destination.should.have.property('slot', manifestCiftestF.slots[0].slotId);
         con.should.have.property('connectionId', connectionId2);
         con.should.have.property('copyValue', true);
         con.should.have.property('repeatedValues', false);
         con.should.have.property('hookFunction', null);
 
-        con = conMgr._connections[ 2 ];
+        con = conMgr._connections[2];
         expect(con).to.be.exist;
         con.should.have.property('source');
         con.source.should.have.property('component', compoundEl3);
         con.source.should.have.property('memberId', compoundEl3.getAttribute('member-id'));
-        con.source.should.have.property('slot', manifestCiftestF.slots[ 0 ].slotId);
+        con.source.should.have.property('slot', manifestCiftestF.slots[0].slotId);
         con.should.have.property('destination');
         con.destination.should.have.property('component', compoundEl);
         con.destination.should.have.property('memberId', compoundEl.getAttribute('member-id'));
-        con.destination.should.have.property('slot', manifestCiftestA.slots[ 0 ].slotId);
+        con.destination.should.have.property('slot', manifestCiftestA.slots[0].slotId);
         con.should.have.property('connectionId', connectionId3);
         con.should.have.property('copyValue', true);
         con.should.have.property('repeatedValues', false);
@@ -956,7 +956,7 @@ describe('CIF', function () {
               artifactType: 'elementaryComponent',
               artifactId: 'ciftest-b',
               memberId: 'B-Element',
-              slots: [ {
+              slots: [{
                 slotId: 'testslotB'
               }
               ]
@@ -1041,9 +1041,9 @@ describe('CIF', function () {
               slots: [
                 {
                   slotId: 'testslotA'
-                } ],
+                }],
 
-              members: [ {
+              members: [{
                 componentId: 'test.package-ciftest-d@0.1/ciftest-d',
                 memberId: 'D-Element',
                 artifactType: 'elementaryComponent',
@@ -1051,9 +1051,9 @@ describe('CIF', function () {
                 slots: [
                   {
                     slotId: 'testslotD'
-                  } ]
+                  }]
 
-              } ],
+              }],
               connections: [
                 {
                   connectionId: 'a-d',
@@ -1121,17 +1121,17 @@ describe('CIF', function () {
         container.appendChild(compoundEl2);
         connectionId = 'testCon1';
         // First cubx-core-connections
-        createConnection(compoundEl, manifestCiftestA.slots[ 0 ].slotId, 'two', manifestCiftestE.slots[ 0 ].slotId, connectionId);
+        createConnection(compoundEl, manifestCiftestA.slots[0].slotId, 'two', manifestCiftestE.slots[0].slotId, connectionId);
         // Than cubx-core-init
-        createSlotInit(compoundEl, manifestCiftestA.slots[ 0 ].slotId, '"Hello World!"');
+        createSlotInit(compoundEl, manifestCiftestA.slots[0].slotId, '"Hello World!"');
         spy = sinon.spy(cif._initializer, 'resetInitList');
       });
       afterEach(function () {
         var elList = container.children;
-        while (elList[ 0 ]) {
-          var el = elList[ 0 ];
+        while (elList[0]) {
+          var el = elList[0];
           container.removeChild(el);
-          if (elList[ 0 ] === el) {
+          if (elList[0] === el) {
             elList = container.children;
           }
         }
@@ -1164,16 +1164,16 @@ describe('CIF', function () {
 
         var conMgr = container.Context.getConnectionMgr();
         conMgr._connections.should.have.length(1);
-        var con = conMgr._connections[ 0 ];
+        var con = conMgr._connections[0];
         expect(con).to.be.exist;
         con.should.have.property('source');
         con.source.should.have.property('component', compoundEl);
         con.source.should.have.property('memberId', compoundEl.getAttribute('member-id'));
-        con.source.should.have.property('slot', manifestCiftestA.slots[ 0 ].slotId);
+        con.source.should.have.property('slot', manifestCiftestA.slots[0].slotId);
         con.should.have.property('destination');
         con.destination.should.have.property('component', compoundEl2);
         con.destination.should.have.property('memberId', compoundEl2.getAttribute('member-id'));
-        con.destination.should.have.property('slot', manifestCiftestE.slots[ 0 ].slotId);
+        con.destination.should.have.property('slot', manifestCiftestE.slots[0].slotId);
         con.should.have.property('connectionId', connectionId);
         con.should.have.property('copyValue', true);
         con.should.have.property('repeatedValues', false);
@@ -1214,37 +1214,37 @@ describe('CIF', function () {
           artifactId: 'ciftest-a',
           artifactType: 'compoundComponent',
           modelVersion: '8.0.0',
-          slots: [ {
+          slots: [{
             slotId: 'testslotA'
-          } ],
-          members: [ {
+          }],
+          members: [{
             componentId: 'test.package-ciftest-b@0.1/ciftest-b',
             artifactType: 'elementaryComponent',
             artifactId: 'ciftest-b',
             memberId: 'B-Element',
-            slots: [ {
+            slots: [{
               slotId: 'testslotB'
-            } ]
+            }]
           }, {
             componentId: 'test.package-ciftest-c@0.1/ciftest-c',
             artifactType: 'compoundComponent',
             artifactId: 'ciftest-c',
             memberId: 'C-element',
-            slots: [ {
+            slots: [{
               slotId: 'testslotC'
-            } ],
+            }],
 
-            members: [ {
+            members: [{
               componentId: 'test.package-ciftest-d@0.1/ciftest-d',
               memberId: 'D-Element',
               artifactType: 'elementaryComponent',
               artifactId: 'ciftest-d',
-              slots: [ {
+              slots: [{
                 slotId: 'testslotD'
-              } ]
+              }]
 
-            } ],
-            connections: [ {
+            }],
+            connections: [{
               connectionId: 'c-d',
               source: {
                 slot: 'testslotC'
@@ -1252,9 +1252,9 @@ describe('CIF', function () {
               destination: {
                 memberIdRef: 'D-Element', slot: 'testslotD'
               }
-            } ]
-          } ],
-          connections: [ {
+            }]
+          }],
+          connections: [{
             connectionId: 'b-c',
             source: {
               memberIdRef: 'B-Element', slot: 'testslotB'
@@ -1262,16 +1262,16 @@ describe('CIF', function () {
             destination: {
               memberIdRef: 'C-Element', slot: 'testslotC'
             }
-          } ]
+          }]
         };
         manifestCiftestE = {
           webpackageId: 'test.package-ciftest-a@0.1/ciftest-e',
           artifactId: 'ciftest-e',
           artifactType: 'compoundComponent',
           modelVersion: '8.0.0',
-          slots: [ {
+          slots: [{
             slotId: 'testslotA'
-          } ],
+          }],
           members: [
             {
               componentId: 'test.package-ciftest-b@0.1/ciftest-b',
@@ -1292,7 +1292,7 @@ describe('CIF', function () {
               slots: [
                 {
                   slotId: 'testslotA'
-                } ],
+                }],
 
               members: [
                 {
@@ -1300,12 +1300,12 @@ describe('CIF', function () {
                   memberId: 'D-Element',
                   artifactType: 'elementaryComponent',
                   artifactId: 'ciftest-d',
-                  slots: [ {
+                  slots: [{
                     slotId: 'testslotD'
                   }
                   ]
 
-                } ],
+                }],
               connections: [
                 {
                   connectionId: 'a-d',
@@ -1373,16 +1373,16 @@ describe('CIF', function () {
         container.appendChild(compoundEl2);
         connectionId = 'testCon1';
         // First cubx-core-init
-        createSlotInit(compoundEl, manifestCiftestA.slots[ 0 ].slotId, '"Hello World!"');
+        createSlotInit(compoundEl, manifestCiftestA.slots[0].slotId, '"Hello World!"');
         // Then cubx-core-connections
-        createConnection(compoundEl, manifestCiftestA.slots[ 0 ].slotId, 'two', manifestCiftestE.slots[ 0 ].slotId, connectionId);
+        createConnection(compoundEl, manifestCiftestA.slots[0].slotId, 'two', manifestCiftestE.slots[0].slotId, connectionId);
       });
       afterEach(function () {
         var elList = container.children;
-        while (elList[ 0 ]) {
-          var el = elList[ 0 ];
+        while (elList[0]) {
+          var el = elList[0];
           container.removeChild(el);
-          if (elList[ 0 ] === el) {
+          if (elList[0] === el) {
             elList = container.children;
           }
         }
@@ -1414,16 +1414,16 @@ describe('CIF', function () {
 
         var conMgr = container.Context.getConnectionMgr();
         conMgr._connections.should.have.length(1);
-        var con = conMgr._connections[ 0 ];
+        var con = conMgr._connections[0];
         expect(con).to.be.exist;
         con.should.have.property('source');
         con.source.should.have.property('component', compoundEl);
         con.source.should.have.property('memberId', compoundEl.getAttribute('member-id'));
-        con.source.should.have.property('slot', manifestCiftestA.slots[ 0 ].slotId);
+        con.source.should.have.property('slot', manifestCiftestA.slots[0].slotId);
         con.should.have.property('destination');
         con.destination.should.have.property('component', compoundEl2);
         con.destination.should.have.property('memberId', compoundEl2.getAttribute('member-id'));
-        con.destination.should.have.property('slot', manifestCiftestE.slots[ 0 ].slotId);
+        con.destination.should.have.property('slot', manifestCiftestE.slots[0].slotId);
         con.should.have.property('connectionId', connectionId);
         con.should.have.property('copyValue', true);
         con.should.have.property('repeatedValues', false);
@@ -1490,14 +1490,14 @@ describe('CIF', function () {
                   memberId: 'D-Element',
                   artifactType: 'elementaryComponent',
                   artifactId: 'ciftest-d',
-                  slots: [ {
+                  slots: [{
                     slotId: 'testslotD'
                   }
                   ]
                 }
               ],
               connections: []
-            } ],
+            }],
           connections: []
         };
         manifestCiftestE = {
@@ -1565,7 +1565,7 @@ describe('CIF', function () {
         compoundEl2.setAttribute('member-id', 'two');
         divEl.appendChild(compoundEl2);
         connectionId = 'testCon1';
-        createConnection(compoundEl, manifestCiftestA.slots[ 0 ].slotId, 'two', manifestCiftestE.slots[ 0 ].slotId, connectionId);
+        createConnection(compoundEl, manifestCiftestA.slots[0].slotId, 'two', manifestCiftestE.slots[0].slotId, connectionId);
         getResolvedComponentStub = sinon.stub(crc, 'getResolvedComponent').callsFake(function (componentId) {
           var ergManifest;
           switch (componentId) {
@@ -1586,10 +1586,10 @@ describe('CIF', function () {
       });
       afterEach(function () {
         var elList = container.children;
-        while (elList[ 0 ]) {
-          var el = elList[ 0 ];
+        while (elList[0]) {
+          var el = elList[0];
           container.removeChild(el);
-          if (elList[ 0 ] === el) {
+          if (elList[0] === el) {
             elList = container.children;
           }
         }
@@ -1618,16 +1618,16 @@ describe('CIF', function () {
 
         var conMgr = container.Context.getConnectionMgr();
         conMgr._connections.should.have.length(1);
-        var con = conMgr._connections[ 0 ];
+        var con = conMgr._connections[0];
         expect(con).to.be.exist;
         con.should.have.property('source');
         con.source.should.have.property('component', compoundEl);
         con.source.should.have.property('memberId', compoundEl.getAttribute('member-id'));
-        con.source.should.have.property('slot', manifestCiftestA.slots[ 0 ].slotId);
+        con.source.should.have.property('slot', manifestCiftestA.slots[0].slotId);
         con.should.have.property('destination');
         con.destination.should.have.property('component', compoundEl2);
         con.destination.should.have.property('memberId', compoundEl2.getAttribute('member-id'));
-        con.destination.should.have.property('slot', manifestCiftestE.slots[ 0 ].slotId);
+        con.destination.should.have.property('slot', manifestCiftestE.slots[0].slotId);
         con.should.have.property('connectionId', connectionId);
         con.should.have.property('copyValue', true);
         con.should.have.property('repeatedValues', false);

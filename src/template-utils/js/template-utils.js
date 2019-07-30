@@ -10,7 +10,7 @@ export default (function () {
     var importDocList = document.querySelectorAll('link[rel=import]');
     var importDoc;
     for (var i = 0; i < importDocList.length; i++) {
-      importDoc = importDocList[ i ];
+      importDoc = importDocList[i];
 
       promises.push(new Promise(function (resolve, reject) {
         if (importDoc.import) {

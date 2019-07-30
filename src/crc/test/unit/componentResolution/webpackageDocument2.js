@@ -1,98 +1,98 @@
 export default {
-  'name': 'compound-B',
-  'groupId': 'test',
-  'version': '1.0.0',
-  'modelVersion': '9.1.0',
-  'docType': 'webpackage',
-  'author': {
-    'name': 'John Doe',
-    'email': 'john.doe@example.org'
+  name: 'compound-B',
+  groupId: 'test',
+  version: '1.0.0',
+  modelVersion: '9.1.0',
+  docType: 'webpackage',
+  author: {
+    name: 'John Doe',
+    email: 'john.doe@example.org'
   },
-  'license': 'MIT',
-  'runnables': [
+  license: 'MIT',
+  runnables: [
     {
-      'name': 'readme',
-      'description': 'read me...',
-      'path': '_doc/readme.html'
+      name: 'readme',
+      description: 'read me...',
+      path: '_doc/readme.html'
     }
   ],
-  'artifacts': {
-    'compoundComponents': [
+  artifacts: {
+    compoundComponents: [
       {
-        'artifactId': 'compound-B',
-        'resources': [
+        artifactId: 'compound-B',
+        resources: [
           'res1.html'
         ],
-        'dependencies': [
+        dependencies: [
           {
-            'webpackageId': 'test.elementary-D@1.0.0',
-            'artifactId': 'elementary-D'
+            webpackageId: 'test.elementary-D@1.0.0',
+            artifactId: 'elementary-D'
           },
           {
-            'webpackageId': 'test.elementary-E@1.0.0',
-            'artifactId': 'elementary-E'
+            webpackageId: 'test.elementary-E@1.0.0',
+            artifactId: 'elementary-E'
           }
         ],
-        'slots': [
+        slots: [
           {
-            'slotId': 'outputB',
-            'type': 'number'
+            slotId: 'outputB',
+            type: 'number'
           }
         ],
-        'members': [
+        members: [
           {
-            'artifactId': 'elementary-D',
-            'memberId': '1',
-            'displayName': 'Elementary Component D'
+            artifactId: 'elementary-D',
+            memberId: '1',
+            displayName: 'Elementary Component D'
           },
           {
-            'artifactId': 'elementary-E',
-            'memberId': '2',
-            'displayName': 'Elementary Component E'
+            artifactId: 'elementary-E',
+            memberId: '2',
+            displayName: 'Elementary Component E'
           }
         ],
-        'connections': [
+        connections: [
           {
-            'connectionId': '1',
-            'source': {
-              'memberIdRef': '1',
-              'slot': 'outputD'
+            connectionId: '1',
+            source: {
+              memberIdRef: '1',
+              slot: 'outputD'
             },
-            'destination': {
-              'memberIdRef': '2',
-              'slot': 'inputE'
+            destination: {
+              memberIdRef: '2',
+              slot: 'inputE'
             }
           },
           {
-            'connectionId': '2',
-            'source': {
-              'memberIdRef': '2',
-              'slot': 'outputE'
+            connectionId: '2',
+            source: {
+              memberIdRef: '2',
+              slot: 'outputE'
             },
-            'destination': {
-              'slot': 'outputB'
+            destination: {
+              slot: 'outputB'
             }
           },
           {
-            'connectionId': '3',
-            'source': {
-              'slot': 'inputB'
+            connectionId: '3',
+            source: {
+              slot: 'inputB'
             },
-            'destination': {
-              'memberIdRef': '1',
-              'slot': 'inputD'
+            destination: {
+              memberIdRef: '1',
+              slot: 'inputD'
             }
           }
         ],
-        'inits': [
+        inits: [
           {
-            'memberIdRef': '2',
-            'slot': 'inputE',
-            'value': 'hallo inputE'
+            memberIdRef: '2',
+            slot: 'inputE',
+            value: 'hallo inputE'
           },
           {
-            'slot': 'inputB',
-            'value': 'hallo inputB'
+            slot: 'inputB',
+            value: 'hallo inputB'
           }
         ]
       }

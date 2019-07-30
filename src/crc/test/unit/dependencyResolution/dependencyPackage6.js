@@ -1,11 +1,11 @@
 export default {
-  'artifacts': {
-    'utilities': [
+  artifacts: {
+    utilities: [
       {
-        'artifactId': 'util6',
-        'description': 'This util demonstrates ...',
-        'resources': [],
-        'dependencies': []
+        artifactId: 'util6',
+        description: 'This util demonstrates ...',
+        resources: [],
+        dependencies: []
       }
     ]
   }

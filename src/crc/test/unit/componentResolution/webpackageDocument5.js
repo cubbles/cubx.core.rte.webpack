@@ -1,38 +1,38 @@
 export default {
-  'name': 'elementary-E',
-  'groupId': 'test',
-  'version': '1.0.0',
-  'modelVersion': '9.1.0',
-  'docType': 'webpackage',
-  'author': {
-    'name': 'John Doe',
-    'email': 'john.doe@example.org'
+  name: 'elementary-E',
+  groupId: 'test',
+  version: '1.0.0',
+  modelVersion: '9.1.0',
+  docType: 'webpackage',
+  author: {
+    name: 'John Doe',
+    email: 'john.doe@example.org'
   },
-  'license': 'MIT',
-  'runnables': [
+  license: 'MIT',
+  runnables: [
     {
-      'name': 'readme',
-      'description': 'read me...',
-      'path': '_doc/readme.html'
+      name: 'readme',
+      description: 'read me...',
+      path: '_doc/readme.html'
     }
   ],
-  'artifacts': {
-    'elementaryComponents': [
+  artifacts: {
+    elementaryComponents: [
       {
-        'artifactId': 'elementary-E',
-        'resources': [
+        artifactId: 'elementary-E',
+        resources: [
           'res1.html'
         ],
-        'slots': [
+        slots: [
           {
-            'slotId': 'inputE',
-            'type': 'string',
-            'direction': ['input']
+            slotId: 'inputE',
+            type: 'string',
+            direction: ['input']
           },
           {
-            'slotId': 'outputE',
-            'type': 'string',
-            'direction': ['output']
+            slotId: 'outputE',
+            type: 'string',
+            direction: ['output']
           }
         ]
       }

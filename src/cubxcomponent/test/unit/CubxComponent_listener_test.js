@@ -1,5 +1,5 @@
 /* globals HTMLImports, Event */
-import {getContainer, createHtmlImport} from '../helpers';
+import { getContainer, createHtmlImport } from '../helpers';
 
 describe('CubxComponent (listener)', function () {
   before(function (done) {
@@ -130,7 +130,7 @@ describe('CubxComponent (listener)', function () {
         beforeEach(function () {
           var el = document.querySelector('#input1');
           el.value = 'xxx';
-          el.dispatchEvent(new Event('change', {bubbles: true}));
+          el.dispatchEvent(new Event('change', { bubbles: true }));
         });
         it('should be spyChangeGlobal called', function () {
           spyChangeGlobal.should.be.calledOnce;
@@ -143,7 +143,7 @@ describe('CubxComponent (listener)', function () {
         beforeEach(function () {
           var el = document.querySelector('#input2');
           el.value = 'xxx';
-          el.dispatchEvent(new Event('change', {bubbles: true}));
+          el.dispatchEvent(new Event('change', { bubbles: true }));
         });
         it('should be spyChangeGlobal called', function () {
           spyChangeGlobal.should.be.calledOnce;
@@ -156,7 +156,7 @@ describe('CubxComponent (listener)', function () {
         beforeEach(function () {
           var el = document.querySelector('#textarea1');
           el.value = 'xxx';
-          el.dispatchEvent(new Event('change', {bubbles: true}));
+          el.dispatchEvent(new Event('change', { bubbles: true }));
         });
         it('should be spyChangeGlobal called', function () {
           spyChangeGlobal.should.be.calledOnce;

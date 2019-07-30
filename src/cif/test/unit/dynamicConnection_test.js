@@ -22,9 +22,9 @@ describe('DynamicConnection', function () {
       it('should be not valid', function () {
         var error = dynamicConnection.validate();
         error.should.be.length(3);
-        error[ 0 ].should.be.equals('Not valid "connectionId" (undefined). It must be a string.');
-        error[ 1 ].should.be.equals('The "source" is missed.');
-        error[ 2 ].should.be.equals('The "destination" is missed.');
+        error[0].should.be.equals('Not valid "connectionId" (undefined). It must be a string.');
+        error[1].should.be.equals('The "source" is missed.');
+        error[2].should.be.equals('The "destination" is missed.');
       });
     });
     describe('constructor with valid config parameter', function () {
@@ -553,9 +553,9 @@ describe('DynamicConnection', function () {
         it('should be not valid', function () {
           var error = dynamicConnection.validate();
           error.should.be.length(3);
-          error[ 0 ].should.be.equals('Not valid "connectionId" (undefined). It must be a string.');
-          error[ 1 ].should.be.equals('The "source" is missed.');
-          error[ 2 ].should.be.equals('The "destination" is missed.');
+          error[0].should.be.equals('Not valid "connectionId" (undefined). It must be a string.');
+          error[1].should.be.equals('The "source" is missed.');
+          error[2].should.be.equals('The "destination" is missed.');
         });
       });
       describe('validate a valid dynamicConnection', function () {

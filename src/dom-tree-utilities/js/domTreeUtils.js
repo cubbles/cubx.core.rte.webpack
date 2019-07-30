@@ -10,8 +10,8 @@
 export function elementFindByAttributeValue (attribute, value) {
   var all = document.getElementsByTagName('*');
   for (var i = 0; i < all.length; i++) {
-    if (all[ i ].getAttribute(attribute) === value) {
-      return all[ i ];
+    if (all[i].getAttribute(attribute) === value) {
+      return all[i];
     }
   }
 }

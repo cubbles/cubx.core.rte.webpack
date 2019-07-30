@@ -1,12 +1,12 @@
-import {getTestComponentCacheEntry} from '../helpers';
+import { getTestComponentCacheEntry } from '../helpers';
 
-getTestComponentCacheEntry()[ 'dummy-connection-hook' ] = {
-  'slots': [
+getTestComponentCacheEntry()['dummy-connection-hook'] = {
+  slots: [
     {
-      'slotId': 'message',
-      'type': 'string',
-      'direction': [ 'input', 'output' ],
-      'value': 'Hallo Webble Word!'
+      slotId: 'message',
+      type: 'string',
+      direction: ['input', 'output'],
+      value: 'Hallo Webble Word!'
     }
   ]
 };

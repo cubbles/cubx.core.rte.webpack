@@ -1,136 +1,136 @@
 export default {
-  'name': 'compound-A',
-  'groupId': 'test',
-  'version': '1.0.0',
-  'modelVersion': '9.1.0',
-  'docType': 'webpackage',
-  'author': {
-    'name': 'John Doe',
-    'email': 'john.doe@example.org'
+  name: 'compound-A',
+  groupId: 'test',
+  version: '1.0.0',
+  modelVersion: '9.1.0',
+  docType: 'webpackage',
+  author: {
+    name: 'John Doe',
+    email: 'john.doe@example.org'
   },
-  'license': 'MIT',
-  'runnables': [
+  license: 'MIT',
+  runnables: [
     {
-      'name': 'readme',
-      'description': 'read me...',
-      'path': '_doc/readme.html'
+      name: 'readme',
+      description: 'read me...',
+      path: '_doc/readme.html'
     }
   ],
-  'artifacts': {
-    'compoundComponents': [
+  artifacts: {
+    compoundComponents: [
       {
-        'artifactId': 'compound-A',
-        'resources': [
+        artifactId: 'compound-A',
+        resources: [
           'res1.html'
         ],
-        'dependencies': [
+        dependencies: [
           {
-            'webpackageId': 'test.compound-B@1.0.0',
-            'artifactId': 'compound-B'
+            webpackageId: 'test.compound-B@1.0.0',
+            artifactId: 'compound-B'
           },
           {
-            'webpackageId': 'test.compound-C@1.0.0',
-            'artifactId': 'compound-C'
+            webpackageId: 'test.compound-C@1.0.0',
+            artifactId: 'compound-C'
           },
           {
-            'artifactId': 'elementary-F'
+            artifactId: 'elementary-F'
           }
         ],
-        'members': [
+        members: [
           {
-            'artifactId': 'compound-B',
-            'memberId': '1',
-            'displayName': 'Compound Component B'
+            artifactId: 'compound-B',
+            memberId: '1',
+            displayName: 'Compound Component B'
           },
           {
-            'artifactId': 'elementary-C',
-            'memberId': '2',
-            'displayName': 'Elementary Component C'
+            artifactId: 'elementary-C',
+            memberId: '2',
+            displayName: 'Elementary Component C'
           },
           {
-            'artifactId': 'elementary-C',
-            'memberId': '3',
-            'displayName': 'Elementary Component C'
+            artifactId: 'elementary-C',
+            memberId: '3',
+            displayName: 'Elementary Component C'
           },
           {
-            'artifactId': 'elementary-F',
-            'memberId': '4',
-            'displayName': 'Elementary Component F'
+            artifactId: 'elementary-F',
+            memberId: '4',
+            displayName: 'Elementary Component F'
           }
         ],
-        'connections': [
+        connections: [
           {
-            'connectionId': '1',
-            'source': {
-              'memberIdRef': '1',
-              'slot': 'outputB'
+            connectionId: '1',
+            source: {
+              memberIdRef: '1',
+              slot: 'outputB'
             },
-            'destination': {
-              'memberIdRef': '2',
-              'slot': 'inputC'
+            destination: {
+              memberIdRef: '2',
+              slot: 'inputC'
             }
           },
           {
-            'connectionId': '2',
-            'source': {
-              'memberIdRef': '1',
-              'slot': 'outputB'
+            connectionId: '2',
+            source: {
+              memberIdRef: '1',
+              slot: 'outputB'
             },
-            'destination': {
-              'memberIdRef': '3',
-              'slot': 'inputC'
+            destination: {
+              memberIdRef: '3',
+              slot: 'inputC'
             }
           },
           {
-            'connectionId': '3',
-            'source': {
-              'memberIdRef': '2',
-              'slot': 'outputC'
+            connectionId: '3',
+            source: {
+              memberIdRef: '2',
+              slot: 'outputC'
             },
-            'destination': {
-              'memberIdRef': '1',
-              'slot': 'inputB'
+            destination: {
+              memberIdRef: '1',
+              slot: 'inputB'
             }
           },
           {
-            'connectionId': '4',
-            'source': {
-              'memberIdRef': '2',
-              'slot': 'outputC'
+            connectionId: '4',
+            source: {
+              memberIdRef: '2',
+              slot: 'outputC'
             },
-            'destination': {
-              'memberIdRef': '4',
-              'slot': 'inputField'
+            destination: {
+              memberIdRef: '4',
+              slot: 'inputField'
             }
           }
         ],
-        'inits': [
+        inits: [
           {
-            'memberIdRef': '2',
-            'slot': 'inputC',
-            'value': 'hallo inputC'
+            memberIdRef: '2',
+            slot: 'inputC',
+            value: 'hallo inputC'
           },
           {
-            'memberIdRef': '1',
-            'slot': 'inputB',
-            'value': 'hallo inputB'
+            memberIdRef: '1',
+            slot: 'inputB',
+            value: 'hallo inputB'
           }
         ]
       }
     ],
-    'elementaryComponents': [
+    elementaryComponents: [
       {
-        'artifactId': 'elementary-F',
-        'description': '',
-        'resources': [
+        artifactId: 'elementary-F',
+        description: '',
+        resources: [
           'component/elementary-F.html'
         ],
-        'dependencies': [],
-        'slots': [
+        dependencies: [],
+        slots: [
           {
-            'slotId': 'inputField',
-            'type': 'string',
-            'direction': [
+            slotId: 'inputField',
+            type: 'string',
+            direction: [
               'input'
             ]
           }

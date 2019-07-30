@@ -2,7 +2,7 @@
 'use strict';
 mocha.setup({
   ui: 'bdd',
-  globals: [ 'cubx', 'manifestCache', 'manifestComponent' ]
+  globals: ['cubx', 'manifestCache', 'manifestComponent']
 });
 /* eslint-disable no-unused-vars */
 var assert = chai.assert;

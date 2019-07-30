@@ -1,5 +1,5 @@
 /* globals HTMLImports */
-import {initNewElementWithTemplate} from '../helpers';
+import { initNewElementWithTemplate } from '../helpers';
 
 describe('CubxComponent origin content', function () {
   before(function (done) {

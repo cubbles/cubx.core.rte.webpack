@@ -37,7 +37,7 @@ export default (function () {
     var children = context.getChildren();
     // console.log('context has ', children.length, 'element');
     for (var i = 0; i < children.length; i++) {
-      this.parseInitSlotsForContext(children[ i ]);
+      this.parseInitSlotsForContext(children[i]);
     }
   };
 
@@ -90,7 +90,7 @@ export default (function () {
    * @memberOf Initializer
    */
   Initializer.prototype._sortInitList = function (initList) {
-    var sortedList = _.orderBy(initList, [ '_deepLevel', '_internal', '_order' ], [ 'desc', 'asc', 'asc' ]);
+    var sortedList = _.orderBy(initList, ['_deepLevel', '_internal', '_order'], ['desc', 'asc', 'asc']);
     return sortedList;
   };
 
@@ -112,11 +112,11 @@ export default (function () {
       if (parent === component || (this._isElementaryComponent(parent) && context.findParentContextOfElement(parent).isSame(context))) {
         var initSlotElements = [];
         for (var i = 0; i < initElement.children.length; i++) {
-          if (initElement.children[ i ].processed) {
+          if (initElement.children[i].processed) {
             continue;
           }
-          if (initElement.children[ i ].tagName === 'CUBX-CORE-SLOT-INIT') {
-            initSlotElements.push(initElement.children[ i ]);
+          if (initElement.children[i].tagName === 'CUBX-CORE-SLOT-INIT') {
+            initSlotElements.push(initElement.children[i]);
           }
         }
         this._addAllInitSlotEntriesToInitList(parent, context, initSlotElements);

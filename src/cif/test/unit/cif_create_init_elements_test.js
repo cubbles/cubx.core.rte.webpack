@@ -72,14 +72,14 @@ describe('CIF', function () {
       compoundEl.Context.addComponent(subElement2);
       subElement2.Context.setParent(compoundEl.Context);
       compoundEl.Context.addComponent(subElement2);
-      var inits = [ {
+      var inits = [{
         memberIdRef: '2',
         slot: 'testinput',
         value: 'bbb'
       }, {
         value: 'aaa',
         slot: 'testinput'
-      } ];
+      }];
       compoundEl._inits = inits;
       spy = sinon.spy(cif, '_createSlotInitElement');
     });

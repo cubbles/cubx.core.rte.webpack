@@ -207,7 +207,7 @@ export default (function () {
     var manifest = window.cubx.CRC.getCache().getComponentCacheEntry(this.tagName.toLowerCase());
     _.each(manifest.slots, function (item) {
       if (!item.direction) {
-        item.direction = [ 'input', 'output' ];
+        item.direction = ['input', 'output'];
       }
     });
     return manifest.slots;
@@ -249,7 +249,7 @@ export default (function () {
    * @private
    */
   compoundComponent._setSlotValue = function (key, value) {
-    this.model[ key ] = value;
+    this.model[key] = value;
   };
 
   /**
@@ -280,8 +280,8 @@ export default (function () {
     var connectionMgr = context.getConnectionMgr();
     var connections = connectionMgr._connections;
     var internalConnections = connectionMgr._internalConnections;
-    var dynamicConnections = _.filter(connections, { 'static': false });
-    var dynamicInternalConnections = _.filter(internalConnections, { 'static': false });
+    var dynamicConnections = _.filter(connections, { static: false });
+    var dynamicInternalConnections = _.filter(internalConnections, { static: false });
     var exportDynamicConnections = [];
     var me = this;
     var isParentContext = me.Context.getParent() === context;
@@ -381,7 +381,7 @@ export default (function () {
    */
   compoundComponent._generateSetMethod = function (slotId) {
     // console.log('generateSetMethod (',this.tagName,'):',slotId);
-    this[ this._getSetMethodName(slotId) ] = function (value) {
+    this[this._getSetMethodName(slotId)] = function (value) {
       this._setInModel(slotId, value);
       if (this.isOutputSlot(slotId)) {
         //  outputHandler trigger the model change events for "normal" sibling connections

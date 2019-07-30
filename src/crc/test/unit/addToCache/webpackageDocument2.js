@@ -1,31 +1,31 @@
 export default {
-  'name': 'package-2',
-  'groupId': 'org.example',
-  'version': '1.0.0',
-  'modelVersion': '10.0.0',
-  'docType': 'webpackage',
-  'author': {
-    'name': 'John Doe',
-    'email': 'john.doe@example.org'
+  name: 'package-2',
+  groupId: 'org.example',
+  version: '1.0.0',
+  modelVersion: '10.0.0',
+  docType: 'webpackage',
+  author: {
+    name: 'John Doe',
+    email: 'john.doe@example.org'
   },
-  'license': 'MIT',
-  'runnables': [],
-  'artifacts': {
-    'compoundComponents': [
+  license: 'MIT',
+  runnables: [],
+  artifacts: {
+    compoundComponents: [
       {
-        'artifactId': 'my-component-2',
-        'resources': [
+        artifactId: 'my-component-2',
+        resources: [
           'res2.js',
           'res2.css'
         ],
-        'dependencies': [
+        dependencies: [
           {
-            'webpackageId': 'org.example.package-3@1.0.0',
-            'artifactId': 'my-component-3'
+            webpackageId: 'org.example.package-3@1.0.0',
+            artifactId: 'my-component-3'
           },
           {
-            'webpackageId': 'org.example.package-4@1.0.0',
-            'artifactId': 'my-component-4'
+            webpackageId: 'org.example.package-4@1.0.0',
+            artifactId: 'my-component-4'
           }
         ]
       }

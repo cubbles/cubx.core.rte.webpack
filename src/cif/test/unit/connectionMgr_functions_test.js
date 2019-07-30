@@ -195,13 +195,13 @@ describe('ConnectionManager', function () {
         connections.should.have.length(2);
       });
       it('should find the connection with "elem1" as source', function () {
-        var connection = connections[ 0 ];
+        var connection = connections[0];
         expect(connection).should.be.not.empty;
         connection.should.have.property('connectionId', 'second');
         connection.source.component.should.be.eql(elem1);
       });
       it('should find the connection with "elem1" as destination', function () {
-        var connection = connections[ 1 ];
+        var connection = connections[1];
         expect(connection).should.be.not.empty;
         connection.should.have.property('connectionId', 'third');
         connection.destination.component.should.be.eql(elem1);
@@ -362,7 +362,7 @@ describe('ConnectionManager', function () {
             slot: 'slot1',
             component: elem1
           }
-        } ];
+        }];
       connectionMgr._connections = connections;
     });
     afterEach(function () {
@@ -377,8 +377,8 @@ describe('ConnectionManager', function () {
     it('should found one connection', function () {
       var returnedConnections = connectionMgr._findAllDeactivatedConnectionsWithMemberId(elem1);
       returnedConnections.should.have.length(1);
-      returnedConnections[ 0 ].should.have.property('deactivated', true);
-      returnedConnections[ 0 ].destination.should.have.property('memberId', 'elem1');
+      returnedConnections[0].should.have.property('deactivated', true);
+      returnedConnections[0].destination.should.have.property('memberId', 'elem1');
     });
   });
   describe('#_findConnectionByConnectionId', function () {

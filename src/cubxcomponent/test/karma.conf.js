@@ -10,7 +10,7 @@ module.exports = function (config) {
 
     // frameworks to use
     // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
-    frameworks: [ 'mocha', 'sinon-chai', 'browserify' ],
+    frameworks: ['mocha', 'sinon-chai', 'browserify'],
 
     // list of files / patterns to load in the browser
     files: [
@@ -30,7 +30,7 @@ module.exports = function (config) {
       '../dynamic-connection-utils/js/dynamicConnectionUtils.js',
       'CubxComponent.js',
       'test/helpers.js',
-      {pattern: 'test/resources/*.html', included: false, served: true},
+      { pattern: 'test/resources/*.html', included: false, served: true },
       'test/resources/*.js',
       'test/unit/**/*_test.js'
     ],
@@ -41,22 +41,22 @@ module.exports = function (config) {
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
-      '../template-utils/js/template-utils.js': [ 'browserify' ],
-      '../cubx-component-mixin/js/cubxComponentMixin.js': [ 'browserify' ],
-      '../guid-utility/js/guid.js': [ 'browserify' ],
-      '../dom-tree-utilities/js/domTreeUtils.js': [ 'browserify' ],
-      '../dynamic-connection-utils/js/dynamicConnectionUtils.js': [ 'browserify' ],
-      '../cif/classes/*.js': [ 'browserify' ],
-      'CubxComponent.js': [ 'browserify' ],
-      'test/helpers.js': [ 'browserify' ],
-      'test/resources/*.js': [ 'browserify' ],
-      'test/unit/**/*_test.js': [ 'browserify' ]
+      '../template-utils/js/template-utils.js': ['browserify'],
+      '../cubx-component-mixin/js/cubxComponentMixin.js': ['browserify'],
+      '../guid-utility/js/guid.js': ['browserify'],
+      '../dom-tree-utilities/js/domTreeUtils.js': ['browserify'],
+      '../dynamic-connection-utils/js/dynamicConnectionUtils.js': ['browserify'],
+      '../cif/classes/*.js': ['browserify'],
+      'CubxComponent.js': ['browserify'],
+      'test/helpers.js': ['browserify'],
+      'test/resources/*.js': ['browserify'],
+      'test/unit/**/*_test.js': ['browserify']
     },
 
     // test results reporter to use
     // possible values: 'dots', 'progress'
     // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-    reporters: [ 'progress', 'html', 'mocha', 'coverage' ],
+    reporters: ['progress', 'html', 'mocha', 'coverage'],
     // reporters: ['progress'],
 
     htmlReporter: {
@@ -89,7 +89,7 @@ module.exports = function (config) {
     // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
     // browsers: ['PhantomJS'], //, 'Firefox', 'Chrome'
 
-    browsers: [ 'Chrome', 'Firefox' ],
+    browsers: ['Chrome', 'Firefox'],
     // use just Chrome for debugging in Webstorm
     // browsers: [ 'Chrome' ],
     // browsers: [ 'Firefox' ],
@@ -102,7 +102,7 @@ module.exports = function (config) {
     customLaunchers: {
       Chrome_travis_ci: {
         base: 'Chrome',
-        flags: [ '--no-sandbox' ]
+        flags: ['--no-sandbox']
       }
     },
 
@@ -123,7 +123,7 @@ module.exports = function (config) {
   };
 
   if (process.env.TRAVIS) {
-    configuration.browsers = [ 'Chrome_travis_ci', 'Firefox' ];
+    configuration.browsers = ['Chrome_travis_ci', 'Firefox'];
   }
 
   config.set(configuration);

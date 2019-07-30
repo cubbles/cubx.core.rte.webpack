@@ -6,17 +6,17 @@ import crcLoader from '../modules/crcLoader/CRCLoader';
   // define global namespace cubx
   window.cubx = {
     // preserve externally defined CRCInit
-    'CRCInit': window.cubx && window.cubx.CRCInit ? window.cubx.CRCInit : {},
-    'utils': {
+    CRCInit: window.cubx && window.cubx.CRCInit ? window.cubx.CRCInit : {},
+    utils: {
       /**
        * Utility function to get nested property (usage: get(window, 'cubx.CRCInit.loadCif')
        * @param {object} obj
        * @param {string} key nested property
        * @returns {*} undefined, if property does not exist
        */
-      'get': function (obj, key) {
+      get: function (obj, key) {
         return key.split('.').reduce(function (o, x) {
-          return (typeof o === 'undefined' || o === null) ? o : o[ x ];
+          return (typeof o === 'undefined' || o === null) ? o : o[x];
         }, obj);
       }
     }
@@ -81,7 +81,7 @@ if (window.Promise !== 'function') {
     var defaultValue = 'true';
     var loadCIF = loadCIFAttr || defaultValue;
     cubx.CRCInit.loadCIF = loadCIF;
-    if ([ 'true', 'false' ].indexOf(loadCIFAttr) === -1) {
+    if (['true', 'false'].indexOf(loadCIFAttr) === -1) {
       console.warn(
         'Expected CRCLoader attribute "' + attributeName + '" to be "true" or "false". ' +
         'Got "' + loadCIFAttr + '". ' +
@@ -125,7 +125,7 @@ if (window.Promise !== 'function') {
     // jshint elision: true
     /* eslint-disable no-sparse-arrays */
     return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search) ||
-      [ , '' ])[ 1 ].replace(/\+/g, '%20')) || null;
+      [, ''])[1].replace(/\+/g, '%20')) || null;
     /* eslint-enable no-sparse-arrays */
   }
 
@@ -134,7 +134,7 @@ if (window.Promise !== 'function') {
     var parameterValue = getURLParameter(parameterName);
     var defaultValue = 'prod';
     parameterValue = parameterValue || defaultValue;
-    var allowedValues = [ 'dev', 'prod' ];
+    var allowedValues = ['dev', 'prod'];
     if (allowedValues.indexOf(parameterValue) > -1) {
       window.cubx.CRCInit.runtimeMode = parameterValue;
     } else {

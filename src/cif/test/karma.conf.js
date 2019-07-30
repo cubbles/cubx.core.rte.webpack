@@ -10,15 +10,15 @@ module.exports = function (config) {
 
     // frameworks to use
     // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
-    frameworks: [ 'mocha', 'sinon-chai', 'browserify' ],
+    frameworks: ['mocha', 'sinon-chai', 'browserify'],
 
     // list of files / patterns to load in the browser
     files: [
       '../webcomponents/custom-elements-es5-adapter.js',
       '../webcomponents/webcomponents-lite.js',
       'https://cubbles.world/core/lodash-4.17.14@1.0.0/lodash/js/lodash.js',
-      {pattern: 'test/testSetup.js', watched: false, served: true},
-      {pattern: 'test/mock/CRCMock.js', watched: false, served: true},
+      { pattern: 'test/testSetup.js', watched: false, served: true },
+      { pattern: 'test/mock/CRCMock.js', watched: false, served: true },
       '../template-utils/js/template-utils.js',
       '../dom-tree-utilities/js/domTreeUtils.js',
       '../dynamic-connection-utils/js/dynamicConnectionUtils.js',
@@ -29,10 +29,10 @@ module.exports = function (config) {
       'classes/compoundComponent.js',
       'classes/cif.js',
       'classes/dynamicConnection.js',
-      {pattern: 'test/helper.js', watched: false, served: true},
-      {pattern: 'test/beforeTest.js', watched: false, served: true},
-      {pattern: 'test/resources/*', watched: false, served: true},
-      {pattern: 'test/**/*_test.js', watched: false, served: true}
+      { pattern: 'test/helper.js', watched: false, served: true },
+      { pattern: 'test/beforeTest.js', watched: false, served: true },
+      { pattern: 'test/resources/*', watched: false, served: true },
+      { pattern: 'test/**/*_test.js', watched: false, served: true }
     ],
 
     // list of files to exclude
@@ -41,12 +41,12 @@ module.exports = function (config) {
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
-      '../template-utils/js/template-utils.js': [ 'browserify' ],
-      '../dom-tree-utilities/js/domTreeUtils.js': [ 'browserify' ],
-      '../dynamic-connection-utils/js/dynamicConnectionUtils.js': [ 'browserify' ],
-      '../cubx-component-mixin/js/cubxComponentMixin.js': [ 'browserify' ],
-      'classes/*.js': [ 'browserify' ],
-      'test/**/*_test.js': [ 'browserify' ]
+      '../template-utils/js/template-utils.js': ['browserify'],
+      '../dom-tree-utilities/js/domTreeUtils.js': ['browserify'],
+      '../dynamic-connection-utils/js/dynamicConnectionUtils.js': ['browserify'],
+      '../cubx-component-mixin/js/cubxComponentMixin.js': ['browserify'],
+      'classes/*.js': ['browserify'],
+      'test/**/*_test.js': ['browserify']
     },
 
     // test results reporter to use
@@ -83,7 +83,7 @@ module.exports = function (config) {
 
     // start these browsers
     // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-    browsers: [ 'Chrome', 'Firefox' ], //, 'Firefox', 'Chrome'
+    browsers: ['Chrome', 'Firefox'], //, 'Firefox', 'Chrome'
     // use just Chrome for debugging in Webstorm
     // browsers: [ 'Chrome' ],
     // browsers: [ 'Firefox' ],
@@ -96,7 +96,7 @@ module.exports = function (config) {
     customLaunchers: {
       Chrome_travis_ci: {
         base: 'Chrome',
-        flags: [ '--no-sandbox' ]
+        flags: ['--no-sandbox']
       }
     },
 
@@ -108,7 +108,7 @@ module.exports = function (config) {
           'babelify',
           {
             presets: [
-              ['babel-preset-env', { exclude: [ 'transform-es2015-function-name' ] }] // To avoid wrong transpilling of anonymous functions in 'ConnectionManager' Test 'both parameter are from type function'
+              ['babel-preset-env', { exclude: ['transform-es2015-function-name'] }] // To avoid wrong transpilling of anonymous functions in 'ConnectionManager' Test 'both parameter are from type function'
             ]
           }
         ]
@@ -117,7 +117,7 @@ module.exports = function (config) {
   };
 
   if (process.env.TRAVIS) {
-    configuration.browsers = [ 'Chrome_travis_ci', 'Firefox' ];
+    configuration.browsers = ['Chrome_travis_ci', 'Firefox'];
   }
 
   config.set(configuration);

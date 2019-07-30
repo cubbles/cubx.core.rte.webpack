@@ -1,5 +1,5 @@
 /* globals HTMLImports */
-import {getTestComponentCacheEntry, initNewElement, getContainer} from '../helpers';
+import { getTestComponentCacheEntry, initNewElement, getContainer } from '../helpers';
 
 describe('CubxPolymer call connection-hook', function () {
   before(function (done) {
@@ -13,7 +13,7 @@ describe('CubxPolymer call connection-hook', function () {
     var elem2;
     var container;
     before(function () {
-      window.componentCacheEntry = getTestComponentCacheEntry()[ elementName ];
+      window.componentCacheEntry = getTestComponentCacheEntry()[elementName];
       elem1 = initNewElement(elementName, null, 'one');
       elem2 = initNewElement(elementName, null, 'two');
     });

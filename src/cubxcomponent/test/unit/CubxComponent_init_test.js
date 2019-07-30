@@ -77,7 +77,7 @@ describe('CubxComponent (init)', function () {
           setTimeout(function () {
             var components = document.querySelectorAll(elementName);
             for (var i = 0; i < components.length; i++) {
-              var component = components[ i ];
+              var component = components[i];
               component.should.be.exist;
               expect(component.cubxComponentName).to.be.equals(elementName);
             }

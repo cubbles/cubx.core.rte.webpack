@@ -9,7 +9,7 @@ module.exports = function (config) {
 
     // frameworks to use
     // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
-    frameworks: [ 'mocha', 'sinon-chai', 'browserify' ],
+    frameworks: ['mocha', 'sinon-chai', 'browserify'],
 
     // list of files / patterns to load in the browser
     files: [
@@ -18,19 +18,19 @@ module.exports = function (config) {
     ],
 
     // list of files to exclude
-    exclude: [ ],
+    exclude: [],
 
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
-      'crc/test/unit/**/*.js': [ 'browserify' ],
-      'crc/modules/**/*.js': [ 'browserify' ]
+      'crc/test/unit/**/*.js': ['browserify'],
+      'crc/modules/**/*.js': ['browserify']
     },
 
     // test results reporter to use
     // possible values: 'dots', 'progress'
     // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-    reporters: [ 'progress', 'html', 'mocha', 'coverage' ],
+    reporters: ['progress', 'html', 'mocha', 'coverage'],
 
     // web server port
     port: 9876,
@@ -61,7 +61,7 @@ module.exports = function (config) {
 
     // start these browsers
     // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-    browsers: [ 'Chrome', 'Firefox' ], //, 'PhantomJS', 'Firefox', 'Chrome'
+    browsers: ['Chrome', 'Firefox'], //, 'PhantomJS', 'Firefox', 'Chrome'
     // browsers: [ 'Chrome' ],
     captureTimeout: 50000,
 
@@ -72,7 +72,7 @@ module.exports = function (config) {
     customLaunchers: {
       Chrome_travis_ci: {
         base: 'Chrome',
-        flags: [ '--no-sandbox' ]
+        flags: ['--no-sandbox']
       }
     },
 
@@ -91,7 +91,7 @@ module.exports = function (config) {
   };
 
   if (process.env.TRAVIS) {
-    configuration.browsers = [ 'Chrome_travis_ci', 'Firefox' ];
+    configuration.browsers = ['Chrome_travis_ci', 'Firefox'];
   }
 
   config.set(configuration);

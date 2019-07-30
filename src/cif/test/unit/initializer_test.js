@@ -102,16 +102,16 @@ describe('Initializer', function () {
         initializer._initList.should.have.length(2);
       });
       it('first element ', function () {
-        initializer._initList[ 0 ].should.have.property('_slot', 'slotA');
-        initializer._initList[ 0 ].should.have.property('_value', 'a');
-        initializer._initList[ 0 ].should.have.property('_component');
-        initializer._initList[ 0 ].should.have.property('_context');
+        initializer._initList[0].should.have.property('_slot', 'slotA');
+        initializer._initList[0].should.have.property('_value', 'a');
+        initializer._initList[0].should.have.property('_component');
+        initializer._initList[0].should.have.property('_context');
       });
       it('second element', function () {
-        initializer._initList[ 1 ].should.have.property('_slot', 'slotB');
-        initializer._initList[ 1 ].should.have.property('_value', 'b');
-        initializer._initList[ 1 ].should.have.property('_component');
-        initializer._initList[ 1 ].should.have.property('_context');
+        initializer._initList[1].should.have.property('_slot', 'slotB');
+        initializer._initList[1].should.have.property('_value', 'b');
+        initializer._initList[1].should.have.property('_component');
+        initializer._initList[1].should.have.property('_context');
       });
     });
   });
@@ -160,16 +160,16 @@ describe('Initializer', function () {
         initializer._initList.should.have.length(2);
       });
       it('first element ', function () {
-        initializer._initList[ 0 ].should.have.property('_slot', 'slotA');
-        initializer._initList[ 0 ].should.have.property('_value', 'a');
-        initializer._initList[ 0 ].should.have.property('_component');
-        initializer._initList[ 0 ].should.have.property('_context');
+        initializer._initList[0].should.have.property('_slot', 'slotA');
+        initializer._initList[0].should.have.property('_value', 'a');
+        initializer._initList[0].should.have.property('_component');
+        initializer._initList[0].should.have.property('_context');
       });
       it('second element', function () {
-        initializer._initList[ 1 ].should.have.property('_slot', 'slotB');
-        initializer._initList[ 1 ].should.have.property('_value', 'b');
-        initializer._initList[ 1 ].should.have.property('_component');
-        initializer._initList[ 1 ].should.have.property('_context');
+        initializer._initList[1].should.have.property('_slot', 'slotB');
+        initializer._initList[1].should.have.property('_value', 'b');
+        initializer._initList[1].should.have.property('_component');
+        initializer._initList[1].should.have.property('_context');
       });
     });
     describe('init compound (outer) with forign html elements in <cubx-core-init>', function () {
@@ -211,16 +211,16 @@ describe('Initializer', function () {
         initializer._initList.should.have.length(2);
       });
       it('first element ', function () {
-        initializer._initList[ 0 ].should.have.property('_slot', 'slotA');
-        initializer._initList[ 0 ].should.have.property('_value', 'a');
-        initializer._initList[ 0 ].should.have.property('_component');
-        initializer._initList[ 0 ].should.have.property('_context');
+        initializer._initList[0].should.have.property('_slot', 'slotA');
+        initializer._initList[0].should.have.property('_value', 'a');
+        initializer._initList[0].should.have.property('_component');
+        initializer._initList[0].should.have.property('_context');
       });
       it('second element', function () {
-        initializer._initList[ 1 ].should.have.property('_slot', 'slotB');
-        initializer._initList[ 1 ].should.have.property('_value', 'b');
-        initializer._initList[ 1 ].should.have.property('_component');
-        initializer._initList[ 1 ].should.have.property('_context');
+        initializer._initList[1].should.have.property('_slot', 'slotB');
+        initializer._initList[1].should.have.property('_value', 'b');
+        initializer._initList[1].should.have.property('_component');
+        initializer._initList[1].should.have.property('_context');
       });
     });
     describe('init compound (outer) and child (first level) compounds', function () {
@@ -287,14 +287,14 @@ describe('Initializer', function () {
         initializer._initList.should.have.length(2);
       });
       it('first element ', function () {
-        var item = initializer._initList[ 0 ];
+        var item = initializer._initList[0];
         item.should.have.property('_slot', 'slotA');
         item.should.have.property('_value', 'a');
         item.should.have.property('_component');
         item.should.have.property('_context');
       });
       it('second element', function () {
-        var item = initializer._initList[ 1 ];
+        var item = initializer._initList[1];
         item.should.have.property('_slot', 'slotB');
         item.should.have.property('_value', 'b');
         item.should.have.property('_component');
@@ -365,8 +365,8 @@ describe('Initializer', function () {
         initializer._parseInitSlotsForElement(element, element.Context);
       });
       afterEach(function () {
-        delete window.cubx.CRC.getCache()[ 'ciftest-child-elementary1' ];
-        delete window.cubx.CRC.getCache()[ 'ciftest-child-elementary2' ];
+        delete window.cubx.CRC.getCache()['ciftest-child-elementary1'];
+        delete window.cubx.CRC.getCache()['ciftest-child-elementary2'];
         element.isInputSlot.restore();
         initializer._initList = [];
         window.cubx.CRC.getCache().getComponentCacheEntry.restore();
@@ -375,42 +375,42 @@ describe('Initializer', function () {
         initializer._initList.should.have.length(6);
       });
       it('first element ', function () {
-        var item = initializer._initList[ 0 ];
+        var item = initializer._initList[0];
         item.should.have.property('_slot', 'slotA');
         item.should.have.property('_value', 'a');
         item.should.have.property('_component');
         item.should.have.property('_context');
       });
       it('second element', function () {
-        var item = initializer._initList[ 1 ];
+        var item = initializer._initList[1];
         item.should.have.property('_slot', 'slotB');
         item.should.have.property('_value', 'b');
         item.should.have.property('_component');
         item.should.have.property('_context');
       });
       it('third element', function () {
-        var item = initializer._initList[ 2 ];
+        var item = initializer._initList[2];
         item.should.have.property('_slot', 'slotC');
         item.should.have.property('_value', 'c');
         item.should.have.property('_component');
         item.should.have.property('_context');
       });
       it('fourth element', function () {
-        var item = initializer._initList[ 3 ];
+        var item = initializer._initList[3];
         item.should.have.property('_slot', 'slotD');
         item.should.have.property('_value', 'd');
         item.should.have.property('_component');
         item.should.have.property('_context');
       });
       it('fifth element', function () {
-        var item = initializer._initList[ 4 ];
+        var item = initializer._initList[4];
         item.should.have.property('_slot', 'slotE');
         item.should.have.property('_value', 'e');
         item.should.have.property('_component');
         item.should.have.property('_context');
       });
       it('sixth element', function () {
-        var item = initializer._initList[ 5 ];
+        var item = initializer._initList[5];
         item.should.have.property('_slot', 'slotF');
         item.should.have.property('_value', 'f');
         item.should.have.property('_component');
@@ -488,10 +488,10 @@ describe('Initializer', function () {
       expect(stubAddSlotInitializierungToInitList.calledTwice).to.be.true;
     });
     it('#_addInitSlotEntryToInitList should be called with the first element of the list', function () {
-      expect(stubAddSlotInitializierungToInitList.calledWith(element, context, initSlotElements[ 0 ])).to.be.true;
+      expect(stubAddSlotInitializierungToInitList.calledWith(element, context, initSlotElements[0])).to.be.true;
     });
     it('#_addInitSlotEntryToInitList should be called with the second element of the list', function () {
-      expect(stubAddSlotInitializierungToInitList.calledWith(element, context, initSlotElements[ 1 ])).to.be.true;
+      expect(stubAddSlotInitializierungToInitList.calledWith(element, context, initSlotElements[1])).to.be.true;
     });
   });
   describe('#_addInitSlotEntryToInitList', function () {
@@ -521,7 +521,7 @@ describe('Initializer', function () {
       initializer._initList.should.have.length(1);
     });
     it('initializer._initList[0] should be of type Initializer.SlotInit', function () {
-      initializer._initList[ 0 ].should.be.instanceOf(window.cubx.cif.Initializer.SlotInit);
+      initializer._initList[0].should.be.instanceOf(window.cubx.cif.Initializer.SlotInit);
     });
     it('cubx-cor-slot-init element should have a property processed (true)', function () {
       initSlotEl.should.have.property('processed', true);
@@ -705,8 +705,8 @@ describe('Initializer', function () {
   describe('#resetInitList', function () {
     beforeEach(function () {
       initializer._initList = [];
-      initializer._initList.push({dummy: 'slotinit1'});
-      initializer._initList.push({dummy: 'slotinit2'});
+      initializer._initList.push({ dummy: 'slotinit1' });
+      initializer._initList.push({ dummy: 'slotinit2' });
     });
     it('should be the initList reseted', function () {
       initializer._initList.should.have.length(2);
@@ -774,16 +774,16 @@ describe('Initializer', function () {
     });
     it('the _initList method should be sorted', function () {
       expect(initializer._initList).to.have.length(4);
-      var init = initializer._initList[ 0 ];
+      var init = initializer._initList[0];
       init.should.have.property('_order', 4);
       init.should.have.property('_deepLevel', 2);
-      init = initializer._initList[ 1 ];
+      init = initializer._initList[1];
       init.should.have.property('_order', 5);
       init.should.have.property('_deepLevel', 2);
-      init = initializer._initList[ 2 ];
+      init = initializer._initList[2];
       init.should.have.property('_order', 1);
       init.should.have.property('_deepLevel', 1);
-      init = initializer._initList[ 3 ];
+      init = initializer._initList[3];
       init.should.have.property('_order', 2);
       init.should.have.property('_deepLevel', 1);
     });
@@ -837,16 +837,16 @@ describe('Initializer', function () {
       it('the _initList method should be sorted', function () {
         var sortedList = initializer._sortInitList(initializer._initList);
         expect(sortedList).to.have.length(4);
-        var init = sortedList[ 0 ];
+        var init = sortedList[0];
         init.should.have.property('_order', 4);
         init.should.have.property('_deepLevel', 2);
-        init = sortedList[ 1 ];
+        init = sortedList[1];
         init.should.have.property('_order', 5);
         init.should.have.property('_deepLevel', 2);
-        init = sortedList[ 2 ];
+        init = sortedList[2];
         init.should.have.property('_order', 1);
         init.should.have.property('_deepLevel', 1);
-        init = sortedList[ 3 ];
+        init = sortedList[3];
         init.should.have.property('_order', 2);
         init.should.have.property('_deepLevel', 1);
       });
@@ -952,48 +952,48 @@ describe('Initializer', function () {
 
         expect(sortedList).to.have.length(8);
         // 7
-        var init = sortedList[ 0 ];
+        var init = sortedList[0];
         init.should.have.property('_order', 4);
         init.should.have.property('_deepLevel', 2);
         init.should.have.property('_internal', true);
         // 8
-        init = sortedList[ 1 ];
+        init = sortedList[1];
         init.should.have.property('_order', 5);
         init.should.have.property('_deepLevel', 2);
         init.should.have.property('_internal', true);
 
         // 2
-        init = sortedList[ 2 ];
+        init = sortedList[2];
         init.should.have.property('_order', 4);
         init.should.have.property('_deepLevel', 2);
         init.should.have.property('_internal', null);
 
         // 3
-        init = sortedList[ 3 ];
+        init = sortedList[3];
         init.should.have.property('_order', 5);
         init.should.have.property('_deepLevel', 2);
         init.should.have.property('_internal', null);
 
         //  6
-        init = sortedList[ 4 ];
+        init = sortedList[4];
         init.should.have.property('_order', 1);
         init.should.have.property('_deepLevel', 1);
         init.should.have.property('_internal', true);
 
         //  5
-        init = sortedList[ 5 ];
+        init = sortedList[5];
         init.should.have.property('_order', 2);
         init.should.have.property('_deepLevel', 1);
         init.should.have.property('_internal', true);
 
         // 1
-        init = sortedList[ 6 ];
+        init = sortedList[6];
         init.should.have.property('_order', 1);
         init.should.have.property('_deepLevel', 1);
         init.should.have.property('_internal', null);
 
         // 4
-        init = sortedList[ 7 ];
+        init = sortedList[7];
         init.should.have.property('_order', 2);
         init.should.have.property('_deepLevel', 1);
         init.should.have.property('_internal', null);

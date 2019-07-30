@@ -64,8 +64,8 @@ describe('ConnectionManager', function () {
       it('connectionMgr._createConnectionsFromComponent should be called for each component ' +
         'in _components property', function () {
         expect(stub.calledTwice).to.be.true;
-        expect(stub.calledWith(components[ 0 ])).to.be.true;
-        expect(stub.calledWith(components[ 1 ])).to.be.true;
+        expect(stub.calledWith(components[0])).to.be.true;
+        expect(stub.calledWith(components[1])).to.be.true;
       });
     });
     describe('#_createConnectionsFromComponent', function () {
@@ -121,7 +121,7 @@ describe('ConnectionManager', function () {
           consoleWarnSpy.should.have.been.not.called;
         });
         it('should be the correct connection created', function () {
-          var connection = connections[ 0 ];
+          var connection = connections[0];
           connection.source.should.have.nested.property('component', child);
           connection.source.should.have.property('memberId', '1');
           connection.source.should.have.property('slot', 'firstSlotOutput');
@@ -187,7 +187,7 @@ describe('ConnectionManager', function () {
           consoleWarnSpy.should.have.been.calledOnce;
         });
         it('should be the correct connection created', function () {
-          var connection = connections[ 0 ];
+          var connection = connections[0];
           connection.source.should.have.nested.property('component', child);
           connection.source.should.have.property('memberId', '1');
           connection.source.should.have.property('slot', 'firstSlotOutput');
@@ -247,7 +247,7 @@ describe('ConnectionManager', function () {
           consoleWarnSpy.should.have.been.not.called;
         });
         it('should be the correct connection created', function () {
-          var connection = connections[ 0 ];
+          var connection = connections[0];
           connection.source.should.have.nested.property('component', child);
           connection.source.should.have.property('memberId', '1');
           connection.source.should.have.property('slot', 'firstSlotOutput');
@@ -306,7 +306,7 @@ describe('ConnectionManager', function () {
           consoleWarnSpy.should.have.been.calledOnce;
         });
         it('should be the correct connection created', function () {
-          var connection = connections[ 0 ];
+          var connection = connections[0];
           connection.source.should.have.nested.property('component', child);
           connection.source.should.have.property('memberId', '1');
           connection.source.should.have.property('slot', 'firstSlotOutput');
@@ -367,7 +367,7 @@ describe('ConnectionManager', function () {
           consoleWarnSpy.should.have.been.not.called;
         });
         it('should be the correct connection created', function () {
-          var connection = connections[ 0 ];
+          var connection = connections[0];
           connection.source.should.have.nested.property('component', element);
           connection.source.should.have.property('slot', 'firstSlotOutput');
           connection.destination.should.have.nested.property('component', child);
@@ -427,7 +427,7 @@ describe('ConnectionManager', function () {
           consoleWarnSpy.should.have.been.calledOnce;
         });
         it('should be the correct connection created', function () {
-          var connection = connections[ 0 ];
+          var connection = connections[0];
           connection.source.should.have.nested.property('component', element);
           connection.source.should.have.property('slot', 'firstSlotOutput');
           connection.destination.should.have.nested.property('component', child);

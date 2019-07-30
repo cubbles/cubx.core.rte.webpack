@@ -196,7 +196,7 @@ export default (function () {
       if (dependencies.indexOf('\'') >= 0) {
         dependencies = dependencies.replace(/'/gi, '"');
       }
-      window.cubx = {CRCInit: {rootDependencies: _createRootDependencies(JSON.parse(dependencies))}};
+      window.cubx = { CRCInit: { rootDependencies: _createRootDependencies(JSON.parse(dependencies)) } };
     }
   }
 
@@ -215,20 +215,20 @@ export default (function () {
 
     var scriptElement = _createScriptElement(
       {
-        'src': '../../' + rteWebpackageId + '/webcomponents/custom-elements-es5-adapter.js'
+        src: '../../' + rteWebpackageId + '/webcomponents/custom-elements-es5-adapter.js'
       }
     );
     document.head.appendChild(scriptElement);
     scriptElement = _createScriptElement(
       {
-        'src': '../../' + rteWebpackageId + '/webcomponents/webcomponents-lite.js'
+        src: '../../' + rteWebpackageId + '/webcomponents/webcomponents-lite.js'
       }
     );
 
     document.head.appendChild(scriptElement);
     scriptElement = _createScriptElement(
       {
-        'src': '../../' + rteWebpackageId + '/crc-loader/js/main.js',
+        src: '../../' + rteWebpackageId + '/crc-loader/js/main.js',
         'data-crcinit-loadcif': 'true',
         'data-cubx-startevent': 'componentAppend'
       },

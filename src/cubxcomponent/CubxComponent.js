@@ -93,7 +93,7 @@ function CubxComponent (prototype) {
       if (_.isArray(slots)) {
         this._generateSlotsMethod(slots);
         for (var index = 0; index < slots.length; index++) {
-          this._initSlot(slots[ index ]);
+          this._initSlot(slots[index]);
         }
       } else if (_.isObject(slots)) {
         var tempSlots = [];
@@ -126,20 +126,20 @@ function CubxComponent (prototype) {
     };
 
     CubxComponentClass.prototype._generateSetMethod = function (slotId) {
-      this[ this._getSetMethodName(slotId) ] = function (value) {
+      this[this._getSetMethodName(slotId)] = function (value) {
         this._setInModel(slotId, value);
-        this[ this._getChangeHandlerMethodName(slotId) ](value);
+        this[this._getChangeHandlerMethodName(slotId)](value);
       };
     };
 
     CubxComponentClass.prototype._generateGetMethod = function (slotId) {
-      this[ this._getGetMethodName(slotId) ] = function () {
-        return this.model[ slotId ];
+      this[this._getGetMethodName(slotId)] = function () {
+        return this.model[slotId];
       };
     };
 
     CubxComponentClass.prototype._setSlotValue = function (key, value) {
-      this.model[ key ] = value;
+      this.model[key] = value;
     };
 
     CubxComponentClass.prototype._getChangeHandlerMethodName = function (slotId) {
@@ -166,7 +166,7 @@ function CubxComponent (prototype) {
         if (ids.hasOwnProperty(id)) {
           Object.defineProperty(this.$, id, {
             get: function () {
-              return ids[ id ];
+              return ids[id];
             }
           });
         }
@@ -213,7 +213,7 @@ function CubxComponent (prototype) {
           function (results) {
             var template;
             for (var i = 0; i < results.length; i++) {
-              var result = results[ i ];
+              var result = results[i];
               if (typeof result === 'object') {
                 template = result;
                 break;
@@ -277,8 +277,8 @@ function CubxComponent (prototype) {
     };
 
     CubxComponentClass.prototype._generateChangeMethodForProperty = function (slotId) {
-      this[ this._getChangeHandlerMethodName(slotId) ] = function (newValue) {
-        var hookMethod = this[ this._getMethodNameModelChanged(slotId) ];
+      this[this._getChangeHandlerMethodName(slotId)] = function (newValue) {
+        var hookMethod = this[this._getMethodNameModelChanged(slotId)];
         if (hookMethod && _.isFunction(hookMethod)) {
           var argsCount = hookMethod.length;
           if (argsCount === 0) {
@@ -378,7 +378,7 @@ function CubxComponent (prototype) {
       var context = this._getParentContextForRuntimeId(ownRuntimeId);
       var connectionMgr = context.getConnectionMgr();
       var connections = connectionMgr._connections;
-      var dynamicConnections = _.filter(connections, { 'static': false });
+      var dynamicConnections = _.filter(connections, { static: false });
       var exportDynamicConnections = [];
       var me = this;
       _.each(dynamicConnections, function (value) {

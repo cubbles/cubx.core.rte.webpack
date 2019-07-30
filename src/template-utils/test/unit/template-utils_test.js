@@ -29,7 +29,7 @@ describe('template-utils', function () {
       promise.then(function (results) {
         var template;
         for (var i = 0; i < results.length; i++) {
-          var result = results[ i ];
+          var result = results[i];
           if (typeof result === 'object') {
             template = result;
             break;
@@ -46,7 +46,7 @@ describe('template-utils', function () {
       promise.then(function (results) {
         var template;
         for (var i = 0; i < results.length; i++) {
-          var result = results[ i ];
+          var result = results[i];
           if (typeof result === 'object') {
             template = result;
             break;
@@ -63,7 +63,7 @@ describe('template-utils', function () {
       promise.then(function (results) {
         var template;
         for (var i = 0; i < results.length; i++) {
-          var result = results[ i ];
+          var result = results[i];
           if (typeof result === 'object') {
             template = result;
             break;

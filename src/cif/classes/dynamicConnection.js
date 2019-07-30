@@ -1,8 +1,8 @@
-export default(function () {
+export default (function () {
   'use strict';
   var DynamicConnection = function () {
     if (arguments.length > 0) {
-      this._init(arguments[ 0 ]);
+      this._init(arguments[0]);
     }
   };
 

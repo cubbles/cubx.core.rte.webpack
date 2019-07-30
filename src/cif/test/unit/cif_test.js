@@ -36,7 +36,7 @@ describe('CIF', function () {
       beforeEach(function () {
         _compoundComponentElementsRet = cif._compoundComponentElements;
         cif._compoundComponentElements = {};
-        cif._compoundComponentElements[ compoundComponentName ] = constructor;
+        cif._compoundComponentElements[compoundComponentName] = constructor;
       });
       afterEach(function () {
         cif._compoundComponentElements = _compoundComponentElementsRet;
@@ -156,7 +156,7 @@ describe('CIF', function () {
       cacheStub = sinon.stub(window.cubx.CRC, 'getCache').callsFake(function () {
         var cache = {};
         cache.getAllComponents = function () {
-          return [ artifactOk, artifactOk2, artifactOk3 ];
+          return [artifactOk, artifactOk2, artifactOk3];
         };
         return cache;
       });
@@ -168,7 +168,7 @@ describe('CIF', function () {
       cacheStub = sinon.stub(window.cubx.CRC, 'getCache').callsFake(function () {
         var cache = {};
         cache.getAllComponents = function () {
-          return [ artifactOk, artifactOk2, artifactNotOk, artifactOk3 ];
+          return [artifactOk, artifactOk2, artifactNotOk, artifactOk3];
         };
         return cache;
       });

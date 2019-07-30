@@ -2,7 +2,7 @@
 export default (function () {
   'use strict';
   var MutationBasedCubxStartevent = function () {
-    this.mutation = {childList: true};
+    this.mutation = { childList: true };
     this.cubxMutationTargetNodeAttr = 'data-cubx-target-selector';
     this.cubxEmitEventAttr = 'data-cubx-emit-event';
     this.scriptElement = document.querySelector('[' + this.cubxEmitEventAttr + ']');
@@ -76,7 +76,7 @@ export default (function () {
         bodyObserver.disconnect();
       }
     }.bind(this));
-    bodyObserver.observe(document.body, {childList: true});
+    bodyObserver.observe(document.body, { childList: true });
   };
 
   if (!window.cubx) {

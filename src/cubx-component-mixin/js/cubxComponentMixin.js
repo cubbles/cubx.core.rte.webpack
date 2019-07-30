@@ -34,7 +34,7 @@ export default (function () {
     }
     if (this.isInputSlot(slotId)) {
       // var newValue = payloadObject.payload;
-      this[ this._getSetMethodName(slotId) ](newValue);
+      this[this._getSetMethodName(slotId)](newValue);
     }
   };
   /**
@@ -140,9 +140,9 @@ export default (function () {
     var me = this;
     Object.defineProperty(this.model, key, {
       get: function () {
-        return me[ me._getGetMethodName(key) ]();
+        return me[me._getGetMethodName(key)]();
       },
-      set: function (value) { me[ me._getSetMethodName(key) ](value); }
+      set: function (value) { me[me._getSetMethodName(key)](value); }
     });
   };
 
@@ -268,7 +268,7 @@ export default (function () {
       slots = tempSlots;
     }
     for (var index = 0; index < slots.length; index++) {
-      var slot = slots[ index ];
+      var slot = slots[index];
       var value = this._initValue(slot.value, slot.type);
       var slotId = slot.slotId;
       this._setInModel(slotId, value);
@@ -324,8 +324,8 @@ export default (function () {
    */
   cubxComponentMixin._generateGetMethod = function (slotId) {
     var modelName = '_' + slotId;
-    this[ this._getGetMethodName(slotId) ] = function () {
-      return this.model[ modelName ];
+    this[this._getGetMethodName(slotId)] = function () {
+      return this.model[modelName];
     };
   };
 
@@ -345,7 +345,7 @@ export default (function () {
       if (elem.direction) {
         slot.direction = elem.direction;
       } else {
-        slot.direction = [ 'input', 'output' ];
+        slot.direction = ['input', 'output'];
       }
       if (elem.description) {
         slot.description = elem.description;
@@ -360,15 +360,15 @@ export default (function () {
 
   cubxComponentMixin._generateRepropagateMethod = function (slotId) {
     if (this.isOutputSlot(slotId)) {
-      this[ this._getRepropagateMethodName(slotId) ] = function (async) {
+      this[this._getRepropagateMethodName(slotId)] = function (async) {
         if (!async) {
           async = false;
         }
-        var value = this[ this._getGetMethodName(slotId) ]();
+        var value = this[this._getGetMethodName(slotId)]();
         if (async) {
           this.async(function () {
             this._outPutHandler(slotId, value);
-          }, [ slotId, value ], 0);
+          }, [slotId, value], 0);
         } else {
           this._outputHandler(slotId, value);
         }
@@ -525,14 +525,14 @@ export default (function () {
     var scope = window;
     var scopeSplit = str.split('.');
     for (var i = 0; i < scopeSplit.length - 1; i++) {
-      scope = scope[ scopeSplit[ i ] ];
+      scope = scope[scopeSplit[i]];
 
       if (scope === undefined) {
         return;
       }
     }
 
-    return scope[ scopeSplit[ scopeSplit.length - 1 ] ];
+    return scope[scopeSplit[scopeSplit.length - 1]];
   };
 
   /**
@@ -545,7 +545,7 @@ export default (function () {
    */
   cubxComponentMixin._isValidType = function (type) {
     // TODO typescript Types oder types mit jsonschema  prüfen?
-    var validType = [ 'object', 'string', 'number', 'array', 'boolean' ];
+    var validType = ['object', 'string', 'number', 'array', 'boolean'];
     return _.includes(validType, type.toLowerCase());
   };
 

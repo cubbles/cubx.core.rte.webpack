@@ -1,5 +1,5 @@
 /* globals HTMLImports */
-import {getTestComponentCacheEntry, initNewElement} from '../helpers';
+import { getTestComponentCacheEntry, initNewElement } from '../helpers';
 
 describe('CubxComponent (Input/Output)', function () {
   before(function (done) {
@@ -16,7 +16,7 @@ describe('CubxComponent (Input/Output)', function () {
     var testString = 'a hot new value';
 
     before(function () {
-      window.componentCacheEntry = getTestComponentCacheEntry()[ elementName ];
+      window.componentCacheEntry = getTestComponentCacheEntry()[elementName];
 
       initNewElement(elementName, {
         modelTestChanged: function () {
@@ -27,7 +27,7 @@ describe('CubxComponent (Input/Output)', function () {
         }
       });
       component = document.querySelector(elementName);
-      window.componentCacheEntry = getTestComponentCacheEntry()[ elementName2 ];
+      window.componentCacheEntry = getTestComponentCacheEntry()[elementName2];
       initNewElement(elementName2);
       component2 = document.querySelector(elementName2);
     });
@@ -216,7 +216,7 @@ describe('CubxComponent (Input/Output)', function () {
         component.setSecondtest(testString);
         expect(spyModelSecondtestChanged.calledOnce).to.be.ok;
         var spyCall = spyModelSecondtestChanged.getCall(0);
-        var arg = spyCall.args[ 0 ];
+        var arg = spyCall.args[0];
         expect(arg).to.be.equals(testString);
       });
     });
@@ -228,7 +228,7 @@ describe('CubxComponent (Input/Output)', function () {
       var testString2 = 'a better new value';
 
       before(function () {
-        window.componentCacheEntry = getTestComponentCacheEntry()[ elementName ];
+        window.componentCacheEntry = getTestComponentCacheEntry()[elementName];
         initNewElement(elementName);
         component = document.querySelector(elementName);
       });
@@ -319,14 +319,14 @@ describe('CubxComponent (Input/Output)', function () {
         });
         it('event for outputvalue should have detail', function () {
           component.setOutputvalue(testString);
-          var event = spy.args[ 0 ][ 0 ];
+          var event = spy.args[0][0];
 
           event.should.have.deep.property('detail');
           event.detail.should.have.property('payload', testString);
         });
         it('event for inputoutputvalue should have detail', function () {
           component.setInputoutputvalue(testString);
-          var event = spy.args[ 0 ][ 0 ];
+          var event = spy.args[0][0];
           event.should.have.deep.property('detail');
           event.detail.should.have.property('payload', testString);
         });
@@ -373,7 +373,7 @@ describe('CubxComponent (Input/Output)', function () {
           });
           it('event for outputvalue should should have detail property with payload', function () {
             component.setOutputvalue(testString);
-            var event = spy.args[ 0 ][ 0 ];
+            var event = spy.args[0][0];
             event.should.have.deep.property('detail', testString);
           });
         });
@@ -395,7 +395,7 @@ describe('CubxComponent (Input/Output)', function () {
           });
           it('event for inputoutputvalue should have detail property with payload', function () {
             component.setInputoutputvalue(testString);
-            var event = spy.args[ 0 ][ 0 ];
+            var event = spy.args[0][0];
             event.should.have.deep.property('detail', testString);
           });
         });

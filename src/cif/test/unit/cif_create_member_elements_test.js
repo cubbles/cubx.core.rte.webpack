@@ -24,7 +24,6 @@ describe('CIF', function () {
       var crc;
       var manifest;
       var compoundEl;
-      /* eslint no-unused-vars: ["error", { "varsIgnorePattern": "getResolvedComponentStub" }] */
       var getResolvedComponentStub;
       beforeEach(function () {
         crc = window.cubx.CRC;
@@ -37,37 +36,37 @@ describe('CIF', function () {
           artifactId: 'ciftest-a',
           artifactType: 'compoundComponent',
           modelVersion: '8.0.0',
-          slots: [ {
+          slots: [{
             slotId: 'testslotA'
-          } ],
-          members: [ {
+          }],
+          members: [{
             componentId: 'test.package-ciftest-b@0.1/ciftest-b',
             artifactType: 'elementaryComponent',
             artifactId: 'ciftest-b',
             memberId: 'B-Element',
-            slots: [ {
+            slots: [{
               slotId: 'testslotB'
-            } ]
+            }]
           }, {
             componentId: 'test.package-ciftest-c@0.1/ciftest-c',
             artifactType: 'compoundComponent',
             artifactId: 'ciftest-c',
             memberId: 'C-element',
-            slots: [ {
+            slots: [{
               slotId: 'testslotC'
-            } ],
+            }],
 
-            members: [ {
+            members: [{
               componentId: 'test.package-ciftest-d@0.1/ciftest-d',
               memberId: 'D-Element',
               artifactType: 'elementaryComponent',
               artifactId: 'ciftest-d',
-              slots: [ {
+              slots: [{
                 slotId: 'testslotD'
-              } ]
+              }]
 
-            } ],
-            connections: [ {
+            }],
+            connections: [{
               connectionId: 'c-d',
               source: {
                 slot: 'testslotC'
@@ -75,9 +74,9 @@ describe('CIF', function () {
               destination: {
                 memberIdRef: 'D-Element', slot: 'testslotD'
               }
-            } ]
-          } ],
-          connections: [ {
+            }]
+          }],
+          connections: [{
             connectionId: 'b-c',
             source: {
               memberIdRef: 'B-Element', slot: 'testslotB'
@@ -85,7 +84,7 @@ describe('CIF', function () {
             destination: {
               memberIdRef: 'C-Element', slot: 'testslotC'
             }
-          } ]
+          }]
         };
         getResolvedComponentStub = sinon.stub(crc, 'getResolvedComponent').callsFake(function () {
           return manifest;
@@ -196,7 +195,6 @@ describe('CIF', function () {
       });
       describe('whitout id, member-id, runtime-id and  with existing uncorrect runtime-id attribute', function () {
         var runtimeId;
-        // eslint-disable-next-line no-unsused-vars
         var spy;
         beforeEach(function () {
           runtimeId = 'some/uncorrect.runtimeid';
@@ -228,7 +226,6 @@ describe('CIF', function () {
     describe('crcRoot contains one cubbles and other html elements', function () {
       var container;
       var manifest;
-      /* eslint no-unused-vars: ["error", { "varsIgnorePattern": "getResolvedComponentStub" }] */
       var getResolvedComponentStub;
       var crc;
       var compoundEl;
@@ -246,37 +243,37 @@ describe('CIF', function () {
           artifactId: 'ciftest-a',
           artifactType: 'compoundComponent',
           modelVersion: '8.0.0',
-          slots: [ {
+          slots: [{
             slotId: 'testslotA'
-          } ],
-          members: [ {
+          }],
+          members: [{
             componentId: 'test.package-ciftest-b@0.1/ciftest-b',
             artifactType: 'elementaryComponent',
             artifactId: 'ciftest-b',
             memberId: 'B-Element',
-            slots: [ {
+            slots: [{
               slotId: 'testslotB'
-            } ]
+            }]
           }, {
             componentId: 'test.package-ciftest-c@0.1/ciftest-c',
             artifactType: 'compoundComponent',
             artifactId: 'ciftest-c',
             memberId: 'C-element',
-            slots: [ {
+            slots: [{
               slotId: 'testslotC'
-            } ],
+            }],
 
-            members: [ {
+            members: [{
               componentId: 'test.package-ciftest-d@0.1/ciftest-d',
               memberId: 'D-Element',
               artifactType: 'elementaryComponent',
               artifactId: 'ciftest-d',
-              slots: [ {
+              slots: [{
                 slotId: 'testslotD'
-              } ]
+              }]
 
-            } ],
-            connections: [ {
+            }],
+            connections: [{
               connectionId: 'c-d',
               source: {
                 slot: 'testslotC'
@@ -284,9 +281,9 @@ describe('CIF', function () {
               destination: {
                 memberIdRef: 'D-Element', slot: 'testslotD'
               }
-            } ]
-          } ],
-          connections: [ {
+            }]
+          }],
+          connections: [{
             connectionId: 'b-c',
             source: {
               memberIdRef: 'B-Element', slot: 'testslotB'
@@ -294,7 +291,7 @@ describe('CIF', function () {
             destination: {
               memberIdRef: 'C-Element', slot: 'testslotC'
             }
-          } ]
+          }]
         };
         getResolvedComponentStub = sinon.stub(crc, 'getResolvedComponent').callsFake(function () {
           return manifest;
@@ -302,8 +299,8 @@ describe('CIF', function () {
       });
       afterEach(function () {
         var elList = container.children;
-        while (elList[ 0 ]) {
-          var el = elList[ 0 ];
+        while (elList[0]) {
+          var el = elList[0];
           container.removeChild(el);
           if (elList[0] === el) {
             elList = container.children;
@@ -330,7 +327,6 @@ describe('CIF', function () {
       var container;
       var manifestCiftestE;
       var manifestCiftestA;
-      /* eslint no-unused-vars: ["error", { "varsIgnorePattern": "getResolvedComponentStub" }] */
       var getResolvedComponentStub;
       var crc;
       var compoundEl;
@@ -348,9 +344,9 @@ describe('CIF', function () {
           artifactId: 'ciftest-e',
           artifactType: 'compoundComponent',
           modelVersion: '8.0.0',
-          slots: [ {
+          slots: [{
             slotId: 'testslotA'
-          } ],
+          }],
           members: [
             {
               componentId: 'test.package-ciftest-b@0.1/ciftest-b',
@@ -430,7 +426,7 @@ describe('CIF', function () {
               artifactType: 'elementaryComponent',
               artifactId: 'ciftest-b',
               memberId: 'B-Element',
-              slots: [ {
+              slots: [{
                 slotId: 'testslotB'
               }
               ]
@@ -502,8 +498,8 @@ describe('CIF', function () {
       });
       afterEach(function () {
         var elList = container.children;
-        while (elList[ 0 ]) {
-          var el = elList[ 0 ];
+        while (elList[0]) {
+          var el = elList[0];
           container.removeChild(el);
           if (elList[0] === el) {
             elList = container.children;
@@ -561,37 +557,37 @@ describe('CIF', function () {
           artifactId: 'ciftest-a',
           artifactType: 'compoundComponent',
           modelVersion: '8.0.0',
-          slots: [ {
+          slots: [{
             slotId: 'testslotA'
-          } ],
-          members: [ {
+          }],
+          members: [{
             componentId: 'test.package-ciftest-b@0.1/ciftest-b',
             artifactType: 'elementaryComponent',
             artifactId: 'ciftest-b',
             memberId: 'B-Element',
-            slots: [ {
+            slots: [{
               slotId: 'testslotB'
-            } ]
+            }]
           }, {
             componentId: 'test.package-ciftest-c@0.1/ciftest-c',
             artifactType: 'compoundComponent',
             artifactId: 'ciftest-c',
             memberId: 'C-element',
-            slots: [ {
+            slots: [{
               slotId: 'testslotC'
-            } ],
+            }],
 
-            members: [ {
+            members: [{
               componentId: 'test.package-ciftest-d@0.1/ciftest-d',
               memberId: 'D-Element',
               artifactType: 'elementaryComponent',
               artifactId: 'ciftest-d',
-              slots: [ {
+              slots: [{
                 slotId: 'testslotD'
-              } ]
+              }]
 
-            } ],
-            connections: [ {
+            }],
+            connections: [{
               connectionId: 'c-d',
               source: {
                 slot: 'testslotC'
@@ -599,9 +595,9 @@ describe('CIF', function () {
               destination: {
                 memberIdRef: 'D-Element', slot: 'testslotD'
               }
-            } ]
-          } ],
-          connections: [ {
+            }]
+          }],
+          connections: [{
             connectionId: 'b-c',
             source: {
               memberIdRef: 'B-Element', slot: 'testslotB'
@@ -609,7 +605,7 @@ describe('CIF', function () {
             destination: {
               memberIdRef: 'C-Element', slot: 'testslotC'
             }
-          } ]
+          }]
         };
         getResolvedComponentStub = sinon.stub(crc, 'getResolvedComponent').callsFake(function () {
           return manifest;
@@ -617,8 +613,8 @@ describe('CIF', function () {
       });
       afterEach(function () {
         var elList = container.children;
-        while (elList[ 0 ]) {
-          var el = elList[ 0 ];
+        while (elList[0]) {
+          var el = elList[0];
           container.removeChild(el);
           if (elList[0] === el) {
             elList = container.children;
@@ -673,37 +669,37 @@ describe('CIF', function () {
           artifactId: 'ciftest-e',
           artifactType: 'compoundComponent',
           modelVersion: '8.0.0',
-          slots: [ {
+          slots: [{
             slotId: 'testslotA'
-          } ],
-          members: [ {
+          }],
+          members: [{
             componentId: 'test.package-ciftest-b@0.1/ciftest-b',
             artifactType: 'elementaryComponent',
             artifactId: 'ciftest-b',
             memberId: 'B-Element',
-            slots: [ {
+            slots: [{
               slotId: 'testslotB'
-            } ]
+            }]
           }, {
             componentId: 'test.package-ciftest-c@0.1/ciftest-a',
             artifactType: 'compoundComponent',
             artifactId: 'ciftest-a',
             memberId: 'A-element',
-            slots: [ {
+            slots: [{
               slotId: 'testslotA'
-            } ],
+            }],
 
-            members: [ {
+            members: [{
               componentId: 'test.package-ciftest-d@0.1/ciftest-d',
               memberId: 'D-Element',
               artifactType: 'elementaryComponent',
               artifactId: 'ciftest-d',
-              slots: [ {
+              slots: [{
                 slotId: 'testslotD'
-              } ]
+              }]
 
-            } ],
-            connections: [ {
+            }],
+            connections: [{
               connectionId: 'a-d',
               source: {
                 slot: 'testslotA'
@@ -711,9 +707,9 @@ describe('CIF', function () {
               destination: {
                 memberIdRef: 'D-Element', slot: 'testslotD'
               }
-            } ]
-          } ],
-          connections: [ {
+            }]
+          }],
+          connections: [{
             connectionId: 'b-a',
             source: {
               memberIdRef: 'B-Element', slot: 'testslotB'
@@ -721,44 +717,44 @@ describe('CIF', function () {
             destination: {
               memberIdRef: 'A-Element', slot: 'testslotA'
             }
-          } ]
+          }]
         };
         manifestCiftestA = {
           webpackageId: 'test.package-ciftest-a@0.1/ciftest-a',
           artifactId: 'ciftest-a',
           artifactType: 'compoundComponent',
           modelVersion: '8.0.0',
-          slots: [ {
+          slots: [{
             slotId: 'testslotA'
-          } ],
-          members: [ {
+          }],
+          members: [{
             componentId: 'test.package-ciftest-b@0.1/ciftest-b',
             artifactType: 'elementaryComponent',
             artifactId: 'ciftest-b',
             memberId: 'B-Element',
-            slots: [ {
+            slots: [{
               slotId: 'testslotB'
-            } ]
+            }]
           }, {
             componentId: 'test.package-ciftest-c@0.1/ciftest-c',
             artifactType: 'compoundComponent',
             artifactId: 'ciftest-c',
             memberId: 'C-element',
-            slots: [ {
+            slots: [{
               slotId: 'testslotC'
-            } ],
+            }],
 
-            members: [ {
+            members: [{
               componentId: 'test.package-ciftest-d@0.1/ciftest-d',
               memberId: 'D-Element',
               artifactType: 'elementaryComponent',
               artifactId: 'ciftest-d',
-              slots: [ {
+              slots: [{
                 slotId: 'testslotD'
-              } ]
+              }]
 
-            } ],
-            connections: [ {
+            }],
+            connections: [{
               connectionId: 'c-d',
               source: {
                 slot: 'testslotC'
@@ -766,9 +762,9 @@ describe('CIF', function () {
               destination: {
                 memberIdRef: 'D-Element', slot: 'testslotD'
               }
-            } ]
-          } ],
-          connections: [ {
+            }]
+          }],
+          connections: [{
             connectionId: 'b-c',
             source: {
               memberIdRef: 'B-Element', slot: 'testslotB'
@@ -776,7 +772,7 @@ describe('CIF', function () {
             destination: {
               memberIdRef: 'C-Element', slot: 'testslotC'
             }
-          } ]
+          }]
         };
         getResolvedComponentStub = sinon.stub(crc, 'getResolvedComponent').callsFake(function (componentId) {
           var ergManifest;
@@ -795,8 +791,8 @@ describe('CIF', function () {
       });
       afterEach(function () {
         var elems = container.children;
-        while (elems[ 0 ]) {
-          var el = elems[ 0 ];
+        while (elems[0]) {
+          var el = elems[0];
           container.removeChild(el);
           if (elems[0] === el) {
             elems = container.children;
@@ -864,40 +860,40 @@ describe('CIF', function () {
         webpackageId: 'test.package-ciftest-a@0.1',
         artifactId: 'ciftest-a',
         artifactType: 'compoundComponent',
-        slots: [ {
+        slots: [{
           slotId: 'testslotA'
-        } ],
-        members: [ {
+        }],
+        members: [{
           webpackageId: 'test.package-ciftest-b@0.1',
           componentId: 'test.package-ciftest-b@0.1/ciftest-b',
           artifactType: 'elementary',
           artifactId: 'ciftest-b',
           memberId: 'b',
-          slots: [ {
+          slots: [{
             name: 'testslotB'
-          } ]
+          }]
         }, {
           webpackageId: 'test.package-ciftest-c@0.1',
           componentId: 'test.package-ciftest-c@0.1/ciftest-c',
           artifactType: 'compound',
           artifactId: 'ciftest-c',
           memberId: 'c',
-          slots: [ {
+          slots: [{
             slotId: 'testslotC'
-          } ],
+          }],
 
-          members: [ {
+          members: [{
             webpackageId: 'test.package-ciftest-d@0.1',
             componentId: 'test.package-ciftest-d@0.1/ciftest-d',
             memberId: 'd',
             artifactType: 'elementaryComponent',
             artifactId: 'ciftest-d',
-            slots: [ {
+            slots: [{
               slotId: 'testslotD'
-            } ]
+            }]
 
-          } ],
-          connections: [ {
+          }],
+          connections: [{
             connectionId: 'c-d',
             source: {
               slot: 'testslotC'
@@ -905,12 +901,12 @@ describe('CIF', function () {
             destination: {
               memberIdRef: 'd', slot: 'testslotD'
             }
-          } ],
-          inits: [ {
+          }],
+          inits: [{
             memberIdRef: 'd', slot: 'testslotD', value: 'yyy'
-          } ]
-        } ],
-        connections: [ {
+          }]
+        }],
+        connections: [{
           connectionId: 'b-c',
           source: {
             memberIdRef: 'b', slot: 'testslotB'
@@ -918,10 +914,10 @@ describe('CIF', function () {
           destination: {
             memberIdRef: 'd', slot: 'testslotC'
           }
-        } ],
-        inits: [ {
+        }],
+        inits: [{
           memberIdRef: 'b', slot: 'testslotB', value: '_afterCreatedElementsReady'
-        } ]
+        }]
       };
     });
 
@@ -945,26 +941,26 @@ describe('CIF', function () {
         domTree._connections.should.deep.equals(manifest.connections);
         domTree._inits.should.deep.equals(manifest.inits);
         // members
-        domTree.firstElementChild.should.have.property('tagName', manifest.members[ 0 ].artifactId.toUpperCase());
+        domTree.firstElementChild.should.have.property('tagName', manifest.members[0].artifactId.toUpperCase());
         expect(domTree.firstElementChild.getAttribute('runtime-id')).to.be.exist;
-        domTree.firstElementChild.getAttribute('runtime-id').should.equals(id + ':' + manifest.members[ 0 ].componentId + '.' + manifest.members[ 0 ].memberId);
+        domTree.firstElementChild.getAttribute('runtime-id').should.equals(id + ':' + manifest.members[0].componentId + '.' + manifest.members[0].memberId);
         expect(domTree.firstElementChild.getAttribute('member-id')).to.be.exist;
-        domTree.firstElementChild.getAttribute('member-id').should.equals(manifest.members[ 0 ].memberId);
-        domTree.firstElementChild.nextElementSibling.should.have.property('tagName', manifest.members[ 1 ].artifactId.toUpperCase());
+        domTree.firstElementChild.getAttribute('member-id').should.equals(manifest.members[0].memberId);
+        domTree.firstElementChild.nextElementSibling.should.have.property('tagName', manifest.members[1].artifactId.toUpperCase());
         expect(domTree.firstElementChild.nextElementSibling.getAttribute('runtime-id')).to.be.exist;
-        domTree.firstElementChild.nextElementSibling.getAttribute('runtime-id').should.equals(id + ':' + manifest.members[ 1 ].componentId + '.' + manifest.members[ 1 ].memberId);
+        domTree.firstElementChild.nextElementSibling.getAttribute('runtime-id').should.equals(id + ':' + manifest.members[1].componentId + '.' + manifest.members[1].memberId);
         expect(domTree.firstElementChild.nextElementSibling.getAttribute('member-id')).to.be.exist;
         domTree.firstElementChild.nextElementSibling.getAttribute('member-id').should
-          .equals(manifest.members[ 1 ].memberId);
+          .equals(manifest.members[1].memberId);
         domTree.firstElementChild.nextElementSibling.should.have.property('_connections');
-        domTree.firstElementChild.nextElementSibling._connections.should.deep.equals(manifest.members[ 1 ].connections);
-        domTree.firstElementChild.nextElementSibling._inits.should.deep.equals(manifest.members[ 1 ].inits);
-        domTree.firstElementChild.nextElementSibling.firstElementChild.should.have.property('tagName', manifest.members[ 1 ].members[ 0 ].artifactId.toUpperCase());
+        domTree.firstElementChild.nextElementSibling._connections.should.deep.equals(manifest.members[1].connections);
+        domTree.firstElementChild.nextElementSibling._inits.should.deep.equals(manifest.members[1].inits);
+        domTree.firstElementChild.nextElementSibling.firstElementChild.should.have.property('tagName', manifest.members[1].members[0].artifactId.toUpperCase());
         expect(domTree.firstElementChild.nextElementSibling.firstElementChild.getAttribute('runtime-id')).to.be.exist;
-        domTree.firstElementChild.nextElementSibling.firstElementChild.getAttribute('runtime-id').should.equals(id + ':' + manifest.members[ 1 ].componentId + '.' + manifest.members[ 1 ].memberId + ':' + manifest.members[ 1 ].members[ 0 ].componentId + '.' + manifest.members[ 1 ].members[ 0 ].memberId);
+        domTree.firstElementChild.nextElementSibling.firstElementChild.getAttribute('runtime-id').should.equals(id + ':' + manifest.members[1].componentId + '.' + manifest.members[1].memberId + ':' + manifest.members[1].members[0].componentId + '.' + manifest.members[1].members[0].memberId);
         expect(domTree.firstElementChild.nextElementSibling.firstElementChild.getAttribute('member-id')).to.be.exist;
         domTree.firstElementChild.nextElementSibling.firstElementChild.getAttribute('member-id').should
-          .equals(manifest.members[ 1 ].members[ 0 ].memberId);
+          .equals(manifest.members[1].members[0].memberId);
         container.removeChild(elem);
         container.Context._children = [];
         container.Context._components = [];
@@ -1009,8 +1005,8 @@ describe('CIF', function () {
                   memberId: 'd',
                   artifactType: 'elementaryComponent',
                   artifactId: 'ciftest-d'
-                } ]
-            } ]
+                }]
+            }]
         };
       });
       after(function () {
@@ -1022,11 +1018,11 @@ describe('CIF', function () {
         cif._attachMembers(compoundEl, rootManifest);
         window.setTimeout(function () {
           compoundEl.firstElementChild.should.have.exist;
-          compoundEl.firstElementChild.should.have.property('tagName', rootManifest.members[ 0 ].artifactId.toUpperCase());
+          compoundEl.firstElementChild.should.have.property('tagName', rootManifest.members[0].artifactId.toUpperCase());
           compoundEl.firstElementChild.nextElementSibling.should.have.exist;
-          compoundEl.firstElementChild.nextElementSibling.should.have.property('tagName', rootManifest.members[ 1 ].artifactId.toUpperCase());
+          compoundEl.firstElementChild.nextElementSibling.should.have.property('tagName', rootManifest.members[1].artifactId.toUpperCase());
           compoundEl.firstElementChild.nextElementSibling.firstElementChild.should.have.exist;
-          compoundEl.firstElementChild.nextElementSibling.firstElementChild.should.have.property('tagName', rootManifest.members[ 1 ].members[ 0 ].artifactId.toUpperCase());
+          compoundEl.firstElementChild.nextElementSibling.firstElementChild.should.have.property('tagName', rootManifest.members[1].members[0].artifactId.toUpperCase());
           done();
         }, 100);
       });
@@ -1074,7 +1070,7 @@ describe('CIF', function () {
                       memberId: 'd',
                       artifactType: 'elementaryComponent',
                       artifactId: 'ciftest-d'
-                    } ]
+                    }]
                 };
                 break;
               case 'ciftest-d':
@@ -1116,8 +1112,8 @@ describe('CIF', function () {
                     memberId: 'd',
                     artifactType: 'elementaryComponent',
                     artifactId: 'ciftest-d'
-                  } ]
-              } ]
+                  }]
+              }]
           };
         });
         after(function () {
@@ -1132,13 +1128,13 @@ describe('CIF', function () {
             compoundEl.firstElementChild.should.have.exist;
             compoundEl.firstElementChild.should.have.property('tagName', 'DIV');
             compoundEl.firstElementChild.firstElementChild.should.have.exist;
-            compoundEl.firstElementChild.firstElementChild.should.have.property('tagName', rootManifest.members[ 0 ].artifactId.toUpperCase());
+            compoundEl.firstElementChild.firstElementChild.should.have.property('tagName', rootManifest.members[0].artifactId.toUpperCase());
             compoundEl.firstElementChild.nextElementSibling.should.have.exist;
             compoundEl.firstElementChild.nextElementSibling.should.have.property('tagName', 'DIV');
             compoundEl.firstElementChild.nextElementSibling.firstElementChild.should.have.exist;
-            compoundEl.firstElementChild.nextElementSibling.firstElementChild.should.have.property('tagName', rootManifest.members[ 1 ].artifactId.toUpperCase());
+            compoundEl.firstElementChild.nextElementSibling.firstElementChild.should.have.property('tagName', rootManifest.members[1].artifactId.toUpperCase());
             compoundEl.firstElementChild.nextElementSibling.firstElementChild.firstElementChild.should.have.exist;
-            compoundEl.firstElementChild.nextElementSibling.firstElementChild.firstElementChild.should.have.property('tagName', rootManifest.members[ 1 ].members[ 0 ].artifactId.toUpperCase());
+            compoundEl.firstElementChild.nextElementSibling.firstElementChild.firstElementChild.should.have.property('tagName', rootManifest.members[1].members[0].artifactId.toUpperCase());
             done();
           }, 100);
         });
@@ -1179,7 +1175,7 @@ describe('CIF', function () {
                       memberId: 'd',
                       artifactType: 'elementaryComponent',
                       artifactId: 'ciftest-d'
-                    } ]
+                    }]
                 };
                 break;
               case 'ciftest-d':
@@ -1221,8 +1217,8 @@ describe('CIF', function () {
                     memberId: 'd',
                     artifactType: 'elementaryComponent',
                     artifactId: 'ciftest-d'
-                  } ]
-              } ]
+                  }]
+              }]
           };
         });
         after(function () {
@@ -1237,18 +1233,18 @@ describe('CIF', function () {
             compoundEl.firstElementChild.should.have.exist;
             compoundEl.firstElementChild.should.have.property('tagName', 'DIV');
             compoundEl.firstElementChild.firstElementChild.should.have.exist;
-            compoundEl.firstElementChild.firstElementChild.should.have.property('tagName', rootManifest.members[ 0 ].artifactId.toUpperCase());
+            compoundEl.firstElementChild.firstElementChild.should.have.property('tagName', rootManifest.members[0].artifactId.toUpperCase());
             compoundEl.firstElementChild.nextElementSibling.should.have.exist;
             compoundEl.firstElementChild.nextElementSibling.should.have.property('tagName', 'DIV');
             compoundEl.firstElementChild.nextElementSibling.firstElementChild.should.have.exist;
 
-            compoundEl.firstElementChild.nextElementSibling.firstElementChild.should.have.property('tagName', rootManifest.members[ 1 ].artifactId.toUpperCase());
+            compoundEl.firstElementChild.nextElementSibling.firstElementChild.should.have.property('tagName', rootManifest.members[1].artifactId.toUpperCase());
 
             compoundEl.firstElementChild.nextElementSibling.firstElementChild.firstElementChild.should.have.exist;
             compoundEl.firstElementChild.nextElementSibling.firstElementChild.firstElementChild.should.have.property('tagName', 'DIV');
             compoundEl.firstElementChild.nextElementSibling.firstElementChild.firstElementChild.firstElementChild.should.have.exist;
 
-            compoundEl.firstElementChild.nextElementSibling.firstElementChild.firstElementChild.firstElementChild.should.have.property('tagName', rootManifest.members[ 1 ].members[ 0 ].artifactId.toUpperCase());
+            compoundEl.firstElementChild.nextElementSibling.firstElementChild.firstElementChild.firstElementChild.should.have.property('tagName', rootManifest.members[1].members[0].artifactId.toUpperCase());
             done();
           }, 100);
         });

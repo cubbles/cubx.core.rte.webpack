@@ -85,7 +85,7 @@ describe('ConnectionManager', function () {
           ];
 
           connectionMgr._connections = connections;
-          connectionMgr.processConnections(connections[ 0 ].source.component, payloadObj);
+          connectionMgr.processConnections(connections[0].source.component, payloadObj);
         });
         afterEach(function () {
         });
@@ -93,7 +93,7 @@ describe('ConnectionManager', function () {
           _processConnectionStub.should.calledOnce;
         });
         it('_processConnection called with Args connections[0] and  payloadObj', function () {
-          _processConnectionStub.should.calledWithExactly(connections[ 0 ], payloadObj);
+          _processConnectionStub.should.calledWithExactly(connections[0], payloadObj);
         });
       });
       describe('not process deactivated connections', function () {
@@ -143,7 +143,7 @@ describe('ConnectionManager', function () {
           ];
 
           connectionMgr._connections = connections;
-          connectionMgr.processConnections(connections[ 0 ].source.component, payloadObj);
+          connectionMgr.processConnections(connections[0].source.component, payloadObj);
         });
         afterEach(function () {
         });
@@ -236,7 +236,7 @@ describe('ConnectionManager', function () {
             }
           ];
           connectionMgr._connections = connections;
-          connectionMgr.processInternalConnections(connections[ 0 ].source.slot, payloadObj);
+          connectionMgr.processInternalConnections(connections[0].source.slot, payloadObj);
         });
         afterEach(function () {
           connections = null;
@@ -245,7 +245,7 @@ describe('ConnectionManager', function () {
           _processConnectionStub.should.be.calledOnce;
         });
         it('_processConnection called with Args connections[0] and  payloadObj', function () {
-          _processConnectionStub.should.be.calledWithExactly(connections[ 0 ], payloadObj);
+          _processConnectionStub.should.be.calledWithExactly(connections[0], payloadObj);
         });
       });
       describe('not process dactivated internal connection', function () {
@@ -296,7 +296,7 @@ describe('ConnectionManager', function () {
             }
           ];
           connectionMgr._connections = connections;
-          connectionMgr.processInternalConnections(connections[ 0 ].source.slot, payloadObj);
+          connectionMgr.processInternalConnections(connections[0].source.slot, payloadObj);
         });
         afterEach(function () {
           connections = [];
@@ -327,7 +327,7 @@ describe('ConnectionManager', function () {
               {
                 slotId: 'firsttestoutput',
                 type: 'string',
-                direction: [ 'output' ]
+                direction: ['output']
               }
             ]
 
@@ -340,7 +340,7 @@ describe('ConnectionManager', function () {
               {
                 slotId: 'firsttestoutput',
                 type: 'string',
-                direction: [ 'output' ]
+                direction: ['output']
               }
             ]
 
@@ -446,7 +446,7 @@ describe('ConnectionManager', function () {
               {
                 slotId: 'firsttestoutput',
                 type: 'string',
-                direction: [ 'output' ]
+                direction: ['output']
               }
             ]
 
@@ -459,7 +459,7 @@ describe('ConnectionManager', function () {
               {
                 slotId: 'firsttestoutput',
                 type: 'string',
-                direction: [ 'output' ]
+                direction: ['output']
               }
             ]
 

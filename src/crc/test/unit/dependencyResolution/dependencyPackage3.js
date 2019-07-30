@@ -1,17 +1,17 @@
 export default {
-  'artifacts': {
-    'utilities': [
+  artifacts: {
+    utilities: [
       {
-        'artifactId': 'util3',
-        'description': 'This util demonstrates ...',
-        'resources': [
+        artifactId: 'util3',
+        description: 'This util demonstrates ...',
+        resources: [
           'js/pack3.js',
           'css/pack3.css'
         ],
-        'dependencies': [
+        dependencies: [
           {
-            'artifactId': 'util5',
-            'webpackageId': 'package5@1.0.0'
+            artifactId: 'util5',
+            webpackageId: 'package5@1.0.0'
           }
         ]
       }

@@ -363,7 +363,7 @@ export default (function () {
       throw new Error('The parameter "endpointName" can only accept the values "source" ' +
         'and  "destination".');
     }
-    runtimeId = dynamicConnection[ connectionEndpoint ].runtimeId;
+    runtimeId = dynamicConnection[connectionEndpoint].runtimeId;
     var element = elementFindByAttributeValue('runtime-id', runtimeId);
     if (!element) {
       throw new Error('No element was found with runtimeId "' + runtimeId +
@@ -445,18 +445,18 @@ export default (function () {
       throw new Error('The connectionId ' + connectionId +
         ' is not a vlaid connectionId for an dynamic connection.');
     }
-    var source = endpoints[ 0 ].split('#');
+    var source = endpoints[0].split('#');
     if (source.length !== 2) {
       throw new Error('The connectionId ' + connectionId +
         ' is not a vlaid connectionId for an dynamic connection.');
     }
-    var sourceRuntimeId = source[ 0 ];
-    var destination = endpoints[ 1 ].split('#');
+    var sourceRuntimeId = source[0];
+    var destination = endpoints[1].split('#');
     if (destination.length !== 2) {
       throw new Error('The connectionId ' + connectionId +
         ' is not a vlaid connectionId for an dynamic connection.');
     }
-    var destinationRuntimeId = destination[ 0 ];
+    var destinationRuntimeId = destination[0];
     var context;
     if (ownRuntimeId === sourceRuntimeId && destinationRuntimeId.length > sourceRuntimeId.length &&
       destinationRuntimeId.indexOf(sourceRuntimeId) > -1) {

@@ -164,7 +164,7 @@ export default (function () {
     if (arguments.length === 0) {
       cif = window.cubx.cif.cif;
     } else {
-      cif = arguments[ 0 ];
+      cif = arguments[0];
     }
     this._collectSlotInits(cif);
   };

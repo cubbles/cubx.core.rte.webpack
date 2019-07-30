@@ -1,28 +1,28 @@
-import {getTestComponentCacheEntry} from '../helpers';
+import { getTestComponentCacheEntry } from '../helpers';
 
-getTestComponentCacheEntry()[ 'dummy-helper2' ] = {
-  'slots': [
+getTestComponentCacheEntry()['dummy-helper2'] = {
+  slots: [
     {
-      'slotId': 'inputvar',
-      'type': 'string',
-      'direction': [ 'input' ]
-
-    },
-    {
-      'slotId': 'outputvar',
-      'type': 'string',
-      'direction': [ 'output' ]
+      slotId: 'inputvar',
+      type: 'string',
+      direction: ['input']
 
     },
     {
-      'slotId': 'inputoutputvar',
-      'type': 'string',
-      'direction': [ 'input', 'output' ]
+      slotId: 'outputvar',
+      type: 'string',
+      direction: ['output']
 
     },
     {
-      'slotId': 'inputoutputwithoutdirectionvar',
-      'type': 'string'
+      slotId: 'inputoutputvar',
+      type: 'string',
+      direction: ['input', 'output']
+
+    },
+    {
+      slotId: 'inputoutputwithoutdirectionvar',
+      type: 'string'
     }
   ]
 };

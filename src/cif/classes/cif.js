@@ -1,4 +1,4 @@
-/* globals _,CustomEvent,HTMLElement,NodeFilter,Promise,customElements, Element, Node */
+/* globals _,CustomEvent,HTMLElement,NodeFilter,customElements, Element, Node */
 
 import Queue from '../../queue/vendor/Queue';
 import guid from '../../guid-utility/js/guid';
@@ -80,7 +80,7 @@ export default (function () {
      * @type {string[]}
      * @private
      */
-    this._supportedModelVersionList = [ '10.0' ];
+    this._supportedModelVersionList = ['10.0'];
 
     /**
      * list of elements waiting for componentReady Event
@@ -158,7 +158,7 @@ export default (function () {
    * @deprecated
    */
   CIF.prototype.getCRCRootNodeList = function () {
-    return [ window.cubx.CRC.getCRCElement() ];
+    return [window.cubx.CRC.getCRCElement()];
   };
 
   /**
@@ -255,13 +255,13 @@ export default (function () {
       if (!runtimeId) {
         me._determineMemberIdAndRuntimeId(evt.target);
         runtimeId = evt.target.getAttribute('runtime-id');
-        me._componentReady[ runtimeId ] = {
+        me._componentReady[runtimeId] = {
           ready: true
         };
         return;
       }
-      if (me._componentReady[ runtimeId ]) {
-        me._componentReady[ runtimeId ].ready = true;
+      if (me._componentReady[runtimeId]) {
+        me._componentReady[runtimeId].ready = true;
       }
       if (!me._hasElementsWaitingForReady()) {
         me._fireAllComponentsReady(node);
@@ -363,7 +363,7 @@ export default (function () {
     }
     var cif = window.cubx.cif.cif;
     // added, removed cubbles
-    var componentChangeSummary = summaries[ 0 ];
+    var componentChangeSummary = summaries[0];
     if (componentChangeSummary.added.length > 0) {
       cif._addPossibleElementToQueue(componentChangeSummary.added);
       cif._processElementFromQueue();
@@ -374,7 +374,7 @@ export default (function () {
     });
 
     // added or removed cubx-core-connections or cubx-core-connection
-    componentChangeSummary = summaries[ 1 ];
+    componentChangeSummary = summaries[1];
     componentChangeSummary.added.forEach(function (addedEl) {
       if (addedEl.tagName === 'CUBX-CORE-CONNECTION' && !addedEl.generatedByCif) {
         cif._handleAddedConnection(addedEl);
@@ -594,7 +594,7 @@ export default (function () {
    */
   CIF.prototype._handleRemovedConnections = function (connectionsElement, oldParentNode) {
     for (var i = 0; i < connectionsElement.children.length; i++) {
-      var elem = connectionsElement.children[ i ];
+      var elem = connectionsElement.children[i];
       if (elem.tagName === 'CUBX-CORE-CONNECTION') {
         this._handleRemovedConnection(elem, oldParentNode);
       }
@@ -686,7 +686,7 @@ export default (function () {
 
     var filter = {
       acceptNode: function (currNode) {
-        var except = [ 'CUBX-CORE-CONNECTIONS', 'CUBX-CORE-CONNECTION', 'CUBX-CORE-INIT', 'CUBX-CORE-SLOT-INIT' ];
+        var except = ['CUBX-CORE-CONNECTIONS', 'CUBX-CORE-CONNECTION', 'CUBX-CORE-INIT', 'CUBX-CORE-SLOT-INIT'];
         if (currNode.nodeType === currNode.ELEMENT_NODE && currNode.tagName.indexOf('-') > -1 && except.indexOf(currNode.tagName) === -1) {
           return NodeFilter.FILTER_ACCEPT;
         } else {
@@ -761,7 +761,7 @@ export default (function () {
     if (this._isElementaryComponent(element)) {
       // tree.setAttribute('runtime-id', runtimeId);
       if (!element._componentReady) {
-        this._componentReady[ runtimeId ] = {
+        this._componentReady[runtimeId] = {
           ready: false
         };
       }
@@ -799,16 +799,16 @@ export default (function () {
       var removeList = [];
       var i;
       for (i = 0; i < cubxCoreSlotinits.length; i++) {
-        if (cubxCoreSlotinits[ i ].getType() && cubxCoreSlotinits[ i ].getType() === 'internal') {
-          removeList.push(cubxCoreSlotinits[ i ]);
+        if (cubxCoreSlotinits[i].getType() && cubxCoreSlotinits[i].getType() === 'internal') {
+          removeList.push(cubxCoreSlotinits[i]);
         } else {
-          this._updateCubxCoreSlotInits(cubxCoreSlotinits[ i ], initOrder++);
+          this._updateCubxCoreSlotInits(cubxCoreSlotinits[i], initOrder++);
         }
       }
 
       for (i = removeList.length - 1; i >= 0; i--) {
-        console.error('Internal initialisation in root level per tags not allowed. The following init tag will be deleted: ', removeList[ i ]);
-        removeList[ i ].parentNode.removeChild(removeList[ i ]);
+        console.error('Internal initialisation in root level per tags not allowed. The following init tag will be deleted: ', removeList[i]);
+        removeList[i].parentNode.removeChild(removeList[i]);
       }
     }
     return initOrder;
@@ -838,7 +838,7 @@ export default (function () {
     var cubxCoreConnectionList = element.querySelectorAll('cubx-core-connection');
     var i;
     for (i = cubxCoreConnectionList.length - 1; i >= 0; i--) {
-      var con = cubxCoreConnectionList[ i ];
+      var con = cubxCoreConnectionList[i];
       if (con.getType() && con.getType() === 'internal') {
         console.error('Internal initialisation in root level per tags not allowed. The following connection tag will be deleted: ', con);
         con.parentNode.removeChild(con);
@@ -1148,7 +1148,7 @@ export default (function () {
         '), than the tag in the CRC container (' + root.tagName.toLowerCase() + ').');
     }
     var runtimeId = root.getAttribute('runtime-id');
-    this._componentReady[ runtimeId ] = {
+    this._componentReady[runtimeId] = {
       ready: false,
       notReadyMembers: true
 
@@ -1174,7 +1174,7 @@ export default (function () {
 
     // if there are members create corresponding domNodes and attach them to root node
     if (!this._isElementaryComponentInManifest(manifest)) {
-      this._componentReady[ runtimeId ].notReadyMembers = true;
+      this._componentReady[runtimeId].notReadyMembers = true;
       this._attachMembers(root, manifest, 1);
     }
 
@@ -1198,7 +1198,7 @@ export default (function () {
       function (results) {
         var template;
         for (var i = 0; i < results.length; i++) {
-          var result = results[ i ];
+          var result = results[i];
           if (typeof result === 'object') {
             template = result;
             break;
@@ -1210,7 +1210,7 @@ export default (function () {
           me._attachMembersFromManifest(root, rootManifest, deeplevel);
         }
         root.fireReadyEvent(rootRuntimeId);
-        me._componentReady[ rootRuntimeId ].notReadyMembers = false;
+        me._componentReady[rootRuntimeId].notReadyMembers = false;
         if (!me._hasElementsWaitingForReady()) {
           me._fireAllComponentsReady(root);
         }
@@ -1234,7 +1234,7 @@ export default (function () {
 
     for (var i = 0; i < elementList.length; i++) {
       var runtimeId;
-      var component = elementList[ i ];
+      var component = elementList[i];
       // component will added to dom content by cif -> generatedByCif
       component.generatedByCif = true;
       var memberId = component.getAttribute('member-id-ref');
@@ -1249,7 +1249,7 @@ export default (function () {
         }
         continue;
       }
-      if (manifest && !_.find(rootManifest.members, { 'memberId': component.getAttribute('member-id-ref') })) {
+      if (manifest && !_.find(rootManifest.members, { memberId: component.getAttribute('member-id-ref') })) {
         if (window.cubx.CRC.getRuntimeMode() === 'dev') {
           console.warn('The cubbles "' + manifest.artifactId + '" is not a member component of "' + rootManifest.artifactId + '".');
         }
@@ -1260,7 +1260,7 @@ export default (function () {
       runtimeId = rootRuntimeId + ':' + componentId + '.' + memberId;
       component.setAttribute('runtime-id', runtimeId);
       //  add  Element to list of waiting for Ready Elements --> Ready-Event necessary
-      this._componentReady[ runtimeId ] = {
+      this._componentReady[runtimeId] = {
         ready: false
       };
       if (this._isCompoundComponentInManifest(manifest)) {
@@ -1295,7 +1295,7 @@ export default (function () {
       }
 
       if (manifest.hasOwnProperty('members')) {
-        this._componentReady[ runtimeId ].notReadyMembers = true;
+        this._componentReady[runtimeId].notReadyMembers = true;
         this._attachMembers(component, manifest, deeplevel + 1);
       }
       component.processed = true;
@@ -1315,7 +1315,7 @@ export default (function () {
     var members = rootManifest.members;
     for (var i = 0; i < members.length; i++) {
       var runtimeId;
-      var currentMember = members[ i ];
+      var currentMember = members[i];
       var component = null; // holds the component that is created (either a compound or an elementary one)
       if (!this._isElementaryComponentInManifest(currentMember)) {
         // currentMember is a compound component
@@ -1352,11 +1352,11 @@ export default (function () {
       runtimeId = rootRuntimeId + ':' + componentId + '.' + currentMember.memberId;
       component.setAttribute('runtime-id', runtimeId);
       //  add  Element to list of waiting for Ready Elements --> Ready-Event necessary
-      this._componentReady[ runtimeId ] = {
+      this._componentReady[runtimeId] = {
         ready: false
       };
       if (currentMember.hasOwnProperty('members')) {
-        this._componentReady[ runtimeId ].notReadyMembers = true;
+        this._componentReady[runtimeId].notReadyMembers = true;
         this._attachMembers(component, currentMember, deeplevel + 1);
       }
       component.processed = true;
@@ -1405,7 +1405,7 @@ export default (function () {
     while (node) {
       if (node.hasOwnProperty('_connections')) {
         for (var i = 0; i < node._connections.length; i++) {
-          this._createConnectionElement(node, node._connections[ i ]);
+          this._createConnectionElement(node, node._connections[i]);
         }
         node._createdConnections = node._connections;
         delete node._connections;
@@ -1491,7 +1491,7 @@ export default (function () {
     while (node) {
       if (node.hasOwnProperty('_inits')) {
         for (var i = 0; i < node._inits.length; i++) {
-          this._createSlotInitElement(node, node._inits[ i ], i);
+          this._createSlotInitElement(node, node._inits[i], i);
         }
         node._createdInits = node._inits;
         delete node._inits;
@@ -1666,7 +1666,7 @@ export default (function () {
     var correctedModelVersion = window.cubx.CRC.getNormedModelVersion(modelVersion);
 
     for (var i = 0; i < this._supportedModelVersionList.length; i++) {
-      if (this._supportedModelVersionList[ i ] === correctedModelVersion) {
+      if (this._supportedModelVersionList[i] === correctedModelVersion) {
         return true;
       }
     }
@@ -1686,7 +1686,7 @@ export default (function () {
     var warnings = [];
     for (var comp in components) {
       if (components.hasOwnProperty(comp)) {
-        var component = components[ comp ];
+        var component = components[comp];
         var id = component.webpackageId + '/' + component.artifactId;
         if (warnings.indexOf(id) === -1 && !this._isModelVersionSupported(component.modelVersion)) {
           warnings.push(id);

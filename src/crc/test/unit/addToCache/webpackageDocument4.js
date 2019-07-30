@@ -1,20 +1,20 @@
 export default {
-  'name': 'package-4',
-  'groupId': 'org.example',
-  'version': '1.0.0',
-  'modelVersion': '10.0.0',
-  'docType': 'webpackage',
-  'author': {
-    'name': 'John Doe',
-    'email': 'john.doe@example.org'
+  name: 'package-4',
+  groupId: 'org.example',
+  version: '1.0.0',
+  modelVersion: '10.0.0',
+  docType: 'webpackage',
+  author: {
+    name: 'John Doe',
+    email: 'john.doe@example.org'
   },
-  'license': 'MIT',
-  'runnables': [],
-  'artifacts': {
-    'utilities': [
+  license: 'MIT',
+  runnables: [],
+  artifacts: {
+    utilities: [
       {
-        'artifactId': 'my-util-4',
-        'resources': [
+        artifactId: 'my-util-4',
+        resources: [
           'res4.js'
         ]
       }

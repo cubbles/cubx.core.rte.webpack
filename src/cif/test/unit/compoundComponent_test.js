@@ -47,7 +47,7 @@ describe('CompoundComponent', function () {
                 slots: [
                   {
                     slotId: 'firstslot',
-                    direction: [ 'input' ]
+                    direction: ['input']
                   }
                 ]
               };
@@ -58,7 +58,7 @@ describe('CompoundComponent', function () {
                 slots: [
                   {
                     slotId: 'firstslot',
-                    direction: [ 'output' ]
+                    direction: ['output']
                   }
                 ]
               };
@@ -69,7 +69,7 @@ describe('CompoundComponent', function () {
                 slots: [
                   {
                     slotId: 'firstslot',
-                    direction: [ 'input', 'output' ]
+                    direction: ['input', 'output']
                   }
                 ]
               };
@@ -229,7 +229,7 @@ describe('CompoundComponent', function () {
       var spyCall = fireModelChangeEventSpy.getCall(0);
 
       // make sure 'foo' on the data argument is set to 'bar'
-      expect(spyCall.args[ 0 ].detail).to.deep.equal(payloadObject);
+      expect(spyCall.args[0].detail).to.deep.equal(payloadObject);
     });
   });
   describe('#isCompoundComponent', function () {
@@ -277,17 +277,17 @@ describe('CompoundComponent', function () {
           {
             slotId: 'slotA',
             type: 'string',
-            direction: [ 'input' ]
+            direction: ['input']
           },
           {
             slotId: 'slotB',
             type: 'number',
-            direction: [ 'output' ]
+            direction: ['output']
           },
           {
             slotId: 'slotC',
             type: 'object',
-            direction: [ 'input', 'output' ]
+            direction: ['input', 'output']
           },
           {
             slotId: 'slotD',
@@ -296,7 +296,7 @@ describe('CompoundComponent', function () {
           {
             slotId: 'slotE',
             type: 'array',
-            direction: [ 'input', 'output' ]
+            direction: ['input', 'output']
           },
           {
             slotId: 'slotF'
@@ -307,12 +307,12 @@ describe('CompoundComponent', function () {
 
       sinon.stub(cache, 'getComponentCacheEntry').callsFake(function (key) {
         if (key) {
-          return this._componentCache[ key ];
+          return this._componentCache[key];
         }
         return null;
       });
       cache._componentCache = {};
-      cache._componentCache[ artifactId ] = manifest;
+      cache._componentCache[artifactId] = manifest;
       slots = elem.slots();
     });
     afterEach(function () {
@@ -335,55 +335,55 @@ describe('CompoundComponent', function () {
       slots.should.have.length(6);
     });
     it('should have first element from type object', function () {
-      slots[ 0 ].should.be.an('object');
+      slots[0].should.be.an('object');
     });
     it('should have first element with korrekt attributes', function () {
-      var slot = slots[ 0 ];
-      var slotDef = manifest.slots[ 0 ];
+      var slot = slots[0];
+      var slotDef = manifest.slots[0];
       slot.should.have.property('slotId', slotDef.slotId);
       slot.should.have.property('type', slotDef.type);
       slot.should.have.property('direction');
       slot.direction.should.be.deep.equal(slotDef.direction);
     });
     it('should have second element with korrekt attributes', function () {
-      var slot = slots[ 1 ];
-      var slotDef = manifest.slots[ 1 ];
+      var slot = slots[1];
+      var slotDef = manifest.slots[1];
       slot.should.have.property('slotId', slotDef.slotId);
       slot.should.have.property('type', slotDef.type);
       slot.should.have.property('direction');
       slot.direction.should.be.deep.equal(slotDef.direction);
     });
     it('should have third element with korrekt attributes', function () {
-      var slot = slots[ 2 ];
-      var slotDef = manifest.slots[ 2 ];
+      var slot = slots[2];
+      var slotDef = manifest.slots[2];
       slot.should.have.property('slotId', slotDef.slotId);
       slot.should.have.property('type', slotDef.type);
       slot.should.have.property('direction');
       slot.direction.should.be.deep.equal(slotDef.direction);
     });
     it('should have fourth element with korrekt attributes', function () {
-      var slot = slots[ 3 ];
-      var slotDef = manifest.slots[ 3 ];
+      var slot = slots[3];
+      var slotDef = manifest.slots[3];
       slot.should.have.property('slotId', slotDef.slotId);
       slot.should.have.property('type', slotDef.type);
       slot.should.have.property('direction');
-      slot.direction.should.be.deep.equal([ 'input', 'output' ]);
+      slot.direction.should.be.deep.equal(['input', 'output']);
     });
     it('should have fifth element with korrekt attributes', function () {
-      var slot = slots[ 4 ];
-      var slotDef = manifest.slots[ 4 ];
+      var slot = slots[4];
+      var slotDef = manifest.slots[4];
       slot.should.have.property('slotId', slotDef.slotId);
       slot.should.have.property('type', slotDef.type);
       slot.should.have.property('direction');
       slot.direction.should.be.deep.equal(slotDef.direction);
     });
     it('should have sixth element with korrekt attributes', function () {
-      var slot = slots[ 5 ];
-      var slotDef = manifest.slots[ 5 ];
+      var slot = slots[5];
+      var slotDef = manifest.slots[5];
       slot.should.have.property('slotId', slotDef.slotId);
       slot.should.not.have.property('type');
       slot.should.have.property('direction');
-      slot.direction.should.be.deep.equal([ 'input', 'output' ]);
+      slot.direction.should.be.deep.equal(['input', 'output']);
     });
   });
   describe('cubx methods', function () {
@@ -400,17 +400,17 @@ describe('CompoundComponent', function () {
           {
             slotId: 'slotA',
             type: 'string',
-            direction: [ 'input' ]
+            direction: ['input']
           },
           {
             slotId: 'slotB',
             type: 'number',
-            direction: [ 'output' ]
+            direction: ['output']
           },
           {
             slotId: 'slotC',
             type: 'object',
-            direction: [ 'input', 'output' ]
+            direction: ['input', 'output']
           },
           {
             slotId: 'slotD',
@@ -419,7 +419,7 @@ describe('CompoundComponent', function () {
           {
             slotId: 'slotE',
             type: 'array',
-            direction: [ 'input', 'output' ]
+            direction: ['input', 'output']
           },
           {
             slotId: 'slotF'
@@ -897,7 +897,7 @@ describe('CompoundComponent', function () {
           spyModelChangeEvent.should.have.been.calledOnce;
         });
         it('should have event details (cifModelChange event)', function () {
-          var event = spyModelChangeEvent.args[ 0 ][ 0 ];
+          var event = spyModelChangeEvent.args[0][0];
           console.log(event.detail);
           event.should.have.deep.property('detail');
           event.detail.should.be.deep.property('payload', testString);
@@ -907,7 +907,7 @@ describe('CompoundComponent', function () {
           spySlotChangedEvent.should.have.been.calledOnce;
         });
         it('should have event details (slotSlotBChanged event)', function () {
-          var event = spySlotChangedEvent.args[ 0 ][ 0 ];
+          var event = spySlotChangedEvent.args[0][0];
           event.should.have.deep.property('detail', testString);
         });
       });
@@ -925,7 +925,7 @@ describe('CompoundComponent', function () {
           spyModelChangeEvent.should.have.been.calledOnce;
         });
         it('should have event details (cifModelChange event)', function () {
-          var event = spyModelChangeEvent.args[ 0 ][ 0 ];
+          var event = spyModelChangeEvent.args[0][0];
           console.log(event.detail);
           event.should.have.deep.property('detail');
           event.detail.should.be.deep.property('payload', testString);
@@ -935,7 +935,7 @@ describe('CompoundComponent', function () {
           spySlotChangedEvent.should.have.been.calledOnce;
         });
         it('should have event details (slotSlotCChanged event)', function () {
-          var event = spySlotChangedEvent.args[ 0 ][ 0 ];
+          var event = spySlotChangedEvent.args[0][0];
           event.should.have.deep.property('detail', testString);
         });
       });
@@ -953,7 +953,7 @@ describe('CompoundComponent', function () {
           spyModelChangeEvent.should.have.been.calledOnce;
         });
         it('should have event details (cifModelChange event)', function () {
-          var event = spyModelChangeEvent.args[ 0 ][ 0 ];
+          var event = spyModelChangeEvent.args[0][0];
           console.log(event.detail);
           event.should.have.deep.property('detail');
           event.detail.should.be.deep.property('payload', testString);
@@ -963,7 +963,7 @@ describe('CompoundComponent', function () {
           spySlotChangedEvent.should.have.been.calledOnce;
         });
         it('should have event details (slotSlotDChanged event)', function () {
-          var event = spySlotChangedEvent.args[ 0 ][ 0 ];
+          var event = spySlotChangedEvent.args[0][0];
           event.should.have.deep.property('detail', testString);
         });
       });
@@ -981,7 +981,7 @@ describe('CompoundComponent', function () {
           spyModelChangeEvent.should.have.been.calledOnce;
         });
         it('should have event details (cifModelChange event)', function () {
-          var event = spyModelChangeEvent.args[ 0 ][ 0 ];
+          var event = spyModelChangeEvent.args[0][0];
           console.log(event.detail);
           event.should.have.deep.property('detail');
           event.detail.should.be.deep.property('payload', testString);
@@ -991,7 +991,7 @@ describe('CompoundComponent', function () {
           spySlotChangedEvent.should.have.been.calledOnce;
         });
         it('should have event details (slotSlotEChanged event)', function () {
-          var event = spySlotChangedEvent.args[ 0 ][ 0 ];
+          var event = spySlotChangedEvent.args[0][0];
           event.should.have.deep.property('detail', testString);
         });
       });
@@ -1009,7 +1009,7 @@ describe('CompoundComponent', function () {
           spyModelChangeEvent.should.have.been.calledOnce;
         });
         it('should have event details (cifModelChange event)', function () {
-          var event = spyModelChangeEvent.args[ 0 ][ 0 ];
+          var event = spyModelChangeEvent.args[0][0];
           console.log(event.detail);
           event.should.have.deep.property('detail');
           event.detail.should.be.deep.property('payload', testString);
@@ -1019,7 +1019,7 @@ describe('CompoundComponent', function () {
           spySlotChangedEvent.should.have.been.calledOnce;
         });
         it('should have event details (slotSlotFChanged event)', function () {
-          var event = spySlotChangedEvent.args[ 0 ][ 0 ];
+          var event = spySlotChangedEvent.args[0][0];
           event.should.have.deep.property('detail', testString);
         });
       });

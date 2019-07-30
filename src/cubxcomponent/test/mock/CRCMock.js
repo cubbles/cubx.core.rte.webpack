@@ -49,7 +49,7 @@ window.cubx.EventFactory.prototype.createEvent = function (type, detail) {
       evt = new CustomEvent(type, { bubbles: true });
       break;
     case window.cubx.EventFactory.types.CIF_DOM_UPDATE_READY:
-      evt = new CustomEvent(type, {bubbles: true});
+      evt = new CustomEvent(type, { bubbles: true });
       break;
     case window.cubx.EventFactory.types.CIF_INIT_START:
       evt = new CustomEvent(type, { bubbles: false });

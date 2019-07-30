@@ -366,7 +366,7 @@ describe('Context', function () {
         var innerFunction = context._handleModelChangeEvent;
 
         _handleModelChangeEventStub = sinon.stub(context, '_handleModelChangeEvent').callsFake(function (event) {
-          innerFunction.apply(context, [ event ]);
+          innerFunction.apply(context, [event]);
           done();
         });
         processConnectionsStub =
@@ -413,7 +413,7 @@ describe('Context', function () {
         subContext.setParent(context);
         var innerFunction = context._handleModelChangeEvent;
         _handleModelChangeEventStub = sinon.stub(context, '_handleModelChangeEvent').callsFake(function (event) {
-          innerFunction.apply(context, [ event ]);
+          innerFunction.apply(context, [event]);
           done();
         });
         processConnectionsStub =

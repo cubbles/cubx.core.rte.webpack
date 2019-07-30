@@ -1,6 +1,6 @@
 /* globals HTMLImports */
 
-import {createNewElement, registerCompoundComponentElement, getContainer} from '../helpers';
+import { createNewElement, registerCompoundComponentElement, getContainer } from '../helpers';
 
 describe('CubxComponent (dynamicConnection', function () {
   var DynamicConnection;
@@ -63,7 +63,7 @@ describe('CubxComponent (dynamicConnection', function () {
       });
       it('the added connection should override a existing dynamic the right properties and property values',
         function () {
-          var connection = compElem.Context.getConnectionMgr()._connections[ 0 ];
+          var connection = compElem.Context.getConnectionMgr()._connections[0];
           connection.should.have.property('static', false);
           connection.should.have.property('lastValue', null);
           connection.should.have.property('copyValue', true);
@@ -105,7 +105,7 @@ describe('CubxComponent (dynamicConnection', function () {
       });
       it('the added connection should override a existing dynamic the right properties and property values',
         function () {
-          var connection = compElem.Context.getConnectionMgr()._connections[ 0 ];
+          var connection = compElem.Context.getConnectionMgr()._connections[0];
           connection.should.have.property('static', false);
           connection.should.have.property('lastValue', null);
           connection.should.have.property('copyValue', dynamicConnection.copyValue);
@@ -180,7 +180,7 @@ describe('CubxComponent (dynamicConnection', function () {
         compElem.Context.getConnectionMgr()._connections.should.have.length(3);
       });
       it('the added connection should have the right properties and property values', function () {
-        var connection = compElem.Context.getConnectionMgr()._connections[ 2 ];
+        var connection = compElem.Context.getConnectionMgr()._connections[2];
         connection.should.have.property('static', false);
         connection.should.have.property('lastValue', null);
         connection.should.have.property('copyValue', true);
@@ -354,7 +354,7 @@ describe('CubxComponent (dynamicConnection', function () {
           hookFunction: 'myFunc'
         };
         elem1.addDynamicConnection(dynamicConnection);
-        var connection = compElem.Context.getConnectionMgr()._connections[ 2 ];
+        var connection = compElem.Context.getConnectionMgr()._connections[2];
         connection.should.have.property('static', false);
         connection.should.have.property('lastValue', null);
         connection.should.have.property('copyValue', true);

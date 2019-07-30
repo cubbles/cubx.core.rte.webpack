@@ -212,7 +212,7 @@ describe('CIF', function () {
     afterEach(function () {
       cif._detectMutation.restore();
       while (container.children.length > 0) {
-        container.removeChild(container.children[ 0 ]);
+        container.removeChild(container.children[0]);
       }
       cache.getAllComponents.restore();
       crc.getResolvedComponent.restore();
@@ -423,7 +423,7 @@ describe('CIF', function () {
         cif._observer.disconnect();
         delete cif._observer;
         while (container.children.length > 0) {
-          container.removeChild(container.children[ 0 ]);
+          container.removeChild(container.children[0]);
         }
       });
       it('The method #_addPossibleElementToQueue should be called once', function (done) {
@@ -531,7 +531,7 @@ describe('CIF', function () {
         cif._observer.disconnect();
         delete cif._observer;
         while (container.children.length > 0) {
-          container.removeChild(container.children[ 0 ]);
+          container.removeChild(container.children[0]);
         }
         connection = null;
         connections = null;
@@ -565,7 +565,7 @@ describe('CIF', function () {
         cif._observer.disconnect();
         delete cif._observer;
         while (container.children.length > 0) {
-          container.removeChild(container.children[ 0 ]);
+          container.removeChild(container.children[0]);
         }
         connections = null;
       });
@@ -605,7 +605,7 @@ describe('CIF', function () {
         cif._observer.disconnect();
         delete cif._observer;
         while (container.children.length > 0) {
-          container.removeChild(container.children[ 0 ]);
+          container.removeChild(container.children[0]);
         }
         connection = null;
         connections = null;
@@ -1062,7 +1062,7 @@ describe('CIF', function () {
       containerConnectionMgr.createConnectionFromComponent.restore();
       console.warn.restore();
       while (container.childElementCount > 0) {
-        container.removeChild(container.children[ 0 ]);
+        container.removeChild(container.children[0]);
       }
       connection = null;
       connections = null;
@@ -1194,7 +1194,7 @@ describe('CIF', function () {
       window.cubx.CRC.getCache().getComponentCacheEntry.restore();
       cif._handleRemovedConnection.restore();
       while (container.childElementCount > 0) {
-        container.removeChild(container.children[ 0 ]);
+        container.removeChild(container.children[0]);
       }
       connection1 = null;
       connection2 = null;
@@ -1277,7 +1277,7 @@ describe('CIF', function () {
       window.cubx.CRC.getCache().getComponentCacheEntry.restore();
       console.warn.restore();
       while (container.childElementCount > 0) {
-        container.removeChild(container.children[ 0 ]);
+        container.removeChild(container.children[0]);
       }
       connection = null;
       element = null;
