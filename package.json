@@ -42,7 +42,8 @@
     "test:crc": "karma start ./src/crc/test/karma.conf.js",
     "test:crc-loader": "karma start ./src/crc-loader/test/karma.conf.js",
     "test:cif": "karma start ./src/cif/test/karma.conf.js",
-    "test": "npm-run-all --serial lint test:crc "
+    "test:cubxcomponent": "karma start ./src/cubxcomponent/test/karma.conf.js",
+    "test": "npm-run-all --parallel lint test:crc "
   },
   "ntl": {
     "descriptions": {

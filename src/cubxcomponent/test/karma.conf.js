@@ -10,7 +10,7 @@ module.exports = function (config) {
 
     // frameworks to use
     // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
-    frameworks: [ 'mocha', 'sinon-chai' ],
+    frameworks: [ 'mocha', 'sinon-chai', 'browserify' ],
 
     // list of files / patterns to load in the browser
     files: [
@@ -18,7 +18,7 @@ module.exports = function (config) {
       'test/mock/*.js',
       '../webcomponents/custom-elements-es5-adapter.js',
       '../webcomponents/webcomponents-lite.js',
-      'https://cubbles.world/core/lodash-3.10.1@1.0.0/lodash/vendor/lodash.js',
+      'https://cubbles.world/core/lodash-4.17.14@1.0.0/lodash/js/lodash.js',
       '../template-utils/js/template-utils.js',
       '../cubx-component-mixin/js/cubxComponentMixin.js',
       '../guid-utility/js/guid.js',
@@ -33,7 +33,6 @@ module.exports = function (config) {
       {pattern: 'test/resources/*.html', included: false, served: true},
       'test/resources/*.js',
       'test/unit/**/*_test.js'
-
     ],
 
     // list of files to exclude
@@ -42,7 +41,16 @@ module.exports = function (config) {
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
-      'cubxcomponent.js': [ 'coverage' ]
+      '../template-utils/js/template-utils.js': [ 'browserify' ],
+      '../cubx-component-mixin/js/cubxComponentMixin.js': [ 'browserify' ],
+      '../guid-utility/js/guid.js': [ 'browserify' ],
+      '../dom-tree-utilities/js/domTreeUtils.js': [ 'browserify' ],
+      '../dynamic-connection-utils/js/dynamicConnectionUtils.js': [ 'browserify' ],
+      '../cif/classes/*.js': [ 'browserify' ],
+      'CubxComponent.js': [ 'browserify' ],
+      'test/helpers.js': [ 'browserify' ],
+      'test/resources/*.js': [ 'browserify' ],
+      'test/unit/**/*_test.js': [ 'browserify' ]
     },
 
     // test results reporter to use
@@ -96,6 +104,21 @@ module.exports = function (config) {
         base: 'Chrome',
         flags: [ '--no-sandbox' ]
       }
+    },
+
+    // Browserify configuration
+    browserify: {
+      debug: true,
+      transform: [
+        [
+          'babelify',
+          {
+            presets: [
+              ['babel-preset-env']
+            ]
+          }
+        ]
+      ]
     }
   };
 

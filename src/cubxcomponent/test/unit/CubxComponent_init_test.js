@@ -1,5 +1,6 @@
-/* globals  HTMLImports, getContainer, createHtmlImport */
-'use strict';
+/* globals  HTMLImports */
+import { getContainer, createHtmlImport } from '../helpers';
+
 describe('CubxComponent (init)', function () {
   this.timeout(5000);
   before(function (done) {

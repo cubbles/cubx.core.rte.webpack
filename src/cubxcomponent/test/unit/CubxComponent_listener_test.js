@@ -1,5 +1,6 @@
-/* globals HTMLImports,getContainer,createHtmlImport, Event */
-'use strict';
+/* globals HTMLImports, Event */
+import {getContainer, createHtmlImport} from '../helpers';
+
 describe('CubxComponent (listener)', function () {
   before(function (done) {
     HTMLImports.whenReady(function () {

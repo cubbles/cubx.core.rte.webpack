@@ -1,5 +1,6 @@
-/* globals HTMLImports,initNewElement, getTestComponentCacheEntry, getContainer */
-'use strict';
+/* globals HTMLImports */
+import {getTestComponentCacheEntry, initNewElement, getContainer} from '../helpers';
+
 describe('CubxPolymer call connection-hook', function () {
   before(function (done) {
     HTMLImports.whenReady(function () {

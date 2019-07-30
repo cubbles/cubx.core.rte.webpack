@@ -1,8 +1,8 @@
-/* globals HTMLElement, CubxComponent, guid, customElements */
+/* globals HTMLElement, CubxComponent, customElements */
 /* eslint no-unused-vars: [2, { "varsIgnorePattern": "registerCompoundComponentElement|getTestComponentCacheEntry|initNewElement|createHtmlImport |createNewElementWithTemplate"} ] */
-'use strict';
+import guid from '../../guid-utility/js/guid';
 
-function createHtmlImport (path) {
+export function createHtmlImport (path) {
   return new Promise(function (resolve, reject) {
     var link = document.createElement('link');
     link.setAttribute('rel', 'import');
@@ -17,7 +17,7 @@ function createHtmlImport (path) {
   });
 }
 
-function initNewElementWithTemplate (elementName, prototype, templatePath) {
+export function initNewElementWithTemplate (elementName, prototype, templatePath) {
   var crcContainer = getContainer();
   // add to crcContainer
   var promise = createNewElementWithTemplate(elementName, prototype, templatePath);
@@ -32,7 +32,7 @@ function initNewElementWithTemplate (elementName, prototype, templatePath) {
   });
 }
 
-function initNewElement (elementName, prototype, id) {
+export function initNewElement (elementName, prototype, id) {
   var crcContainer = getContainer();
   // add to crcContainer
   var elem = createNewElement(elementName, prototype);
@@ -49,7 +49,7 @@ function initNewElement (elementName, prototype, id) {
   return elem;
 }
 
-function getContainer () {
+export function getContainer () {
   var crcContainer = document.querySelector('[cubx-core-crc]');
   if (!crcContainer) {
     // create CRC Container
@@ -63,7 +63,7 @@ function getContainer () {
   return crcContainer;
 }
 
-function createNewElementWithTemplate (elementName, prototype, templatePath) {
+export function createNewElementWithTemplate (elementName, prototype, templatePath) {
   var promise = createHtmlImport(templatePath);
   return promise.then(function () {
     var elem = createNewElement(elementName, prototype);
@@ -73,7 +73,7 @@ function createNewElementWithTemplate (elementName, prototype, templatePath) {
   });
 }
 
-function createNewElement (elementName, prototype) {
+export function createNewElement (elementName, prototype) {
   if (elementName.indexOf('-') === -1) {
     throw new SyntaxError('Tagname must enclosed a "-" character.');
   }
@@ -92,7 +92,7 @@ function createNewElement (elementName, prototype) {
   return element;
 }
 
-function getTestComponentCacheEntry () {
+export function getTestComponentCacheEntry () {
   if (!window.componentCacheEntries) {
     window.componentCacheEntries = {};
   }
@@ -106,7 +106,7 @@ function getTestComponentCacheEntry () {
  * @return {function}
  * @private
  */
-function registerCompoundComponentElement (name) {
+export function registerCompoundComponentElement (name) {
   if (typeof name !== 'string' || (typeof name === 'string' && name.indexOf('-') < 1)) {
     throw new TypeError('parameter name needs to be of type "string" and needs to contain a "-"');
   }

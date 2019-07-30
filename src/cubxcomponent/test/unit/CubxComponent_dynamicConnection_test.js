@@ -1,6 +1,7 @@
-/* globals getContainer,registerCompoundComponentElement,createNewElement, HTMLImports */
+/* globals HTMLImports */
 
-'use strict';
+import {createNewElement, registerCompoundComponentElement, getContainer} from '../helpers';
+
 describe('CubxComponent (dynamicConnection', function () {
   var DynamicConnection;
   this.timeout(3000);

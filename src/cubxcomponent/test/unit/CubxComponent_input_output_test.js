@@ -1,5 +1,6 @@
-/* globals HTMLImports, getTestComponentCacheEntry, initNewElement */
-'use strict';
+/* globals HTMLImports */
+import {getTestComponentCacheEntry, initNewElement} from '../helpers';
+
 describe('CubxComponent (Input/Output)', function () {
   before(function (done) {
     HTMLImports.whenReady(function () {

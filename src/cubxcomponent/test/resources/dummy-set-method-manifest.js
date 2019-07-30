@@ -1,5 +1,4 @@
-/* globals getTestComponentCacheEntry */
-'use strict';
+import {getTestComponentCacheEntry} from '../helpers';
 
 getTestComponentCacheEntry()[ 'dummy-set-method' ] = {
   'slots': [
