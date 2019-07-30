@@ -43,6 +43,7 @@
     "test:crc-loader": "karma start ./src/crc-loader/test/karma.conf.js",
     "test:cif": "karma start ./src/cif/test/karma.conf.js",
     "test:cubxcomponent": "karma start ./src/cubxcomponent/test/karma.conf.js",
+    "test:dynamic-connection-utils": "karma start ./src/dynamic-connection-utils/test/karma.conf.js",
     "test": "npm-run-all --parallel lint test:crc "
   },
   "ntl": {

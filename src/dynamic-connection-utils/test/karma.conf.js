@@ -10,7 +10,7 @@ module.exports = function (config) {
 
     // frameworks to use
     // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
-    frameworks: [ 'mocha', 'sinon-chai' ],
+    frameworks: [ 'mocha', 'sinon-chai', 'browserify' ],
 
     // list of files / patterns to load in the browser
     files: [
@@ -19,7 +19,7 @@ module.exports = function (config) {
       '../cubxcomponent/test/mock/*.js',
       '../webcomponents/custom-elements-es5-adapter.js',
       '../webcomponents/webcomponents-lite.js',
-      'https://cubbles.world/core/lodash-3.10.1@1.0.0/lodash/vendor/lodash.js',
+      'https://cubbles.world/core/lodash-4.17.14@1.0.0/lodash/js/lodash.js',
       '../template-utils/js/template-utils.js',
       '../guid-utility/js/guid.js',
       '../dom-tree-utilities/js/domTreeUtils.js',
@@ -41,7 +41,15 @@ module.exports = function (config) {
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
-      'dynamicConnectionUtils.js': [ 'coverage' ]
+      '../template-utils/js/template-utils.js': [ 'browserify' ],
+      '../guid-utility/js/guid.js': [ 'browserify' ],
+      '../dom-tree-utilities/js/domTreeUtils.js': [ 'browserify' ],
+      'js/dynamicConnectionUtils.js': [ 'browserify' ],
+      '../cubx-component-mixin/js/cubxComponentMixin.js': [ 'browserify' ],
+      '../cif/classes/*.js': [ 'browserify' ],
+      '../cubxcomponent/CubxComponent.js': [ 'browserify' ],
+      '../cubxcomponent/test/helpers.js': [ 'browserify' ],
+      'test/unit/**/*_test.js': [ 'browserify' ]
     },
 
     // test results reporter to use
@@ -91,6 +99,21 @@ module.exports = function (config) {
         base: 'Chrome',
         flags: [ '--no-sandbox' ]
       }
+    },
+
+    // Browserify configuration
+    browserify: {
+      debug: true,
+      transform: [
+        [
+          'babelify',
+          {
+            presets: [
+              ['babel-preset-env']
+            ]
+          }
+        ]
+      ]
     }
   };
 
