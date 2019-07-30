@@ -83,7 +83,7 @@ module.exports = function (config) {
         [
           'babelify',
           {
-            presets: 'es2015'
+            presets: ['@babel/preset-env']
           }
         ]
       ]

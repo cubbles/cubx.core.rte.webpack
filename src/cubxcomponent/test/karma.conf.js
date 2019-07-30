@@ -114,7 +114,7 @@ module.exports = function (config) {
           'babelify',
           {
             presets: [
-              ['babel-preset-env']
+              ['@babel/preset-env']
             ]
           }
         ]

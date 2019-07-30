@@ -108,7 +108,7 @@ module.exports = function (config) {
           'babelify',
           {
             presets: [
-              ['babel-preset-env', { exclude: ['transform-es2015-function-name'] }] // To avoid wrong transpilling of anonymous functions in 'ConnectionManager' Test 'both parameter are from type function'
+              ['@babel/preset-env', { exclude: ['transform-function-name'] }] // To avoid wrong transpilling of anonymous functions in 'ConnectionManager' Test 'both parameter are from type function'
             ]
           }
         ]
