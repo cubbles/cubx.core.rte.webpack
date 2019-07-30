@@ -5,6 +5,7 @@ const wpkgUtils = require('@cubbles/wpkg-utils');
 const webpackageName = wpkgUtils.getWebpackageName;
 const elementName = __dirname.split(path.sep).pop();
 const distFolder = path.resolve(__dirname, global.cubx.distFolderWebpackage, elementName);
+const IgnorePlugin = require('webpack').IgnorePlugin;
 
 const config = {
   // make this configuration independent from the current working directory
@@ -56,7 +57,8 @@ const config = {
       analyzerMode: 'static',
       reportFilename: 'bundleReport.html',
       openAnalyzer: false
-    })
+    }),
+    new IgnorePlugin(/vertx/)
   ]
 };
 module.exports = config;

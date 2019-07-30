@@ -10,6 +10,7 @@ const distFolder = path.resolve(
   global.cubx.distFolderWebpackage,
   elementName
 );
+const IgnorePlugin = require('webpack').IgnorePlugin;
 
 const config = {
   // make this configuration independent from the current working directory
@@ -57,7 +58,8 @@ const config = {
       analyzerMode: 'static',
       reportFilename: 'bundleReport.html',
       openAnalyzer: false
-    })
+    }),
+    new IgnorePlugin(/vertx/)
   ]
 };
 module.exports = config;
