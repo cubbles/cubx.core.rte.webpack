@@ -145,7 +145,7 @@
         },
         "prod": {
           "target": {
-            "url": "http://cubbles.world/shared",
+            "url": "http://cubbles.world/core",
             "proxy": ""
           },
           "debug": false,
