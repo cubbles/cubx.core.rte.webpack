@@ -79,8 +79,8 @@ function getSubManifests (type) {
   const subManifestFiles = find.fileSync(findRegex, path.resolve(`${process.env.INIT_CWD}/src`));
   subManifestFiles.forEach(subManifestPath => {
     console.log(`Found ${type} "${subManifestPath}" ...`);
-    const subManifest = require(subManifestPath)(webpackageName);
     const elementName = path.dirname(subManifestPath).split(path.sep).pop();
+    const subManifest = require(subManifestPath)(webpackageName, elementName);
     subManifest.artifactId = `${elementName}`;
     subManifests.push(subManifest);
   });
