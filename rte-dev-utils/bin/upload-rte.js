@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /* eslint-env node */
 'use strict';
-const Uploader = require('./../lib/uploader');
+const Uploader = require('@cubbles/webpackage-uploader');
 const inquirer = require('inquirer');
 const exec = require('child_process').exec;
 const packageJSON = require(`${process.env.INIT_CWD}/package.json`);
