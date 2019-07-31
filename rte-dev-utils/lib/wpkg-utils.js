@@ -1,6 +1,6 @@
 const find = require('find');
 const path = require('path');
-const manifest = require('./lib/getManifestWebpackage');
+const manifest = require('./getManifestWebpackage');
 
 module.exports = {
   test: 'true',
@@ -21,7 +21,7 @@ module.exports = {
     return `${returnString}`;
   },
 
-  getWebpackageName: require('./lib/getWebpackageName'),
-  getManifestWebpackage: require('./lib/getManifestWebpackage')
+  getWebpackageName: require('./getWebpackageName'),
+  getManifestWebpackage: require('./getManifestWebpackage')
 
 };

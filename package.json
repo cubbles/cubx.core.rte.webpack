@@ -24,13 +24,16 @@
     "url": "https://github.com/cubbles/cubx.core.rte.webpack/issues"
   },
   "homepage": "https://github.com/cubbles/cubx.core.rte.webpack#readme",
+  "bin": {
+    "upload-rte": "./rte-dev-utils/bin/upload-rte.js"
+  },
   "scripts": {
     "build": "npm-run-all --serial clean \"_webpack -- -d --config src/webpack.config.js\"",
     "build:watch": "npm-run-all --serial \"_webpack -- -d --config src/webpack.config.js --watch\"",
     "build:prod": "npm-run-all --serial clean \"_webpack -- -p --config src/webpack.config.js\"",
     "clean": "rimraf ./dist",
-    "upload": "upload-webpackage",
-    "upload:prod": "upload-webpackage -p",
+    "upload": "upload-rte",
+    "upload:prod": "upload-rte -p",
     "validate-manifest": "validate-manifest",
     "start": "npm-run-all --parallel _serve _open",
     "start:watch": "npm-run-all --parallel build:watch _serve _open",
@@ -64,7 +67,7 @@
     "@babel/polyfill": "^7.4.4",
     "@babel/preset-env": "^7.5.5",
     "@cubbles/webpackage-document-api": "^0.2.3",
-    "@cubbles/webpackage-uploader": "^0.1.10",
+    "@cubbles/webpackage-uploader": "^0.1.11",
     "autoprefixer": "^9.3.1",
     "babel-loader": "^8.0.6",
     "babel-plugin-rewire": "^1.2.0",
@@ -124,6 +127,7 @@
     "access": "public"
   },
   "dependencies": {
+    "@cubbles/wpkg-utils": "^0.2.2",
     "walk": "^2.3.14"
   },
   "cubbles": {
