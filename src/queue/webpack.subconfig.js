@@ -1,7 +1,7 @@
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const path = require('path');
-const wpkgUtils = require('../../bundle-utils/index.js');
+const wpkgUtils = require('../../rte-dev-utils/lib/wpkg-utils.js');
 const webpackageName = wpkgUtils.getWebpackageName;
 const elementName = __dirname.split(path.sep).pop();
 const distFolder = path.resolve(__dirname, global.cubx.distFolderWebpackage, elementName);
