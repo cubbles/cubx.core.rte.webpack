@@ -10,15 +10,6 @@ module.exports = (webpackageName, elementName) => {
       {
         webpackageId: 'lodash-4.17.14@1.0.0',
         artifactId: 'lodash'
-      },
-      {
-        artifactId: 'cubx-component-mixin'
-      },
-      {
-        artifactId: 'dynamic-connection-utils'
-      },
-      {
-        artifactId: 'template-utils'
       }
     ]
   };

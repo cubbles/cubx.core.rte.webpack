@@ -1,4 +1,8 @@
 /* globals HTMLElement, customElements, _, DOMParser */
+import '../cubx-component-mixin/js/cubxComponentMixin';
+import '../dynamic-connection-utils/js/dynamicConnectionUtils';
+import '../template-utils/js/template-utils';
+
 function CubxComponent (prototype) {
   if (!prototype) {
     console.error('Missed prototype parameter');
@@ -190,9 +194,18 @@ function CubxComponent (prototype) {
 
     CubxComponentClass.prototype._includeTemplate = function (artifactId) {
       var promise;
-      if (this.template && this.template.content && typeof this.template.content === 'string') {
+      var parser = new DOMParser();
+      if (this.template && typeof this.template === 'string') {
+        this.template = window.cubx.utils.createElementFromString(this.template);
+        if (this.template && this.template.content) {
+          var templateContent = document.importNode(this.template.content, true);
+          this._fill$Object(templateContent);
+          this.appendChild(templateContent);
+        }
+        this._initListeners();
+        return Promise.resolve(true);
+      } else if (this.template && this.template.content && typeof this.template.content === 'string') {
         return new Promise(function (resolve, reject) {
-          var parser = new DOMParser();
           var doc = parser.parseFromString(this.template.content, 'text/html');
           this._fill$Object(doc);
           var documentFragment = document.createDocumentFragment();
