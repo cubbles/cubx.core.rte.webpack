@@ -21,6 +21,8 @@ import crcLoader from '../modules/crcLoader/CRCLoader';
       }
     }
   };
+  // Fake CubxComponent
+  window.CubxComponent = function () {};
 })();
 
 /*eslint-disable */
