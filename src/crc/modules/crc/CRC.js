@@ -18,7 +18,7 @@ var CRC = function () {
      /* @type {string}
      /* @private
      */
-  this._version = '3.0.0';
+  this._version = '4.0.0';
 
   /**
    * jQuery object containing only one element to which the crc should be appended
