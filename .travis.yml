@@ -1,0 +1,26 @@
+language: node_js
+sudo: true
+# trusty distribution (Ubuntu 14.04.3 LTS - Currently beta version -  If travis make it standard,  delete dist:trusty
+dist: trusty
+node_js:
+ - "8"
+addons:
+  firefox: "latest"
+before_install:
+ - export CHROME_BIN=/usr/bin/google-chrome
+ - export DISPLAY=:99.0
+ - sh -e /etc/init.d/xvfb start
+ # install latest Chrome
+ - sudo apt-get install -y libappindicator1 fonts-liberation
+ - wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+ - sudo dpkg -i google-chrome*.deb
+script:
+ - npm run test:crc
+ - npm run test:crc-loader
+ - npm run test:cif"
+ - npm run test:cubxcomponent
+ - npm run test:dynamic-connection-utils
+ - npm run test:mutation-based-cubx-startevent
+notifications:
+  email:
+    - edwingamboa355@gmail.com
