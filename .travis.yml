@@ -23,4 +23,7 @@ script:
  - npm run test:mutation-based-cubx-startevent
 notifications:
   email:
+    - jtrs@incowia.com
+    - wagner@getrequest.de
     - edwingamboa355@gmail.com
+    - boehlau@getrequest.de
