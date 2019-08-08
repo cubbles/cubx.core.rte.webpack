@@ -1,5 +1,5 @@
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
-const IgnorePlugin = require('webpack').IgnorePlugin
+const IgnorePlugin = require('webpack').IgnorePlugin;
 const path = require('path');
 const wpkgUtils = require('@cubbles/wpkg-utils');
 const webpackageName = wpkgUtils.getWebpackageName;
