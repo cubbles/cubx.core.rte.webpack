@@ -3,6 +3,7 @@
 import Queue from '../../queue/vendor/Queue';
 import guid from '../../guid-utility/js/guid';
 import MutationSummary from '../../mutation-summary/vendor/mutation-summary';
+import EventFactory from '../../crc-loader/crc/modules/eventFactory/eventFactory';
 
 export default (function () {
   'use strict';
@@ -120,10 +121,10 @@ export default (function () {
 
     /**
      * Eventfactory instance
-     * @type {window.cubx.EventFactory}
+     * @type {EventFactory}
      * @private
      */
-    this._eventFactory = new window.cubx.EventFactory();
+    this._eventFactory = new EventFactory();
 
     this._registerConnectionElements();
     this._registerInitializationElements();
@@ -243,12 +244,12 @@ export default (function () {
     // start initial processing
     this._processInitial();
     var me = this;
-    node.addEventListener(window.cubx.EventFactory.types.CIF_ALL_COMPONENTS_READY, function () {
+    node.addEventListener(EventFactory.types.CIF_ALL_COMPONENTS_READY, function () {
       me._afterCreatedElementsReady(node);
     });
 
     //  dispatch and listen to EventFactory.types.COMPONENT_READY also on CompoundComponents
-    node.addEventListener(window.cubx.EventFactory.types.COMPONENT_READY, function (evt) {
+    node.addEventListener(EventFactory.types.COMPONENT_READY, function (evt) {
       var runtimeId = evt.target.getAttribute('runtime-id');
       // if there is no runtime-id then component's own ready event was fired before mutation observer detects changes
       // and thus before CIF has initialised these components
@@ -648,7 +649,7 @@ export default (function () {
       console.log('------------------------allComponentsReady-------------');
     }
     this._cifAllComponentsReady = true;
-    var evt = this.getEventFactory().createEvent(window.cubx.EventFactory.types.CIF_ALL_COMPONENTS_READY);
+    var evt = this.getEventFactory().createEvent(EventFactory.types.CIF_ALL_COMPONENTS_READY);
     node.dispatchEvent(evt);
   };
 
@@ -658,7 +659,7 @@ export default (function () {
    * @private
    */
   CIF.prototype._fireCifStart = function (node) {
-    var evt = new CustomEvent(window.cubx.EventFactory.types.CIF_START, { bubbles: true });
+    var evt = new CustomEvent(EventFactory.types.CIF_START, { bubbles: true });
     document.dispatchEvent(evt);
   };
 
@@ -866,7 +867,7 @@ export default (function () {
     if (!node) {
       node = this.getCRCRootNode();
     }
-    var cifInitStartEvent = this.getEventFactory().createEvent(window.cubx.EventFactory.types.CIF_INIT_START);
+    var cifInitStartEvent = this.getEventFactory().createEvent(EventFactory.types.CIF_INIT_START);
     node.dispatchEvent(cifInitStartEvent);
     var me = this;
     this._rootContext.collectSlotInits(me);
@@ -875,7 +876,7 @@ export default (function () {
       console.log('cif._initializer._initList (', this._initializer._initList.length, ')', this._initializer._initList);
     }
     this._initializer.initSlots();
-    var cifInitReadyEvent = this.getEventFactory().createEvent(window.cubx.EventFactory.types.CIF_INIT_READY);
+    var cifInitReadyEvent = this.getEventFactory().createEvent(EventFactory.types.CIF_INIT_READY);
     node.dispatchEvent(cifInitReadyEvent);
     this._initializer.resetInitList();
   };
@@ -1643,10 +1644,10 @@ export default (function () {
         }
       }
       if (this._isInitialProcessing()) {
-        cifReadyEvent = this.getEventFactory().createEvent(window.cubx.EventFactory.types.CIF_READY);
+        cifReadyEvent = this.getEventFactory().createEvent(EventFactory.types.CIF_READY);
       }
       if (this._isObserverTriggeredProcessing()) {
-        cifReadyEvent = this.getEventFactory().createEvent(window.cubx.EventFactory.types.CIF_DOM_UPDATE_READY);
+        cifReadyEvent = this.getEventFactory().createEvent(EventFactory.types.CIF_DOM_UPDATE_READY);
       }
       if (cifReadyEvent) {
         node.dispatchEvent(cifReadyEvent);

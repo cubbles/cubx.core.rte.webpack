@@ -1,6 +1,7 @@
 /* globals _, CustomEvent */
 'use strict';
 import guid from '../../guid-utility/js/guid';
+import EventFactory from '../../crc-loader/crc/modules/eventFactory/eventFactory';
 
 export default (function () {
   var cubxComponentMixin = {};
@@ -87,7 +88,7 @@ export default (function () {
   cubxComponentMixin.fireModelChangeEvent = function (payloadObject) {
     // console.log('cubxComponentMixin.fireModelChangeEvent', this,payloadObject);
     var factory = this._getEventFactory();
-    var event = factory.createEvent(window.cubx.EventFactory.types.CIF_MODEL_CHANGE, payloadObject);
+    var event = factory.createEvent(EventFactory.types.CIF_MODEL_CHANGE, payloadObject);
     this.dispatchEvent(event);
   };
 
@@ -155,13 +156,13 @@ export default (function () {
   /**
    * Get the internal EventFactory instance.
    *
-   * @returns {window.cubx.EventFactory}
+   * @returns {EventFactory}
    * @private
    * @memberOf cubxComponentMixin
    */
   cubxComponentMixin._getEventFactory = function () {
     if (!this._eventFactory) {
-      this._eventFactory = new window.cubx.EventFactory();
+      this._eventFactory = new EventFactory();
     }
     return this._eventFactory;
   };
@@ -193,13 +194,13 @@ export default (function () {
   cubxComponentMixin._cifReady = function () {
     var rootElement = window.cubx.CRC.getCRCElement();
 
-    rootElement.addEventListener(window.cubx.EventFactory.types.CIF_READY, function (evt) {
+    rootElement.addEventListener(EventFactory.types.CIF_READY, function (evt) {
       if (!this._isReadyRegistered) {
         this._isReadyRegistered = true;
         this._cifReadyHandler();
       }
     }.bind(this));
-    rootElement.addEventListener(window.cubx.EventFactory.types.CIF_DOM_UPDATE_READY, function (evt) {
+    rootElement.addEventListener(EventFactory.types.CIF_DOM_UPDATE_READY, function (evt) {
       if (!this._isReadyRegistered) {
         this._isReadyRegistered = true;
         this._cifReadyHandler();

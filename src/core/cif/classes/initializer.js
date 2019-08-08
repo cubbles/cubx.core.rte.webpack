@@ -1,4 +1,6 @@
 /* globals _ */
+import EventFactory from '../../crc-loader/crc/modules/eventFactory/eventFactory';
+
 export default (function () {
   'use strict';
   /**
@@ -18,7 +20,7 @@ export default (function () {
      * @type {EventFactory}
      * @private
      */
-    this._eventFactory = new window.cubx.EventFactory();
+    this._eventFactory = new EventFactory();
   };
 
   /* ******************************************************************************************/

@@ -1,5 +1,6 @@
 /* globals _ */
 import guid from '../../guid-utility/js/guid';
+import EventFactory from '../../crc-loader/crc/modules/eventFactory/eventFactory';
 
 export default (function () {
   'use strict';
@@ -250,7 +251,7 @@ export default (function () {
     var self = this;
     if (this._rootElement != null) {
       this._rootElement
-        .addEventListener(window.cubx.EventFactory.types.CIF_MODEL_CHANGE, function (event) {
+        .addEventListener(EventFactory.types.CIF_MODEL_CHANGE, function (event) {
           self._handleModelChangeEvent(event);
         });
     }

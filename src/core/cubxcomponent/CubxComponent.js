@@ -2,6 +2,7 @@
 import '../cubx-component-mixin/js/cubxComponentMixin';
 import '../dynamic-connection-utils/js/dynamicConnectionUtils';
 import '../template-utils/js/template-utils';
+import EventFactory from '../crc-loader/crc/modules/eventFactory/eventFactory';
 
 function CubxComponent (prototype) {
   if (!prototype) {
@@ -28,7 +29,7 @@ function CubxComponent (prototype) {
       me._generate$$Method();
       me._cifReady();
       me.cubxComponentName = me.is;
-      me.eventFactory = new window.cubx.EventFactory();
+      me.eventFactory = new EventFactory();
       me.model = {};
       me.___cubxManifest___ = me._getComponentFromCRCCache(me.cubxComponentName);
       me._initSlots(me.___cubxManifest___.slots);
@@ -281,7 +282,7 @@ function CubxComponent (prototype) {
     CubxComponentClass.prototype._fireReadyEvent = function () {
       if (!this._componentReady) { // fire ready event just once
         this._componentReady = true;
-        var componentReadyEvent = this.eventFactory.createEvent(window.cubx.EventFactory.types.COMPONENT_READY,
+        var componentReadyEvent = this.eventFactory.createEvent(EventFactory.types.COMPONENT_READY,
           {
             runtimeId: this.getAttribute('runtime-id')
           });

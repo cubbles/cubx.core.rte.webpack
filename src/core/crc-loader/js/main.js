@@ -53,7 +53,7 @@ if (window.Promise !== 'function') {
   Array.prototype.forEach.call(document.querySelectorAll('script[src]'), function (scriptElement) {
     // get the loader url itself
     var src = scriptElement.getAttribute('src');
-    if (src.match(/crc-loader/)) {
+    if (src.match(/rte-core/)) {
       crcLoaderElement = scriptElement;
       crcLoaderUrl = src;
     }

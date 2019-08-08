@@ -77,7 +77,6 @@ var CRC = function () {
    * @private
    */
   this._eventFactory = new EventFactory();
-  window.cubx.EventFactory = EventFactory;
 
   /**
    * The ready flag set to true, after crc has loaded all dependencies and is ready
@@ -253,7 +252,7 @@ CRC.prototype.invalidateResolvedManifest = function (artifactId) {
 CRC.prototype.fireReadyEvent = function () {
   var eventFactory = this.getEventFactory();
   var event = eventFactory.createEvent(
-    window.cubx.EventFactory.types.CRC_READY
+    EventFactory.types.CRC_READY
   );
   if (this.getCRCElement()) {
     this.getCRCElement().dispatchEvent(event);

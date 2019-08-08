@@ -1,4 +1,5 @@
 /* globals _ */
+import EventFactory from '../../crc-loader/crc/modules/eventFactory/eventFactory';
 
 export default (function () {
   'use strict';
@@ -24,7 +25,7 @@ export default (function () {
      * @type Eventfactory
      *
      */
-    eventFactory: new window.cubx.EventFactory()
+    eventFactory: new EventFactory()
   };
 
   /* *******************************************************************/
@@ -229,7 +230,7 @@ export default (function () {
   compoundComponent.fireReadyEvent = function (runtimeId) {
     // console.log(this.tagName + '.fireReadyEvent ',runtimeId);
     this._componentReady = true;
-    var componentReadyEvent = this.eventFactory.createEvent(window.cubx.EventFactory.types.COMPONENT_READY,
+    var componentReadyEvent = this.eventFactory.createEvent(EventFactory.types.COMPONENT_READY,
       {
         runtimeId: runtimeId
       });
