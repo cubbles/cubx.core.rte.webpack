@@ -4,7 +4,7 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const GenerateJsonPlugin = require('generate-json-webpack-plugin');
 // const ExtraWatchWebpackPlugin = require('extra-watch-webpack-plugin');
-const wpkgUtils = require('../rte-dev-utils/lib/wpkg-utils.js');
+const wpkgUtils = require('@cubbles/wpkg-utils');
 const distFolder = path.resolve(
   __dirname,
   '../dist',

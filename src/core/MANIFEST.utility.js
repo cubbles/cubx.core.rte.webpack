@@ -3,9 +3,14 @@ const assert = require('assert');
 module.exports = (webpackageName, elementName) => {
   assert.ok(webpackageName, 'Expected "webpackageName" to be defined.');
   return {
-    description: 'Utility to resize an iframe according to its content size.',
     resources: [
-      'main.bundle.js'
+      `main.bundle.js`
+    ],
+    dependencies: [
+      {
+        webpackageId: 'lodash-4.17.14@1.0.0',
+        artifactId: 'lodash'
+      }
     ]
   };
 };
