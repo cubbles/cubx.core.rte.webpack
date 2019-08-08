@@ -2,7 +2,7 @@
 import '../cubx-component-mixin/js/cubxComponentMixin';
 import '../dynamic-connection-utils/js/dynamicConnectionUtils';
 import '../template-utils/js/template-utils';
-import EventFactory from '../crc-loader/crc/modules/eventFactory/eventFactory';
+import EventFactory from '../crc/modules/eventFactory/eventFactory';
 
 function CubxComponent (prototype) {
   if (!prototype) {

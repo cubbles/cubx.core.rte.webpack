@@ -3,7 +3,8 @@
 import Queue from '../../queue/vendor/Queue';
 import guid from '../../guid-utility/js/guid';
 import MutationSummary from '../../mutation-summary/vendor/mutation-summary';
-import EventFactory from '../../crc-loader/crc/modules/eventFactory/eventFactory';
+import EventFactory from '../../crc/modules/eventFactory/eventFactory';
+import CRC from '../../crc/modules/crc/CRC';
 
 export default (function () {
   'use strict';
@@ -126,6 +127,8 @@ export default (function () {
      */
     this._eventFactory = new EventFactory();
 
+    this.CRC = new CRC();
+
     this._registerConnectionElements();
     this._registerInitializationElements();
     this._init();
@@ -159,7 +162,7 @@ export default (function () {
    * @deprecated
    */
   CIF.prototype.getCRCRootNodeList = function () {
-    return [window.cubx.CRC.getCRCElement()];
+    return [this.CRC.getCRCElement()];
   };
 
   /**
@@ -167,7 +170,7 @@ export default (function () {
    * @return {array} An array of HTMLElements
    */
   CIF.prototype.getCRCRootNode = function () {
-    return window.cubx.CRC.getCRCElement();
+    return this.CRC.getCRCElement();
   };
 
   /**

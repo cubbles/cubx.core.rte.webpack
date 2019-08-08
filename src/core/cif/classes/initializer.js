@@ -1,5 +1,5 @@
 /* globals _ */
-import EventFactory from '../../crc-loader/crc/modules/eventFactory/eventFactory';
+import EventFactory from '../../crc/modules/eventFactory/eventFactory';
 
 export default (function () {
   'use strict';

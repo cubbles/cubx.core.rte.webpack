@@ -1,7 +1,7 @@
 /* globals _, CustomEvent */
 'use strict';
 import guid from '../../guid-utility/js/guid';
-import EventFactory from '../../crc-loader/crc/modules/eventFactory/eventFactory';
+import EventFactory from '../../crc/modules/eventFactory/eventFactory';
 
 export default (function () {
   var cubxComponentMixin = {};
