@@ -229,8 +229,7 @@ cubxComponentMixin._getComponentFromCRCCache = function (component) {
  * @memberOf cubxComponentMixin
  */
 cubxComponentMixin._triggerModelChangeEvent = function (slotId, modelEventPayload) {
-  if (window.cubx.cif && window.cubx.cif.cif &&
-    window.cubx.cif.cif.isAllComponentsReady(window.cubx.CRC.getCRCElement())) {
+  if (window.cubx.cif && window.cubx.cif.isAllComponentsReady(window.cubx.CRC.getCRCElement())) {
     var runtimeId = this.getRuntimeId();
     runtimeId = typeof runtimeId === 'undefined' ? '' : runtimeId;
     if (window.cubx.CRC.getRuntimeMode() === 'dev') {

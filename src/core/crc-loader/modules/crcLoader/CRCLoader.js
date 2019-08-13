@@ -265,8 +265,8 @@ CRCLoader.prototype._bootstrapCRC = function () {
   if (get(window, 'cubx.CRCInit.loadCIF') === 'true') {
     console.log('Initiating cif...');
     // instantiate the CIF
-    const cif = new CIF(window.cubx.CRC);
-    cif._init();
+    window.cubx.cif = new CIF(window.cubx.CRC);
+    window.cubx.cif._init();
   }
 
   // now run resolve the dependencies
