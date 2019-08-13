@@ -106,15 +106,6 @@ DependencyMgr.prototype.init = function () {
     get(window, 'cubx.CRCInit.rootDependencyExcludes') || [];
   var responseCache = get(window, 'cubx.CRCInit.responseCache') || [];
 
-  // load cif, if it is not excluded by config
-  if (get(window, 'cubx.CRCInit.loadCIF') === 'true') {
-    console.log('Pushing cif into the dependencies ...');
-    rootDependencies.unshift({
-      artifactId: 'cif',
-      webpackageId: get(window, 'cubx.CRCInit.rteWebpackageId')
-    });
-  }
-
   if (rootDependencyExcludes.length > 0) {
     window.cubx.CRCInit.rootDependencyExcludes = rootDependencyExcludes;
   }

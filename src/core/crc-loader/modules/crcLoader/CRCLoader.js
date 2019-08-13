@@ -1,6 +1,7 @@
 /* globals cubx */
 import DependencyTagTransformer from '../dependencyTagTransformer/dependencyTagTransformer';
 import CRC from '../../../crc/modules/crc/CRC';
+import CIF from '../../../cif/classes/cif';
 import '../polyfills/polyfills';
 
 /**
@@ -258,11 +259,21 @@ CRCLoader.prototype._isDependencyInRootDependencies = function (element) {
  * @memberOf CRCLoader
  */
 CRCLoader.prototype._bootstrapCRC = function () {
-  window.cubx.CRC = new CRC();
+  const crc = new CRC();
   // select crcRoot element and init crc on it
-  window.cubx.CRC.init(this._crcRoot);
+  crc.init(this._crcRoot);
+
+  var get = window.cubx.utils.get;
+  // load cif, if it is not excluded by config
+  if (get(window, 'cubx.CRCInit.loadCIF') === 'true') {
+    console.log('Initiating cif...');
+    // instantiate the CIF
+    const cif = new CIF(crc);
+    cif._init();
+  }
+
   // now run resolve the dependencies
-  var depMgr = window.cubx.CRC.getDependencyMgr();
+  var depMgr = crc.getDependencyMgr();
   depMgr.init();
   depMgr.run();
 };
@@ -304,4 +315,4 @@ CRCLoader.prototype._includeMainScript = function () {
   // document.getElementsByTagName('head')[ 0 ].appendChild(htmlImport);
 };
 
-export default new CRCLoader();
+export default CRCLoader;
