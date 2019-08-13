@@ -1,7 +1,7 @@
 /* globals cubx */
 import DependencyTagTransformer from '../dependencyTagTransformer/dependencyTagTransformer';
-import CRC from '../../../crc/modules/crc/CRC';
 import CIF from '../../../cif/classes/cif';
+import { get } from '../../../core-rte-utils/js/utils';
 import '../polyfills/polyfills';
 
 /**
@@ -259,21 +259,18 @@ CRCLoader.prototype._isDependencyInRootDependencies = function (element) {
  * @memberOf CRCLoader
  */
 CRCLoader.prototype._bootstrapCRC = function () {
-  const crc = new CRC();
   // select crcRoot element and init crc on it
-  crc.init(this._crcRoot);
-
-  var get = window.cubx.utils.get;
+  window.cubx.CRC.init(this._crcRoot);
   // load cif, if it is not excluded by config
   if (get(window, 'cubx.CRCInit.loadCIF') === 'true') {
     console.log('Initiating cif...');
     // instantiate the CIF
-    const cif = new CIF(crc);
+    const cif = new CIF(window.cubx.CRC);
     cif._init();
   }
 
   // now run resolve the dependencies
-  var depMgr = crc.getDependencyMgr();
+  var depMgr = window.cubx.CRC.getDependencyMgr();
   depMgr.init();
   depMgr.run();
 };
@@ -303,7 +300,7 @@ CRCLoader.prototype._includeMainScript = function () {
   helperScript.type = 'text/javascript';
   helperScript.async = false;
   helperScript.src =
-    this._crcLoaderResourcesBaseUrl + '/js/afterMainScriptHook.js';
+    this._crcLoaderResourcesBaseUrl + '/afterMainScriptHook.js';
   document.getElementsByTagName('head')[0].appendChild(helperScript);
 
   // TODO: use this snippet to fire crcDepMgrReady event!!!! This should solve problems with asynchronous execution time od dynamically included html import

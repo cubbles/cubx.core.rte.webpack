@@ -1,5 +1,6 @@
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const IgnorePlugin = require('webpack').IgnorePlugin;
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 const path = require('path');
 const wpkgUtils = require('@cubbles/wpkg-utils');
 const webpackageName = wpkgUtils.getWebpackageName;
@@ -27,6 +28,9 @@ const config = {
     ]
   },
   plugins: [
+    new CopyWebpackPlugin([
+      { from: './crc-loader/js/afterMainScriptHook.js', to: distFolder }
+    ], {}),
     new BundleAnalyzerPlugin({
       analyzerMode: 'static',
       reportFilename: 'bundleReport.html',

@@ -1,4 +1,3 @@
-/* eslint no-unused-vars: [2, { "varsIgnorePattern": "elementFindByAttributeValue|findAncestorElement" }]  */
 'use strict';
 /**
  * Find an element in Dom with the given attribute and value;

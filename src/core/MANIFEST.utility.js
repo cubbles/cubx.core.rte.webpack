@@ -5,12 +5,6 @@ module.exports = (webpackageName, elementName) => {
   return {
     resources: [
       `main.bundle.js`
-    ],
-    dependencies: [
-      {
-        webpackageId: 'lodash-4.17.14@1.0.0',
-        artifactId: 'lodash'
-      }
     ]
   };
 };

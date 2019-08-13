@@ -1,7 +1,7 @@
 /* globals HTMLElement, customElements, _, DOMParser */
-import '../cubx-component-mixin/js/cubxComponentMixin';
-import '../dynamic-connection-utils/js/dynamicConnectionUtils';
-import '../template-utils/js/template-utils';
+import cubxComponentMixin from '../cubx-component-mixin/js/cubxComponentMixin';
+import dynamicConnectionUtil from '../dynamic-connection-utils/js/dynamicConnectionUtils';
+import { createElementFromString, findTemplate } from '../core-rte-utils/js/utils';
 import EventFactory from '../crc/modules/eventFactory/eventFactory';
 
 function CubxComponent (prototype) {
@@ -13,8 +13,8 @@ function CubxComponent (prototype) {
     console.error('the prototype parameter missed th "is" property');
     return;
   }
-  Object.assign(prototype, window.cubx.cubxComponentMixin);
-  Object.assign(prototype, window.cubx.dynamicConnectionUtil);
+  Object.assign(prototype, cubxComponentMixin);
+  Object.assign(prototype, dynamicConnectionUtil);
   var getConstructor = function () {
     var CubxComponentClass = function () {
       var me;
@@ -197,7 +197,7 @@ function CubxComponent (prototype) {
       var promise;
       var parser = new DOMParser();
       if (this.template && typeof this.template === 'string') {
-        this.template = window.cubx.utils.createElementFromString(this.template);
+        this.template = createElementFromString(this.template);
         if (this.template && this.template.content) {
           var templateContent = document.importNode(this.template.content, true);
           this._fill$Object(templateContent);
@@ -222,7 +222,7 @@ function CubxComponent (prototype) {
           }.bind(this), 0);
         }.bind(this));
       } else {
-        promise = window.cubx.utils.findTemplate(this.cubxComponentName);
+        promise = findTemplate(this.cubxComponentName);
         return promise.then(
           function (results) {
             var template;
@@ -428,5 +428,4 @@ function CubxComponent (prototype) {
     customElements.define(prototype.is, getConstructor());
   }
 }
-window.CubxComponent = CubxComponent;
 export default CubxComponent;

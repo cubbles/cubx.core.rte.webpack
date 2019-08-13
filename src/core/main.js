@@ -1,27 +1,14 @@
 /* globals cubx, location */
 import './webcomponents/main';
 import CrcLoader from './crc-loader/modules/crcLoader/CRCLoader';
-import './cubxcomponent/CubxComponent';
+import CRC from './crc/modules/crc/CRC';
 
 (function () {
   'use strict';
   // define global namespace cubx
   window.cubx = {
     // preserve externally defined CRCInit
-    CRCInit: window.cubx && window.cubx.CRCInit ? window.cubx.CRCInit : {},
-    utils: {
-      /**
-       * Utility function to get nested property (usage: get(window, 'cubx.CRCInit.loadCif')
-       * @param {object} obj
-       * @param {string} key nested property
-       * @returns {*} undefined, if property does not exist
-       */
-      get: function (obj, key) {
-        return key.split('.').reduce(function (o, x) {
-          return (typeof o === 'undefined' || o === null) ? o : o[x];
-        }, obj);
-      }
-    }
+    CRCInit: window.cubx && window.cubx.CRCInit ? window.cubx.CRCInit : {}
   };
   // Fake CubxComponent
   window.CubxComponent = function () {};
@@ -150,6 +137,8 @@ if (window.Promise !== 'function') {
   })();
 
   // set CRCLoader to cubx namespace
+  window.cubx.CRC = new CRC();
+
   const crcLoader = new CrcLoader();
 
   crcLoader.setCRCLoaderResourcesBaseUrl(crcLoaderBaseUrl);

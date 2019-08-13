@@ -5,6 +5,8 @@ import Cache from '../cache/cache';
 import ComponentResolver from '../componentResolver/componentResolver';
 import utils from '../utils/utils';
 import EventFactory from '../eventFactory/eventFactory';
+import CubxComponent from '../../../cubxcomponent/CubxComponent';
+import { get } from '../../../core-rte-utils/js/utils';
 
 /**
  * The Client Runtime Container is responsible to provide referred artifacts and basic functionality at runtime.
@@ -46,7 +48,7 @@ var CRC = function () {
    * @type {Object}
    * @private
    */
-  this._dependencyManager = new DepMgr();
+  this._dependencyManager = new DepMgr(this);
 
   /**
    * The Manifest Cache
@@ -127,13 +129,13 @@ var CRC = function () {
    * @memberOf CRC
    */
 CRC.prototype.init = function (root) {
-  var get = window.cubx.utils.get;
   this._baseUrl = get(window, 'cubx.CRCInit.webpackageBaseUrl');
   this._runtimeMode = get(window, 'cubx.CRCInit.runtimeMode');
   this._root = root;
   if (this._root) {
     root.setAttribute('data-crc-id', this._crcElId);
     root.setAttribute('data-crc-version', this._version);
+    window.CubxComponent = CubxComponent;
   } else {
     console.warn(
       'Can\'t set the attributes "data-crc-id" and "data-crc-version", because' +

@@ -6,13 +6,14 @@ import utils from '../utils/utils';
 import responseCache from '../responseCache/responseCache';
 import * as axios from '../axios/axios.min';
 import DependencyTree from '../dependencyTree/dependencyTree';
+import { get } from '../../../core-rte-utils/js/utils';
 
 /**
  * The Dependency Manager takes care about resolving dependencies of an application.
  * @constructor
  * @global
  */
-var DependencyMgr = function () {
+var DependencyMgr = function (crc) {
   /**
    * The used baseUrl for dependant webpackages.
    * @type {string}
@@ -39,7 +40,7 @@ var DependencyMgr = function () {
    * @type {object}
    * @private
    */
-  this._crc = null;
+  this._crc = crc || window.cubx.CRC;
 
   /**
    * The responseCache used by this DependencyMgr instance
@@ -97,10 +98,8 @@ DependencyMgr._types = {
  * @memberOf DependencyMgr
  */
 DependencyMgr.prototype.init = function () {
-  var get = window.cubx.utils.get;
   this._baseUrl = get(window, 'cubx.CRCInit.webpackageBaseUrl');
   this._runtimeMode = get(window, 'cubx.CRCInit.runtimeMode');
-  this._crc = get(window, 'cubx.CRC');
   var rootDependencies = get(window, 'cubx.CRCInit.rootDependencies') || [];
   var rootDependencyExcludes =
     get(window, 'cubx.CRCInit.rootDependencyExcludes') || [];
@@ -142,7 +141,6 @@ DependencyMgr.prototype._parseGlobalResponseCache = function (responseCache) {
  * @memberOf DependencyMgr
  */
 DependencyMgr.prototype.run = function () {
-  var get = window.cubx.utils.get;
   var rootDependencies = get(window, 'cubx.CRCInit.rootDependencies') || [];
   var rootDependencyExcludes =
     get(window, 'cubx.CRCInit.rootDependencyExcludes') || [];
@@ -311,7 +309,7 @@ DependencyMgr.prototype._calculateResourceList = function (depList) {
  * @param {array} resourceList Array containing references to all needed resources
  */
 DependencyMgr.prototype._injectDependenciesToDom = function (resourceList) {
-  var disableResourceInjection = window.cubx.utils.get(
+  var disableResourceInjection = get(
     window,
     'cubx.CRCInit.disableResourceInjection'
   );
@@ -351,11 +349,11 @@ DependencyMgr.prototype._injectDependenciesToDom = function (resourceList) {
  * @private
  */
 DependencyMgr.prototype._createScriptForFireEvent = function (
-  fireEventMethodeName
+  fireEventMethodName
 ) {
   // create a blob used as html import. Inside this import call the fireEventMethodeName referenced method from CRC
   var blob = new Blob(
-    ['<script>window.cubx.CRC["' + fireEventMethodeName + '"]();</script>'],
+    ['<script>window.cubx.CRC["' + fireEventMethodName + '"]();</script>'],
     { type: 'text/html' }
   );
   var url = URL.createObjectURL(blob);
@@ -583,7 +581,7 @@ DependencyMgr.prototype._checkAndAddExcludesForRootDependencies = function (
   }
 
   var rootDependencies =
-    window.cubx.utils.get(window, 'cubx.CRCInit.rootDependencies') || [];
+    get(window, 'cubx.CRCInit.rootDependencies') || [];
   rootDependencies = this._createDepReferenceListFromArtifactDependencies(
     rootDependencies,
     null
@@ -867,7 +865,6 @@ DependencyMgr.prototype._createResourceFromItem = function (
 
   var file;
 
-  var get = window.cubx.utils.get;
   var allowAbsoluteResourceUrls = get(
     window,
     'cubx.CRCInit.allowAbsoluteResourceUrls'
@@ -1134,7 +1131,7 @@ DependencyMgr.prototype._getIndexOfDepReferenceItem = function (depList, item) {
  * @memberOf DependencyMgr
  */
 DependencyMgr.prototype._storeManifestFiles = function (document, artifactId) {
-  var cache = window.cubx.CRC.getCache();
+  var cache = this._crc.getCache();
   cache.addComponentCacheEntry(document, artifactId);
 };
 

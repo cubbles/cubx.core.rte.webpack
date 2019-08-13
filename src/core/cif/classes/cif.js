@@ -1,10 +1,12 @@
-/* globals _,CustomEvent,HTMLElement,NodeFilter,customElements, Element, Node */
+/* globals CustomEvent,HTMLElement,NodeFilter,customElements, Element, Node */
 import Initializer from './initializer';
 import Context from './context';
 import Queue from '../../queue/vendor/Queue';
 import guid from '../../guid-utility/js/guid';
 import MutationSummary from '../../mutation-summary/vendor/mutation-summary';
 import EventFactory from '../../crc/modules/eventFactory/eventFactory';
+import { findTemplate } from '../../core-rte-utils/js/utils';
+import _ from 'lodash';
 
 /**
  * The main class of the Component Integration Framework
@@ -228,10 +230,12 @@ CIF.prototype._init = function () {
 
   if (!this.CRC.isReady()) {
     node.addEventListener('crcReady', function () {
+      window.CubxComponent = CubxComponent;
       self._initForCRCRoot(node);
     });
   } else {
     self._initForCRCRoot(node);
+    window.CubxComponent = CubxComponent;
   }
 };
 
@@ -1347,7 +1351,7 @@ CIF.prototype._createDOMTreeFromManifest = function (manifest, root) {
 CIF.prototype._attachMembers = function (root, rootManifest, deeplevel) {
   var rootRuntimeId = root.getAttribute('runtime-id');
   var artifactId = root.tagName.toLowerCase();
-  var promise = window.cubx.utils.findTemplate(artifactId);
+  var promise = findTemplate(artifactId);
   var me = this;
   promise.then(function (results) {
     var template;
