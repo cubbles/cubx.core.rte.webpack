@@ -42,12 +42,12 @@
     "_open": "wpkg-utils-open",
     "cli": "ntl -d -s 7",
     "lint": "eslint --fix ./src/**/*.js",
-    "test:crc": "karma start ./src/crc/test/karma.conf.js",
-    "test:crc-loader": "karma start ./src/crc-loader/test/karma.conf.js",
-    "test:cif": "karma start ./src/cif/test/karma.conf.js",
-    "test:cubxcomponent": "karma start ./src/cubxcomponent/test/karma.conf.js",
-    "test:dynamic-connection-utils": "karma start ./src/dynamic-connection-utils/test/karma.conf.js",
-    "test:mutation-based-cubx-startevent": "karma start ./src/mutation-based-cubx-startevent/test/karma.conf.js",
+    "test:crc": "karma start ./src/core/crc/test/karma.conf.js",
+    "test:crc-loader": "karma start ./src/core/crc-loader/test/karma.conf.js",
+    "test:cif": "karma start ./src/core/cif/test/karma.conf.js",
+    "test:cubxcomponent": "karma start ./src/core/cubxcomponent/test/karma.conf.js",
+    "test:dynamic-connection-utils": "karma start ./src/core/dynamic-connection-utils/test/karma.conf.js",
+    "test:mutation-based-cubx-startevent": "karma start ./src/core/mutation-based-cubx-startevent/test/karma.conf.js",
     "test": "npm-run-all --serial lint test:crc test:crc-loader test:cif test:cubxcomponent test:dynamic-connection-utils test:mutation-based-cubx-startevent"
   },
   "ntl": {
