@@ -6,12 +6,15 @@ import { before, after, describe, beforeEach, afterEach, it } from 'mocha';
 import { expect } from 'chai';
 import 'sinon';
 
-import crcLoader from '../../modules/crcLoader/CRCLoader';
+import CrcLoader from '../../modules/crcLoader/CRCLoader';
 import CRCMock from '../mocks/crcMock';
 
 window.cubx = window.cubx || {};
+window.cubx.CRC = new CRCMock();
 
 describe('CRCLoader', function () {
+  const crcLoader = new CrcLoader();
+
   function cleanUpCrcLoader () {
     crcLoader._crcRoot = null;
     crcLoader._cubxCRCInitRootDependenciesOriginLength = 0;
@@ -25,7 +28,6 @@ describe('CRCLoader', function () {
    */
   describe('#provides init values as expected.', function () {
     before(function () {
-      crcLoader.__Rewire__('CRC', CRCMock);
       crcLoader.setCRCBaseUrl('test-url');
     });
 

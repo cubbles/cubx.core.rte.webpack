@@ -1,13 +1,14 @@
 import { before, after, describe, beforeEach, afterEach, it } from 'mocha';
 import 'sinon';
 
-import crcLoader from '../../modules/crcLoader/CRCLoader';
+import CrcLoader from '../../modules/crcLoader/CRCLoader';
 import DependencyTagTransformer from '../../modules/dependencyTagTransformer/dependencyTagTransformer';
 
 window.cubx = window.cubx || {};
 
 describe('dependencyTagTransformer', function () {
-  var dependencyTagTransformer = new DependencyTagTransformer();
+  const crcLoader = new CrcLoader();
+  const dependencyTagTransformer = new DependencyTagTransformer();
   describe('#addDependenciesAndExcludesToRootDependencies', function () {
     var element;
     var elementName;

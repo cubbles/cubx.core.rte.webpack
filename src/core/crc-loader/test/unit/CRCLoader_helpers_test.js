@@ -1,11 +1,12 @@
 import { describe, it } from 'mocha';
 import 'sinon';
 
-import crcLoader from '../../modules/crcLoader/CRCLoader';
+import CrcLoader from '../../modules/crcLoader/CRCLoader';
 
 window.cubx = window.cubx || {};
 
 describe('CRCLoader (helpers)', function () {
+  const crcLoader = new CrcLoader();
   describe('#_createDependency', function () {
     it('html element has "cubx-webpackage-id" attribute with this', function () {
       var elementName = 'cubx-demo';
