@@ -128,6 +128,7 @@
   },
   "dependencies": {
     "@cubbles/wpkg-utils": "^0.2.2",
+    "lodash": "^4.17.15",
     "walk": "^2.3.14"
   },
   "cubbles": {
