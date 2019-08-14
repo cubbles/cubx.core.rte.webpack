@@ -1,14 +1,13 @@
 /* globals _, HTMLImports */
 /* eslint no-unused-vars: [2, {"varsIgnoredPattern":"initNewElement|getContainer|registerCompoundComponentElement|createNewElement|getContainer"}] */
 import { getContainer, createNewElement, registerCompoundComponentElement, initNewElement } from '../../../cubxcomponent/test/helpers';
+import dynamicConnectionUtil from '../../js/dynamicConnectionUtils';
+import Context from '../../../cif/classes/context';
+import compoundComponent from '../../../cif/classes/compoundComponent';
 
 describe('DynamicConnectionUtils', function () {
-  var dynamicConnectionUtil;
-  var Context;
   this.timeout(3000);
   before(function (done) {
-    dynamicConnectionUtil = window.cubx.dynamicConnectionUtil;
-    Context = window.cubx.cif.Context;
     HTMLImports.whenReady(function () {
       done();
     });
@@ -63,12 +62,12 @@ describe('DynamicConnectionUtils', function () {
         var elem2RuntimeId;
         before(function () {
           var container = getContainer();
-          // container.Context = new window.cubx.cif.Context(container);
+          // container.Context = new Context(container);
           var constructor = registerCompoundComponentElement('compound-element');
           compElem = new constructor();
           compRuntimeId = 'com.incowia.dynamic-connection-test@1.2.0-SNAPSHOT/comp-elem';
           compElem.setAttribute('runtime-id', compRuntimeId);
-          compElem.Context = new window.cubx.cif.Context(compElem);
+          compElem.Context = new Context(compElem);
           container.appendChild(compElem);
           elem1 = createNewElement('element-one');
           elem1RuntimeId = compRuntimeId + ':' +
@@ -109,7 +108,7 @@ describe('DynamicConnectionUtils', function () {
         var container;
         before(function () {
           container = getContainer();
-          // container.Context = new window.cubx.cif.Context(container);
+          // container.Context = new Context(container);
           elem1 = createNewElement('element-one2');
           elem1RuntimeId = 'com.incowia.dynamic-connection-test@1.2.0-SNAPSHOT/element-one2.member1';
           elem1.setAttribute('runtime-id', elem1RuntimeId);
@@ -146,7 +145,7 @@ describe('DynamicConnectionUtils', function () {
       var sourceElem;
       var destElem;
       before(function () {
-        // container.Context = new window.cubx.cif.Context(container);
+        // container.Context = new Context(container);
         sourceElem = createNewElement('element-x-source');
         destElem = createNewElement('element-y-source');
       });
@@ -254,7 +253,7 @@ describe('DynamicConnectionUtils', function () {
       before(function () {
         var compRuntimeId;
         container = getContainer();
-        // container.Context = new window.cubx.cif.Context(container);
+        // container.Context = new Context(container);
         var constructor = registerCompoundComponentElement('compound-element-xx');
         compElem = new constructor();
         compRuntimeId = 'com.incowia.dynamic-connection-test@1.2.0-SNAPSHOT/comp-elem-xx';
@@ -319,7 +318,7 @@ describe('DynamicConnectionUtils', function () {
         var compRuntimeId;
         var compRuntimeId2;
         container = getContainer();
-        // container.Context = new window.cubx.cif.Context(container);
+        // container.Context = new Context(container);
         var constructor = registerCompoundComponentElement('compound-element-xxx');
         compElem = new constructor();
         compRuntimeId = 'com.incowia.dynamic-connection-test@1.2.0-SNAPSHOT/comp-elem-xxx';
@@ -498,7 +497,6 @@ describe('DynamicConnectionUtils', function () {
       var secondCompoundChildRuntimeId;
       var container;
       before(function () {
-        var compoundComponent = window.cubx.cif.compoundComponent;
         container = getContainer();
 
         // container.Context = new Context(container);
@@ -627,7 +625,7 @@ describe('DynamicConnectionUtils', function () {
     var elem6RuntimeId;
 
     /* function createConnection(connectionId, isStatic, source, dest) {
-     var con = new window.cubx.cif.ConnectionManager.Connection();
+     var con = new ConnectionManager.Connection();
      con.connectionId = connectionId;
      con.source.memberId = 'member1';
      con.source.component = source;
@@ -643,12 +641,12 @@ describe('DynamicConnectionUtils', function () {
 
     before(function () {
       var container = getContainer();
-      // container.Context = new window.cubx.cif.Context(container);
+      // container.Context = new Context(container);
       var constructor = registerCompoundComponentElement('compound-element-import1');
       compElem = new constructor();
       compRuntimeId = 'com.incowia.dynamic-connection-test@1.2.0-SNAPSHOT/comp-elem-import1';
       compElem.setAttribute('runtime-id', compRuntimeId);
-      compElem.Context = new window.cubx.cif.Context(compElem);
+      compElem.Context = new Context(compElem);
       container.appendChild(compElem);
       elem1 = createNewElement('element-one-import1');
       elem1RuntimeId = compRuntimeId + ':' +
@@ -675,7 +673,7 @@ describe('DynamicConnectionUtils', function () {
       compElem2 = new constructor();
       comp2RuntimeId = 'com.incowia.dynamic-connection-test@1.2.0-SNAPSHOT/comp-elem-import2';
       compElem2.setAttribute('runtime-id', comp2RuntimeId);
-      compElem2.Context = new window.cubx.cif.Context(compElem2);
+      compElem2.Context = new Context(compElem2);
       container.appendChild(compElem2);
       elem4 = createNewElement('element-four-import2');
       elem4RuntimeId = comp2RuntimeId + ':' +
