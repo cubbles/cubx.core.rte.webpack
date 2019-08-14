@@ -1,4 +1,4 @@
-/* globals _, CustomEvent */
+/* globals CustomEvent */
 'use strict';
 import guid from '../../guid-utility/js/guid';
 import EventFactory from '../../crc/modules/eventFactory/eventFactory';
