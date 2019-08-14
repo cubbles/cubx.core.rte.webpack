@@ -1,10 +1,10 @@
-/* globals _ */
-'use strict';
+import _ from 'lodash';
+
 describe('ConnectionManager', function () {
   describe('hookFunctions', function () {
     var cif;
     before(function () {
-      cif = window.cubx.cif.cif;
+      cif = window.cubx.cif;
     });
 
     describe('complex hookFunction integration tests hook Function call with next(newValue)', function () {
@@ -147,7 +147,7 @@ describe('ConnectionManager', function () {
           return manifest;
         });
         container = document.querySelector('[cubx-core-crc]');
-        // container.Context = new window.cubx.cif.Context(container);
+        // container.Context = new Context(container);
         var constructor = cif.getCompoundComponentElementConstructor('export-parent-comp');
         // parent element
         parent = new constructor();
@@ -606,7 +606,7 @@ describe('ConnectionManager', function () {
           return manifest;
         });
         container = document.querySelector('[cubx-core-crc]');
-        // container.Context = new window.cubx.cif.Context(container);
+        // container.Context = new Context(container);
         var constructor = cif.getCompoundComponentElementConstructor('export-parent-comp');
         // parent element
         parent = new constructor();

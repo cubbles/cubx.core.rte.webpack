@@ -1,4 +1,6 @@
-'use strict';
+import ConnectionManager from '../../classes/connectionManager';
+import Context from '../../classes/context';
+
 describe('ConnectionManager', function () {
   describe('#_deactivateConnection', function () {
     var connectionMgr;
@@ -9,8 +11,8 @@ describe('ConnectionManager', function () {
     var connection;
     beforeEach(function () {
       element = document.createElement('elem');
-      context = new window.cubx.cif.Context(element);
-      connectionMgr = new window.cubx.cif.ConnectionManager(context);
+      context = new Context(element);
+      connectionMgr = new ConnectionManager(context);
       comp1 = document.createElement('comp1');
       comp2 = document.createElement('comp2');
       connection = {
@@ -49,8 +51,8 @@ describe('ConnectionManager', function () {
     var comp2;
     beforeEach(function () {
       element = document.createElement('elem');
-      context = new window.cubx.cif.Context(element);
-      connectionMgr = new window.cubx.cif.ConnectionManager(context);
+      context = new Context(element);
+      connectionMgr = new ConnectionManager(context);
       comp1 = document.createElement('comp1');
       comp2 = document.createElement('comp2');
     });
@@ -125,8 +127,8 @@ describe('ConnectionManager', function () {
     var connectionMgr;
     beforeEach(function () {
       element = document.createElement('elem');
-      context = new window.cubx.cif.Context(element);
-      connectionMgr = new window.cubx.cif.ConnectionManager(context);
+      context = new Context(element);
+      connectionMgr = new ConnectionManager(context);
       elem1 = document.createElement('comp1');
       elem2 = document.createElement('comp2');
       elem3 = document.createElement('comp3');
@@ -230,8 +232,8 @@ describe('ConnectionManager', function () {
     var context;
     beforeEach(function () {
       element = document.createElement('elem');
-      context = new window.cubx.cif.Context(element);
-      connectionMgr = new window.cubx.cif.ConnectionManager(context);
+      context = new Context(element);
+      connectionMgr = new ConnectionManager(context);
       elem1 = document.createElement('comp1');
       elem2 = document.createElement('comp2');
       elem3 = document.createElement('comp3');
@@ -314,8 +316,8 @@ describe('ConnectionManager', function () {
     var connections;
     beforeEach(function () {
       element = document.createElement('elem');
-      context = new window.cubx.cif.Context(element);
-      connectionMgr = new window.cubx.cif.ConnectionManager(context);
+      context = new Context(element);
+      connectionMgr = new ConnectionManager(context);
       elem1 = document.createElement('comp1');
       elem1.setAttribute('member-id', 'elem1');
       elem2 = document.createElement('comp2');
@@ -412,8 +414,8 @@ describe('ConnectionManager', function () {
     var connectionMgr;
     beforeEach(function () {
       element = document.createElement('elem');
-      context = new window.cubx.cif.Context(element);
-      connectionMgr = new window.cubx.cif.ConnectionManager(context);
+      context = new Context(element);
+      connectionMgr = new ConnectionManager(context);
       destElem = document.createElement('destElem');
       connectionMgr._connections.push(createConnection('con1', element, 'slotA', 'member1', destElem, 'slotB', 'member2'));
       connectionMgr._connections.push(createConnection('con2', element, 'slotC', 'member1', destElem, 'slotD', 'member2'));

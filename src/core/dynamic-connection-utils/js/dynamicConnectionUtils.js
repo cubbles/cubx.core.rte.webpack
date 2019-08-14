@@ -1,5 +1,7 @@
-/* globals _ */
 import { elementFindByAttributeValue } from '../../dom-tree-utilities/js/domTreeUtils';
+import ConnectionManager from '../../cif/classes/connectionManager';
+import DynamicConnection from '../../cif/classes/dynamicConnection';
+import _ from 'lodash';
 
 var DynamicConnectionUtil = {};
 
@@ -158,7 +160,7 @@ DynamicConnectionUtil._importDynamicConnection = function (connection) {
     context = this._getParentContextForRuntimeId(connection.source.runtimeId);
   }
 
-  var dynCon = new window.cubx.cif.DynamicConnection(connection);
+  var dynCon = new DynamicConnection(connection);
 
   var newConnection = this._createConnectionManagerConnectionObject(dynCon,
     sourceElement,
@@ -412,7 +414,7 @@ DynamicConnectionUtil._checkEndpointContext = function (context, connectionEndPo
  */
 DynamicConnectionUtil._createConnectionManagerConnectionObject =
   function (dynamicConnection, sourceElement, destinationElement, internal) {
-    var Connection = window.cubx.cif.ConnectionManager.Connection;
+    var Connection = ConnectionManager.Connection;
     var connection = new Connection();
     connection.connectionId = dynamicConnection.connectionId;
     connection.internal = internal;

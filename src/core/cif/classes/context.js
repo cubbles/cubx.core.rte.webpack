@@ -1,7 +1,7 @@
-/* globals _ */
 import guid from '../../guid-utility/js/guid';
 import EventFactory from '../../crc/modules/eventFactory/eventFactory';
 import ConnectionManager from './connectionManager';
+import _ from 'lodash';
 
 /**
    * Provides a context for interaction of components

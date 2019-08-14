@@ -1,12 +1,14 @@
-'use strict';
+import ConnectionManager from '../../classes/connectionManager';
+import Context from '../../classes/context';
+import EventFactory from '../../../crc/modules/eventFactory/eventFactory';
 
 describe('Context', function () {
   var cif;
   var eventFactory;
   var initializer;
   before(function () {
-    cif = window.cubx.cif.cif;
-    eventFactory = new window.cubx.EventFactory();
+    cif = window.cubx.cif;
+    eventFactory = new EventFactory();
     initializer = cif.getInitializer();
   });
   describe('#Context()', function () {
@@ -29,7 +31,7 @@ describe('Context', function () {
       context._components.should.be.empty;
       context._connectionMgr.should.be.not.empty;
       context._connectionMgr.should.be.an('object');
-      context._connectionMgr.should.be.an.instanceof(window.cubx.cif.ConnectionManager);
+      context._connectionMgr.should.be.an.instanceof(ConnectionManager);
     });
   });
   describe('#setParent', function () {
@@ -303,7 +305,7 @@ describe('Context', function () {
       spyParentContextInitSlots = sinon.spy(element.Context, '_collectSlotInits');
       spyChildContextInitSlots = sinon.spy(child.Context, 'collectSlotInits');
       spyLastChildContextInitSlots = sinon.spy(lastChild.Context, 'collectSlotInits');
-      element.Context.collectSlotInits();
+      element.Context.collectSlotInits(cif);
     });
     afterEach(function () {
       element.Context._collectSlotInits.restore();
@@ -332,7 +334,7 @@ describe('Context', function () {
       element.Context._collectSlotInits(cif);
     });
     afterEach(function () {
-      window.cubx.cif.cif.getInitializer().parseInitSlotsForContext.restore();
+      cif.getInitializer().parseInitSlotsForContext.restore();
     });
     it('Initializer parseInitSlotsForContext should be called once', function () {
       expect(spy.calledOnce).to.be.true;
@@ -376,7 +378,7 @@ describe('Context', function () {
           payload: '{}',
           slot: 'slotname'
         };
-        event = eventFactory.createEvent(window.cubx.EventFactory.types.CIF_MODEL_CHANGE, detail);
+        event = eventFactory.createEvent(EventFactory.types.CIF_MODEL_CHANGE, detail);
         stopPropagationSpy = sinon.spy(event, 'stopPropagation');
         element.dispatchEvent(event);
       });
@@ -424,7 +426,7 @@ describe('Context', function () {
           payload: '{}',
           slot: 'xxxslotname'
         };
-        event = eventFactory.createEvent(window.cubx.EventFactory.types.CIF_MODEL_CHANGE, detail);
+        event = eventFactory.createEvent(EventFactory.types.CIF_MODEL_CHANGE, detail);
         stopPropagationSpy = sinon.spy(event, 'stopPropagation');
         subElement.dispatchEvent(event);
       });
@@ -479,10 +481,6 @@ describe('Context', function () {
   });
 
   describe('#isEqual', function () {
-    var Context;
-    before(function () {
-      Context = window.cubx.cif.Context;
-    });
     it('should be not equal, if 2 instances different', function () {
       var elementOne = document.createElement('element-one');
       var contextOne = new Context(elementOne);

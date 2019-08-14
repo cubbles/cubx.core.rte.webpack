@@ -2,6 +2,7 @@
 'use strict';
 import guid from '../../guid-utility/js/guid';
 import EventFactory from '../../crc/modules/eventFactory/eventFactory';
+import _ from 'lodash';
 
 var cubxComponentMixin = {};
 

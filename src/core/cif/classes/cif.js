@@ -6,6 +6,7 @@ import guid from '../../guid-utility/js/guid';
 import MutationSummary from '../../mutation-summary/vendor/mutation-summary';
 import EventFactory from '../../crc/modules/eventFactory/eventFactory';
 import { findTemplate } from '../../core-rte-utils/js/utils';
+import compoundComponent from '../classes/compoundComponent';
 import _ from 'lodash';
 
 /**
@@ -230,12 +231,10 @@ CIF.prototype._init = function () {
 
   if (!this.CRC.isReady()) {
     node.addEventListener('crcReady', function () {
-      window.CubxComponent = CubxComponent;
       self._initForCRCRoot(node);
     });
   } else {
     self._initForCRCRoot(node);
-    window.CubxComponent = CubxComponent;
   }
 };
 
@@ -342,7 +341,7 @@ CIF.prototype._createObserverObject = function () {
   var elements = Object.keys(this.CRC.getCache().getAllComponents());
 
   var observerConfig = {
-    callback: this._detectMutation,
+    callback: this._detectMutation.bind(this),
     rootNode: crcRoot,
     queries: [
       {
@@ -1032,7 +1031,7 @@ CIF.prototype._registerCompoundComponentElement = function (name) {
       } else {
         me = this;
       }
-      Object.assign(me, window.cubx.cif.compoundComponent);
+      Object.assign(me, compoundComponent);
       me.createdCallback();
       return htmlEl;
     };
@@ -1314,7 +1313,7 @@ CIF.prototype._createDOMTreeFromManifest = function (manifest, root) {
     this.getCompoundComponentElementConstructor(
       root.tagName.toLocaleLowerCase()
     );
-    _.merge(root.prototype, window.cubx.cif.compoundComponent);
+    _.merge(root.prototype, compoundComponent);
     root.createdCallback();
     root.connectedCallback();
   }
@@ -1449,7 +1448,7 @@ CIF.prototype._attachMembersFromTemplate = function (
       this.getCompoundComponentElementConstructor(
         component.tagName.toLocaleLowerCase()
       );
-      _.merge(component, window.cubx.cif.compoundComponent);
+      _.merge(component, compoundComponent);
       component.createdCallback();
       if (root.hasOwnProperty('Context')) {
         // set parent context
@@ -1510,7 +1509,7 @@ CIF.prototype._attachMembersFromManifest = function (
         currentMember.artifactId
       );
       component = new constructor();
-      // component.Context = new window.cubx.cif.Context(component);
+      // component.Context = new Context(component);
       if (root.hasOwnProperty('Context')) {
         // set parent context
         component.Context.setParent(root.Context);

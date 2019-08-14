@@ -1,10 +1,6 @@
-'use strict';
+import DynamicConnection from '../../classes/dynamicConnection';
 
 describe('DynamicConnection', function () {
-  var DynamicConnection;
-  before(function () {
-    DynamicConnection = window.cubx.cif.DynamicConnection;
-  });
   describe('constructor', function () {
     describe('constructor without parameter', function () {
       var dynamicConnection;

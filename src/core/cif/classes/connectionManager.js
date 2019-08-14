@@ -1,4 +1,8 @@
-/* globals _,HTMLElement,NodeFilter */
+/* globals HTMLElement,NodeFilter */
+import DynamicConnection from './dynamicConnection';
+import dynamicConnectionUtil from '../../dynamic-connection-utils/js/dynamicConnectionUtils';
+import _ from 'lodash';
+
 /**
    * A Class managing the connections and the communication between them
    * @param {object} context The corresponding context
@@ -230,7 +234,7 @@ ConnectionManager.prototype.reactivateConnectionIfExists = function (element) {
     connection.destination.component = element;
     this._activateConnection(connection);
     var value = connection.source.component.model[connection.source.slot];
-    var payloadObject = window.cubx.cif.cif.getEventFactory().createModelChangePayloadObject(connection.source.slot, value);
+    var payloadObject = window.cubx.cif.getEventFactory().createModelChangePayloadObject(connection.source.slot, value);
     this._processConnection(connection, payloadObject);
   }.bind(this));
 };
@@ -440,7 +444,7 @@ ConnectionManager.prototype._findSameConnection = function (connectionList, conn
         tempConnectionConfig.destination.runtimeId =
           connectionItem.destination.component.getAttribute('runtime-id');
         tempConnectionConfig.destination.slot = connectionItem.destination.slot;
-        var tempId = window.cubx.dynamicConnectionUtil.generateConnectionId(tempConnectionConfig);
+        var tempId = dynamicConnectionUtil.generateConnectionId(tempConnectionConfig);
         if (tempId === connection.connectionId) {
           return true;
         }
@@ -1007,7 +1011,7 @@ ConnectionManager.Connection = function () {
   this.toDynamicConnection = function () {
     var dynamicConnection;
     if (!this.static) {
-      dynamicConnection = new window.cubx.cif.DynamicConnection();
+      dynamicConnection = new DynamicConnection();
       dynamicConnection.setSourceRuntimeId(this.source.component.getAttribute('runtime-id'));
       dynamicConnection.setSourceSlot(this.source.slot);
       dynamicConnection.setDestinationRuntimeId(this.destination.component.getAttribute('runtime-id'));

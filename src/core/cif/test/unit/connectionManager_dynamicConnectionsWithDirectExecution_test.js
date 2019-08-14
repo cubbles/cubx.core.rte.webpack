@@ -1,5 +1,5 @@
 /* globals XMLHttpRequest */
-'use strict';
+import ConnectionManager from '../../classes/connectionManager';
 
 describe('ConnectionManager', function () {
   describe('dynamicConnections with direct execution', function () {
@@ -10,7 +10,7 @@ describe('ConnectionManager', function () {
     var destinationElem;
     var value;
     before(function () {
-      cif = window.cubx.cif.cif;
+      cif = window.cubx.cif;
 
       var parentElemArtifactId = 'parent-elem';
       var parentElemManifest = {
@@ -149,7 +149,7 @@ describe('ConnectionManager', function () {
         });
         it('the added connection should be valid', function () {
           connectionMgr._connections[0].should.have.property('connectionId', conConfig.connectionId);
-          connectionMgr._connections[0].should.instanceOf(window.cubx.cif.ConnectionManager.Connection);
+          connectionMgr._connections[0].should.instanceOf(ConnectionManager.Connection);
         });
         it('the hook function #myFunc should be called once', function () {
           // myFunc call controlFunc -> controlFunc is clled, if myfunc is called
@@ -211,7 +211,7 @@ describe('ConnectionManager', function () {
         });
         it('the added connection should be valid', function () {
           connectionMgr._connections[0].should.have.property('connectionId', conConfig.connectionId);
-          connectionMgr._connections[0].should.instanceOf(window.cubx.cif.ConnectionManager.Connection);
+          connectionMgr._connections[0].should.instanceOf(ConnectionManager.Connection);
         });
         it('the hook function #myFunc should be called once', function () {
           // myFunc call controlFunc -> controlFunc is clled, if myfunc is called
@@ -269,7 +269,7 @@ describe('ConnectionManager', function () {
         });
         it('the added connection should be valid', function () {
           connectionMgr._connections[0].should.have.property('connectionId', conConfig.connectionId);
-          connectionMgr._connections[0].should.instanceOf(window.cubx.cif.ConnectionManager.Connection);
+          connectionMgr._connections[0].should.instanceOf(ConnectionManager.Connection);
         });
         it('the hook function #myFunc should be called once', function () {
           // myFunc call controlFunc -> controlFunc is clled, if myfunc is called
@@ -317,7 +317,7 @@ describe('ConnectionManager', function () {
         });
         it('the added connection should be valid', function () {
           connectionMgr._connections[0].should.have.property('connectionId', conConfig.connectionId);
-          connectionMgr._connections[0].should.instanceOf(window.cubx.cif.ConnectionManager.Connection);
+          connectionMgr._connections[0].should.instanceOf(ConnectionManager.Connection);
         });
         it('the hook function #myFunc should be called once', function () {
           // myFunc call controlFunc -> controlFunc is clled, if myfunc is called

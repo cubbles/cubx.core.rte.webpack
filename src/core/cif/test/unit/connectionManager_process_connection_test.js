@@ -1,10 +1,13 @@
-/* globals _, XMLHttpRequest */
-'use strict';
+/* globals XMLHttpRequest */
+import ConnectionManager from '../../classes/connectionManager';
+import Context from '../../classes/context';
+import _ from 'lodash';
+
 describe('ConnectionManager', function () {
   describe('processConnection', function () {
     var cif;
     before(function () {
-      cif = window.cubx.cif.cif;
+      cif = window.cubx.cif;
     });
     describe('#processConnections', function () {
       var connections;
@@ -395,7 +398,7 @@ describe('ConnectionManager', function () {
           };
           spyFireModelChangeEvent = sinon.spy(comp2, 'fireModelChangeEvent');
           spyFireSlotChangedEvent = sinon.spy(comp2, 'fireSlotChangedEvent');
-          //  var context = new window.cubx.cif.Context(comp2);
+          //  var context = new Context(comp2);
           connectionManager = comp2.Context._connectionMgr;
           connectionManager._processConnection(connection, payloadObj);
         });
@@ -598,8 +601,8 @@ describe('ConnectionManager', function () {
 
           spySetInputSlot = sinon.spy(comp2, 'setInputSlot');
           spyFireModelChangeEvent = sinon.spy(comp2, 'fireModelChangeEvent');
-          var context = new window.cubx.cif.Context(document.createElement('element'));
-          connectionManager = new window.cubx.cif.ConnectionManager(context);
+          var context = new Context(document.createElement('element'));
+          connectionManager = new ConnectionManager(context);
           connectionManager._processConnection(connection, payloadObj);
         });
         afterEach(function () {
@@ -659,8 +662,8 @@ describe('ConnectionManager', function () {
               };
               spySetInputSlot = sinon.spy(comp2, 'setInputSlot');
               spyFireModelChangeEvent = sinon.spy(comp2, 'fireModelChangeEvent');
-              var context = new window.cubx.cif.Context(document.createElement('element'));
-              connectionManager = new window.cubx.cif.ConnectionManager(context);
+              var context = new Context(document.createElement('element'));
+              connectionManager = new ConnectionManager(context);
               connectionManager._processConnection(connection, payloadObj);
             });
 
@@ -730,8 +733,8 @@ describe('ConnectionManager', function () {
               };
               spySetInputSlot = sinon.spy(comp2, 'setInputSlot');
               spyFireModelChangeEvent = sinon.spy(comp2, 'fireModelChangeEvent');
-              var context = new window.cubx.cif.Context(document.createElement('element'));
-              connectionManager = new window.cubx.cif.ConnectionManager(context);
+              var context = new Context(document.createElement('element'));
+              connectionManager = new ConnectionManager(context);
               connectionManager._processConnection(connection, payloadObj);
             });
             afterEach(function () {
@@ -801,8 +804,8 @@ describe('ConnectionManager', function () {
               };
               spySetInputSlot = sinon.spy(comp2, 'setInputSlot');
               spyFireModelChangeEvent = sinon.spy(comp2, 'fireModelChangeEvent');
-              var context = new window.cubx.cif.Context(document.createElement('element'));
-              connectionManager = new window.cubx.cif.ConnectionManager(context);
+              var context = new Context(document.createElement('element'));
+              connectionManager = new ConnectionManager(context);
               connectionManager._processConnection(connection, payloadObj);
             });
             afterEach(function () {
@@ -871,8 +874,8 @@ describe('ConnectionManager', function () {
               };
               spySetInputSlot = sinon.spy(comp2, 'setInputSlot');
               spyFireModelChangeEvent = sinon.spy(comp2, 'fireModelChangeEvent');
-              var context = new window.cubx.cif.Context(document.createElement('element'));
-              connectionManager = new window.cubx.cif.ConnectionManager(context);
+              var context = new Context(document.createElement('element'));
+              connectionManager = new ConnectionManager(context);
               connectionManager._processConnection(connection, payloadObj);
             });
             afterEach(function () {
@@ -933,8 +936,8 @@ describe('ConnectionManager', function () {
                 payload: payload,
                 slot: 'firsttestoutput'
               };
-              var context = new window.cubx.cif.Context(document.createElement('element'));
-              connectionManager = new window.cubx.cif.ConnectionManager(context);
+              var context = new Context(document.createElement('element'));
+              connectionManager = new ConnectionManager(context);
               handlePayloadSpy = sinon.spy(connectionManager, '_handlePayload');
               spyConsole = sinon.spy(console, 'warn');
             });
@@ -995,8 +998,8 @@ describe('ConnectionManager', function () {
               };
               spySetInputSlot = sinon.spy(comp2, 'setInputSlot');
               spyFireModelChangeEvent = sinon.spy(comp2, 'fireModelChangeEvent');
-              var context = new window.cubx.cif.Context(document.createElement('element'));
-              connectionManager = new window.cubx.cif.ConnectionManager(context);
+              var context = new Context(document.createElement('element'));
+              connectionManager = new ConnectionManager(context);
               connectionManager._processConnection(connection, payloadObj);
             });
             afterEach(function () {
@@ -1064,8 +1067,8 @@ describe('ConnectionManager', function () {
               };
               spySetInputSlot = sinon.spy(comp2, 'setInputSlot');
               spyFireModelChangeEvent = sinon.spy(comp2, 'fireModelChangeEvent');
-              var context = new window.cubx.cif.Context(document.createElement('element'));
-              connectionManager = new window.cubx.cif.ConnectionManager(context);
+              var context = new Context(document.createElement('element'));
+              connectionManager = new ConnectionManager(context);
               connectionManager._processConnection(connection, payloadObj);
             });
             afterEach(function () {
@@ -1131,8 +1134,8 @@ describe('ConnectionManager', function () {
                 payload: payload,
                 slot: 'firsttestoutput'
               };
-              var context = new window.cubx.cif.Context(document.createElement('element'));
-              connectionManager = new window.cubx.cif.ConnectionManager(context);
+              var context = new Context(document.createElement('element'));
+              connectionManager = new ConnectionManager(context);
               connectionManager._processConnection(connection, payloadObj);
             });
 
@@ -1227,8 +1230,8 @@ describe('ConnectionManager', function () {
                 payload: payload,
                 slot: 'firsttestoutput'
               };
-              var context = new window.cubx.cif.Context(document.createElement('element'));
-              connectionManager = new window.cubx.cif.ConnectionManager(context);
+              var context = new Context(document.createElement('element'));
+              connectionManager = new ConnectionManager(context);
               connectionManager._processConnection(connection, payloadObj);
             });
 
@@ -1299,8 +1302,8 @@ describe('ConnectionManager', function () {
                 slot: 'firsttestoutput'
               };
               spySetInputSlot = sinon.spy(comp2, 'setInputSlot');
-              var context = new window.cubx.cif.Context(document.createElement('element'));
-              connectionManager = new window.cubx.cif.ConnectionManager(context);
+              var context = new Context(document.createElement('element'));
+              connectionManager = new ConnectionManager(context);
               connectionManager._processConnection(connection, payloadObj);
             });
             it('setInputSlot schould called with 2 arguments and second argument should contains the' +
@@ -1351,8 +1354,8 @@ describe('ConnectionManager', function () {
                 payload: payload,
                 slot: 'firsttestoutput'
               };
-              var context = new window.cubx.cif.Context(document.createElement('element'));
-              connectionManager = new window.cubx.cif.ConnectionManager(context);
+              var context = new Context(document.createElement('element'));
+              connectionManager = new ConnectionManager(context);
               connectionManager._processConnection(connection, payloadObj);
             });
             it('payloadObj schould not have an attribute connectionHook', function () {
@@ -1471,8 +1474,8 @@ describe('ConnectionManager', function () {
             },
             hookFunction: 'cubx.functions.firstHook'
           };
-          var context = new window.cubx.cif.Context(document.createElement('element'));
-          connectionManager = new window.cubx.cif.ConnectionManager(context);
+          var context = new Context(document.createElement('element'));
+          connectionManager = new ConnectionManager(context);
           connectionManager._addHookFunction(payloadFrame, connection);
         });
         it('payloadFrame has an attribute "connectionHook"', function () {
@@ -1505,8 +1508,8 @@ describe('ConnectionManager', function () {
               slot: 'slota'
             }
           };
-          var context = new window.cubx.cif.Context(document.createElement('element'));
-          connectionManager = new window.cubx.cif.ConnectionManager(context);
+          var context = new Context(document.createElement('element'));
+          connectionManager = new ConnectionManager(context);
           connectionManager._addHookFunction(payloadFrame, connection);
         });
         it('payloadFrame has not an attribute "connectionHook"', function () {
@@ -1540,8 +1543,8 @@ describe('ConnectionManager', function () {
               slot: 'firsttestinput'
             }
           };
-          var context = new window.cubx.cif.Context(document.createElement('element'));
-          connectionManager = new window.cubx.cif.ConnectionManager(context);
+          var context = new Context(document.createElement('element'));
+          connectionManager = new ConnectionManager(context);
         });
         it('should be valid', function () {
           expect(connectionManager._validateConnection(connection)).to.be.true;
@@ -1574,8 +1577,8 @@ describe('ConnectionManager', function () {
               slot: 'firsttestinput'
             }
           };
-          var context = new window.cubx.cif.Context(document.createElement('element'));
-          connectionManager = new window.cubx.cif.ConnectionManager(context);
+          var context = new Context(document.createElement('element'));
+          connectionManager = new ConnectionManager(context);
         });
 
         it('should throw an exception', function () {
@@ -1612,7 +1615,7 @@ describe('ConnectionManager', function () {
       var element2;
       var element3;
       beforeEach(function () {
-        connectionManager = new window.cubx.cif.ConnectionManager();
+        connectionManager = new ConnectionManager();
         var constructor = cif.getCompoundComponentElementConstructor('source-element');
         var sourceElement = new constructor();
         constructor = cif.getCompoundComponentElementConstructor('source-element2');
@@ -1652,7 +1655,7 @@ describe('ConnectionManager', function () {
         var connectionManager;
         var payload;
         beforeEach(function () {
-          connectionManager = new window.cubx.cif.ConnectionManager();
+          connectionManager = new ConnectionManager();
           payload = {
             name: 'example',
             value: { fo: 'bar' }
@@ -1696,7 +1699,7 @@ describe('ConnectionManager', function () {
     describe('#_isEqual', function () {
       var connectionManager;
       before(function () {
-        connectionManager = new window.cubx.cif.ConnectionManager();
+        connectionManager = new ConnectionManager();
       });
       describe('both parameter are from type object', function () {
         var obj;
@@ -1823,7 +1826,7 @@ describe('ConnectionManager', function () {
     describe('#_allowPropagation', function () {
       var connectionManager;
       before(function () {
-        connectionManager = new window.cubx.cif.ConnectionManager();
+        connectionManager = new ConnectionManager();
       });
 
       describe('repeatedValues is absent', function () {

@@ -1,17 +1,17 @@
-'use strict';
+import ConnectionManager from '../../classes/connectionManager';
+import Context from '../../classes/context';
+
 describe('ConnectionManager', function () {
   describe('init', function () {
     var cif;
     before(function () {
-      cif = window.cubx.cif.cif;
+      cif = window.cubx.cif;
     });
     describe('ConnectionManager.constructor', function () {
       var container;
       var element;
-      var spy;
       var context;
       beforeEach(function () {
-        spy = sinon.spy(window.cubx.cif, 'ConnectionManager');
         container = document.querySelector('[cubx-core-crc]');
         var constructor = cif.getCompoundComponentElementConstructor('ciftest-connectionmgr-elem');
         element = new constructor();
@@ -19,11 +19,7 @@ describe('ConnectionManager', function () {
         context = element.Context;
       });
       afterEach(function () {
-        window.cubx.cif.ConnectionManager.restore();
         container.removeChild(element);
-      });
-      it('ConnectionManager should be called', function () {
-        expect(spy.called).to.be.true;
       });
       it('ConnectionManager initialized', function () {
         context._connectionMgr._connections.should.be.empty;
@@ -452,8 +448,8 @@ describe('ConnectionManager', function () {
       var connectionElement;
       beforeEach(function () {
         container = cif.getCRCRootNode();
-        context = new window.cubx.cif.Context(container);
-        connectionMgr = new window.cubx.cif.ConnectionManager(context);
+        context = new Context(container);
+        connectionMgr = new ConnectionManager(context);
         _createConnectionStub = sinon.stub(connectionMgr, '_createConnection').callsFake(function (component, element) {
           // just get an object
           return {
@@ -503,7 +499,7 @@ describe('ConnectionManager', function () {
         beforeEach(function () {
           connectionMgr._connections.should.have.length(0);
           connectionElement.setAttribute('type', 'internal');
-          component.Context = new window.cubx.cif.Context(component);
+          component.Context = new Context(component);
 
           connectionMgr.createConnectionFromComponent(component, connectionElement);
         });
@@ -1417,7 +1413,7 @@ describe('ConnectionManager', function () {
       var element2;
       var element3;
       beforeEach(function () {
-        connectionManager = new window.cubx.cif.ConnectionManager();
+        connectionManager = new ConnectionManager();
         var constructor = cif.getCompoundComponentElementConstructor('source-element');
         var sourceElement = new constructor();
         constructor = cif.getCompoundComponentElementConstructor('source-element2');

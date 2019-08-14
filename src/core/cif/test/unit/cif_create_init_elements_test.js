@@ -1,10 +1,10 @@
-'use strict';
+import Initializer from '../../classes/initializer';
 
 describe('CIF', function () {
   var cif;
 
   before(function () {
-    cif = window.cubx.cif.cif;
+    cif = window.cubx.cif;
   });
   describe('#CIF()', function () {
     it('should create a new cif object', function () {
@@ -14,7 +14,7 @@ describe('CIF', function () {
       // Could not test, becose constructor in a closure defined.
       expect(cif._initializer).to.be.exist;
       expect(cif._initializer).to.be.an('object');
-      expect(cif._initializer).to.be.instanceOf(window.cubx.cif.Initializer);
+      expect(cif._initializer).to.be.instanceOf(Initializer);
     });
   });
   describe('#_initSlots', function () {
@@ -25,8 +25,8 @@ describe('CIF', function () {
     beforeEach(function () {
       container = document.querySelector('[cubx-core-crc]');
       originRootContext = container.Context;
-      rootContext = window.cubx.cif.cif.createRootContext(container);
-      window.cubx.cif.cif._rootContext = rootContext;
+      rootContext = cif.createRootContext(container);
+      cif._rootContext = rootContext;
       rootContextInitSlotsStub = sinon.stub(rootContext, 'collectSlotInits').callsFake(function () {
         // do nothing
       });
@@ -34,7 +34,7 @@ describe('CIF', function () {
 
     afterEach(function () {
       rootContext.collectSlotInits.restore();
-      window.cubx.cif.cif._rootContext = originRootContext;
+      cif._rootContext = originRootContext;
     });
 
     it('context.initSlots should be called once ', function () {

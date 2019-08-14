@@ -1,10 +1,11 @@
 /* globals cache */
-'use strict';
+import compoundComponent from '../../classes/compoundComponent';
+import Context from '../../classes/context';
 
 describe('CompoundComponent', function () {
-  var compoundComponent;
+  var cif;
   before(function () {
-    compoundComponent = window.cubx.cif.compoundComponent;
+    cif = window.cubx.cif;
   });
 
   describe('#createdCallback', function () {
@@ -18,7 +19,7 @@ describe('CompoundComponent', function () {
       container = document.querySelector('[cubx-core-crc]');
 
       spy = sinon.spy(compoundComponent, 'createdCallback');
-      ElementConstructor = window.cubx.cif.cif.getCompoundComponentElementConstructor('ciftest-y');
+      ElementConstructor = cif.getCompoundComponentElementConstructor('ciftest-y');
     });
     it('should be called on create element', function () {
       expect(spy.called).to.be.false;
@@ -101,21 +102,21 @@ describe('CompoundComponent', function () {
       window.cubx.CRC.getCache.restore();
     });
     it('should be true if the sot is a inputslot', function () {
-      var constructor = window.cubx.cif.cif.getCompoundComponentElementConstructor('ciftest-input');
+      var constructor = cif.getCompoundComponentElementConstructor('ciftest-input');
       var el = new constructor();
       container.appendChild(el);
       expect(el.isInputSlot('firstslot')).to.be.true;
       container.removeChild(el);
     });
     it('should be false if the sot is a outputslot', function () {
-      var constructor = window.cubx.cif.cif.getCompoundComponentElementConstructor('ciftest-output');
+      var constructor = cif.getCompoundComponentElementConstructor('ciftest-output');
       var el = new constructor();
       container.appendChild(el);
       expect(el.isInputSlot('firstslot')).to.be.false;
       container.removeChild(el);
     });
     it('should be false if the sot is a input/outputslot (explicit)', function () {
-      var constructor = window.cubx.cif.cif.getCompoundComponentElementConstructor(
+      var constructor = cif.getCompoundComponentElementConstructor(
         'ciftest-input-output-explicite');
       var el = new constructor();
       container.appendChild(el);
@@ -123,7 +124,7 @@ describe('CompoundComponent', function () {
       container.removeChild(el);
     });
     it('should be false if the sot is a input/outputslot (explicit', function () {
-      var constructor = window.cubx.cif.cif.getCompoundComponentElementConstructor(
+      var constructor = cif.getCompoundComponentElementConstructor(
         'ciftest-input-output-implicite');
       var el = new constructor();
       container.appendChild(el);
@@ -164,11 +165,11 @@ describe('CompoundComponent', function () {
         };
         return cache;
       });
-      var constructor = window.cubx.cif.cif.getCompoundComponentElementConstructor('ciftest-a');
+      var constructor = cif.getCompoundComponentElementConstructor('ciftest-a');
       element = new constructor();
       container.appendChild(element);
-      // container.Context = new window.cubx.cif.Context(container);
-      element.Context = new window.cubx.cif.Context(element, container.Context);
+      // container.Context = new Context(container);
+      element.Context = new Context(element, container.Context);
       stub = sinon.stub(element, 'setAaa').callsFake(function (value) {
         // do nothing
       });
@@ -206,7 +207,7 @@ describe('CompoundComponent', function () {
     var testString;
     beforeEach(function () {
       container = document.querySelector('[cubx-core-crc]');
-      var constructor = window.cubx.cif.cif.getCompoundComponentElementConstructor('ciftest-event');
+      var constructor = cif.getCompoundComponentElementConstructor('ciftest-event');
       element = new constructor();
       container.appendChild(element);
       testString = 'testslot';
@@ -238,7 +239,7 @@ describe('CompoundComponent', function () {
       container = document.querySelector('[cubx-core-crc]');
     });
     it('should be true for created lements with CompoundComponentElementConstructor', function () {
-      var constructor = window.cubx.cif.cif.getCompoundComponentElementConstructor('ciftest-a');
+      var constructor = cif.getCompoundComponentElementConstructor('ciftest-a');
       var el = new constructor();
       container.appendChild(el);
       expect(el.isCompoundComponent).to.be.true;
@@ -251,7 +252,7 @@ describe('CompoundComponent', function () {
       container = document.querySelector('[cubx-core-crc]');
     });
     it('should be true for with CompoundComponentElementConstructor created elments', function () {
-      var constructor = window.cubx.cif.cif.getCompoundComponentElementConstructor('ciftest-runtime');
+      var constructor = cif.getCompoundComponentElementConstructor('ciftest-runtime');
       var el = new constructor();
       container.appendChild(el);
       var runtimeId = 'com.incowia.example@1.0.0/example';
@@ -267,7 +268,7 @@ describe('CompoundComponent', function () {
     var manifest;
     beforeEach(function () {
       artifactId = 'ciftest-slots';
-      var constructor = window.cubx.cif.cif.getCompoundComponentElementConstructor(artifactId);
+      var constructor = cif.getCompoundComponentElementConstructor(artifactId);
       elem = new constructor();
       manifest = {
         webpackageId: 'test.' + artifactId + '@0.1.0',
@@ -388,9 +389,7 @@ describe('CompoundComponent', function () {
   });
   describe('cubx methods', function () {
     var component;
-    var cif;
     before(function () {
-      cif = window.cubx.cif.cif;
       var artifactId = 'cubx-methods';
       var manifest = {
         webpackageId: 'test.' + artifactId + '@0.1.0',
@@ -856,14 +855,14 @@ describe('CompoundComponent', function () {
       var stub; // eslint-disable-line no-unused-vars
       beforeEach(function () {
         spyModelChangeEvent = sinon.spy();
-        stub = sinon.stub(window.cubx.cif.cif, 'isAllComponentsReady').callsFake(function () { return true; });
+        stub = sinon.stub(cif, 'isAllComponentsReady').callsFake(function () { return true; });
         component.addEventListener('cifModelChange', spyModelChangeEvent);
         testString = 'Hallo Test World!';
       });
       afterEach(function () {
         component.removeEventListener('cifModelChange', spyModelChangeEvent);
         spyModelChangeEvent = null;
-        window.cubx.cif.cif.isAllComponentsReady.restore();
+        cif.isAllComponentsReady.restore();
       });
       describe('set slotA', function () {
         beforeEach(function () {

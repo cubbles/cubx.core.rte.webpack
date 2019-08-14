@@ -6,7 +6,7 @@ describe('CIF', function () {
   var createSlotInit;
   var crc;
   before(function () {
-    cif = window.cubx.cif.cif;
+    cif = window.cubx.cif;
     cif._componentReady = [];
     createConnection = function (element, sourceSlot, destinationMember, destinationSlot, connectionId, copyValue, repeatedValues, hookFunction) {
       var connections = element.querySelector('cubx-core-connections');
@@ -1140,7 +1140,7 @@ describe('CIF', function () {
         container.Context._children = [];
         container.Context._components = [];
         container.Context._connectionMgr._connections = [];
-        window.cubx.cif.cif._initializer._initList = [];
+        cif._initializer._initList = [];
         cif._initializer.resetInitList.restore();
       });
       it('should initialize the components', function () {
@@ -1391,7 +1391,7 @@ describe('CIF', function () {
         container.Context._children = [];
         container.Context._components = [];
         container.Context._connectionMgr._connections = [];
-        window.cubx.cif.cif._initializer._initList = [];
+        cif._initializer._initList = [];
       });
       it('should initialize the components', function () {
         cif._initCubxElements(container);

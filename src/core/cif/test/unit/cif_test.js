@@ -1,9 +1,9 @@
-'use strict';
+import Initializer from '../../classes/initializer';
 
 describe('CIF', function () {
   var cif;
   before(function () {
-    cif = window.cubx.cif.cif;
+    cif = window.cubx.cif;
   });
   describe('#CIF()', function () {
     it('should create a new cif object', function () {
@@ -13,7 +13,7 @@ describe('CIF', function () {
       // Could not test, becose constructor in a closure defined.
       expect(cif._initializer).to.be.exist;
       expect(cif._initializer).to.be.an('object');
-      expect(cif._initializer).to.be.instanceOf(window.cubx.cif.Initializer);
+      expect(cif._initializer).to.be.instanceOf(Initializer);
     });
   });
   describe('#getCRCRootNodeList', function () {
@@ -91,7 +91,7 @@ describe('CIF', function () {
   describe('#getInitializer()', function () {
     it('get', function () {
       cif.getInitializer().should.be.an('object');
-      cif.getInitializer().should.be.instanceOf(window.cubx.cif.Initializer);
+      cif.getInitializer().should.be.instanceOf(Initializer);
       cif.getInitializer().should.be.eql(cif._initializer);
     });
   });

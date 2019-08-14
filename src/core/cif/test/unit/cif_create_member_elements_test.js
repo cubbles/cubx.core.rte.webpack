@@ -1,11 +1,10 @@
-'use strict';
+import Initializer from '../../classes/initializer';
+import Context from '../../classes/context';
 
 describe('CIF', function () {
   var cif;
-  var Context;
   before(function () {
-    cif = window.cubx.cif.cif;
-    Context = window.cubx.cif.Context;
+    cif = window.cubx.cif;
   });
   describe('#CIF()', function () {
     it('should create a new cif object', function () {
@@ -15,7 +14,7 @@ describe('CIF', function () {
       // Could not test, becose constructor in a closure defined.
       expect(cif._initializer).to.be.exist;
       expect(cif._initializer).to.be.an('object');
-      expect(cif._initializer).to.be.instanceOf(window.cubx.cif.Initializer);
+      expect(cif._initializer).to.be.instanceOf(Initializer);
     });
   });
   describe('#_initCubxElements', function () {

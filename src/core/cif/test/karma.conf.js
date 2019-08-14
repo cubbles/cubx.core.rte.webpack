@@ -16,19 +16,8 @@ module.exports = function (config) {
     files: [
       '../webcomponents/custom-elements-es5-adapter.js',
       '../webcomponents/webcomponents-lite.js',
-      'https://cubbles.world/core/lodash-4.17.14@1.0.0/lodash/js/lodash.js',
-      { pattern: 'test/testSetup.js', watched: false, served: true },
       { pattern: 'test/mock/CRCMock.js', watched: false, served: true },
-      '../template-utils/js/template-utils.js',
-      '../dom-tree-utilities/js/domTreeUtils.js',
-      '../dynamic-connection-utils/js/dynamicConnectionUtils.js',
-      '../cubx-component-mixin/js/cubxComponentMixin.js',
-      'classes/connectionManager.js',
-      'classes/initializer.js',
-      'classes/context.js',
-      'classes/compoundComponent.js',
-      'classes/cif.js',
-      'classes/dynamicConnection.js',
+      { pattern: 'test/testSetup.js', watched: false, served: true },
       { pattern: 'test/helper.js', watched: false, served: true },
       { pattern: 'test/beforeTest.js', watched: false, served: true },
       { pattern: 'test/resources/*', watched: false, served: true },
@@ -41,10 +30,8 @@ module.exports = function (config) {
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
-      '../template-utils/js/template-utils.js': ['browserify'],
-      '../dom-tree-utilities/js/domTreeUtils.js': ['browserify'],
-      '../dynamic-connection-utils/js/dynamicConnectionUtils.js': ['browserify'],
-      '../cubx-component-mixin/js/cubxComponentMixin.js': ['browserify'],
+      'test/testSetup.js': ['browserify'],
+      'test/helper.js': ['browserify'],
       'classes/*.js': ['browserify'],
       'test/**/*_test.js': ['browserify']
     },

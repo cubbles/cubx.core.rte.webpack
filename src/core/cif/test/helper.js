@@ -1,8 +1,9 @@
 /* eslint no-unused-vars: [2, { "varsIgnorePattern": "createTestConnection" }] */
-'use strict';
-function createTestConnection (obj, staticFlag, internalFlag) {
+import ConnectionManager from '../classes/connectionManager';
+
+export default function createTestConnection (obj, staticFlag, internalFlag) {
   var con;
-  con = new window.cubx.cif.ConnectionManager.Connection();
+  con = new ConnectionManager.Connection();
   con.connectionId = obj.connectionId;
   con.source.memberId = obj.source.memberId;
   con.source.component = obj.source.component;

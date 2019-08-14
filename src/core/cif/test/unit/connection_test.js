@@ -1,13 +1,9 @@
-'use strict';
+import ConnectionManager from '../../classes/connectionManager';
 
 describe('Connection', function () {
-  /* eslint-disable no-unused-vars */
-  var cif;
-  /* eslint-enable no-unused-vars */
   var Connection;
   before(function () {
-    cif = window.cubx.cif.cif;
-    Connection = window.cubx.cif.ConnectionManager.Connection;
+    Connection = ConnectionManager.Connection;
   });
   describe('#validate', function () {
     var connection;

@@ -1,4 +1,6 @@
-'use strict';
+import ConnectionManager from '../../classes/connectionManager';
+import Context from '../../classes/context';
+
 describe('ConnectionManager', function () {
   describe('#tidyConnectionsWithCubble', function () {
     var element;
@@ -11,8 +13,8 @@ describe('ConnectionManager', function () {
     var origConnections;
     beforeEach(function () {
       element = document.createElement('elem');
-      context = new window.cubx.cif.Context(element);
-      connectionMgr = new window.cubx.cif.ConnectionManager(context);
+      context = new Context(element);
+      connectionMgr = new ConnectionManager(context);
       elem1 = document.createElement('comp1');
       elem2 = document.createElement('comp2');
       elem3 = document.createElement('comp3');
@@ -149,8 +151,8 @@ describe('ConnectionManager', function () {
 
     beforeEach(function () {
       element = document.createElement('elem');
-      context = new window.cubx.cif.Context(element);
-      connectionMgr = new window.cubx.cif.ConnectionManager(context);
+      context = new Context(element);
+      connectionMgr = new ConnectionManager(context);
       elem1 = document.createElement('comp1');
       elem1.setAttribute('member-id', 'elem1');
       elem2 = document.createElement('comp2');
@@ -225,7 +227,7 @@ describe('ConnectionManager', function () {
       _processConnectionStub.should.be.calledOnce;
     });
     it('_processConnectionStub should be called with "test" in payload', function () {
-      var payloadObject = window.cubx.cif.cif.getEventFactory().createModelChangePayloadObject('slot2', 'test');
+      var payloadObject = window.cubx.cif.getEventFactory().createModelChangePayloadObject('slot2', 'test');
       var connection = connectionMgr._connections[2]; // connection with connectionId = 'third'
       _processConnectionStub.should.be.calledWith(connection, payloadObject);
     });

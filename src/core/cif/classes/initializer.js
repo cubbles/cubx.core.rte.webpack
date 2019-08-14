@@ -1,5 +1,5 @@
-/* globals _ */
 import EventFactory from '../../crc/modules/eventFactory/eventFactory';
+import _ from 'lodash';
 
 /**
    * A Class realise the initialization of compound components

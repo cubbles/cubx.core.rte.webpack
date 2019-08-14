@@ -3,7 +3,7 @@ import Queue from '../../../queue/vendor/Queue';
 describe('CIF', function () {
   var cif;
   before(function () {
-    cif = window.cubx.cif.cif;
+    cif = window.cubx.cif;
   });
   describe('#_findNextAncestorWithContext', function () {
     describe('the crcRoot is a descendant of body', function () {
@@ -104,15 +104,15 @@ describe('CIF', function () {
         delete oldContainer.Context;
         container = document.querySelector('body');
         container.setAttributeNode(document.createAttribute('cubx-core-crc'));
-        rootContext = window.cubx.cif.cif.createRootContext(container);
+        rootContext = cif.createRootContext(container);
         container.Context = rootContext;
-        window.cubx.cif.cif._rootContext = rootContext;
+        cif._rootContext = rootContext;
       });
       after(function () {
         oldContainer.Context = originRootContext;
         container.removeAttribute('cubx-core-crc');
         delete container.Context;
-        window.cubx.cif.cif._rootContext = originRootContext;
+        cif._rootContext = originRootContext;
         oldContainer.setAttribute('cubx-core-crc', '');
       });
       describe('the next context element is crcRoot', function () {

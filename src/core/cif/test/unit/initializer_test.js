@@ -1,16 +1,16 @@
-'use strict';
+import Initializer from '../../classes/initializer';
 describe('Initializer', function () {
   var initializer;
   var cif;
 
   before(function () {
-    cif = window.cubx.cif.cif;
+    cif = window.cubx.cif;
     initializer = cif.getInitializer();
   });
 
   describe('constructor', function () {
     it('initializer object could be create', function () {
-      initializer.should.be.instanceOf(window.cubx.cif.Initializer);
+      initializer.should.be.instanceOf(Initializer);
     });
   });
 
@@ -521,7 +521,7 @@ describe('Initializer', function () {
       initializer._initList.should.have.length(1);
     });
     it('initializer._initList[0] should be of type Initializer.SlotInit', function () {
-      initializer._initList[0].should.be.instanceOf(window.cubx.cif.Initializer.SlotInit);
+      initializer._initList[0].should.be.instanceOf(Initializer.SlotInit);
     });
     it('cubx-cor-slot-init element should have a property processed (true)', function () {
       initSlotEl.should.have.property('processed', true);
@@ -628,7 +628,7 @@ describe('Initializer', function () {
       initElement.setAttribute('deeplevel', 1);
       initElement.setAttribute('slot', slotname);
       initElement.innerHTML = '"' + value + '"';
-      var init = new window.cubx.cif.Initializer.SlotInit(element, element.Context, initElement);
+      var init = new Initializer.SlotInit(element, element.Context, initElement);
 
       componentSetInputSlotStub = sinon.stub(element, 'setInputSlot').callsFake(function (slot, payloadObject) {
         // do nothing
@@ -656,7 +656,7 @@ describe('Initializer', function () {
       initElement.setAttribute('deeplevel', 1);
       initElement.setAttribute('slot', 'example');
       initElement.innerHTML = '"aaa"';
-      var init = new window.cubx.cif.Initializer.SlotInit(element, element.Context, initElement);
+      var init = new Initializer.SlotInit(element, element.Context, initElement);
       initializer._initList.push(init);
 
       constructor = cif.getCompoundComponentElementConstructor('ciftest-initializer-test3');
@@ -665,7 +665,7 @@ describe('Initializer', function () {
       initElement.setAttribute('deeplevel', 1);
       initElement.setAttribute('slot', 'example');
       initElement.innerHTML = '"ddd"';
-      init = new window.cubx.cif.Initializer.SlotInit(element, element.Context, initElement);
+      init = new Initializer.SlotInit(element, element.Context, initElement);
       initializer._initList.push(init);
 
       constructor = cif.getCompoundComponentElementConstructor('ciftest-initializer-test2');
@@ -674,7 +674,7 @@ describe('Initializer', function () {
       initElement.setAttribute('deeplevel', 2);
       initElement.setAttribute('slot', 'example');
       initElement.innerHTML = '"bbb"';
-      init = new window.cubx.cif.Initializer.SlotInit(element, element.Context, initElement);
+      init = new Initializer.SlotInit(element, element.Context, initElement);
       initializer._initList.push(init);
 
       constructor = cif.getCompoundComponentElementConstructor('ciftest-initializer-test3');
@@ -683,7 +683,7 @@ describe('Initializer', function () {
       initElement.setAttribute('deeplevel', 2);
       initElement.setAttribute('slot', 'example');
       initElement.innerHTML = '"ccc"';
-      init = new window.cubx.cif.Initializer.SlotInit(element, element.Context, initElement);
+      init = new Initializer.SlotInit(element, element.Context, initElement);
       initializer._initList.push(init);
 
       _initSlotStub = sinon.stub(initializer, '_initSlot').callsFake(function () {
@@ -726,7 +726,7 @@ describe('Initializer', function () {
       initElement.setAttribute('slot', 'example');
       initElement.setAttribute('order', 1);
       initElement.innerHTML = '"aaa"';
-      var init = new window.cubx.cif.Initializer.SlotInit(element, element.Context, initElement);
+      var init = new Initializer.SlotInit(element, element.Context, initElement);
       initializer._initList.push(init);
 
       constructor = cif.getCompoundComponentElementConstructor('ciftest-initializer-test2');
@@ -736,7 +736,7 @@ describe('Initializer', function () {
       initElement.setAttribute('slot', 'example');
       initElement.setAttribute('order', 4);
       initElement.innerHTML = '"bbb"';
-      init = new window.cubx.cif.Initializer.SlotInit(element, element.Context, initElement);
+      init = new Initializer.SlotInit(element, element.Context, initElement);
       initializer._initList.push(init);
 
       constructor = cif.getCompoundComponentElementConstructor('ciftest-initializer-test3');
@@ -746,7 +746,7 @@ describe('Initializer', function () {
       initElement.setAttribute('slot', 'example');
       initElement.setAttribute('order', 5);
       initElement.innerHTML = '"ccc"';
-      init = new window.cubx.cif.Initializer.SlotInit(element, element.Context, initElement);
+      init = new Initializer.SlotInit(element, element.Context, initElement);
       initializer._initList.push(init);
 
       constructor = cif.getCompoundComponentElementConstructor('ciftest-initializer-test3');
@@ -756,7 +756,7 @@ describe('Initializer', function () {
       initElement.setAttribute('slot', 'example');
       initElement.setAttribute('order', 2);
       initElement.innerHTML = '"ddd"';
-      init = new window.cubx.cif.Initializer.SlotInit(element, element.Context, initElement);
+      init = new Initializer.SlotInit(element, element.Context, initElement);
       initializer._initList.push(init);
       origInitList = initializer._initList;
       spy = sinon.spy(initializer, '_sortInitList');
@@ -800,7 +800,7 @@ describe('Initializer', function () {
         initElement.setAttribute('deeplevel', 1);
         initElement.setAttribute('slot', 'example');
         initElement.innerHTML = '"aaa"';
-        var init = new window.cubx.cif.Initializer.SlotInit(element, element.Context, initElement);
+        var init = new Initializer.SlotInit(element, element.Context, initElement);
         initializer._initList.push(init);
 
         constructor = cif.getCompoundComponentElementConstructor('ciftest-initializer-test2');
@@ -810,7 +810,7 @@ describe('Initializer', function () {
         initElement.setAttribute('deeplevel', 2);
         initElement.setAttribute('slot', 'example');
         initElement.innerHTML = '"bbb"';
-        init = new window.cubx.cif.Initializer.SlotInit(element, element.Context, initElement);
+        init = new Initializer.SlotInit(element, element.Context, initElement);
         initializer._initList.push(init);
 
         constructor = cif.getCompoundComponentElementConstructor('ciftest-initializer-test3');
@@ -820,7 +820,7 @@ describe('Initializer', function () {
         initElement.setAttribute('deeplevel', 2);
         initElement.setAttribute('slot', 'example');
         initElement.innerHTML = '"ccc"';
-        init = new window.cubx.cif.Initializer.SlotInit(element, element.Context, initElement);
+        init = new Initializer.SlotInit(element, element.Context, initElement);
         initializer._initList.push(init);
 
         constructor = cif.getCompoundComponentElementConstructor('ciftest-initializer-test3');
@@ -830,7 +830,7 @@ describe('Initializer', function () {
         initElement.setAttribute('deeplevel', 1);
         initElement.setAttribute('slot', 'example');
         initElement.innerHTML = '"ddd"';
-        init = new window.cubx.cif.Initializer.SlotInit(element, element.Context, initElement);
+        init = new Initializer.SlotInit(element, element.Context, initElement);
         initializer._initList.push(init);
       });
 
@@ -862,7 +862,7 @@ describe('Initializer', function () {
         initElement.setAttribute('deeplevel', 1);
         initElement.setAttribute('slot', 'example');
         initElement.innerHTML = '"1"';
-        var init = new window.cubx.cif.Initializer.SlotInit(element, element.Context, initElement);
+        var init = new Initializer.SlotInit(element, element.Context, initElement);
         initializer._initList.push(init);
 
         // 2
@@ -873,7 +873,7 @@ describe('Initializer', function () {
         initElement.setAttribute('deeplevel', 2);
         initElement.setAttribute('slot', 'example');
         initElement.innerHTML = '"2"';
-        init = new window.cubx.cif.Initializer.SlotInit(element, element.Context, initElement);
+        init = new Initializer.SlotInit(element, element.Context, initElement);
         initializer._initList.push(init);
 
         // 3
@@ -884,7 +884,7 @@ describe('Initializer', function () {
         initElement.setAttribute('deeplevel', 2);
         initElement.setAttribute('slot', 'example');
         initElement.innerHTML = '"3"';
-        init = new window.cubx.cif.Initializer.SlotInit(element, element.Context, initElement);
+        init = new Initializer.SlotInit(element, element.Context, initElement);
         initializer._initList.push(init);
 
         // 4
@@ -895,7 +895,7 @@ describe('Initializer', function () {
         initElement.setAttribute('deeplevel', 1);
         initElement.setAttribute('slot', 'example');
         initElement.innerHTML = '"4"';
-        init = new window.cubx.cif.Initializer.SlotInit(element, element.Context, initElement);
+        init = new Initializer.SlotInit(element, element.Context, initElement);
         initializer._initList.push(init);
 
         // 5
@@ -907,7 +907,7 @@ describe('Initializer', function () {
         initElement.setAttribute('type', 'internal');
         initElement.setAttribute('slot', 'example');
         initElement.innerHTML = '"5"';
-        init = new window.cubx.cif.Initializer.SlotInit(element, element.Context, initElement);
+        init = new Initializer.SlotInit(element, element.Context, initElement);
         initializer._initList.push(init);
 
         // 6
@@ -919,7 +919,7 @@ describe('Initializer', function () {
         initElement.setAttribute('slot', 'example');
         initElement.setAttribute('type', 'internal');
         initElement.innerHTML = '"6"';
-        init = new window.cubx.cif.Initializer.SlotInit(element, element.Context, initElement);
+        init = new Initializer.SlotInit(element, element.Context, initElement);
         initializer._initList.push(init);
 
         // 7
@@ -931,7 +931,7 @@ describe('Initializer', function () {
         initElement.setAttribute('slot', 'example');
         initElement.setAttribute('type', 'internal');
         initElement.innerHTML = '"7"';
-        init = new window.cubx.cif.Initializer.SlotInit(element, element.Context, initElement);
+        init = new Initializer.SlotInit(element, element.Context, initElement);
         initializer._initList.push(init);
 
         // 8
@@ -943,7 +943,7 @@ describe('Initializer', function () {
         initElement.setAttribute('slot', 'example');
         initElement.setAttribute('type', 'internal');
         initElement.innerHTML = '"8"';
-        init = new window.cubx.cif.Initializer.SlotInit(element, element.Context, initElement);
+        init = new Initializer.SlotInit(element, element.Context, initElement);
         initializer._initList.push(init);
       });
 

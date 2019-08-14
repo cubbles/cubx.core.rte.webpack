@@ -4,7 +4,7 @@ describe('Handling with DynamicConnections', function () {
   var cif;
   var container;
   before(function () {
-    cif = window.cubx.cif.cif;
+    cif = window.cubx.cif;
     container = document.querySelector('[cubx-core-crc]');
     // container.Context = new window.cubx.cif.Context(container);
   });

@@ -1,11 +1,13 @@
-/* globals createTestConnection */
-'use strict';
+import Context from '../../classes/context';
+import ConnectionManager from '../../classes/connectionManager';
+import createTestConnection from '../helper';
+import dynamicConnectionUtil from '../../../dynamic-connection-utils/js/dynamicConnectionUtils';
 
 describe('ConnectionManager', function () {
   describe('dynamicConnections', function () {
     var cif;
     before(function () {
-      cif = window.cubx.cif.cif;
+      cif = window.cubx.cif;
     });
     describe('#_addHookFunction', function () {
       var payloadFrame;
@@ -46,8 +48,8 @@ describe('ConnectionManager', function () {
             },
             hookFunction: 'cubx.functions.firstHook'
           };
-          var context = new window.cubx.cif.Context(document.createElement('element'));
-          connectionManager = new window.cubx.cif.ConnectionManager(context);
+          var context = new Context(document.createElement('element'));
+          connectionManager = new ConnectionManager(context);
           connectionManager._addHookFunction(payloadFrame, connection);
         });
         it('payloadFrame has an attribute "connectionHook"', function () {
@@ -80,8 +82,8 @@ describe('ConnectionManager', function () {
               slot: 'slota'
             }
           };
-          var context = new window.cubx.cif.Context(document.createElement('element'));
-          connectionManager = new window.cubx.cif.ConnectionManager(context);
+          var context = new Context(document.createElement('element'));
+          connectionManager = new ConnectionManager(context);
           connectionManager._addHookFunction(payloadFrame, connection);
         });
         it('payloadFrame has not an attribute "connectionHook"', function () {
@@ -119,7 +121,7 @@ describe('ConnectionManager', function () {
       var element2;
       var element3;
       beforeEach(function () {
-        connectionManager = new window.cubx.cif.ConnectionManager();
+        connectionManager = new ConnectionManager();
         var constructor = cif.getCompoundComponentElementConstructor('source-element');
         var sourceElement = new constructor();
         constructor = cif.getCompoundComponentElementConstructor('source-element2');
@@ -159,7 +161,7 @@ describe('ConnectionManager', function () {
         var connectionManager;
         var payload;
         beforeEach(function () {
-          connectionManager = new window.cubx.cif.ConnectionManager();
+          connectionManager = new ConnectionManager();
           payload = {
             name: 'example',
             value: { fo: 'bar' }
@@ -273,7 +275,7 @@ describe('ConnectionManager', function () {
             connectionMgr.addDynamicConnection(conConfig);
             connectionMgr._connections.should.have.length(5);
             connectionMgr._connections[4].should.have.property('connectionId', conConfig.connectionId);
-            connectionMgr._connections[4].should.instanceOf(window.cubx.cif.ConnectionManager.Connection);
+            connectionMgr._connections[4].should.instanceOf(ConnectionManager.Connection);
           });
         });
         describe('add a not valid connection', function () {
@@ -352,7 +354,7 @@ describe('ConnectionManager', function () {
               copyValue: true,
               hookFunction: 'myFunc'
             };
-            conConfig.connectionId = window.cubx.dynamicConnectionUtil.generateConnectionId({
+            conConfig.connectionId = dynamicConnectionUtil.generateConnectionId({
               source: {
                 runtimeId: sourceElem.getAttribute('runtime-id'),
                 slot: conConfig.source.slot
@@ -412,7 +414,7 @@ describe('ConnectionManager', function () {
             expect(spy.called).to.be.false;
             connectionMgr._connections.should.have.length(5);
             connectionMgr._connections[4].should.have.property('connectionId', conConfig.connectionId);
-            connectionMgr._connections[4].should.instanceOf(window.cubx.cif.ConnectionManager.Connection);
+            connectionMgr._connections[4].should.instanceOf(ConnectionManager.Connection);
             connectionMgr._connections[4].should.nested.property('source.memberId');
             connectionMgr._connections[4].should.nested.property('source.memberId',
               conConfig.source.memberId);
@@ -444,7 +446,7 @@ describe('ConnectionManager', function () {
                 hookFunction: 'myFunc'
 
               };
-              conConfig.connectionId = window.cubx.dynamicConnectionUtil.generateConnectionId({
+              conConfig.connectionId = dynamicConnectionUtil.generateConnectionId({
                 source: {
                   runtimeId: source.getAttribute('runtime-id'),
                   slot: conConfig.source.slot
@@ -471,7 +473,7 @@ describe('ConnectionManager', function () {
               connectionMgr._connections.should.have.length(5);
               connectionMgr._connections[4].should.have.property('connectionId', conConfig.connectionId);
               connectionMgr._connections[4].should.instanceOf(
-                window.cubx.cif.ConnectionManager.Connection);
+                ConnectionManager.Connection);
               connectionMgr._connections[4].should.have.property('hookFunction', 'otherFunc');
             });
           });
@@ -571,7 +573,7 @@ describe('ConnectionManager', function () {
             connectionMgr._connections.should.have.length(5);
             var connection = connectionMgr._connections[4];
             connection.should.have.property('connectionId', conConfig.connectionId);
-            connection.should.instanceOf(window.cubx.cif.ConnectionManager.Connection);
+            connection.should.instanceOf(ConnectionManager.Connection);
             connection.should.have.property('internal', true);
           });
         });
@@ -650,7 +652,7 @@ describe('ConnectionManager', function () {
               copyValue: true,
               hookFunction: 'myFunc'
             };
-            conConfig.connectionId = window.cubx.dynamicConnectionUtil.generateConnectionId({
+            conConfig.connectionId = dynamicConnectionUtil.generateConnectionId({
               source: {
                 runtimeId: sourceElem.getAttribute('runtime-id'),
                 slot: conConfig.source.slot
@@ -719,7 +721,7 @@ describe('ConnectionManager', function () {
             expect(spy.called).to.be.false;
             conlist.should.have.length(5);
             conlist[4].should.have.property('connectionId', conConfig.connectionId);
-            conlist[4].should.instanceOf(window.cubx.cif.ConnectionManager.Connection);
+            conlist[4].should.instanceOf(ConnectionManager.Connection);
             conlist[4].should.nested.property('source.memberId');
             conlist[4].should.nested.property('source.memberId', conConfig.source.memberId);
           });
@@ -752,7 +754,7 @@ describe('ConnectionManager', function () {
                 hookFunction: 'myFunc'
 
               };
-              conConfig.connectionId = window.cubx.dynamicConnectionUtil.generateConnectionId({
+              conConfig.connectionId = dynamicConnectionUtil.generateConnectionId({
                 source: {
                   runtimeId: sourceRuntimeId,
                   slot: conConfig.source.slot
@@ -779,7 +781,7 @@ describe('ConnectionManager', function () {
               expect(spy.called).to.be.false;
               conlist.should.have.length(5);
               conlist[4].should.have.property('connectionId', conConfig.connectionId);
-              conlist[4].should.instanceOf(window.cubx.cif.ConnectionManager.Connection);
+              conlist[4].should.instanceOf(ConnectionManager.Connection);
               conlist[4].should.nested.property('source.memberId');
               conlist[4].should.nested.property('source.memberId', conConfig.source.memberId);
             });
@@ -854,8 +856,8 @@ describe('ConnectionManager', function () {
             slot: 'slotH'
           }
         };
-        context = new window.cubx.cif.Context(cif.getCRCRootNode());
-        connectionManager = new window.cubx.cif.ConnectionManager(context);
+        context = new Context(cif.getCRCRootNode());
+        connectionManager = new ConnectionManager(context);
       });
       afterEach(function () {
         connectionList = null;
@@ -1003,9 +1005,9 @@ describe('ConnectionManager', function () {
         });
 
         it('should get a ConnectionManage.Connection object.', function () {
-          conConfig.should.not.instanceOf(window.cubx.cif.ConnectionManager.Connection);
+          conConfig.should.not.instanceOf(ConnectionManager.Connection);
           var connection = connectionMgr._dynamicConnectionToConnection(conConfig);
-          connection.should.instanceOf(window.cubx.cif.ConnectionManager.Connection);
+          connection.should.instanceOf(ConnectionManager.Connection);
         });
         it('should have a same properties as the parameter object', function () {
           var connection = connectionMgr._dynamicConnectionToConnection(conConfig);
@@ -1043,9 +1045,9 @@ describe('ConnectionManager', function () {
         });
 
         it('should get a ConnectionManage.Connection object.', function () {
-          conConfig.should.not.instanceOf(window.cubx.cif.ConnectionManager.Connection);
+          conConfig.should.not.instanceOf(ConnectionManager.Connection);
           var connection = connectionMgr._dynamicConnectionToConnection(conConfig);
-          connection.should.instanceOf(window.cubx.cif.ConnectionManager.Connection);
+          connection.should.instanceOf(ConnectionManager.Connection);
         });
         it('should have a same properties as the parameter object', function () {
           var connection = connectionMgr._dynamicConnectionToConnection(conConfig);
@@ -1065,7 +1067,7 @@ describe('ConnectionManager', function () {
 
       beforeEach(function () {
         // create connectionliste
-        connectionMgr = new window.cubx.cif.ConnectionManager();
+        connectionMgr = new ConnectionManager();
         var sourceElem = document.createElement('source-elem');
         var destinationElem = document.createElement('destination-elem');
         var con = {
