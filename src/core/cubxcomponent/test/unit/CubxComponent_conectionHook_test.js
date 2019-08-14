@@ -1,5 +1,6 @@
 /* globals HTMLImports */
 import { getTestComponentCacheEntry, initNewElement, getContainer } from '../helpers';
+import ConnectionManager from '../../../cif/classes/connectionManager';
 
 describe('CubxPolymer call connection-hook', function () {
   before(function (done) {
@@ -22,7 +23,7 @@ describe('CubxPolymer call connection-hook', function () {
         container = getContainer();
         var hookFunction = 'function (value, next) { var newValue = "value: "  + value + " source: " + this.source.id + " destination: " + this.destination.id; next(newValue);} ';
 
-        var Connection = window.cubx.cif.ConnectionManager.Connection;
+        var Connection = ConnectionManager.Connection;
         var connection = new Connection();
         connection.connectionId = 'one-two';
         connection.source.memberId = 'one';
@@ -59,7 +60,7 @@ describe('CubxPolymer call connection-hook', function () {
         };
         var hookFunction = 'test.test_hook_function';
 
-        var Connection = window.cubx.cif.ConnectionManager.Connection;
+        var Connection = ConnectionManager.Connection;
         var connection = new Connection();
         connection.connectionId = 'one-two';
         connection.source.memberId = 'one';

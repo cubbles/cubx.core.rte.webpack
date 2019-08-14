@@ -1,8 +1,9 @@
-/* globals HTMLElement, customElements, _, DOMParser */
+/* globals HTMLElement, customElements, DOMParser */
 import cubxComponentMixin from '../cubx-component-mixin/js/cubxComponentMixin';
 import dynamicConnectionUtil from '../dynamic-connection-utils/js/dynamicConnectionUtils';
 import { createElementFromString, findTemplate } from '../core-rte-utils/js/utils';
 import EventFactory from '../crc/modules/eventFactory/eventFactory';
+import _ from 'lodash';
 
 function CubxComponent (prototype) {
   if (!prototype) {

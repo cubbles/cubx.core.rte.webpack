@@ -1,5 +1,7 @@
-/* globals _, HTMLImports */
+/* globals HTMLImports */
 import { getTestComponentCacheEntry, initNewElement, getContainer, createHtmlImport } from '../helpers';
+import CubxComponent from '../../../cubxcomponent/CubxComponent';
+import _ from 'lodash';
 
 describe('CubxComponent (helper)', function () {
   before(function (done) {
@@ -255,6 +257,7 @@ describe('CubxComponent (helper)', function () {
       promise.then(function (value) {
         var el = document.createElement('div');
 
+        window.CubxComponent = CubxComponent;
         var scriptEl = document.createElement('script');
         scriptEl.async = false;
         scriptEl.defer = false;

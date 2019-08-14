@@ -1,5 +1,7 @@
 /* globals  HTMLImports */
 import { getContainer, createHtmlImport } from '../helpers';
+import EventFactory from '../../../crc/modules/eventFactory/eventFactory';
+import CubxComponent from '../../../cubxcomponent/CubxComponent';
 
 describe('CubxComponent (init)', function () {
   this.timeout(5000);
@@ -17,7 +19,7 @@ describe('CubxComponent (init)', function () {
       container = null;
     });
     describe('CubxComponent create', function () {
-      describe('element create with calling "CubxComponent(prototyp)"', function () {
+      describe('element create with calling "CubxComponent(prototype)"', function () {
         var elementName = 'dummy-empty';
         before(function () {
           var el = document.createElement('div');
@@ -26,6 +28,7 @@ describe('CubxComponent (init)', function () {
           scriptEl.async = false;
           scriptEl.defer = false;
           scriptEl.type = 'text/javascript';
+          window.CubxComponent = CubxComponent;
           var content = 'CubxComponent({ is: "' + elementName + '" });';
           try {
             scriptEl.appendChild(document.createTextNode(content));
@@ -230,9 +233,9 @@ describe('CubxComponent (init)', function () {
 
             document.body.appendChild(el);
             var runtimeId = elementName + '#1';
-            document.addEventListener(window.cubx.EventFactory.types.COMPONENT_READY, function (evt) {
+            document.addEventListener(EventFactory.types.COMPONENT_READY, function (evt) {
               if (evt.detail.runtimeId === runtimeId) {
-                var cifDomUpdateReadyEvt = new window.cubx.EventFactory().createEvent(window.cubx.EventFactory.types.CIF_DOM_UPDATE_READY);
+                var cifDomUpdateReadyEvt = new EventFactory().createEvent(EventFactory.types.CIF_DOM_UPDATE_READY);
                 container.dispatchEvent(cifDomUpdateReadyEvt);
               }
             });
@@ -275,9 +278,9 @@ describe('CubxComponent (init)', function () {
 
             document.body.appendChild(el);
             var runtimeId = elementName + '#1';
-            document.addEventListener(window.cubx.EventFactory.types.COMPONENT_READY, function (evt) {
+            document.addEventListener(EventFactory.types.COMPONENT_READY, function (evt) {
               if (evt.detail.runtimeId === runtimeId) {
-                var cifReadyEvt = new window.cubx.EventFactory().createEvent(window.cubx.EventFactory.types.CIF_READY);
+                var cifReadyEvt = new EventFactory().createEvent(EventFactory.types.CIF_READY);
                 container.dispatchEvent(cifReadyEvt);
               }
             });

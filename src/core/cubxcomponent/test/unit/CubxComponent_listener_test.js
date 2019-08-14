@@ -1,11 +1,13 @@
 /* globals HTMLImports, Event */
 import { getContainer, createHtmlImport } from '../helpers';
+import CubxComponent from '../../../cubxcomponent/CubxComponent';
 
 describe('CubxComponent (listener)', function () {
   before(function (done) {
     HTMLImports.whenReady(function () {
       done();
     });
+    window.CubxComponent = CubxComponent;
   });
   describe('main', function () {
     var container;

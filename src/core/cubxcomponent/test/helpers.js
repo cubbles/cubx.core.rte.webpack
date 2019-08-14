@@ -1,6 +1,9 @@
-/* globals HTMLElement, CubxComponent, customElements */
+/* globals HTMLElement, customElements */
 /* eslint no-unused-vars: [2, { "varsIgnorePattern": "registerCompoundComponentElement|getTestComponentCacheEntry|initNewElement|createHtmlImport |createNewElementWithTemplate"} ] */
 import guid from '../../guid-utility/js/guid';
+import Context from '../../cif/classes/context';
+import CompoundComponent from '../../cif/classes/compoundComponent';
+import CubxComponent from '../../cubxcomponent/CubxComponent.js';
 
 export function createHtmlImport (path) {
   return new Promise(function (resolve, reject) {
@@ -56,8 +59,8 @@ export function getContainer () {
     var containerEl = document.createElement('div');
     containerEl.setAttribute('cubx-core-crc', undefined);
     document.body.appendChild(containerEl);
-    window.cubx.cif.cif._rootContext = new window.cubx.cif.Context(containerEl);
-    containerEl.Context = window.cubx.cif.cif._rootContext;
+    window.cubx.cif._rootContext = new Context(containerEl);
+    containerEl.Context = window.cubx.cif._rootContext;
     crcContainer = containerEl;
   }
   return crcContainer;
@@ -119,7 +122,7 @@ export function registerCompoundComponentElement (name) {
       } else {
         me = this;
       }
-      Object.assign(me, window.cubx.cif.compoundComponent);
+      Object.assign(me, CompoundComponent);
       me.createdCallback();
       return me;
     };
