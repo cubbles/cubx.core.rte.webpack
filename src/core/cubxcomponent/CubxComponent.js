@@ -198,14 +198,18 @@ function CubxComponent (prototype) {
       var promise;
       var parser = new DOMParser();
       if (this.template && typeof this.template === 'string') {
-        this.template = createElementFromString(this.template);
-        if (this.template && this.template.content) {
-          var templateContent = document.importNode(this.template.content, true);
-          this._fill$Object(templateContent);
-          this.appendChild(templateContent);
-        }
-        this._initListeners();
-        return Promise.resolve(true);
+        return new Promise(function (resolve, reject) {
+          this.template = createElementFromString(this.template);
+          if (this.template && this.template.content) {
+            var templateContent = document.importNode(this.template.content, true);
+            this._fill$Object(templateContent);
+            setTimeout(function () {
+              this.appendChild(templateContent);
+              this._initListeners();
+              resolve(true);
+            }.bind(this), 0);
+          }
+        }.bind(this));
       } else if (this.template && this.template.content && typeof this.template.content === 'string') {
         return new Promise(function (resolve, reject) {
           var doc = parser.parseFromString(this.template.content, 'text/html');
